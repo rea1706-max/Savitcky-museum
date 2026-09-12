@@ -1,0 +1,32 @@
+.environment {
+  background-color: var(--museum-desert-ivory);
+}
+.hero {
+  /* Identical framing in the diamond and the destination prevents an image jump. */
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+  background-color: var(--museum-charcoal);
+}
+.aperture {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: auto;
+}
+.hall {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--museum-charcoal) 20%, transparent),
+      color-mix(in srgb, var(--museum-charcoal) 65%, transparent)
+    ),
+    url('/images/exhibitions/museum-hall.png') center / cover no-repeat;
+}
+@media (max-width: 767px) {
+  .hero {
+    height: 560px;
+  }
+}

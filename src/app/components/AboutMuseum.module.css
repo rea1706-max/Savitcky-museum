@@ -1,0 +1,283 @@
+.chapter {
+  --about-strip-height: 88px;
+  position: relative;
+  color: var(--museum-bone);
+  background: var(--museum-charcoal);
+  font-family: var(--font-archive-interface), Inter, sans-serif;
+  scroll-margin-top: 84px;
+}
+.handoff {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(-100svh - var(--about-strip-height));
+  height: 100svh;
+  overflow: hidden;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 12;
+}
+.wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--museum-charcoal) 32%, transparent),
+    color-mix(in srgb, var(--museum-charcoal) 68%, transparent) 55%,
+    var(--museum-charcoal)
+  );
+}
+.carryLine {
+  position: absolute;
+  bottom: 0;
+  left: calc(62% - 20px);
+  width: 40px;
+  height: 48%;
+  stroke: var(--museum-bone);
+  stroke-width: 1;
+  opacity: 0.3;
+}
+.archive {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(68px, 6vw, 96px) clamp(72px, 6.2vw, 110px);
+}
+.container {
+  width: 84%;
+  max-width: 1440px;
+  margin-inline: auto;
+  position: relative;
+}
+.label {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  color: var(--museum-silver);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+}
+.label span:first-child {
+  color: var(--museum-bone);
+}
+.label span:nth-child(2) {
+  color: var(--museum-earth);
+}
+.composition {
+  display: grid;
+  grid-template-columns: 42% 42%;
+  column-gap: 16%;
+  row-gap: 38px;
+  align-items: start;
+  margin-top: clamp(58px, 5vw, 84px);
+}
+.text {
+  padding-top: 0;
+}
+.title {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  font-size: clamp(64px, 6.2vw, 110px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.99;
+  color: var(--museum-bone);
+  margin: 0 0 38px;
+}
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.075em;
+  margin-bottom: -0.035em;
+}
+.lineMask > span {
+  display: block;
+}
+.copy {
+  max-width: 41ch;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--museum-silver);
+}
+.copy p + p {
+  margin-top: 19px;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 24px;
+  margin-top: 33px;
+}
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--museum-bone);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+.links svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 0.8;
+}
+.links circle {
+  opacity: 0.45;
+}
+.links a:hover {
+  color: var(--museum-ochre);
+}
+.links a:focus-visible {
+  outline: 1px solid var(--museum-ochre);
+  outline-offset: 7px;
+}
+.plate {
+  margin: clamp(38px, 4vw, 64px) 0 0;
+  position: relative;
+}
+.photoMask {
+  overflow: hidden;
+}
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 808 / 1154;
+  filter: contrast(1.035) brightness(0.98);
+}
+.creditMask {
+  margin-top: 16px;
+}
+.credit,
+.established,
+.location {
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.15em;
+}
+.credit {
+  color: var(--museum-earth);
+}
+.credit span,
+.location span {
+  padding-inline: 5px;
+}
+.establishedMask {
+  grid-column: 1;
+}
+.locationMask {
+  grid-column: 2;
+}
+.established {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--museum-silver);
+}
+.established > span {
+  width: 27px;
+  height: 2px;
+  background: var(--museum-karakalpak-red);
+}
+.location {
+  color: var(--museum-silver);
+}
+.structure {
+  position: absolute;
+  width: 52%;
+  height: auto;
+  top: -24px;
+  left: 52%;
+  stroke: var(--museum-earth);
+  stroke-width: 0.85;
+  opacity: 0.17;
+  pointer-events: none;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    width: 86%;
+  }
+  .composition {
+    grid-template-columns: 44% 47%;
+    column-gap: 9%;
+  }
+  .title {
+    font-size: 6.9vw;
+  }
+  .copy {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .links {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .plate {
+    margin-top: 42px;
+  }
+}
+@media (max-width: 767px) {
+  .archive {
+    padding-block: 54px 66px;
+  }
+  .container {
+    width: 84%;
+  }
+  .composition {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 48px;
+  }
+  .title {
+    font-size: clamp(54px, 15.2vw, 88px);
+    margin-bottom: 30px;
+  }
+  .copy {
+    font-size: 14px;
+    line-height: 1.85;
+    max-width: 39ch;
+  }
+  .links {
+    gap: 16px;
+    margin-top: 29px;
+  }
+  .plate {
+    width: 100%;
+    margin-top: 48px;
+  }
+  .credit {
+    font-size: 8px;
+    letter-spacing: 0.11em;
+  }
+  .establishedMask {
+    margin-top: 32px;
+  }
+  .locationMask {
+    margin-top: 19px;
+  }
+  .structure {
+    top: auto;
+    bottom: -160px;
+    left: 64%;
+    width: 95%;
+    opacity: 0.13;
+  }
+  .carryLine {
+    left: calc(84% - 20px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .handoff {
+    display: none;
+  }
+  .links a {
+    transition: none;
+  }
+}

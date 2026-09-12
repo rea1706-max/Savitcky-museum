@@ -1,0 +1,678 @@
+.journey {
+  position: relative;
+  overflow: clip;
+  background: var(--museum-charcoal);
+  color: var(--museum-charcoal);
+}
+
+.stage {
+  position: relative;
+  height: 100svh;
+  min-height: 720px;
+  overflow: hidden;
+  background: var(--museum-charcoal);
+}
+
+.track {
+  display: flex;
+  width: 300vw;
+  height: 100%;
+  will-change: transform;
+}
+
+.exitPanel,
+.bridge,
+.overview {
+  position: relative;
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.exitPanel {
+  background: var(--museum-charcoal);
+}
+
+.exitPanel :global(#whats-on) {
+  height: 100%;
+  min-height: 100%;
+  padding-block: clamp(66px, 7svh, 90px);
+}
+
+.exitPanel :global(#whats-on > div:last-child) {
+  height: 100%;
+}
+
+.bridge {
+  isolation: isolate;
+  padding: clamp(76px, 9vh, 112px) 8vw 8vh;
+  background: #372722;
+  color: var(--museum-bone);
+}
+
+.bridgeEarth,
+.bridgePaper,
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bridgeEarth {
+  z-index: -3;
+  background: #80664f;
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 8% 100%);
+}
+
+.bridgePaper {
+  z-index: -2;
+  background: #c8baa4;
+  clip-path: polygon(68% 0, 100% 0, 100% 100%, 47% 100%);
+}
+
+.grain {
+  z-index: -1;
+  opacity: 0.16;
+  background-image:
+    repeating-linear-gradient(17deg, transparent 0 3px, rgb(242 235 221 / 0.08) 3px 4px),
+    repeating-linear-gradient(94deg, rgb(25 24 22 / 0.08) 0 1px, transparent 1px 5px);
+  mix-blend-mode: soft-light;
+}
+
+.chapterLabel {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.bridge .chapterLabel {
+  color: color-mix(in srgb, var(--museum-bone) 66%, transparent);
+}
+
+.bridgeTitle {
+  position: absolute;
+  z-index: 3;
+  top: 24%;
+  left: 8%;
+  width: 24vw;
+  margin: 0;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(48px, 5.4vw, 88px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.bridgeTitle span {
+  display: block;
+}
+
+.bridgeNote {
+  position: absolute;
+  z-index: 3;
+  left: 8%;
+  bottom: 8.5%;
+  margin: 0;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.staticHinge {
+  position: absolute;
+  z-index: 1;
+  top: 28%;
+  left: 47%;
+  width: 23vw;
+  height: 46%;
+  background: color-mix(in srgb, var(--museum-karakalpak-red) 67%, var(--museum-earth));
+  clip-path: polygon(0 22%, 48% 0, 100% 50%, 46% 100%, 0 78%);
+}
+
+.staticConnection {
+  position: absolute;
+  z-index: 2;
+  top: 6%;
+  right: -2%;
+  width: 58%;
+  height: 88%;
+  overflow: visible;
+  stroke: color-mix(in srgb, var(--museum-bone) 72%, var(--museum-earth));
+  stroke-width: 1;
+}
+
+.staticConnection path {
+  vector-effect: non-scaling-stroke;
+}
+
+.overview {
+  background: var(--museum-desert-ivory);
+  color: var(--museum-charcoal);
+  scroll-margin-top: 80px;
+}
+
+.overview::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 26%;
+  content: '';
+  background: color-mix(in srgb, var(--museum-earth) 23%, var(--museum-desert-ivory));
+  clip-path: polygon(0 0, 76% 0, 100% 50%, 72% 100%, 0 100%);
+}
+
+.overviewInner {
+  position: relative;
+  width: 84%;
+  max-width: 1440px;
+  height: 100%;
+  margin-inline: auto;
+  padding-block: clamp(76px, 9vh, 112px) 5vh;
+}
+
+.overview .chapterLabel {
+  color: color-mix(in srgb, var(--museum-charcoal) 66%, var(--museum-earth));
+}
+
+.overviewHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 54%) minmax(220px, 1fr);
+  gap: 9%;
+  align-items: end;
+  margin-top: 4vh;
+}
+
+.collectionTitle {
+  margin: 0;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(52px, 4.8vw, 79px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.91;
+  text-transform: uppercase;
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.07em;
+}
+
+.lineMask > span {
+  display: block;
+}
+
+.collectionIntroduction {
+  padding-bottom: 0.5vh;
+}
+
+.collectionIntroduction > p {
+  max-width: 31ch;
+  margin: 0 0 3vh;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.link svg {
+  width: 31px;
+  height: 31px;
+  flex: none;
+  stroke: currentColor;
+  stroke-width: 0.8;
+}
+
+.link:hover {
+  color: var(--museum-karakalpak-red);
+}
+
+.link:focus-visible,
+.objectLink:focus-visible {
+  outline: 2px solid var(--museum-karakalpak-red);
+  outline-offset: 6px;
+}
+
+.objects {
+  position: absolute;
+  inset: 44% 0 3.5vh;
+}
+
+.volkov,
+.vessel {
+  position: absolute;
+  margin: 0;
+}
+
+.volkov {
+  inset: 0 auto 0 6%;
+  width: 51%;
+}
+
+.vessel {
+  right: 3%;
+  bottom: 2%;
+  width: 25%;
+  height: 72%;
+}
+
+.objectLink {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.volkovImage,
+.vesselImage {
+  position: relative;
+  overflow: hidden;
+}
+
+.volkovImage {
+  height: calc(100% - 42px);
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 93% 100%, 0 100%);
+}
+
+.vesselImage {
+  height: calc(100% - 49px);
+  background: var(--museum-charcoal);
+  clip-path: polygon(0 7%, 8% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.painting,
+.vesselObject,
+.textile {
+  object-fit: cover;
+}
+
+.painting {
+  object-position: 52% 51%;
+}
+
+.vesselObject {
+  object-position: 50% 48%;
+  filter: saturate(0.73) sepia(0.08) contrast(1.04);
+}
+
+.objectLink figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 11px;
+  font-size: 8px;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.objectLink figcaption span:last-child {
+  color: color-mix(in srgb, var(--museum-charcoal) 62%, var(--museum-earth));
+  letter-spacing: 0.06em;
+  text-align: right;
+}
+
+.culture {
+  position: relative;
+  min-height: 1280px;
+  overflow: hidden;
+  background: var(--museum-desert-ivory);
+  color: var(--museum-bone);
+}
+
+.fiberSpace {
+  position: absolute;
+  inset: 0;
+  background: #211d1a;
+  clip-path: polygon(44% 0, 100% 0, 100% 100%, 0 100%, 0 30%, 18% 22%);
+}
+
+.cultureInner {
+  position: relative;
+  z-index: 1;
+  width: 84%;
+  max-width: 1440px;
+  min-height: 1280px;
+  margin-inline: auto;
+  padding-top: 84px;
+}
+
+.ornament {
+  display: block;
+  width: 100%;
+  height: 250px;
+  stroke: var(--museum-earth);
+  stroke-width: 1;
+  overflow: visible;
+}
+
+.ornament path {
+  vector-effect: non-scaling-stroke;
+}
+
+.cultureComposition {
+  position: relative;
+  display: grid;
+  grid-template-columns: 33% 1fr;
+  gap: 8%;
+  align-items: center;
+  min-height: 790px;
+  padding-block: 90px 110px;
+}
+
+.cultureCopy {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+}
+
+.cultureCopy .chapterLabel {
+  margin-bottom: 34px;
+  color: var(--museum-silver);
+}
+
+.cultureCopy h2 {
+  margin: 0 0 34px;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(54px, 5.6vw, 92px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.cultureDescription {
+  margin: 0 0 38px;
+  color: var(--museum-silver);
+  font-size: 11px;
+  line-height: 1.85;
+}
+
+.cultureCopy .link:hover {
+  color: var(--museum-ochre);
+}
+
+.textileWindow {
+  position: relative;
+  height: min(68vh, 670px);
+  min-height: 520px;
+  margin: 0;
+  overflow: hidden;
+  clip-path: polygon(9% 0, 100% 0, 100% 88%, 90% 100%, 0 100%, 0 12%);
+}
+
+.textile {
+  object-position: 51% 50%;
+  transform: scale(1.08);
+}
+
+.textileCaption {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  color: color-mix(in srgb, var(--museum-bone) 72%, transparent);
+  font-size: 8px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+:global(html[data-museum-culture]):has(.culture) :global(nav[aria-label='Main navigation']) {
+  background: var(--museum-charcoal);
+  border-bottom-color: color-mix(in srgb, var(--museum-earth) 32%, transparent);
+}
+
+:global(html[data-museum-culture]):has(.culture)
+  :global(nav[aria-label='Main navigation'])
+  :global(:is(a, button, span)) {
+  color: var(--museum-bone);
+}
+
+:global(html[data-museum-culture]):has(.culture)
+  :global(nav[aria-label='Main navigation'])
+  :global(a.border) {
+  border-color: var(--museum-earth);
+}
+
+@media (min-width: 1024px) and (max-height: 790px) {
+  .stage {
+    min-height: 620px;
+  }
+  .exitPanel :global(#whats-on) {
+    padding-block: 54px;
+  }
+  .overviewInner,
+  .bridge {
+    padding-top: 70px;
+  }
+  .objects {
+    inset-block-start: 43%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .journey {
+    overflow: hidden;
+  }
+  .stage {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+  .track {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+  }
+  .exitPanel,
+  .bridge,
+  .overview {
+    width: 100%;
+    height: auto;
+  }
+  .exitPanel :global(#whats-on) {
+    height: auto;
+  }
+  .bridge {
+    min-height: 620px;
+    padding: 72px 8vw;
+  }
+  .bridgeTitle {
+    top: 25%;
+    width: 47vw;
+    font-size: clamp(42px, 8vw, 69px);
+  }
+  .staticHinge {
+    left: 52%;
+    width: 36vw;
+  }
+  .overview {
+    min-height: 920px;
+  }
+  .overviewInner {
+    padding-block: 78px 60px;
+  }
+  .overviewHeader {
+    margin-top: 38px;
+  }
+  .collectionTitle {
+    font-size: clamp(46px, 8vw, 74px);
+  }
+  .objects {
+    inset: 42% 0 54px;
+  }
+  .volkov {
+    left: 0;
+    width: 61%;
+  }
+  .vessel {
+    right: 0;
+    width: 32%;
+  }
+}
+
+@media (max-width: 767px) {
+  .bridge {
+    min-height: 570px;
+    padding: 58px 8vw;
+  }
+  .bridgeTitle {
+    top: 23%;
+    width: 70vw;
+    font-size: clamp(40px, 13vw, 60px);
+  }
+  .bridgeNote {
+    bottom: 7%;
+  }
+  .staticHinge {
+    top: 35%;
+    left: 55%;
+    width: 49vw;
+    height: 39%;
+    opacity: 0.8;
+  }
+  .staticConnection {
+    top: 17%;
+    width: 75%;
+    height: 72%;
+  }
+  .overview {
+    min-height: 1130px;
+  }
+  .overview::before {
+    width: 44%;
+    opacity: 0.54;
+  }
+  .overviewInner {
+    width: 84%;
+    padding-block: 62px 54px;
+  }
+  .overviewHeader {
+    display: block;
+    margin-top: 27px;
+  }
+  .collectionTitle {
+    font-size: clamp(44px, 13.3vw, 64px);
+  }
+  .collectionIntroduction {
+    margin-top: 25px;
+  }
+  .collectionIntroduction > p {
+    margin-bottom: 22px;
+    font-size: 12px;
+  }
+  .objects {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    margin-top: 46px;
+  }
+  .volkov,
+  .vessel {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+  }
+  .volkovImage {
+    height: auto;
+    aspect-ratio: 1.5;
+  }
+  .vessel {
+    width: 71%;
+    align-self: flex-end;
+  }
+  .vesselImage {
+    height: auto;
+    aspect-ratio: 0.9;
+  }
+  .objectLink figcaption {
+    display: block;
+  }
+  .objectLink figcaption span {
+    display: block;
+  }
+  .objectLink figcaption span:last-child {
+    margin-top: 5px;
+    text-align: left;
+  }
+  .culture,
+  .cultureInner {
+    min-height: 1120px;
+  }
+  .cultureInner {
+    width: 100%;
+    padding-top: 36px;
+  }
+  .ornament {
+    width: 132%;
+    height: 188px;
+    margin-left: -16%;
+  }
+  .cultureComposition {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 49px;
+    min-height: auto;
+    padding: 24px 8vw 85px;
+  }
+  .textileWindow {
+    width: 108%;
+    height: 420px;
+    min-height: 0;
+    margin-left: -4%;
+  }
+  .cultureCopy h2 {
+    font-size: clamp(47px, 14vw, 68px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage,
+  .exitPanel,
+  .bridge,
+  .overview {
+    height: auto;
+    min-height: 0;
+  }
+  .track {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+  }
+  .exitPanel,
+  .bridge,
+  .overview {
+    width: 100%;
+  }
+  .bridge {
+    min-height: 620px;
+  }
+  .overview {
+    min-height: 920px;
+  }
+}
