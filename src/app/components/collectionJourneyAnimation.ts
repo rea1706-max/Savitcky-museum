@@ -14,13 +14,14 @@ export function createCollectionJourney(root: HTMLElement) {
     media.add(
       '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
       () => {
-        const path = Array.from(
+        const bridgePaths = Array.from(
           root.querySelectorAll<SVGPathElement>('[data-static-path], [data-static-node]')
         );
         const redPlane = select('[data-feature-red-mask]');
         const redField = select('[data-feature-red]');
-        path.forEach((node) => node.setAttribute('pathLength', '1'));
-        gsap.set(path, { strokeDasharray: '1 1', strokeDashoffset: 1 });
+
+        bridgePaths.forEach((node) => node.setAttribute('pathLength', '1'));
+        gsap.set(bridgePaths, { strokeDasharray: '1 1', strokeDashoffset: 1 });
         gsap.set(select('[data-bridge-label]'), { autoAlpha: 0 });
         gsap.set(select('[data-mineral-bridge] h2 span'), { autoAlpha: 0, x: 46 });
         gsap.set(select('[data-bridge-note]'), { autoAlpha: 0, y: 10 });
@@ -39,6 +40,8 @@ export function createCollectionJourney(root: HTMLElement) {
         });
         gsap.set(select('[data-volkov-caption], [data-vessel-caption]'), { autoAlpha: 0 });
         gsap.set(select('[data-collection-copy], [data-collection-cta]'), { autoAlpha: 0 });
+        gsap.set(select('[data-archive-rule] > span'), { scaleX: 0 });
+        gsap.set(select('[data-archive-rule] small'), { autoAlpha: 0 });
 
         const timeline = gsap.timeline({ defaults: { ease: 'none' } });
         timeline.to(track, { x: () => -(track.scrollWidth - stage.clientWidth), duration: 84 }, 0);
@@ -81,7 +84,7 @@ export function createCollectionJourney(root: HTMLElement) {
           },
           21
         );
-        timeline.to(path, { strokeDashoffset: 0, duration: 16, stagger: 2 }, 27);
+        timeline.to(bridgePaths, { strokeDashoffset: 0, duration: 16, stagger: 2 }, 27);
         timeline.to(
           select('[data-bridge-note]'),
           { autoAlpha: 1, y: 0, duration: 9, ease: 'power2.out' },
@@ -126,9 +129,15 @@ export function createCollectionJourney(root: HTMLElement) {
         timeline.to(select('[data-vessel-caption]'), { autoAlpha: 1, duration: 5 }, 74);
         timeline.to(select('[data-collection-copy]'), { autoAlpha: 1, duration: 7 }, 73);
         timeline.to(select('[data-collection-cta]'), { autoAlpha: 1, duration: 7 }, 77);
+        timeline.to(
+          select('[data-archive-rule] > span'),
+          { scaleX: 1, duration: 8, ease: 'power2.out' },
+          78
+        );
+        timeline.to(select('[data-archive-rule] small'), { autoAlpha: 1, duration: 5 }, 82);
         timeline.to({}, { duration: 16 });
 
-        const trigger = ScrollTrigger.create({
+        const horizontalTrigger = ScrollTrigger.create({
           id: 'savitsky-collection-journey',
           trigger: stage,
           animation: timeline,
@@ -143,7 +152,7 @@ export function createCollectionJourney(root: HTMLElement) {
             root.toggleAttribute('data-light-stage', self.progress > 0.59);
           },
         });
-        trigger.refresh();
+        horizontalTrigger.refresh();
 
         return () => {
           root.removeAttribute('data-light-stage');
@@ -152,74 +161,122 @@ export function createCollectionJourney(root: HTMLElement) {
       root
     );
 
-    media.add('(prefers-reduced-motion: no-preference)', () => {
-      const weavePaths = Array.from(
-        root.querySelectorAll<SVGPathElement>('[data-woven-ornament] path')
-      );
-      weavePaths.forEach((path) => path.setAttribute('pathLength', '1'));
-      gsap.set(weavePaths, { strokeDasharray: '1 1', strokeDashoffset: 1 });
-      gsap.set(select('[data-textile-window]'), {
-        scale: 0.3,
-        transformOrigin: '100% 45%',
-      });
-      gsap.set(select('[data-fiber-space]'), {
-        scale: 0.1,
-        xPercent: 36,
-        yPercent: 40,
-        transformOrigin: '100% 100%',
-      });
-      gsap.set(select('[data-culture-copy]'), { autoAlpha: 0, x: -16 });
+    media.add(
+      '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
+      () => {
+        const weavePaths = Array.from(
+          root.querySelectorAll<SVGPathElement>('[data-woven-ornament] path')
+        );
+        const weaveRule = root.querySelector<SVGPathElement>('[data-weave-rule]')!;
+        const weavePoint = root.querySelector<SVGCircleElement>('[data-weave-point]')!;
+        const drawnPaths = weavePaths.filter((path) => path !== weaveRule);
 
-      const material = gsap.timeline({ defaults: { ease: 'none' } });
-      material.to(select('[data-weave-rule]'), { strokeDashoffset: 0, duration: 13 }, 0);
-      material.to(select('[data-weave-thread]'), { strokeDashoffset: 0, duration: 10 }, 10);
-      material.to(select('[data-weave-node]'), { strokeDashoffset: 0, duration: 8 }, 18);
-      material.to(select('[data-weave-connection]'), { strokeDashoffset: 0, duration: 10 }, 24);
-      material.to(select('[data-weave-diagonal]'), { strokeDashoffset: 0, duration: 12 }, 32);
-      material.to(select('[data-weave-second]'), { strokeDashoffset: 0, duration: 11 }, 42);
-      material.to(select('[data-weave-finish]'), { strokeDashoffset: 0, duration: 10 }, 52);
-      material.to(
-        select('[data-textile-window]'),
-        {
-          scale: 1,
-          duration: 39,
-          ease: 'power2.inOut',
-        },
-        20
-      );
-      material.to(
-        select('[data-fiber-space]'),
-        {
-          scale: 1,
-          xPercent: 0,
-          yPercent: 0,
-          duration: 44,
-        },
-        18
-      );
-      material.to(
-        select('[data-culture-copy]'),
-        { autoAlpha: 1, x: 0, duration: 14, ease: 'power2.out' },
-        39
-      );
-      ScrollTrigger.create({
-        id: 'savitsky-material-culture',
-        trigger: culture,
-        animation: material,
-        start: 'top 78%',
-        end: 'bottom bottom',
-        scrub: 0.55,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          document.documentElement.toggleAttribute(
-            'data-museum-culture',
-            self.progress > 0.42 && self.progress < 0.99
-          );
-        },
-        onLeave: () => document.documentElement.removeAttribute('data-museum-culture'),
-        onLeaveBack: () => document.documentElement.removeAttribute('data-museum-culture'),
-      });
-    });
+        weavePaths.forEach((path) => path.setAttribute('pathLength', '1'));
+        gsap.set(weavePaths, { strokeDasharray: '1 1', strokeDashoffset: 1 });
+        gsap.set(weaveRule, { strokeDashoffset: 0 });
+        gsap.set(weavePoint, { scale: 0, transformOrigin: '50% 50%' });
+        gsap.set(select('[data-textile-field]'), {
+          autoAlpha: 0.12,
+          scale: 1.04,
+          clipPath: 'polygon(100% 16%, 100% 16%, 100% 86%, 100% 86%)',
+          transformOrigin: '82% 50%',
+        });
+        gsap.set(select('[data-red-fiber]'), {
+          autoAlpha: 0,
+          clipPath: 'polygon(76% 0, 100% 0, 100% 100%, 94% 100%)',
+        });
+        gsap.set(select('[data-fiber-tone]'), {
+          autoAlpha: 0,
+          clipPath: 'polygon(66% 0, 66% 0, 58% 100%, 58% 100%)',
+        });
+        gsap.set(select('[data-culture-grain]'), { autoAlpha: 0 });
+        gsap.set(select('[data-culture-copy]'), { autoAlpha: 0, x: -26 });
+        gsap.set(select('[data-culture-aside]'), { autoAlpha: 0, x: 24 });
+
+        const material = gsap.timeline({ defaults: { ease: 'none' } });
+        material.to({}, { duration: 12 });
+        material.to(weavePoint, { scale: 1, duration: 8, ease: 'back.out(1.7)' }, 9);
+        material.to(weaveRule, { stroke: '#9d3028', duration: 16 }, 11);
+        material.to(select('[data-weave-node]'), { strokeDashoffset: 0, duration: 11 }, 17);
+        material.to(weavePoint, { scale: 0, duration: 6, ease: 'power2.in' }, 22);
+        material.to(select('[data-weave-thread]'), { strokeDashoffset: 0, duration: 13 }, 23);
+        material.to(
+          select('[data-textile-field]'),
+          {
+            autoAlpha: 1,
+            scale: 1.015,
+            clipPath: 'polygon(65% 0, 100% 0, 100% 100%, 52% 100%, 60% 68%, 59% 19%)',
+            duration: 24,
+            ease: 'power2.inOut',
+          },
+          27
+        );
+        material.to(select('[data-weave-connection]'), { strokeDashoffset: 0, duration: 13 }, 29);
+        material.to(select('[data-weave-diagonal]'), { strokeDashoffset: 0, duration: 15 }, 36);
+        material.to(
+          select('[data-red-fiber]'),
+          {
+            autoAlpha: 0.2,
+            clipPath: 'polygon(53% 0, 100% 0, 100% 100%, 69% 100%)',
+            duration: 18,
+          },
+          39
+        );
+        material.to(select('[data-weave-second]'), { strokeDashoffset: 0, duration: 14 }, 44);
+        material.to(select('[data-weave-finish]'), { strokeDashoffset: 0, duration: 16 }, 51);
+        material.to(select('[data-weave-red]'), { strokeDashoffset: 0, duration: 12 }, 57);
+        material.to(
+          select('[data-textile-field]'),
+          {
+            scale: 1,
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+            duration: 30,
+            ease: 'power2.inOut',
+          },
+          49
+        );
+        material.to(
+          select('[data-fiber-tone]'),
+          {
+            autoAlpha: 0.9,
+            clipPath: 'polygon(0 0, 70% 0, 53% 100%, 0 100%)',
+            duration: 25,
+            ease: 'power2.inOut',
+          },
+          59
+        );
+        material.to(select('[data-culture-grain]'), { autoAlpha: 0.7, duration: 16 }, 65);
+        material.to(drawnPaths, { stroke: '#d3c4ae', duration: 17, stagger: 0.3 }, 62);
+        material.to(select('[data-weave-red]'), { stroke: '#b54235', duration: 12 }, 68);
+        material.to(
+          select('[data-culture-copy]'),
+          { autoAlpha: 1, x: 0, duration: 17, ease: 'power2.out' },
+          68
+        );
+        material.to(
+          select('[data-culture-aside]'),
+          { autoAlpha: 1, x: 0, duration: 13, ease: 'power2.out' },
+          78
+        );
+        material.to({}, { duration: 15 });
+
+        ScrollTrigger.create({
+          id: 'savitsky-material-culture',
+          trigger: culture,
+          animation: material,
+          start: 'top 86%',
+          end: 'bottom bottom',
+          scrub: 0.55,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            document.documentElement.toggleAttribute('data-museum-culture', self.progress > 0.62);
+          },
+          onLeave: () => document.documentElement.removeAttribute('data-museum-culture'),
+          onLeaveBack: () => document.documentElement.removeAttribute('data-museum-culture'),
+        });
+      },
+      root
+    );
   }, root);
 
   const images = Array.from(root.querySelectorAll('img'));

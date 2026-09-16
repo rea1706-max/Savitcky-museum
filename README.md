@@ -11,18 +11,21 @@ A modern Next.js 15 application built with TypeScript and Tailwind CSS.
 ## 🛠️ Installation
 
 1. Install dependencies:
-  ```bash
-  npm install
-  # or
-  yarn install
-  ```
+
+```bash
+npm install
+# or
+yarn install
+```
 
 2. Start the development server:
-  ```bash
-  npm run dev
-  # or
-  yarn dev
-  ```
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
 3. Open [http://localhost:4028](http://localhost:4028) with your browser to see the result.
 
 ## 📁 Project Structure
@@ -50,6 +53,7 @@ You can start editing the page by modifying `src/app/page.tsx`. The page auto-up
 ## 🎨 Styling
 
 This project uses Tailwind CSS for styling with the following features:
+
 - Utility-first approach for rapid development
 - Custom theme configuration
 - Responsive design utilities
@@ -65,13 +69,26 @@ This project uses Tailwind CSS for styling with the following features:
 - `npm run lint:fix` - Fix ESLint issues automatically
 - `npm run format` - Format code with Prettier
 
+## Homepage collection journey / Переход коллекции на главной
+
+The approved homepage sequence uses one pinned horizontal GSAP timeline for **What’s On →
+Collection**, then releases into a natural vertical **Collection → Karakalpak Arts** transition.
+The Collection frame contains only the Avant-Garde and Heritage & History gateways. The
+Karakalpak Arts CTA opens `/collection?category=karakalpak-arts` with the catalogue filter active.
+
+Утверждённая последовательность использует один закреплённый горизонтальный GSAP-переход
+**What’s On → Collection**, после чего освобождает прокрутку и продолжает естественным
+вертикальным переходом **Collection → Karakalpak Arts**. В кадре Collection остаются только
+входы Avant-Garde и Heritage & History. CTA Karakalpak Arts открывает каталог с активным
+фильтром `/collection?category=karakalpak-arts`.
+
 ## 📱 Deployment
 
 Build the application for production:
 
-  ```bash
-  npm run build
-  ```
+```bash
+npm run build
+```
 
 ## 📚 Learn More
 

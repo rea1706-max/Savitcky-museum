@@ -33,8 +33,8 @@ export default function CollectionConstellation() {
           </h2>
           <div className={styles.collectionIntroduction}>
             <p data-collection-copy>
-              Russian avant-garde, Karakalpak arts and the heritage of Ancient Khorezm, brought
-              together in Nukus.
+              Russian avant-garde and the material history of Ancient Khorezm, held together in an
+              archive without borders.
             </p>
             <Link data-collection-cta href="/collection" className={styles.link}>
               Explore Collection <CollectionArrow />
@@ -58,8 +58,9 @@ export default function CollectionConstellation() {
                 />
               </div>
               <figcaption data-volkov-caption>
-                <span>Avant-Garde</span>
-                <span>Alexander Volkov · Arba, 1924</span>
+                <span className={styles.gatewayNumber}>01</span>
+                <span className={styles.gatewayTitle}>Avant-Garde</span>
+                <span className={styles.gatewayMeta}>Alexander Volkov · Arba, 1924</span>
               </figcaption>
             </Link>
           </figure>
@@ -79,11 +80,16 @@ export default function CollectionConstellation() {
                 />
               </div>
               <figcaption data-vessel-caption>
-                <span>Heritage &amp; History</span>
-                <span>Terracotta vessel · Ancient Khorezm</span>
+                <span className={styles.gatewayNumber}>02</span>
+                <span className={styles.gatewayTitle}>Heritage &amp; History</span>
+                <span className={styles.gatewayMeta}>Terracotta vessel · Ancient Khorezm</span>
               </figcaption>
             </Link>
           </figure>
+        </div>
+        <div data-archive-rule className={styles.archiveRule} aria-hidden="true">
+          <span />
+          <small>Archive line</small>
         </div>
       </div>
     </section>

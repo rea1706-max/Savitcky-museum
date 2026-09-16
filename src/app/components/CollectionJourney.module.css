@@ -38,11 +38,19 @@
 .exitPanel :global(#whats-on) {
   height: 100%;
   min-height: 100%;
-  padding-block: clamp(66px, 7svh, 90px);
+  padding-block: clamp(16px, 2.5vh, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .exitPanel :global(#whats-on > div:last-child) {
-  height: 100%;
+  height: auto;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bridge {
@@ -85,9 +93,9 @@
   position: relative;
   z-index: 3;
   margin: 0;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.15em;
   line-height: 1.5;
   text-transform: uppercase;
 }
@@ -104,10 +112,10 @@
   width: 24vw;
   margin: 0;
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(48px, 5.4vw, 88px);
+  font-size: clamp(32px, 3.6vw, 58px);
   font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 0.94;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
   text-transform: uppercase;
 }
 
@@ -121,10 +129,10 @@
   left: 8%;
   bottom: 8.5%;
   margin: 0;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.16em;
-  line-height: 1.55;
+  letter-spacing: 0.14em;
+  line-height: 1.6;
   text-transform: uppercase;
 }
 
@@ -255,7 +263,7 @@
 
 .objects {
   position: absolute;
-  inset: 44% 0 3.5vh;
+  inset: 43% 0 8vh;
 }
 
 .volkov,
@@ -265,15 +273,15 @@
 }
 
 .volkov {
-  inset: 0 auto 0 6%;
-  width: 51%;
+  inset: 0 auto 0 5%;
+  width: 54%;
 }
 
 .vessel {
-  right: 3%;
-  bottom: 2%;
-  width: 25%;
-  height: 72%;
+  right: 4%;
+  bottom: 1%;
+  width: 23%;
+  height: 68%;
 }
 
 .objectLink {
@@ -316,9 +324,10 @@
 }
 
 .objectLink figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px;
   padding-top: 11px;
   font-size: 8px;
   letter-spacing: 0.11em;
@@ -326,114 +335,227 @@
   text-transform: uppercase;
 }
 
-.objectLink figcaption span:last-child {
+.gatewayNumber {
+  color: var(--museum-karakalpak-red);
+}
+
+.gatewayTitle {
+  color: var(--museum-charcoal);
+}
+
+.gatewayMeta {
   color: color-mix(in srgb, var(--museum-charcoal) 62%, var(--museum-earth));
   letter-spacing: 0.06em;
   text-align: right;
 }
 
+.archiveRule {
+  position: absolute;
+  right: 0;
+  bottom: 3.5vh;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: color-mix(in srgb, var(--museum-charcoal) 52%, var(--museum-earth));
+}
+
+.archiveRule > span {
+  height: 1px;
+  flex: 1;
+  background: currentColor;
+  transform-origin: left center;
+}
+
+.archiveRule small {
+  flex: none;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
 .culture {
   position: relative;
-  min-height: 1280px;
-  overflow: hidden;
+  height: 190svh;
+  min-height: 1160px;
+  overflow: clip;
   background: var(--museum-desert-ivory);
   color: var(--museum-bone);
 }
 
-.fiberSpace {
-  position: absolute;
-  inset: 0;
-  background: #211d1a;
-  clip-path: polygon(44% 0, 100% 0, 100% 100%, 0 100%, 0 30%, 18% 22%);
+.cultureFrame {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 720px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--museum-desert-ivory);
 }
 
-.cultureInner {
-  position: relative;
-  z-index: 1;
-  width: 84%;
-  max-width: 1440px;
-  min-height: 1280px;
-  margin-inline: auto;
-  padding-top: 84px;
+.textileField,
+.redFiber,
+.fiberTone,
+.cultureGrain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.textileField {
+  z-index: -4;
+  margin: 0;
+  overflow: hidden;
+  background: #211a17;
+  will-change: clip-path, opacity, transform;
+}
+
+.textile {
+  object-fit: cover;
+  object-position: 59% 50%;
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+.redFiber {
+  z-index: -3;
+  background: color-mix(in srgb, var(--museum-karakalpak-red) 88%, #211a17);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  will-change: clip-path, opacity;
+}
+
+.fiberTone {
+  z-index: -2;
+  background: #191614;
+  opacity: 0;
+  will-change: clip-path, opacity;
+}
+
+.cultureGrain {
+  z-index: -1;
+  opacity: 0;
+  background-image:
+    repeating-linear-gradient(16deg, transparent 0 3px, rgb(242 235 221 / 0.035) 3px 4px),
+    repeating-linear-gradient(92deg, rgb(25 24 22 / 0.08) 0 1px, transparent 1px 5px);
+  mix-blend-mode: soft-light;
+  transition: opacity 220ms linear;
 }
 
 .ornament {
-  display: block;
-  width: 100%;
-  height: 250px;
-  stroke: var(--museum-earth);
+  position: absolute;
+  z-index: 2;
+  inset: 0 8vw;
+  width: 84vw;
+  height: 100%;
+  stroke: color-mix(in srgb, var(--museum-earth) 75%, var(--museum-charcoal));
   stroke-width: 1;
   overflow: visible;
+  pointer-events: none;
 }
 
 .ornament path {
   vector-effect: non-scaling-stroke;
 }
 
-.cultureComposition {
-  position: relative;
-  display: grid;
-  grid-template-columns: 33% 1fr;
-  gap: 8%;
-  align-items: center;
-  min-height: 790px;
-  padding-block: 90px 110px;
+.ornament [data-weave-rule] {
+  opacity: 0.68;
+}
+
+.ornament [data-weave-point] {
+  fill: var(--museum-karakalpak-red);
+  stroke: none;
+}
+
+.ornament [data-weave-red] {
+  stroke: var(--museum-karakalpak-red);
 }
 
 .cultureCopy {
-  position: relative;
-  z-index: 2;
-  align-self: center;
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 8vw;
+  width: min(39vw, 610px);
+  transform: translateY(-46%);
+  will-change: transform, opacity;
 }
 
 .cultureCopy .chapterLabel {
-  margin-bottom: 34px;
-  color: var(--museum-silver);
+  margin-bottom: clamp(14px, 2vh, 24px);
+  color: color-mix(in srgb, var(--museum-bone) 65%, var(--museum-earth));
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .cultureCopy h2 {
-  margin: 0 0 34px;
+  margin: 0 0 clamp(24px, 4vh, 46px);
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(54px, 5.6vw, 92px);
+  font-size: clamp(64px, 7.9vw, 132px);
   font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 0.95;
+  letter-spacing: -0.055em;
+  line-height: 0.82;
+  text-transform: uppercase;
+  color: var(--museum-bone);
+}
+
+.cultureCopy h2 span {
+  display: block;
+}
+
+.cultureStatement {
+  margin: 0 0 clamp(18px, 2.7vh, 30px);
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(25px, 2.3vw, 39px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
   text-transform: uppercase;
 }
 
 .cultureDescription {
-  margin: 0 0 38px;
-  color: var(--museum-silver);
-  font-size: 11px;
-  line-height: 1.85;
+  margin: 0 0 clamp(18px, 2.5vh, 32px);
+  color: color-mix(in srgb, var(--museum-bone) 72%, var(--museum-earth));
+  font-size: 12px;
+  letter-spacing: 0.025em;
+  line-height: 1.75;
+}
+
+.cultureCopy .link {
+  color: var(--museum-bone);
 }
 
 .cultureCopy .link:hover {
   color: var(--museum-ochre);
 }
 
-.textileWindow {
-  position: relative;
-  height: min(68vh, 670px);
-  min-height: 520px;
-  margin: 0;
-  overflow: hidden;
-  clip-path: polygon(9% 0, 100% 0, 100% 88%, 90% 100%, 0 100%, 0 12%);
-}
-
-.textile {
-  object-position: 51% 50%;
-  transform: scale(1.08);
-}
-
 .textileCaption {
   position: absolute;
-  right: 18px;
-  bottom: 16px;
-  color: color-mix(in srgb, var(--museum-bone) 72%, transparent);
+  z-index: 3;
+  right: 4vw;
+  bottom: 3.5vh;
+  color: color-mix(in srgb, var(--museum-bone) 66%, transparent);
   font-size: 8px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
+}
+
+.cultureAside {
+  position: absolute;
+  z-index: 3;
+  right: 5vw;
+  bottom: 9vh;
+  margin: 0;
+  color: color-mix(in srgb, var(--museum-bone) 80%, var(--museum-earth));
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(18px, 1.55vw, 28px);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  will-change: transform, opacity;
 }
 
 :global(html[data-museum-culture]):has(.culture) :global(nav[aria-label='Main navigation']) {
@@ -465,7 +587,14 @@
     padding-top: 70px;
   }
   .objects {
-    inset-block-start: 43%;
+    inset-block-start: 42%;
+  }
+  .cultureCopy h2 {
+    font-size: clamp(56px, 7vw, 104px);
+  }
+  .cultureCopy {
+    transform: translateY(-44%) scale(0.91);
+    transform-origin: left center;
   }
 }
 
@@ -500,7 +629,7 @@
   .bridgeTitle {
     top: 25%;
     width: 47vw;
-    font-size: clamp(42px, 8vw, 69px);
+    font-size: clamp(28px, 5.5vw, 46px);
   }
   .staticHinge {
     left: 52%;
@@ -510,7 +639,7 @@
     min-height: 920px;
   }
   .overviewInner {
-    padding-block: 78px 60px;
+    padding-block: 78px 76px;
   }
   .overviewHeader {
     margin-top: 38px;
@@ -519,7 +648,7 @@
     font-size: clamp(46px, 8vw, 74px);
   }
   .objects {
-    inset: 42% 0 54px;
+    inset: 42% 0 82px;
   }
   .volkov {
     left: 0;
@@ -528,6 +657,43 @@
   .vessel {
     right: 0;
     width: 32%;
+  }
+  .archiveRule {
+    bottom: 34px;
+  }
+  .culture {
+    height: auto;
+    min-height: 0;
+  }
+  .cultureFrame {
+    position: relative;
+    min-height: 820px;
+    height: 100svh;
+  }
+  .textileField {
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .redFiber {
+    clip-path: polygon(58% 0, 100% 0, 100% 100%, 73% 100%) !important;
+    opacity: 0.14 !important;
+  }
+  .fiberTone {
+    clip-path: polygon(0 0, 68% 0, 54% 100%, 0 100%) !important;
+    opacity: 0.84 !important;
+  }
+  .cultureGrain {
+    opacity: 0.7;
+  }
+  .cultureCopy {
+    width: min(51vw, 570px);
+  }
+  .cultureCopy h2 {
+    font-size: clamp(60px, 9.6vw, 108px);
+  }
+  .ornament {
+    opacity: 0.74;
   }
 }
 
@@ -539,7 +705,7 @@
   .bridgeTitle {
     top: 23%;
     width: 70vw;
-    font-size: clamp(40px, 13vw, 60px);
+    font-size: clamp(28px, 9vw, 44px);
   }
   .bridgeNote {
     bottom: 7%;
@@ -557,7 +723,7 @@
     height: 72%;
   }
   .overview {
-    min-height: 1130px;
+    min-height: 1190px;
   }
   .overview::before {
     width: 44%;
@@ -565,7 +731,7 @@
   }
   .overviewInner {
     width: 84%;
-    padding-block: 62px 54px;
+    padding-block: 62px 84px;
   }
   .overviewHeader {
     display: block;
@@ -614,39 +780,59 @@
   .objectLink figcaption span {
     display: block;
   }
-  .objectLink figcaption span:last-child {
+  .gatewayMeta {
     margin-top: 5px;
     text-align: left;
   }
-  .culture,
-  .cultureInner {
-    min-height: 1120px;
+  .archiveRule small {
+    display: none;
   }
-  .cultureInner {
-    width: 100%;
-    padding-top: 36px;
+  .cultureFrame {
+    min-height: 780px;
+    height: max(100svh, 780px);
+  }
+  .textile {
+    object-position: 65% 50%;
+    transform: scale(1.12);
   }
   .ornament {
-    width: 132%;
-    height: 188px;
-    margin-left: -16%;
+    inset: 0 5vw;
+    width: 90vw;
+    opacity: 0.56;
   }
-  .cultureComposition {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: stretch;
-    gap: 49px;
-    min-height: auto;
-    padding: 24px 8vw 85px;
+  .cultureCopy {
+    top: auto;
+    right: 8vw;
+    bottom: 9vh;
+    left: 8vw;
+    width: auto;
+    transform: none !important;
   }
-  .textileWindow {
-    width: 108%;
-    height: 420px;
-    min-height: 0;
-    margin-left: -4%;
+  .cultureCopy .chapterLabel {
+    margin-bottom: 16px;
+    font-size: 10px;
   }
   .cultureCopy h2 {
-    font-size: clamp(47px, 14vw, 68px);
+    margin-bottom: 24px;
+    font-size: clamp(48px, 15vw, 76px);
+    line-height: 0.84;
+  }
+  .cultureStatement {
+    font-size: clamp(23px, 7vw, 34px);
+  }
+  .cultureDescription {
+    font-size: 12px;
+  }
+  .cultureCopy .link {
+    color: var(--museum-bone);
+  }
+  .cultureAside {
+    display: none;
+  }
+  .textileCaption {
+    top: 22px;
+    right: 6vw;
+    bottom: auto;
   }
 }
 
@@ -674,5 +860,29 @@
   }
   .overview {
     min-height: 920px;
+  }
+  .culture {
+    height: auto;
+    min-height: 0;
+  }
+  .cultureFrame {
+    position: relative;
+    min-height: 820px;
+  }
+  .textileField {
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .redFiber {
+    clip-path: polygon(58% 0, 100% 0, 100% 100%, 73% 100%) !important;
+    opacity: 0.14 !important;
+  }
+  .fiberTone {
+    clip-path: polygon(0 0, 68% 0, 54% 100%, 0 100%) !important;
+    opacity: 0.84 !important;
+  }
+  .cultureGrain {
+    opacity: 0.7;
   }
 }
