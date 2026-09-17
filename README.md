@@ -90,6 +90,18 @@ Build the application for production:
 npm run build
 ```
 
+The production site runs as a standalone Next.js container behind Nginx at
+`https://savitsky.87-192-248-137.sslip.io`. On the server, releases are applied from the
+`main` branch with:
+
+```bash
+./scripts/deploy-server.sh
+```
+
+The script fast-forwards the server checkout, rebuilds the Docker image, restarts the service,
+and verifies the local health endpoint before completing. The Nginx virtual host template lives
+in `deploy/nginx.conf`.
+
 ## 📚 Learn More
 
 To learn more about Next.js, take a look at the following resources:
