@@ -1,0 +1,598 @@
+.section {
+  position: relative;
+  background: var(--museum-charcoal, #191816);
+  color: var(--museum-bone, #f2ebdd);
+  overflow: clip;
+  isolation: isolate;
+}
+
+/* =======================================================
+   TRANSITION: ORNAMENT BECOMES EDITORIAL GRID
+   ======================================================= */
+.transitionArea {
+  position: relative;
+  width: 100%;
+  min-height: clamp(340px, 50vh, 520px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--museum-charcoal, #191816);
+}
+
+.transitionTextile {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: contrast(0.7) saturate(0.65) brightness(0.7);
+  mix-blend-mode: luminosity;
+  pointer-events: none;
+  transform: translateY(0);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.4s ease;
+}
+
+.transitionGradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(157, 48, 40, 0.12) 0%, transparent 65%),
+    linear-gradient(to bottom, rgba(25, 24, 22, 0.3) 0%, var(--museum-charcoal, #191816) 90%);
+  pointer-events: none;
+}
+
+.transitionContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.transitionSpineSvg {
+  width: 100%;
+  max-width: 820px;
+  height: clamp(140px, 24vh, 220px);
+  overflow: visible;
+}
+
+.transitionCopyWrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 960px;
+  margin-top: 1rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.transitionLeftCopy,
+.transitionRightCopy {
+  font-family: Inter, sans-serif;
+  font-size: clamp(9px, 0.9vw, 11px);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 65%, var(--museum-earth, #8a7258));
+}
+
+.transitionScrollCue {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: Inter, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 45%, transparent);
+}
+
+.transitionScrollArrow {
+  animation: bounceCue 2s ease-in-out infinite;
+}
+
+@keyframes bounceCue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* =======================================================
+   MUSEUM TODAY: EDITORIAL MAIN ENVIRONMENT (REFERENCE A)
+   ======================================================= */
+.mainContainer {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(2rem, 4.5vh, 4rem) clamp(1.5rem, 5vw, 4.5rem);
+  box-sizing: border-box;
+}
+
+/* Top Horizontal Rule with Diamond Node */
+.topEditorialRule {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: clamp(1.5rem, 3vh, 2.75rem);
+}
+
+.ruleLine {
+  flex: 1;
+  height: 1px;
+  background: color-mix(in srgb, var(--museum-bone, #f2ebdd) 22%, transparent);
+}
+
+.ruleDiamondNode {
+  position: relative;
+  margin: 0 1.25rem;
+  width: 11px;
+  height: 11px;
+  border: 1px solid color-mix(in srgb, var(--museum-bone, #f2ebdd) 70%, transparent);
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ruleDiamondInner {
+  width: 5px;
+  height: 5px;
+  background: var(--museum-karakalpak-red, #9d3028);
+}
+
+/* Header & Intro Section */
+.introLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .introLayout {
+    grid-template-columns: minmax(360px, 440px) 1fr auto;
+  }
+}
+
+.headlineBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.chapterTag {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 75%, transparent);
+  margin-bottom: 0.75rem;
+}
+
+.chapterLine {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: color-mix(in srgb, var(--museum-bone, #f2ebdd) 40%, transparent);
+}
+
+.mainTitle {
+  margin: 0 0 1rem;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(48px, 6.2vw, 84px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: var(--museum-bone, #f2ebdd);
+  overflow: hidden;
+}
+
+.mainTitleLine {
+  display: block;
+  will-change: transform, opacity;
+}
+
+.subtitleBadge {
+  margin: 0 0 1.25rem;
+  font-family: Inter, sans-serif;
+  font-size: clamp(10px, 0.9vw, 12px);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 85%, var(--museum-earth, #8a7258));
+}
+
+.supportingCopy {
+  margin: 0 0 2rem;
+  font-family: Inter, sans-serif;
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.015em;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 68%, transparent);
+  max-width: 340px;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--museum-bone, #f2ebdd) 45%, transparent);
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--museum-bone, #f2ebdd);
+  background: transparent;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.primaryCta:hover {
+  border-color: var(--museum-bone, #f2ebdd);
+  background: color-mix(in srgb, var(--museum-bone, #f2ebdd) 8%, transparent);
+  color: var(--museum-ochre, #b77a32);
+}
+
+.primaryCtaArrow {
+  transition: transform 0.25s ease;
+}
+
+.primaryCta:hover .primaryCtaArrow {
+  transform: translateX(4px);
+}
+
+/* Main Conservation Visual Slot */
+.heroVisualWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.heroVisualFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.5;
+  overflow: hidden;
+  background: #231f1c;
+  border: 1px solid color-mix(in srgb, var(--museum-earth, #8a7258) 25%, transparent);
+}
+
+.heroVisualImg {
+  object-fit: cover;
+  will-change: transform, clip-path;
+  transition: transform 0.8s ease;
+}
+
+.heroVisualFrame:hover .heroVisualImg {
+  transform: scale(1.02);
+}
+
+.heroVisualCaption {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  z-index: 2;
+  font-family: Inter, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 60%, transparent);
+  background: rgba(25, 24, 22, 0.75);
+  padding: 3px 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* Right-Hand Vertical Column (Reference A) */
+.rightColumnMeta {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  border-left: 1px solid color-mix(in srgb, var(--museum-bone, #f2ebdd) 15%, transparent);
+  font-family: Inter, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 2.1;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 48%, transparent);
+  min-width: 110px;
+}
+
+@media (min-width: 1024px) {
+  .rightColumnMeta {
+    display: flex;
+  }
+}
+
+.verticalLineSegment {
+  width: 1px;
+  height: 36px;
+  background: color-mix(in srgb, var(--museum-bone, #f2ebdd) 35%, transparent);
+  margin: 1rem 0;
+}
+
+/* Middle Row: Left Guide & Story Cards */
+.middleLayout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: clamp(2.5rem, 5vh, 4rem);
+}
+
+@media (min-width: 1024px) {
+  .middleLayout {
+    grid-template-columns: minmax(160px, 200px) 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Left Vertical Guide with Diamond Nodes */
+.leftGuideColumn {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .leftGuideColumn {
+    display: flex;
+  }
+}
+
+.guideSpine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24px;
+}
+
+.guideLineTop {
+  width: 1px;
+  height: 48px;
+  background: color-mix(in srgb, var(--museum-bone, #f2ebdd) 25%, transparent);
+}
+
+.guideDiamondOutlined {
+  width: 10px;
+  height: 10px;
+  border: 1px solid color-mix(in srgb, var(--museum-bone, #f2ebdd) 60%, transparent);
+  transform: rotate(45deg);
+  margin: 6px 0;
+}
+
+.guideDiamondRed {
+  width: 8px;
+  height: 8px;
+  background: var(--museum-karakalpak-red, #9d3028);
+  transform: rotate(45deg);
+  margin: 4px 0 6px;
+}
+
+.guideLineBottom {
+  width: 1px;
+  height: 72px;
+  background: color-mix(in srgb, var(--museum-bone, #f2ebdd) 25%, transparent);
+}
+
+.guideMetaText {
+  margin-top: 1.5rem;
+  font-family: Inter, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 2.2;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 40%, transparent);
+}
+
+/* Story Cards Grid */
+.storiesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+@media (min-width: 768px) {
+  .storiesGrid {
+    grid-template-columns: 1.15fr 1fr;
+  }
+}
+
+.storyCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.storyCardHeader {
+  margin-bottom: 0.85rem;
+}
+
+.storyNumber {
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 45%, transparent);
+  margin-bottom: 0.35rem;
+}
+
+.storyCardTitle {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(20px, 1.9vw, 28px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--museum-bone, #f2ebdd);
+  line-height: 1.15;
+  transition: color 0.3s ease;
+}
+
+.storyCard:hover .storyCardTitle {
+  color: var(--museum-ochre, #b77a32);
+}
+
+.storyCardDescriptor {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 60%, transparent);
+  text-transform: uppercase;
+}
+
+.storyImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: #231f1c;
+  border: 1px solid color-mix(in srgb, var(--museum-earth, #8a7258) 22%, transparent);
+}
+
+.storyImg {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.storyCard:hover .storyImg {
+  transform: scale(1.025);
+}
+
+.storyFooterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.85rem;
+}
+
+.storyReadMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 75%, transparent);
+  transition: all 0.25s ease;
+}
+
+.storyCard:hover .storyReadMore {
+  color: var(--museum-bone, #f2ebdd);
+  transform: translateX(3px);
+}
+
+.storySideMeta {
+  font-family: Inter, sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 40%, transparent);
+  line-height: 1.6;
+}
+
+/* =======================================================
+   BOTTOM EDITORIAL RULE & BRIDGE TO NEXT SECTION
+   ======================================================= */
+.bottomBridge {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(3rem, 6vh, 5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--museum-bone, #f2ebdd) 18%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .bottomBridge {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.bottomBridgeLeft,
+.bottomBridgeRight {
+  font-family: Inter, sans-serif;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--museum-bone, #f2ebdd) 52%, transparent);
+}
+
+.bottomBridgeRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Warm glow feathering to next section (landscape) */
+.ambientBottomGlow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(138, 114, 88, 0.08) 60%,
+    rgba(183, 122, 50, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =======================================================
+   PREFERS-REDUCED-MOTION
+   ======================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .transitionScrollArrow {
+    animation: none;
+  }
+  .heroVisualImg,
+  .storyImg {
+    transition: none !important;
+  }
+}

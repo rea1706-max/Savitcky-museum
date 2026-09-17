@@ -28,9 +28,8 @@ export default function HomePage() {
       <CollectionJourney>
         {featured && <WhatsOnSection exhibition={featured} today={today} />}
       </CollectionJourney>
-      {/* Desert interlude — atmospheric textural block between Collection and Museum Today */}
-      <DesertInterlude />
       <MuseumToday />
+      <DesertInterlude />
       <FinalHorizon />
       <Footer />
     </main>
