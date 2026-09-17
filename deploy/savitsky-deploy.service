@@ -1,0 +1,15 @@
+[Unit]
+Description=Deploy the latest Savitsky Museum main branch
+After=docker.service network-online.target
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=sheri
+Group=sheri
+WorkingDirectory=/home/sheri/savitsky-museum
+ExecStart=/home/sheri/savitsky-museum/scripts/deploy-server.sh --check
+
+[Install]
+WantedBy=multi-user.target

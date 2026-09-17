@@ -91,16 +91,18 @@ npm run build
 ```
 
 The production site runs as a standalone Next.js container behind Nginx at
-`https://savitsky.87-192-248-137.sslip.io`. On the server, releases are applied from the
-`main` branch with:
+`https://savitsky.87-192-248-137.sslip.io`. The server checks the private GitHub repository
+with a read-only deploy key every 30 seconds and releases new commits from `main` automatically.
+Manual releases use:
 
 ```bash
 ./scripts/deploy-server.sh
 ```
 
 The script fast-forwards the server checkout, rebuilds the Docker image, restarts the service,
-and verifies the local health endpoint before completing. The Nginx virtual host template lives
-in `deploy/nginx.conf`.
+and verifies the local health endpoint before completing. The Nginx virtual host and systemd
+unit templates live in `deploy/`. GitHub Actions also type-checks and production-builds every push
+and pull request.
 
 ## 📚 Learn More
 

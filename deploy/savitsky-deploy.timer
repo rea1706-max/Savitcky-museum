@@ -1,0 +1,12 @@
+[Unit]
+Description=Check GitHub for Savitsky Museum releases every 30 seconds
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+AccuracySec=5s
+Persistent=true
+Unit=savitsky-deploy.service
+
+[Install]
+WantedBy=timers.target
