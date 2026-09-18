@@ -5,7 +5,6 @@ import InfoStrip from '@/app/components/InfoStrip';
 import AboutMuseum from '@/app/components/AboutMuseum';
 import WhatsOnSection from '@/app/components/WhatsOnSection';
 import CollectionJourney from '@/app/components/CollectionJourney';
-import DesertInterlude from '@/app/components/DesertInterlude';
 import MuseumToday from '@/app/components/MuseumToday';
 import FinalHorizon from '@/app/components/FinalHorizon';
 import {
@@ -28,8 +27,6 @@ export default function HomePage() {
       <CollectionJourney>
         {featured && <WhatsOnSection exhibition={featured} today={today} />}
       </CollectionJourney>
-      {/* Desert interlude — atmospheric textural block between Collection and Museum Today */}
-      <DesertInterlude />
       <MuseumToday />
       <FinalHorizon />
       <Footer />

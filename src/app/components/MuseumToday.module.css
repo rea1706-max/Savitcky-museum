@@ -1,0 +1,823 @@
+.root {
+  --today-charcoal: #191816;
+  --today-charcoal-soft: #211e1b;
+  --today-bone: #f2ebdd;
+  --today-earth: #8a7258;
+  --today-red: #9d3028;
+  position: relative;
+  overflow: clip;
+  background: var(--today-charcoal);
+  color: var(--today-bone);
+}
+
+.transition {
+  position: relative;
+  height: 118svh;
+  min-height: 860px;
+  overflow: clip;
+  background: var(--today-charcoal);
+}
+
+.transitionFrame {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 720px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--today-charcoal);
+}
+
+.transitionTextile,
+.transitionShade,
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.transitionTextile {
+  z-index: -4;
+  opacity: 0.18;
+  filter: saturate(0.66) contrast(0.72);
+  transform-origin: 62% 50%;
+  will-change: filter, opacity, transform;
+}
+
+.transitionTextileImage {
+  object-fit: cover;
+  object-position: 59% 50%;
+  transform: scale(1.08);
+}
+
+.transitionShade {
+  z-index: -3;
+  background:
+    linear-gradient(90deg, rgb(25 24 22 / 0.95) 0%, rgb(25 24 22 / 0.62) 42%, transparent 74%),
+    linear-gradient(180deg, rgb(25 24 22 / 0.08), rgb(25 24 22 / 0.82));
+  opacity: 0.88;
+}
+
+.grain,
+.noise {
+  background-image:
+    repeating-linear-gradient(16deg, transparent 0 3px, rgb(242 235 221 / 0.025) 3px 4px),
+    repeating-linear-gradient(92deg, rgb(25 24 22 / 0.1) 0 1px, transparent 1px 5px);
+  mix-blend-mode: soft-light;
+}
+
+.grain {
+  z-index: -1;
+  opacity: 0.74;
+}
+
+.transitionOrnament {
+  position: absolute;
+  z-index: 2;
+  inset: 0 8vw;
+  width: 84vw;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  stroke: #d3c4ae;
+  stroke-width: 1;
+  opacity: 0.18;
+  will-change: opacity;
+}
+
+.transitionOrnament path {
+  vector-effect: non-scaling-stroke;
+}
+
+.transitionOrnament [data-transition-rule] {
+  stroke: var(--today-earth);
+}
+
+.transitionOrnament [data-transition-node] {
+  stroke: var(--today-red);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.transitionOrnament circle {
+  fill: var(--today-red);
+  stroke: none;
+}
+
+.transitionGrid {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+}
+
+.transitionGrid span:first-child {
+  position: absolute;
+  top: 12vh;
+  bottom: 7vh;
+  left: 60%;
+  width: 1px;
+  background: color-mix(in srgb, var(--today-earth) 66%, transparent);
+}
+
+.transitionGrid span:nth-child(2) {
+  position: absolute;
+  top: 31%;
+  right: 5vw;
+  left: 8vw;
+  height: 1px;
+  background: color-mix(in srgb, var(--today-earth) 55%, transparent);
+}
+
+.transitionGrid i {
+  position: absolute;
+  top: calc(31% - 6px);
+  left: calc(60% - 6px);
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--today-red);
+  background: var(--today-charcoal);
+}
+
+.transitionCopy {
+  position: absolute;
+  z-index: 5;
+  top: 36%;
+  left: 8vw;
+  width: min(40vw, 620px);
+}
+
+.transitionCopy p,
+.transitionCopy small {
+  margin: 0;
+  color: color-mix(in srgb, var(--today-bone) 68%, var(--today-earth));
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.transitionTitleClip {
+  margin: 22px 0 24px;
+  overflow: hidden;
+}
+
+.transitionTitleClip span {
+  display: block;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(54px, 6.7vw, 112px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.transitionImage {
+  position: absolute;
+  z-index: 4;
+  top: 18%;
+  right: 5vw;
+  width: min(56vw, 920px);
+  height: 64%;
+  margin: 0;
+  overflow: hidden;
+  background: #25211d;
+  box-shadow: -30px 0 80px rgb(0 0 0 / 0.22);
+  will-change: clip-path, opacity;
+}
+
+.transitionImage::after,
+.imageFrame::after,
+.storyImage::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 62%, rgb(20 18 16 / 0.22));
+}
+
+.transitionImage figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 22px;
+  bottom: 18px;
+  color: rgb(242 235 221 / 0.66);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cover {
+  object-fit: cover;
+  will-change: transform;
+}
+
+.museum {
+  position: relative;
+  min-height: 1480px;
+  padding: clamp(118px, 12vw, 184px) 5vw 170px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 91% 89%, rgb(138 114 88 / 0.17), transparent 29%),
+    linear-gradient(180deg, var(--today-charcoal) 0%, #1c1a18 78%, #26211d 100%);
+  color: var(--today-bone);
+}
+
+.noise {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.66;
+  pointer-events: none;
+}
+
+.topRule {
+  position: absolute;
+  top: 76px;
+  right: 5vw;
+  left: 5vw;
+  display: flex;
+  align-items: center;
+}
+
+.topRule span {
+  height: 1px;
+  flex: 1;
+  background: color-mix(in srgb, var(--today-earth) 42%, transparent);
+}
+
+.topRule i {
+  width: 14px;
+  height: 14px;
+  margin-left: -33%;
+  border: 1px solid color-mix(in srgb, var(--today-bone) 54%, transparent);
+  background: var(--today-charcoal);
+  transform: rotate(45deg);
+}
+
+.sectionMarker {
+  position: absolute;
+  top: 105px;
+  left: 5vw;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 23px;
+}
+
+.sectionMarker i {
+  display: block;
+  width: 62px;
+  height: 1px;
+  background: color-mix(in srgb, var(--today-bone) 58%, transparent);
+}
+
+.editorialGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 24px;
+  width: min(100%, 1720px);
+  margin: 0 auto;
+}
+
+.intro {
+  z-index: 4;
+  grid-column: 1 / span 4;
+  grid-row: 1;
+  align-self: center;
+  padding: 44px 0 20px 4vw;
+}
+
+.titleClip {
+  overflow: hidden;
+}
+
+.intro h2,
+.titleClip > span {
+  display: block;
+  margin: 0;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(64px, 6.2vw, 110px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.79;
+  text-transform: uppercase;
+  will-change: transform;
+}
+
+.kicker {
+  margin: clamp(32px, 4.5vh, 54px) 0 26px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.copy {
+  margin: 0;
+  color: color-mix(in srgb, var(--today-bone) 84%, var(--today-earth));
+  font-size: clamp(16px, 1.25vw, 20px);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 262px);
+  min-height: 52px;
+  margin-top: 38px;
+  padding: 0 21px;
+  border: 1px solid color-mix(in srgb, var(--today-bone) 58%, transparent);
+  color: var(--today-bone);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition:
+    border-color 240ms ease,
+    background 240ms ease,
+    color 240ms ease;
+}
+
+.primaryCta svg {
+  width: 28px;
+  stroke: currentColor;
+  stroke-width: 1;
+  transition: transform 240ms ease;
+}
+
+.primaryCta:hover,
+.primaryCta:focus-visible {
+  border-color: var(--today-earth);
+  background: var(--today-bone);
+  color: var(--today-charcoal);
+}
+
+.primaryCta:hover svg,
+.primaryCta:focus-visible svg {
+  transform: translateX(4px);
+}
+
+.primaryCta:focus-visible {
+  outline: 2px solid var(--today-red);
+  outline-offset: 4px;
+}
+
+.mainVisual {
+  z-index: 2;
+  grid-column: 5 / span 7;
+  grid-row: 1;
+  align-self: center;
+  margin: 0;
+}
+
+.imageFrame {
+  position: relative;
+  height: clamp(490px, 48vw, 740px);
+  overflow: hidden;
+  background: #25211d;
+  will-change: clip-path;
+}
+
+.mainVisual figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 13px;
+  color: color-mix(in srgb, var(--today-bone) 58%, var(--today-earth));
+  font-size: 11px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.mainVisual figcaption small {
+  color: color-mix(in srgb, var(--today-bone) 40%, var(--today-earth));
+  font-size: inherit;
+}
+
+.rightAside {
+  grid-column: 12;
+  grid-row: 1;
+  align-self: start;
+  padding-top: 36px;
+  color: color-mix(in srgb, var(--today-bone) 57%, var(--today-earth));
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  line-height: 1.85;
+  text-transform: uppercase;
+}
+
+.rightAside p {
+  margin: 0;
+}
+
+.rightAside span {
+  display: block;
+  width: 1px;
+  height: 44px;
+  margin: 28px 0;
+  background: var(--today-earth);
+}
+
+.rightAside small {
+  display: block;
+  max-width: 110px;
+  color: color-mix(in srgb, var(--today-bone) 44%, var(--today-earth));
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.leftNote {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  align-self: end;
+  margin: 0 0 78px;
+  color: color-mix(in srgb, var(--today-bone) 48%, var(--today-earth));
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  line-height: 1.85;
+  text-transform: uppercase;
+}
+
+.stories {
+  display: grid;
+  grid-column: 3 / span 9;
+  grid-row: 2;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: -38px;
+  scroll-margin-top: 84px;
+}
+
+.story {
+  position: relative;
+  min-width: 0;
+}
+
+.storyIndex {
+  margin-bottom: 10px;
+  color: color-mix(in srgb, var(--today-bone) 48%, var(--today-earth));
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+.storyImage {
+  position: relative;
+  overflow: hidden;
+  background: #25211d;
+}
+
+.vaultStory .storyImage {
+  aspect-ratio: 1.48;
+}
+
+.restorationStory {
+  padding-top: 82px;
+}
+
+.restorationStory .storyImage {
+  aspect-ratio: 1.22;
+}
+
+.restorationStory .storyImage img {
+  object-position: 62% 42%;
+  transform: scale(1.06);
+}
+
+.storyImage img {
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story:hover .storyImage img {
+  transform: scale(1.02);
+}
+
+.restorationStory:hover .storyImage img {
+  transform: scale(1.08) translateX(-0.8%);
+}
+
+.storyMeta {
+  padding-top: 15px;
+  border-top: 1px solid color-mix(in srgb, var(--today-earth) 42%, transparent);
+}
+
+.storyMeta h3 {
+  margin: 0 0 7px;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(22px, 2vw, 34px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.storyMeta p {
+  margin: 0;
+  color: color-mix(in srgb, var(--today-bone) 55%, var(--today-earth));
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.bottomBridge {
+  position: absolute;
+  right: 5vw;
+  bottom: 54px;
+  left: 5vw;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: color-mix(in srgb, var(--today-bone) 55%, var(--today-earth));
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.bottomBridge i {
+  height: 1px;
+  flex: 1;
+  background: color-mix(in srgb, var(--today-earth) 55%, transparent);
+}
+
+.bottomBridge small {
+  font-size: inherit;
+}
+
+:global(html[data-museum-today]):has(.root) :global(nav[aria-label='Main navigation']) {
+  background: color-mix(in srgb, var(--today-charcoal) 94%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--today-earth) 32%, transparent);
+}
+
+:global(html[data-museum-today]):has(.root)
+  :global(nav[aria-label='Main navigation'])
+  :global(:is(a, button, span)) {
+  color: var(--today-bone);
+}
+
+:global(html[data-museum-today]):has(.root)
+  :global(nav[aria-label='Main navigation'])
+  :global(a.border) {
+  border-color: var(--today-earth);
+}
+
+@media (max-width: 1180px) {
+  .museum {
+    min-height: 1360px;
+    padding-inline: 6vw;
+  }
+
+  .editorialGrid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .intro {
+    grid-column: 1 / span 3;
+    padding-left: 0;
+  }
+
+  .intro h2,
+  .titleClip > span {
+    font-size: clamp(58px, 7.6vw, 92px);
+  }
+
+  .mainVisual {
+    grid-column: 4 / span 5;
+  }
+
+  .rightAside {
+    display: none;
+  }
+
+  .leftNote {
+    display: none;
+  }
+
+  .stories {
+    grid-column: 2 / span 7;
+  }
+}
+
+@media (max-width: 767px) {
+  .transition {
+    height: auto;
+    min-height: 780px;
+  }
+
+  .transitionFrame {
+    position: relative;
+    height: max(100svh, 780px);
+    min-height: 780px;
+  }
+
+  .transitionTextile {
+    opacity: 0.2;
+  }
+
+  .transitionShade {
+    background:
+      linear-gradient(180deg, rgb(25 24 22 / 0.28) 0%, rgb(25 24 22 / 0.88) 73%),
+      linear-gradient(90deg, rgb(25 24 22 / 0.82), transparent 86%);
+  }
+
+  .transitionOrnament {
+    inset: 0 5vw;
+    width: 90vw;
+    opacity: 0.22;
+    transform: translateX(-17%);
+  }
+
+  .transitionGrid span:first-child {
+    top: 8vh;
+    bottom: 7vh;
+    left: 8vw;
+  }
+
+  .transitionGrid span:nth-child(2) {
+    top: 31%;
+    right: 6vw;
+    left: 8vw;
+  }
+
+  .transitionGrid i {
+    top: calc(31% - 6px);
+    left: calc(8vw - 6px);
+  }
+
+  .transitionCopy {
+    top: auto;
+    right: 7vw;
+    bottom: 6vh;
+    left: 7vw;
+    width: auto;
+  }
+
+  .transitionTitleClip {
+    margin-block: 14px 16px;
+  }
+
+  .transitionTitleClip span {
+    font-size: clamp(46px, 15vw, 72px);
+  }
+
+  .transitionImage {
+    top: 14%;
+    right: 6vw;
+    width: 86vw;
+    height: 47%;
+  }
+
+  .transitionImage figcaption {
+    right: 14px;
+    bottom: 12px;
+    max-width: 70%;
+    font-size: 9px;
+    line-height: 1.45;
+    text-align: right;
+  }
+
+  .museum {
+    min-height: 0;
+    padding: 112px 7vw 124px;
+  }
+
+  .topRule {
+    top: 68px;
+    right: 7vw;
+    left: 7vw;
+  }
+
+  .topRule i {
+    margin-left: -28%;
+  }
+
+  .sectionMarker {
+    top: 88px;
+    left: 7vw;
+    font-size: 18px;
+  }
+
+  .sectionMarker i {
+    width: 42px;
+  }
+
+  .editorialGrid {
+    display: block;
+  }
+
+  .intro {
+    padding: 44px 0 54px;
+  }
+
+  .intro h2,
+  .titleClip > span {
+    font-size: clamp(56px, 18vw, 84px);
+  }
+
+  .kicker {
+    margin: 30px 0 21px;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+  }
+
+  .copy {
+    font-size: 16px;
+  }
+
+  .primaryCta {
+    width: 100%;
+    margin-top: 31px;
+  }
+
+  .mainVisual {
+    margin: 0 0 92px;
+  }
+
+  .imageFrame {
+    height: auto;
+    aspect-ratio: 0.92;
+  }
+
+  .mainVisual figcaption {
+    display: block;
+    line-height: 1.6;
+  }
+
+  .mainVisual figcaption small {
+    display: block;
+    margin-top: 2px;
+  }
+
+  .leftNote,
+  .rightAside {
+    display: none;
+  }
+
+  .stories {
+    display: block;
+    margin: 0;
+  }
+
+  .story + .story {
+    margin-top: 72px;
+  }
+
+  .restorationStory {
+    padding-top: 0;
+  }
+
+  .vaultStory .storyImage,
+  .restorationStory .storyImage {
+    aspect-ratio: 1.12;
+  }
+
+  .storyMeta {
+    padding-top: 13px;
+  }
+
+  .storyMeta h3 {
+    font-size: clamp(24px, 8vw, 34px);
+  }
+
+  .bottomBridge {
+    right: 7vw;
+    bottom: 42px;
+    left: 7vw;
+    gap: 16px;
+  }
+
+  .bottomBridge > span {
+    display: none;
+  }
+
+  .bottomBridge small {
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root *,
+  .root *::before,
+  .root *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .transition {
+    height: auto;
+    min-height: 760px;
+  }
+
+  .transitionFrame {
+    position: relative;
+    min-height: 760px;
+  }
+}
