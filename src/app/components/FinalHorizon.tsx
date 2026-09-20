@@ -1,40 +1,80 @@
-import React from 'react';
-import AppImage from '@/components/ui/AppImage';
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useRef } from 'react';
+import styles from './FinalHorizon.module.css';
 
 export default function FinalHorizon() {
+  const sceneRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    let disposed = false;
+    let cleanup: (() => void) | undefined;
+    void import('./finalHorizonAnimation').then(({ createFinalHorizonAnimation }) => {
+      if (!disposed && sceneRef.current) cleanup = createFinalHorizonAnimation(sceneRef.current);
+    });
+    return () => {
+      disposed = true;
+      cleanup?.();
+    };
+  }, []);
+
   return (
     <section
-      className="relative w-full overflow-hidden"
-      style={{ height: 'clamp(280px, 45vw, 560px)' }}
-      aria-label="Desert horizon">
-      
-      <AppImage
-        src="https://images.unsplash.com/photo-1712587357056-0c05be13c08d"
-        alt="Vast desert salt flat at dusk, pale horizon line, enormous sky fading from warm amber to cool grey, absolute emptiness and scale"
-        fill
-        className="object-cover"
-        sizes="100vw" />
-      
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-primary/40" />
+      ref={sceneRef}
+      data-final-horizon
+      className={styles.scene}
+      aria-labelledby="final-horizon-heading"
+    >
+      <div data-horizon-aperture className={styles.aperture}>
+        <Image
+          data-horizon-image
+          src="/images/final/nukus-landscape.png"
+          alt="Sunset over a broad desert landscape with distant flat-topped hills."
+          fill
+          sizes="100vw"
+          quality={85}
+          className={styles.image}
+        />
+        <div className={styles.grade} aria-hidden="true" />
+        <div className={styles.landFade} aria-hidden="true" />
+      </div>
+      <div data-horizon-bleed className={styles.topBleed} aria-hidden="true" />
+      <div className={styles.quietRule} aria-hidden="true">
+        <span />
+        <i />
+      </div>
 
-      {/* Final statement */}
-      <div className="absolute inset-0 flex items-end justify-center pb-12 md:pb-16 z-10">
-        <div className="text-center">
-          <p
-            className="font-display font-light text-primary-foreground/80 tracking-widest uppercase"
-            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.75rem)', letterSpacing: '0.25em' }}>
-            
-            From Nukus
-          </p>
-          <p
-            className="font-display font-light text-primary-foreground/50 tracking-widest uppercase mt-1"
-            style={{ fontSize: 'clamp(0.75rem, 1.5vw, 1rem)', letterSpacing: '0.35em' }}>
-            
-            To the World
+      <div className={styles.content}>
+        <div className={styles.chapterMarker}>
+          <span>10</span>
+          <i />
+        </div>
+        <div className={styles.copy}>
+          <h2 id="final-horizon-heading" className={styles.title}>
+            <span className={styles.lineMask}>
+              <span data-horizon-title>From Nukus</span>
+            </span>
+            <span className={styles.lineMask}>
+              <span data-horizon-title>To the World</span>
+            </span>
+          </h2>
+          <p data-horizon-meta className={styles.statement}>
+            A local story.
+            <br />A global dialogue.
           </p>
         </div>
+        <p data-horizon-meta className={styles.location}>
+          Nukus
+          <br />
+          Karakalpakstan
+          <br />
+          Uzbekistan
+        </p>
+        <p data-horizon-meta className={styles.caption}>
+          Rooted in land. Open to the world.
+        </p>
       </div>
-    </section>);
-
+    </section>
+  );
 }

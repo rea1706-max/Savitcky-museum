@@ -82,6 +82,25 @@ Karakalpak Arts CTA opens `/collection?category=karakalpak-arts` with the catalo
 входы Avant-Garde и Heritage & History. CTA Karakalpak Arts открывает каталог с активным
 фильтром `/collection?category=karakalpak-arts`.
 
+## Closing homepage sequence / Финал главной страницы
+
+After Karakalpak Arts, the page continues vertically through Museum Today, the landscape
+chapter “From Nukus to the World”, and a homepage-specific footer. Museum Today shows two
+story teasers; its CTA and the main Stories navigation open the separate `/stories` archive.
+The closing landscape uses the supplied production image at
+`public/images/final/nukus-landscape.png`. Motion uses reversible ScrollTriggers without a
+new pinned or horizontal section and respects reduced-motion preferences. The language
+buttons currently select a language indicator only; translated page content is not yet
+implemented.
+
+После Karakalpak Arts страница продолжается вертикально: Museum Today, пейзажный финал
+«From Nukus to the World» и отдельный футер главной. В Museum Today показаны две истории;
+его кнопка и пункт Stories в меню ведут в самостоятельный архив `/stories`. Финальный
+пейзаж берётся из предоставленного изображения
+`public/images/final/nukus-landscape.png`. Анимация обратима при прокрутке, не добавляет
+нового закреплённого или горизонтального участка и учитывает настройку уменьшения движения.
+Переключатель языков пока меняет только индикатор: переводы содержимого ещё не реализованы.
+
 ## 📱 Deployment
 
 Build the application for production:

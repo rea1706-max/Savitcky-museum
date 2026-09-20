@@ -137,7 +137,7 @@ export function createCollectionJourney(root: HTMLElement) {
         timeline.to(select('[data-archive-rule] small'), { autoAlpha: 1, duration: 5 }, 82);
         timeline.to({}, { duration: 16 });
 
-        const horizontalTrigger = ScrollTrigger.create({
+        ScrollTrigger.create({
           id: 'savitsky-collection-journey',
           trigger: stage,
           animation: timeline,
@@ -151,8 +151,10 @@ export function createCollectionJourney(root: HTMLElement) {
           onUpdate: (self) => {
             root.toggleAttribute('data-light-stage', self.progress > 0.59);
           },
+          onRefresh: (self) => {
+            root.toggleAttribute('data-light-stage', self.progress > 0.59);
+          },
         });
-        horizontalTrigger.refresh();
 
         return () => {
           root.removeAttribute('data-light-stage');

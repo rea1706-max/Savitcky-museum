@@ -179,6 +179,23 @@ export function createMuseumTodayAnimation(root: HTMLElement) {
           }
         );
       });
+
+      gsap.fromTo(
+        select('[data-museum-exit-light]'),
+        { opacity: 0.18 },
+        {
+          opacity: 0.95,
+          ease: 'none',
+          scrollTrigger: {
+            id: 'savitsky-museum-to-horizon',
+            trigger: museum,
+            start: 'bottom bottom',
+            end: 'bottom 10%',
+            scrub: 0.55,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
     });
 
     media.add('(max-width: 767px) and (prefers-reduced-motion: no-preference)', () => {

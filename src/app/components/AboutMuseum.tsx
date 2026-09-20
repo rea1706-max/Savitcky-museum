@@ -97,7 +97,7 @@ export default function AboutMuseum() {
                   <Link href="/collection">
                     Explore the collection <Arrow />
                   </Link>
-                  <Link href="#stories">
+                  <Link href="/stories">
                     Museum today <Arrow />
                   </Link>
                 </div>

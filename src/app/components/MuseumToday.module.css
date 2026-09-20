@@ -66,6 +66,18 @@
   mix-blend-mode: soft-light;
 }
 
+.exitLight {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 36%;
+  background: radial-gradient(ellipse 72% 54% at 64% 100%, rgb(181 135 91 / 0.25), transparent);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
 .grain {
   z-index: -1;
   opacity: 0.74;
@@ -276,6 +288,8 @@
 }
 
 .editorialGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 24px;
@@ -459,6 +473,8 @@
 .story {
   position: relative;
   min-width: 0;
+  color: inherit;
+  text-decoration: none;
 }
 
 .storyIndex {
@@ -539,6 +555,7 @@
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
+  z-index: 1;
 }
 
 .bottomBridge i {
@@ -549,23 +566,6 @@
 
 .bottomBridge small {
   font-size: inherit;
-}
-
-:global(html[data-museum-today]):has(.root) :global(nav[aria-label='Main navigation']) {
-  background: color-mix(in srgb, var(--today-charcoal) 94%, transparent);
-  border-bottom-color: color-mix(in srgb, var(--today-earth) 32%, transparent);
-}
-
-:global(html[data-museum-today]):has(.root)
-  :global(nav[aria-label='Main navigation'])
-  :global(:is(a, button, span)) {
-  color: var(--today-bone);
-}
-
-:global(html[data-museum-today]):has(.root)
-  :global(nav[aria-label='Main navigation'])
-  :global(a.border) {
-  border-color: var(--today-earth);
 }
 
 @media (max-width: 1180px) {

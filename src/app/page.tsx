@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from '@/components/Footer';
+import ClosingFooter from '@/app/components/ClosingFooter';
 import OpeningSequence from '@/app/components/OpeningSequence';
 import InfoStrip from '@/app/components/InfoStrip';
 import AboutMuseum from '@/app/components/AboutMuseum';
@@ -29,7 +29,7 @@ export default function HomePage() {
       </CollectionJourney>
       <MuseumToday />
       <FinalHorizon />
-      <Footer />
+      <ClosingFooter />
     </main>
   );
 }

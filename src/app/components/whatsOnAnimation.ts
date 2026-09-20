@@ -6,6 +6,7 @@ export function createWhatsOnAnimation(section: HTMLElement) {
   const select = gsap.utils.selector(section);
   const journey = section.closest<HTMLElement>('[data-collection-journey]');
   const previous = section.previousElementSibling ?? journey?.previousElementSibling;
+  const transitionAnchor = previous instanceof HTMLElement ? previous : section;
   const photo = previous?.querySelector('[data-about-photo]');
   let disposed = false;
   const media = gsap.matchMedia();
@@ -19,13 +20,13 @@ export function createWhatsOnAnimation(section: HTMLElement) {
         // Only the exit of the archive photo is touched. Its approved entrance,
         // placement and crop are owned by About; this context restores its styles.
         if (photo)
-          timeline.fromTo(photo, { y: 0, opacity: 1 }, { y: -12, opacity: 0.86, duration: 25 }, 0);
+          timeline.fromTo(photo, { y: 0, opacity: 1 }, { y: -12, opacity: 0.86, duration: 18 }, 0);
         const paths = section.querySelectorAll<SVGPathElement>('[data-feature-geometry] path');
         gsap.set(paths, { strokeDasharray: '1 1', strokeDashoffset: 1 });
         paths.forEach((path) => path.setAttribute('pathLength', '1'));
-        timeline.to(select('[data-feature-spine]'), { strokeDashoffset: 0, duration: 32 }, 6);
-        timeline.to(select('[data-feature-diagonal]'), { strokeDashoffset: 0, duration: 34 }, 25);
-        timeline.to(select('[data-feature-node]'), { strokeDashoffset: 0, duration: 22 }, 35);
+        timeline.to(select('[data-feature-spine]'), { strokeDashoffset: 0, duration: 22 }, 0);
+        timeline.to(select('[data-feature-diagonal]'), { strokeDashoffset: 0, duration: 24 }, 8);
+        timeline.to(select('[data-feature-node]'), { strokeDashoffset: 0, duration: 16 }, 15);
         timeline.fromTo(
           select('[data-feature-red-mask]'),
           { clipPath: 'polygon(2% 0, 2% 0, 62% 100%, 62% 100%)' },
@@ -34,18 +35,18 @@ export function createWhatsOnAnimation(section: HTMLElement) {
               matchMedia('(max-width: 767px)').matches
                 ? 'polygon(0% 0, 34% 0, 100% 100%, 75% 100%)'
                 : 'polygon(2% 0, 42% 0, 98% 100%, 62% 100%)',
-            duration: 32,
+            duration: 24,
           },
-          35
+          6
         );
         timeline.fromTo(
           select('[data-feature-mask]'),
           { clipPath: 'polygon(48% 38%, 48% 38%, 53% 58%, 53% 58%, 50.5% 48%, 49.25% 43%)' },
           {
             clipPath: 'polygon(14% 0%, 100% 0%, 100% 85%, 86% 100%, 0% 100%, 0% 16%)',
-            duration: 37,
+            duration: 28,
           },
-          48
+          10
         );
         const reveal = (name: string, start: number, duration = 14) =>
           timeline.fromTo(
@@ -54,32 +55,30 @@ export function createWhatsOnAnimation(section: HTMLElement) {
             { autoAlpha: 1, y: 0, duration, ease: 'power2.out' },
             start
           );
-        reveal('label', 61);
-        reveal('title', 65, 19);
-        reveal('subtitle', 71);
-        reveal('dates', 73);
-        reveal('status', 77);
-        reveal('copy', 81);
-        reveal('credit', 82);
-        reveal('actions', 86);
+        reveal('label', 7, 11);
+        reveal('title', 12, 17);
+        reveal('subtitle', 18, 12);
+        reveal('dates', 21, 11);
+        reveal('status', 22, 11);
+        reveal('copy', 26, 13);
+        reveal('credit', 28, 11);
+        reveal('actions', 31, 13);
+        timeline.to({}, { duration: 8 });
         ScrollTrigger.create({
           id: 'savitsky-whats-on',
-          trigger: section,
+          trigger: transitionAnchor,
           animation: timeline,
-          start: 'top 92%',
-          end: 'top 12%',
+          start: 'bottom bottom',
+          end: 'bottom top',
           scrub: 0.25,
           pin: false,
           refreshPriority: -20,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
-            if (self.progress < 0.995) section.dataset.featureReady = 'false';
+            section.dataset.featureReady = String(self.progress >= 0.98);
           },
-          onScrubComplete: () => {
-            section.dataset.featureReady = String(timeline.progress() >= 0.995);
-          },
-          onRefresh: () => {
-            section.dataset.featureReady = String(timeline.progress() >= 0.995);
+          onRefresh: (self) => {
+            section.dataset.featureReady = String(self.progress >= 0.98);
           },
         });
         return () => {

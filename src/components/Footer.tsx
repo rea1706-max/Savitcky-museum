@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 const footerLinks = {
   Explore: [
-    { label: 'About the Museum', href: '#about' },
-    { label: "What\'s On", href: '#whats-on' },
-    { label: 'Collection', href: '#collection' },
-    { label: 'Museum Today', href: '#stories' },
+    { label: 'About the Museum', href: '/#about' },
+    { label: "What's On", href: '/#whats-on' },
+    { label: 'Collection', href: '/#collection' },
+    { label: 'Stories', href: '/stories' },
   ],
   Collection: [
     { label: 'Explore All Works', href: '/collection' },
@@ -80,10 +80,15 @@ export default function Footer() {
         <div className="max-w-2xl">
           <p
             className="font-display font-light text-primary-foreground/18 select-none"
-            style={{ fontSize: 'clamp(1.75rem, 5vw, 4.5rem)', lineHeight: '0.9', letterSpacing: '-0.03em' }}
+            style={{
+              fontSize: 'clamp(1.75rem, 5vw, 4.5rem)',
+              lineHeight: '0.9',
+              letterSpacing: '-0.03em',
+            }}
             aria-hidden="true"
           >
-            FROM NUKUS<br />
+            FROM NUKUS
+            <br />
             TO THE WORLD
           </p>
           {/* Karakalpak ornament accent line */}
@@ -115,11 +120,10 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm text-primary-foreground/45 leading-relaxed max-w-xs mb-5">
-              State Museum of Arts of the Republic of Karakalpakstan named after I.V. Savitsky. 82,000 works. Second largest Russian avant-garde collection in the world.
+              State Museum of Arts of the Republic of Karakalpakstan named after I.V. Savitsky.
+              82,000 works. Second largest Russian avant-garde collection in the world.
             </p>
-            <p className="text-label text-primary-foreground/35">
-              museum.kr.uz
-            </p>
+            <p className="text-label text-primary-foreground/35">museum.kr.uz</p>
           </div>
 
           {/* Link columns */}

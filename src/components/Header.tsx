@@ -4,15 +4,34 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 
-const navLinks = [
+type NavLink = {
+  label: string;
+  href: string;
+  anchor?: string;
+};
+
+const navLinks: NavLink[] = [
   { label: 'Home', href: '/', anchor: 'hero' },
   { label: 'About', href: '/#about', anchor: 'about' },
-  { label: "What\'s On", href: '/#whats-on', anchor: 'whats-on' },
+  { label: "What's On", href: '/#whats-on', anchor: 'whats-on' },
   { label: 'Collection', href: '/#collection', anchor: 'collection' },
-  { label: 'Stories', href: '/#stories', anchor: 'stories' },
+  { label: 'Stories', href: '/stories' },
 ];
 
 const languages = ['KK', 'RU', 'UZ', 'EN'];
+
+function scrollToAnchor(element: HTMLElement) {
+  // What's On lives inside a pinned track. Its own bounding box moves with
+  // ScrollTrigger; the outer journey stays at a stable document position.
+  const target =
+    element.id === 'whats-on'
+      ? (document.querySelector<HTMLElement>('[data-collection-journey]') ?? element)
+      : element;
+  window.scrollTo({
+    top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - 76),
+    behavior: 'smooth',
+  });
+}
 
 export default function Header({ openingSequence = false }: { openingSequence?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -37,13 +56,20 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
     } else {
       document.body.style.overflow = '';
     }
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [menuOpen]);
 
   // Navigate to homepage anchor — works from any page
-  const handleNavClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
+  const handleNavClick = (e: React.MouseEvent, link: NavLink) => {
     e.preventDefault();
     setMenuOpen(false);
+
+    if (!link.anchor) {
+      router.push(link.href);
+      return;
+    }
 
     if (link.anchor === 'hero' || link.href === '/') {
       if (pathname === '/') {
@@ -58,7 +84,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
       // Already on homepage — scroll to anchor
       const el = document.getElementById(link.anchor);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        scrollToAnchor(el);
       }
     } else {
       // On a subpage — navigate to homepage with hash
@@ -72,7 +98,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
       const anchor = window.location.hash.replace('#', '');
       const el = document.getElementById(anchor);
       if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 300);
+        setTimeout(() => scrollToAnchor(el), 300);
       }
     }
   }, [pathname]);
@@ -82,8 +108,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
       {/* Main Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-background/95 backdrop-blur-sm border-b border-border' : 'bg-transparent'
+          scrolled ? 'bg-background/95 backdrop-blur-sm border-b border-border' : 'bg-transparent'
         }`}
         aria-label="Main navigation"
       >
@@ -136,8 +161,12 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                   onClick={() => setActiveLang(lang)}
                   className={`text-label px-2 py-0.5 transition-colors ${
                     activeLang === lang
-                      ? scrolled ? 'text-foreground' : 'text-primary-foreground'
-                      : scrolled ? 'text-muted-foreground hover:text-foreground' : 'text-primary-foreground/40 hover:text-primary-foreground/70'
+                      ? scrolled
+                        ? 'text-foreground'
+                        : 'text-primary-foreground'
+                      : scrolled
+                        ? 'text-muted-foreground hover:text-foreground'
+                        : 'text-primary-foreground/40 hover:text-primary-foreground/70'
                   }`}
                   aria-label={`Switch to ${lang}`}
                 >
@@ -168,9 +197,15 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
-            <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? 'w-full rotate-45 translate-y-2' : 'w-full'}`} />
-            <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? 'opacity-0' : 'w-2/3'}`} />
-            <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? 'w-full -rotate-45 -translate-y-2' : 'w-full'}`} />
+            <span
+              className={`block h-px bg-current transition-all duration-300 ${menuOpen ? 'w-full rotate-45 translate-y-2' : 'w-full'}`}
+            />
+            <span
+              className={`block h-px bg-current transition-all duration-300 ${menuOpen ? 'opacity-0' : 'w-2/3'}`}
+            />
+            <span
+              className={`block h-px bg-current transition-all duration-300 ${menuOpen ? 'w-full -rotate-45 -translate-y-2' : 'w-full'}`}
+            />
           </button>
         </div>
       </nav>

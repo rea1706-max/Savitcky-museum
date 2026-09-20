@@ -34,11 +34,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Savitsky Museum — Avant-Garde & Karakalpak Heritage',
-  description: 'The world\'s second-largest Russian avant-garde collection in Nukus, Karakalpakstan. 82,000 works spanning avant-garde, Karakalpak arts, and Ancient Khorezm.',
+  description:
+    "The world's second-largest Russian avant-garde collection in Nukus, Karakalpakstan. 82,000 works spanning avant-garde, Karakalpak arts, and Ancient Khorezm.",
   icons: {
-    icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' }
-    ],
+    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },
   openGraph: {
     title: 'Savitsky Museum — Nukus',
@@ -53,10 +52,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${cormorant.variable} ${playfair.variable}`}>
-      <body className={dmSans.className}>
-        {children}
-</body>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${dmSans.variable} ${cormorant.variable} ${playfair.variable}`}
+    >
+      <body className={dmSans.className}>{children}</body>
     </html>
   );
 }

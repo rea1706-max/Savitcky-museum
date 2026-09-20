@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import styles from './MuseumToday.module.css';
 
@@ -124,6 +125,7 @@ export default function MuseumToday() {
         aria-labelledby="museum-heading"
       >
         <div className={styles.noise} aria-hidden="true" />
+        <div data-museum-exit-light className={styles.exitLight} aria-hidden="true" />
         <div className={styles.topRule} aria-hidden="true">
           <span />
           <i />
@@ -156,9 +158,9 @@ export default function MuseumToday() {
               <br />
               to grow.
             </p>
-            <a data-museum-cta className={styles.primaryCta} href="#museum-today-stories">
+            <Link data-museum-cta className={styles.primaryCta} href="/stories">
               See our stories <Arrow />
-            </a>
+            </Link>
           </header>
 
           <figure data-museum-main-image className={styles.mainVisual}>
@@ -201,7 +203,12 @@ export default function MuseumToday() {
           </p>
 
           <div id="museum-today-stories" className={styles.stories}>
-            <article data-story-card className={`${styles.story} ${styles.vaultStory}`}>
+            <Link
+              data-story-card
+              href="/stories"
+              className={`${styles.story} ${styles.vaultStory}`}
+              aria-label="Open Stories: Inside the Vaults"
+            >
               <div className={styles.storyIndex}>01</div>
               <div className={styles.storyImage}>
                 <Image
@@ -216,9 +223,14 @@ export default function MuseumToday() {
                 <h3>Inside the Vaults</h3>
                 <p>A collection that lives on.</p>
               </div>
-            </article>
+            </Link>
 
-            <article data-story-card className={`${styles.story} ${styles.restorationStory}`}>
+            <Link
+              data-story-card
+              href="/stories"
+              className={`${styles.story} ${styles.restorationStory}`}
+              aria-label="Open Stories: Restoration in Progress"
+            >
               <div className={styles.storyIndex}>02</div>
               <div className={styles.storyImage}>
                 <Image
@@ -233,7 +245,7 @@ export default function MuseumToday() {
                 <h3>Restoration in Progress</h3>
                 <p>Skills. Care. A longer tomorrow.</p>
               </div>
-            </article>
+            </Link>
           </div>
         </div>
 
