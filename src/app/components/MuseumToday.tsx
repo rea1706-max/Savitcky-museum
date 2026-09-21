@@ -7,15 +7,15 @@ import styles from './MuseumToday.module.css';
 
 const images = {
   conservation: {
-    src: 'https://img.rocket.new/generatedImages/rocket_gen_img_46ebb1ed6-1788627712885.png',
+    src: '/images/stories/museum-today-conservation.jpg',
     alt: 'Art conservator carefully cleaning an aged canvas with fine tools in the museum studio.',
   },
   vaults: {
-    src: 'https://img.rocket.new/generatedImages/rocket_gen_img_45b2bc068-1788627713692.png',
+    src: '/images/stories/museum-today-vaults.png',
     alt: 'Museum storage vault with rows of framed paintings on archival racks.',
   },
   restoration: {
-    src: 'https://img.rocket.new/generatedImages/rocket_gen_img_46ebb1ed6-1788627712885.png',
+    src: '/images/stories/museum-today-restoration.png',
     alt: 'Close view of a conservator at work on a historic painted surface.',
   },
 };
