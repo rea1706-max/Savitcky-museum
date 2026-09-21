@@ -53,7 +53,17 @@ export default function PlanVisitSection() {
           </div>
           <Link href="/visit" className="btn-primary self-start md:self-end">
             Full Visitor Guide
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </Link>
@@ -67,7 +77,9 @@ export default function PlanVisitSection() {
               {hours?.map((h) => (
                 <li key={h?.day} className="flex justify-between items-center">
                   <span className="text-sm font-medium text-foreground">{h?.day}</span>
-                  <span className={`text-sm font-light ${h?.time === 'Closed' ? 'text-muted-foreground' : 'text-foreground'}`}>
+                  <span
+                    className={`text-sm font-light ${h?.time === 'Closed' ? 'text-muted-foreground' : 'text-foreground'}`}
+                  >
                     {h?.time}
                   </span>
                 </li>
@@ -85,9 +97,14 @@ export default function PlanVisitSection() {
                 { label: 'Child (under 12)', price: 'Free' },
                 { label: 'Guided Tour', price: '100,000 UZS' },
               ]?.map((ticket) => (
-                <li key={ticket?.label} className="flex justify-between items-center border-b border-border pb-4 last:border-0 last:pb-0">
+                <li
+                  key={ticket?.label}
+                  className="flex justify-between items-center border-b border-border pb-4 last:border-0 last:pb-0"
+                >
                   <span className="text-sm font-medium text-foreground">{ticket?.label}</span>
-                  <span className="text-sm font-display font-medium text-foreground">{ticket?.price}</span>
+                  <span className="text-sm font-display font-medium text-foreground">
+                    {ticket?.price}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -105,9 +122,23 @@ export default function PlanVisitSection() {
               <p className="text-sm text-muted-foreground font-light">Nukus, 230100</p>
               <p className="text-sm text-muted-foreground font-light">Karakalpakstan, Uzbekistan</p>
             </address>
-            <div className="bg-muted border border-border h-32 flex items-center justify-center mb-6" aria-label="Map placeholder">
+            <div
+              className="bg-muted border border-border h-32 flex items-center justify-center mb-6"
+              aria-label="Map placeholder"
+            >
               <div className="text-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground mx-auto mb-2" aria-hidden="true">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-muted-foreground mx-auto mb-2"
+                  aria-hidden="true"
+                >
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
@@ -116,7 +147,17 @@ export default function PlanVisitSection() {
             </div>
             <Link href="/visit" className="btn-ghost">
               Getting to Nukus
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>

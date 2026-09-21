@@ -5,8 +5,8 @@ export default function VisitHero() {
   return (
     <section
       className="relative pt-[72px] md:pt-[88px] overflow-hidden bg-primary"
-      aria-labelledby="visit-hero-heading">
-      
+      aria-labelledby="visit-hero-heading"
+    >
       <div className="relative h-[280px] md:h-[360px] overflow-hidden">
         <AppImage
           src="https://img.rocket.new/generatedImages/rocket_gen_img_16c8d6924-1765746942795.png"
@@ -14,8 +14,9 @@ export default function VisitHero() {
           fill
           priority
           className="object-cover opacity-30"
-          sizes="100vw" />
-        
+          sizes="100vw"
+        />
+
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/95" />
       </div>
 
@@ -27,8 +28,12 @@ export default function VisitHero() {
           <h1
             id="visit-hero-heading"
             className="font-display font-light text-primary-foreground"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', lineHeight: '0.92', letterSpacing: '-0.03em' }}>
-            
+            style={{
+              fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+              lineHeight: '0.92',
+              letterSpacing: '-0.03em',
+            }}
+          >
             Plan Your
             <br />
             <em className="font-medium not-italic">Visit</em>
@@ -38,6 +43,6 @@ export default function VisitHero() {
           </p>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

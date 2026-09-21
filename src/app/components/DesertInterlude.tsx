@@ -50,7 +50,13 @@ export default function DesertInterlude() {
 
       {/* Karakalpak ornament border — top */}
       <div className="absolute top-0 left-0 right-0 z-10 px-6 md:px-12 pt-6" aria-hidden="true">
-        <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(241,235,221,0.2) 30%, rgba(166,64,45,0.3) 50%, rgba(241,235,221,0.2) 70%, transparent)' }} />
+        <div
+          className="h-px w-full"
+          style={{
+            background:
+              'linear-gradient(90deg, transparent, rgba(241,235,221,0.2) 30%, rgba(166,64,45,0.3) 50%, rgba(241,235,221,0.2) 70%, transparent)',
+          }}
+        />
       </div>
 
       {/* Geographic marker — bottom left */}
@@ -58,9 +64,7 @@ export default function DesertInterlude() {
         <div className="flex items-start gap-4">
           <div className="w-px h-14 bg-primary-foreground/30 mt-1" aria-hidden="true" />
           <div>
-            <p className="text-label text-primary-foreground/50 tracking-widest">
-              41°33′N 60°37′E
-            </p>
+            <p className="text-label text-primary-foreground/50 tracking-widest">41°33′N 60°37′E</p>
             <p className="text-sm text-primary-foreground/35 font-light mt-1">
               Karakalpakstan, Uzbekistan
             </p>
@@ -82,7 +86,13 @@ export default function DesertInterlude() {
 
       {/* Karakalpak ornament border — bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-6" aria-hidden="true">
-        <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(241,235,221,0.2) 30%, rgba(166,64,45,0.3) 50%, rgba(241,235,221,0.2) 70%, transparent)' }} />
+        <div
+          className="h-px w-full"
+          style={{
+            background:
+              'linear-gradient(90deg, transparent, rgba(241,235,221,0.2) 30%, rgba(166,64,45,0.3) 50%, rgba(241,235,221,0.2) 70%, transparent)',
+          }}
+        />
       </div>
     </section>
   );

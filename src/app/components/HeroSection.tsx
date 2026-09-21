@@ -47,7 +47,7 @@ export default function HeroSection() {
       vx: (Math.random() - 0.5) * 0.18,
       vy: (Math.random() - 0.5) * 0.12,
       r: Math.random() * 1.2 + 0.4,
-      opacity: Math.random() * 0.25 + 0.08
+      opacity: Math.random() * 0.25 + 0.08,
     }));
 
     const draw = () => {
@@ -100,8 +100,8 @@ export default function HeroSection() {
       ref={heroRef}
       id="hero"
       className="relative w-full min-h-screen flex items-end overflow-hidden"
-      aria-label="Hero">
-
+      aria-label="Hero"
+    >
       {/* Full-bleed background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="parallax-img absolute inset-0 scale-110">
@@ -111,7 +111,8 @@ export default function HeroSection() {
             fill
             priority
             className="object-cover object-center"
-            sizes="100vw" />
+            sizes="100vw"
+          />
         </div>
         {/* Deep atmospheric overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0e1420]/85 via-[#181714]/60 to-[#1a2a1a]/40 z-10" />
@@ -122,10 +123,14 @@ export default function HeroSection() {
       <canvas
         ref={canvasRef}
         className="absolute inset-0 z-20 w-full h-full pointer-events-none"
-        aria-hidden="true" />
+        aria-hidden="true"
+      />
 
       {/* Karakalpak ornament — subtle side border marks */}
-      <div className="absolute left-6 md:left-12 top-1/3 bottom-1/3 z-20 pointer-events-none hidden lg:flex flex-col justify-between" aria-hidden="true">
+      <div
+        className="absolute left-6 md:left-12 top-1/3 bottom-1/3 z-20 pointer-events-none hidden lg:flex flex-col justify-between"
+        aria-hidden="true"
+      >
         {[0, 1, 2, 3, 4].map((i) => (
           <div key={i} className="w-px h-4" style={{ background: 'rgba(241,235,221,0.12)' }} />
         ))}
@@ -133,7 +138,6 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-30 w-full px-6 md:px-12 pb-20 md:pb-32 pt-32 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-
         {/* Main identity — left column */}
         <div className="lg:col-span-8 flex flex-col gap-8">
           <div className="animate-fade-slide-up">
@@ -149,7 +153,8 @@ export default function HeroSection() {
               letterSpacing: '-0.02em',
               fontFamily: 'var(--font-cormorant)',
               fontWeight: 300,
-            }}>
+            }}
+          >
             SAVITSKY
             <br />
             <span style={{ fontStyle: 'italic', fontWeight: 400 }}>MUSEUM</span>
@@ -158,16 +163,26 @@ export default function HeroSection() {
           <div className="animate-fade-slide-up delay-200">
             <Link
               href="/#collection"
-              className="btn-primary bg-primary-foreground text-primary hover:bg-accent hover:text-primary-foreground inline-flex items-center gap-3">
+              className="btn-primary bg-primary-foreground text-primary hover:bg-accent hover:text-primary-foreground inline-flex items-center gap-3"
+            >
               Explore the Collection
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
         </div>
-
       </div>
-    </header>);
-
+    </header>
+  );
 }

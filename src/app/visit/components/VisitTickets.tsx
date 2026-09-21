@@ -68,11 +68,22 @@ export default function VisitTickets() {
             </h2>
             <div className="rule-oxide mb-6" />
             <p className="text-sm text-muted-foreground font-light leading-relaxed mb-8">
-              Tickets can be purchased at the museum entrance. Group bookings and guided tours should be arranged in advance.
+              Tickets can be purchased at the museum entrance. Group bookings and guided tours
+              should be arranged in advance.
             </p>
             <Link href="#" className="btn-primary">
               Book in Advance
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
@@ -85,30 +96,37 @@ export default function VisitTickets() {
                 <div
                   key={ticket?.type}
                   className={`p-6 flex flex-col justify-between ${
-                    ticket?.highlight
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-background'
+                    ticket?.highlight ? 'bg-primary text-primary-foreground' : 'bg-background'
                   }`}
                 >
                   <div>
-                    <div className={`text-label mb-3 ${ticket?.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}>
+                    <div
+                      className={`text-label mb-3 ${ticket?.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}
+                    >
                       {ticket?.type}
                     </div>
                     <div className="flex items-baseline gap-2">
                       <span
                         className={`font-display font-light ${ticket?.highlight ? 'text-primary-foreground' : 'text-foreground'}`}
-                        style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', letterSpacing: '-0.02em' }}
+                        style={{
+                          fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                          letterSpacing: '-0.02em',
+                        }}
                       >
                         {ticket?.price}
                       </span>
                       {ticket?.currency && (
-                        <span className={`text-label ${ticket?.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}>
+                        <span
+                          className={`text-label ${ticket?.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}
+                        >
                           {ticket?.currency}
                         </span>
                       )}
                     </div>
                   </div>
-                  <p className={`text-xs font-light mt-3 ${ticket?.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}>
+                  <p
+                    className={`text-xs font-light mt-3 ${ticket?.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}
+                  >
                     {ticket?.note}
                   </p>
                 </div>
@@ -117,7 +135,9 @@ export default function VisitTickets() {
 
             <div className="mt-4 p-4 border border-border bg-background">
               <p className="text-sm text-muted-foreground font-light">
-                <strong className="font-medium text-foreground">Free admission:</strong> First Sunday of every month. Journalists and accredited researchers with valid press/academic ID.
+                <strong className="font-medium text-foreground">Free admission:</strong> First
+                Sunday of every month. Journalists and accredited researchers with valid
+                press/academic ID.
               </p>
             </div>
           </div>

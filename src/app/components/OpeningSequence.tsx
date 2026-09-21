@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Header from '@/components/Header';
 
 const pathProps = { fill: 'none', vectorEffect: 'non-scaling-stroke' as const };
@@ -45,18 +46,18 @@ export default function OpeningSequence() {
             zIndex: 1,
           }}
         >
-          <img
+          <Image
             src="/assets/images/ustyurt-hero.jpg-1788636504270.webp"
             alt="Ustyurt plateau, Karakalpakstan — vast pale limestone desert under a pale blue-grey sky"
+            fill
+            priority
+            sizes="100vw"
             style={{
-              width: '100%',
-              height: '100%',
               objectFit: 'cover',
               objectPosition: 'center 40%',
               display: 'block',
               filter: 'saturate(0.82) brightness(0.94)',
             }}
-            fetchPriority="high"
           />
           <div
             style={{
@@ -115,12 +116,13 @@ export default function OpeningSequence() {
             }}
           >
             {/* Crop the source's white margins and edge fringe without editing the file. */}
-            <img
+            <Image
               data-art-image
               src="/images/culture/karakalpak-cultural-portrait.png"
               alt="Woman wearing a traditional embroidered costume and burgundy headdress"
               width={900}
               height={1120}
+              priority
               style={{
                 position: 'absolute',
                 left: `${(-76 / 747) * 100}%`,
@@ -129,8 +131,6 @@ export default function OpeningSequence() {
                 maxWidth: 'none',
                 filter: 'saturate(0.84) contrast(0.9) brightness(1.08)',
               }}
-              loading="eager"
-              decoding="async"
             />
           </div>
           <div

@@ -9,7 +9,8 @@ const tours = [
     groupSize: 'Up to 15',
     languages: 'English, Russian, Uzbek',
     price: '100,000 UZS per person',
-    description: 'A curated walk through the museum\'s most significant avant-garde works and Karakalpak cultural objects. Ideal for first-time visitors.',
+    description:
+      "A curated walk through the museum's most significant avant-garde works and Karakalpak cultural objects. Ideal for first-time visitors.",
     available: 'Daily 10:00 and 14:00 (Tue–Sat)',
   },
   {
@@ -19,7 +20,8 @@ const tours = [
     groupSize: 'Up to 10',
     languages: 'English, Russian',
     price: '150,000 UZS per person',
-    description: 'An extended specialist tour focusing exclusively on the Russian and Turkestan avant-garde collection, including works not on permanent display.',
+    description:
+      'An extended specialist tour focusing exclusively on the Russian and Turkestan avant-garde collection, including works not on permanent display.',
     available: 'Saturday 11:00 (advance booking required)',
   },
   {
@@ -29,7 +31,8 @@ const tours = [
     groupSize: 'Up to 12',
     languages: 'Karakalpak, Uzbek, Russian',
     price: '120,000 UZS per person',
-    description: 'Explore the decorative arts, textiles, jewelry and material culture of Karakalpakstan across two centuries of the museum\'s collection.',
+    description:
+      "Explore the decorative arts, textiles, jewelry and material culture of Karakalpakstan across two centuries of the museum's collection.",
     available: 'Tuesday and Thursday 11:00',
   },
 ];
@@ -72,7 +75,9 @@ export default function VisitTours() {
                     { label: 'Schedule', value: tour?.available },
                   ]?.map((item) => (
                     <div key={item?.label} className="flex gap-4">
-                      <dt className="text-label text-muted-foreground w-24 flex-shrink-0">{item?.label}</dt>
+                      <dt className="text-label text-muted-foreground w-24 flex-shrink-0">
+                        {item?.label}
+                      </dt>
                       <dd className="text-xs text-foreground font-medium">{item?.value}</dd>
                     </div>
                   ))}
@@ -81,10 +86,22 @@ export default function VisitTours() {
 
               <div className="border-t border-border pt-5 mt-auto">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-base font-medium text-foreground">{tour?.price}</span>
+                  <span className="font-display text-base font-medium text-foreground">
+                    {tour?.price}
+                  </span>
                   <Link href="#" className="btn-ghost text-xs">
                     Book
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </Link>
@@ -96,8 +113,13 @@ export default function VisitTours() {
 
         <div className="mt-6 p-5 border border-border bg-background">
           <p className="text-sm text-muted-foreground font-light">
-            <strong className="font-medium text-foreground">Private & Educational Groups:</strong> The museum offers tailored tours for schools, universities and private groups. Contact us at{' '}
-            <a href="mailto:tours@museum.kr.uz" className="text-foreground hover:text-accent transition-colors underline underline-offset-2">
+            <strong className="font-medium text-foreground">Private & Educational Groups:</strong>{' '}
+            The museum offers tailored tours for schools, universities and private groups. Contact
+            us at{' '}
+            <a
+              href="mailto:tours@museum.kr.uz"
+              className="text-foreground hover:text-accent transition-colors underline underline-offset-2"
+            >
               tours@museum.kr.uz
             </a>{' '}
             to arrange a bespoke visit.

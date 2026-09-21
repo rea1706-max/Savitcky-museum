@@ -26,16 +26,16 @@ export default function LandscapeInterlude() {
       ref={imgRef}
       className="relative w-full overflow-hidden"
       style={{ height: 'clamp(320px, 55vw, 700px)' }}
-      aria-label="Karakalpakstan landscape">
-      
+      aria-label="Karakalpakstan landscape"
+    >
       <div className="parallax-inner absolute inset-[-60px]">
         <AppImage
           src="https://images.unsplash.com/photo-1656007467557-b87e3ed6ca62"
           alt="Vast arid desert plain at dawn, horizon line very low, enormous pale sky, cracked salt flat in foreground, absolute silence and scale, deep shadows"
           fill
           className="object-cover"
-          sizes="100vw" />
-        
+          sizes="100vw"
+        />
       </div>
 
       {/* Very subtle overlay */}
@@ -46,9 +46,7 @@ export default function LandscapeInterlude() {
         <div className="flex items-center gap-3">
           <div className="w-px h-10 bg-primary-foreground/40" aria-hidden="true" />
           <div>
-            <p className="text-label text-primary-foreground/60">
-              41°33′N 60°37′E
-            </p>
+            <p className="text-label text-primary-foreground/60">41°33′N 60°37′E</p>
             <p className="text-sm text-primary-foreground/40 font-light mt-0.5">
               Karakalpakstan, Uzbekistan
             </p>
@@ -60,13 +58,13 @@ export default function LandscapeInterlude() {
       <div className="absolute bottom-10 right-6 md:right-12 z-10 text-right hidden md:block">
         <p
           className="font-display font-light text-primary-foreground/30 leading-tight"
-          style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', letterSpacing: '-0.02em' }}>
-          
+          style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', letterSpacing: '-0.02em' }}
+        >
           The desert provides
           <br />
           the space.
         </p>
       </div>
-    </section>);
-
+    </section>
+  );
 }

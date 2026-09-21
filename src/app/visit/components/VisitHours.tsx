@@ -56,7 +56,10 @@ export default function VisitHours() {
                   >
                     <div className="flex items-center gap-4">
                       {isToday && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-turquoise flex-shrink-0" aria-hidden="true" />
+                        <div
+                          className="w-1.5 h-1.5 rounded-full bg-turquoise flex-shrink-0"
+                          aria-hidden="true"
+                        />
                       )}
                       <span
                         className={`text-sm font-medium ${
@@ -64,9 +67,7 @@ export default function VisitHours() {
                         } ${item?.time === null ? 'text-muted-foreground' : ''}`}
                       >
                         {item?.day}
-                        {isToday && (
-                          <span className="text-label text-turquoise ml-2">Today</span>
-                        )}
+                        {isToday && <span className="text-label text-turquoise ml-2">Today</span>}
                       </span>
                     </div>
                     <div className="text-right">
@@ -78,7 +79,9 @@ export default function VisitHours() {
                         {item?.time || item?.note}
                       </span>
                       {item?.note && item?.time && (
-                        <span className="text-xs text-muted-foreground block mt-0.5">{item?.note}</span>
+                        <span className="text-xs text-muted-foreground block mt-0.5">
+                          {item?.note}
+                        </span>
                       )}
                     </div>
                   </div>
@@ -88,7 +91,9 @@ export default function VisitHours() {
 
             <div className="mt-6 p-4 border border-border bg-muted">
               <p className="text-sm text-muted-foreground font-light">
-                <strong className="font-medium text-foreground">Public Holidays:</strong> The museum may have adjusted hours on Uzbek national holidays. Please check our website or call ahead before visiting.
+                <strong className="font-medium text-foreground">Public Holidays:</strong> The museum
+                may have adjusted hours on Uzbek national holidays. Please check our website or call
+                ahead before visiting.
               </p>
             </div>
           </div>
