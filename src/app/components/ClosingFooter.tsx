@@ -90,10 +90,6 @@ export default function ClosingFooter() {
         </div>
         <div className={styles.bottom}>
           <p>{t.info.locationValue}</p>
-          <div className={styles.contact}>
-            <a href="mailto:info@museum.kr.uz">{t.footer.contact}</a>
-            <a href="mailto:info@museum.kr.uz?subject=Press%20enquiry">{t.footer.press}</a>
-          </div>
           <div className={styles.languages} aria-label="Language selector">
             {languages.map((language) => (
               <button
