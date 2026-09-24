@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
-import MuseumMark from '@/components/MuseumMark';
 import { useLanguage } from '@/lib/i18n';
 
 const pathProps = { fill: 'none', vectorEffect: 'non-scaling-stroke' as const };
@@ -237,7 +236,8 @@ export default function OpeningSequence() {
             display: 'flex',
             flexDirection: 'column',
             gap: '1.5rem',
-            maxWidth: '65vw',
+            width: '84vw',
+            maxWidth: '84vw',
           }}
         >
           {/* Location */}
@@ -269,20 +269,18 @@ export default function OpeningSequence() {
           <div
             data-hero-title
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'clamp(16px, 2vw, 34px)',
+              width: '100%',
+              paddingRight: '0.08em',
               overflow: 'hidden',
             }}
           >
-            <MuseumMark onDark size={64} priority className="opening-museum-mark" />
             <h1
               style={{
                 fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif',
                 fontWeight: 400,
-                fontSize: 'clamp(96px, 12vw, 185px)',
-                lineHeight: 0.84,
-                letterSpacing: '-0.045em',
+                fontSize: 'clamp(82px, 11.2vw, 176px)',
+                lineHeight: 0.9,
+                letterSpacing: '-0.035em',
                 color: '#F2EBDD',
                 margin: 0,
                 whiteSpace: 'nowrap',
@@ -379,18 +377,6 @@ export default function OpeningSequence() {
           <span
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontSize: '9px',
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase',
-              color: '#8A7258',
-            }}
-          >
-            {t.opening.stageLabel}
-          </span>
-          <span
-            style={{
-              fontFamily: 'Inter, sans-serif',
               fontWeight: 500,
               fontSize: '10px',
               letterSpacing: '0.14em',
@@ -454,9 +440,8 @@ export default function OpeningSequence() {
           50% { transform: translateY(8px); opacity: 0.9; }
         }
         @media (max-width: 639px) {
-          [data-hero-copy] { max-width: 84vw !important; }
-          [data-hero-title] h1 { font-size: 17vw !important; }
-          .opening-museum-mark { width: 42px; height: 42px; }
+          [data-hero-copy] { width: 84vw !important; max-width: 84vw !important; }
+          [data-hero-title] h1 { font-size: 16.5vw !important; }
           [data-art-caption] { max-width: 105px !important; }
         }
         @media (prefers-reduced-motion: reduce) {

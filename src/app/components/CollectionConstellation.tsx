@@ -56,7 +56,6 @@ export default function CollectionConstellation() {
                 />
               </div>
               <figcaption data-volkov-caption>
-                <span className={styles.gatewayNumber}>01</span>
                 <span className={styles.gatewayTitle}>{t.footer.groups.collection.avantGarde}</span>
                 <span className={styles.gatewayMeta}>{t.collection.volkovBadge}</span>
               </figcaption>
@@ -78,7 +77,6 @@ export default function CollectionConstellation() {
                 />
               </div>
               <figcaption data-vessel-caption>
-                <span className={styles.gatewayNumber}>02</span>
                 <span className={styles.gatewayTitle}>{t.footer.groups.museum.history}</span>
                 <span className={styles.gatewayMeta}>{t.collection.vesselBadge}</span>
               </figcaption>

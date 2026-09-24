@@ -92,6 +92,26 @@
     font-weight: 600;
   }
 
+  .site-nav-label {
+    font-size: clamp(0.72rem, 0.62vw, 0.78rem);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .site-nav-on-dark-muted {
+    color: rgb(234 226 208 / 0.76);
+  }
+
+  .site-nav-on-light-muted {
+    color: rgb(30 26 22 / 0.72);
+  }
+
+  .mobile-menu-link {
+    color: rgb(234 226 208 / 0.86);
+  }
+
   .text-metadata {
     font-size: 0.75rem;
     letter-spacing: 0.06em;

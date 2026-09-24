@@ -33,7 +33,7 @@
     "region": "Karakalpakstan",
     "country": "Uzbekistan",
     "scroll": "Scroll",
-    "stageLabel": "03 / Land → Culture",
+    "stageLabel": "Land → Culture",
     "heritage": "Karakalpak Heritage",
     "costume": "Traditional costume"
   },
@@ -67,7 +67,7 @@
     "collectionValue": "82,000+ preserved works"
   },
   "about": {
-    "label": "02 / The Founder & Mission",
+    "label": "The Founder & Mission",
     "title": "Igor Savitsky: The Louvre in the Sands",
     "savitskyQuote": "“I wanted to rescue art that was doomed to disappear.”",
     "savitskyQuoteAuthor": "Igor Savitsky, Founder",
@@ -88,7 +88,7 @@
     "viewDetails": "View details"
   },
   "bridge": {
-    "label": "02 / Transition",
+    "label": "Transition",
     "title1": "From",
     "title2": "Exhibition",
     "title3": "To",
@@ -111,7 +111,7 @@
     "vesselAlt": "Ancient Khorezm terracotta vessel with a loop handle and three feet."
   },
   "culture": {
-    "label": "05 / Material Culture",
+    "label": "Material Culture",
     "titleLine1": "Tradition",
     "titleLine2": "Lives in",
     "titleLine3": "Detail.",
@@ -132,7 +132,7 @@
     "label": "Current Life",
     "title": "MUSEUM TODAY",
     "subtitle": "Conservation · Living Archive · Nukus",
-    "kicker": "09 Living Archive",
+    "kicker": "Living Archive",
     "copyLine1": "Preserving fragile surfaces.",
     "copyLine2": "Cataloging rare acquisitions.",
     "copyLine3": "Connecting Nukus to",
@@ -152,7 +152,7 @@
     "asideSub": "For future generations"
   },
   "finalHorizon": {
-    "marker": "10 Horizon",
+    "marker": "Horizon",
     "titleLine1": "Art Lives",
     "titleLine2": "Where It Is Loved",
     "body": "In the heart of Karakalpakstan, an improbable sanctuary of human creativity continues to inspire researchers, travellers, and art lovers from every corner of the world.",
@@ -330,18 +330,18 @@
     }
   },
   "storiesPage": {
-    "badge": "10 / STORIES",
+    "badge": "STORIES & ARCHIVE",
     "titleLine1": "Stories",
     "titleLine2": "From the archive",
     "introLine1": "Films. Research. Publications. People.",
     "introLine2": "The museum continues beyond the walls.",
     "browseJournal": "Browse the journal",
-    "featuredReel": "01 / FEATURED REEL",
+    "featuredReel": "FEATURED FILM",
     "featuredTitle": "Inside the Vaults",
     "featuredSubtitle": "A collection that lives on",
     "livingArchive": "Living archive",
     "location": "Nukus · Karakalpakstan",
-    "archiveIndex": "Archive index · 2026",
+    "archiveIndex": "Museum archive · 2026",
     "journalTitle": "The journal",
     "categories": {
       "reels": "Reels",

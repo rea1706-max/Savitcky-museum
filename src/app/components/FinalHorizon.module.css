@@ -104,23 +104,6 @@
   padding: clamp(196px, 26svh, 280px) 0 10%;
 }
 
-.chapterMarker {
-  grid-column: 1;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 33px;
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: 23px;
-  line-height: 1;
-}
-
-.chapterMarker i {
-  width: 44px;
-  height: 1px;
-  background: currentColor;
-}
-
 .copy {
   grid-column: 1 / span 2;
   grid-row: 2;
@@ -243,11 +226,6 @@
     width: 86%;
     padding-top: 170px;
     padding-bottom: 10%;
-  }
-
-  .chapterMarker {
-    margin-bottom: 28px;
-    font-size: 18px;
   }
 
   .copy {

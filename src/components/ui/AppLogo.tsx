@@ -13,7 +13,7 @@ interface AppLogoProps {
 }
 
 const AppLogo = memo(function AppLogo({
-  src = '/brand/savitsky-logo-mark.svg',
+  src = '/assets/images/app_logo.png',
   iconName = 'SparklesIcon',
   size = 64,
   className = '',

@@ -48,10 +48,6 @@ export default function FinalHorizon() {
       </div>
 
       <div className={styles.content}>
-        <div className={styles.chapterMarker}>
-          <span>{t.finalHorizon.marker}</span>
-          <i />
-        </div>
         <div className={styles.copy}>
           <h2 id="final-horizon-heading" className={styles.title}>
             <span className={styles.lineMask}>

@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useLanguage, type Locale } from '@/lib/i18n';
-import MuseumMark from '@/components/MuseumMark';
 import styles from './ClosingFooter.module.css';
 
 const languages: Locale[] = ['EN', 'RU', 'UZ', 'KK'];
@@ -55,7 +54,6 @@ export default function ClosingFooter() {
     <footer className={styles.footer} aria-label={t.ui.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <MuseumMark onDark size={58} className={styles.mark} />
           <p>
             {t.ui.brandLine1}
             <br />

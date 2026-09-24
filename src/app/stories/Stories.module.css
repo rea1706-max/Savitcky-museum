@@ -380,7 +380,7 @@
 
 .cardHeader {
   display: grid;
-  grid-template-columns: 42px 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 10px;
   align-items: baseline;
   margin-bottom: 12px;
@@ -388,12 +388,6 @@
   border-top: 1px solid color-mix(in srgb, var(--stories-earth) 68%, transparent);
   font-size: 9px;
   letter-spacing: 0.18em;
-}
-
-.cardHeader span {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: 18px;
-  letter-spacing: 0;
 }
 
 .cardHeader p {
@@ -743,7 +737,6 @@
   }
 
   .cardHeader {
-    grid-template-columns: 33px 1fr auto;
     font-size: 8px;
   }
 

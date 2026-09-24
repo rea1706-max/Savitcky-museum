@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLanguage, type Locale } from '@/lib/i18n';
-import MuseumMark from '@/components/MuseumMark';
 
 type NavLink = {
   label: string;
@@ -29,7 +28,6 @@ function scrollToAnchor(element: HTMLElement) {
 
 export default function Header({ openingSequence = false }: { openingSequence?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
-  const [darkStage, setDarkStage] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { locale: activeLang, setLocale, t } = useLanguage();
   const router = useRouter();
@@ -52,30 +50,6 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [openingSequence]);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const syncStageTone = () => {
-      setDarkStage(
-        root.hasAttribute('data-museum-archive') ||
-          root.hasAttribute('data-museum-feature') ||
-          root.hasAttribute('data-museum-culture') ||
-          root.hasAttribute('data-museum-today')
-      );
-    };
-    syncStageTone();
-    const observer = new MutationObserver(syncStageTone);
-    observer.observe(root, {
-      attributes: true,
-      attributeFilter: [
-        'data-museum-archive',
-        'data-museum-feature',
-        'data-museum-culture',
-        'data-museum-today',
-      ],
-    });
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (menuOpen) {
@@ -140,25 +114,19 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
         }`}
         aria-label={t.ui.mainNavigation}
       >
-        <div className="flex items-center justify-between px-6 md:px-12 py-4">
+        <div className="flex items-center justify-between px-5 py-4 md:px-8 xl:px-12">
           {/* Logo — Cormorant Garamond wordmark */}
           <Link
             href="/"
-            className="flex min-w-0 items-center gap-3 group"
+            className="group flex min-w-0 shrink-0 items-center"
             aria-label={t.ui.museumHome}
           >
-            <MuseumMark
-              onDark={!scrolled || darkStage}
-              size={38}
-              priority
-              className="h-9 w-9 flex-none transition-opacity group-hover:opacity-80"
-            />
             <div className="flex min-w-0 flex-col">
               <span
-                className={`font-display font-medium tracking-widest uppercase transition-colors ${
+                className={`font-display font-semibold tracking-widest uppercase transition-colors ${
                   scrolled ? 'text-foreground' : 'text-primary-foreground'
                 } group-hover:text-accent`}
-                style={{ fontSize: '0.95rem', letterSpacing: '0.2em', fontStyle: 'normal' }}
+                style={{ fontSize: '0.98rem', letterSpacing: '0.2em', fontStyle: 'normal' }}
               >
                 {t.ui.brandLine1}
               </span>
@@ -174,13 +142,13 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden items-center gap-5 lg:flex xl:gap-8">
             {navLinks?.map((link) => (
               <a
                 key={link?.label}
                 href={link?.href}
                 onClick={(e) => handleNavClick(e, link)}
-                className={`text-label transition-colors hover:text-accent cursor-pointer ${
+                className={`site-nav-label cursor-pointer transition-colors hover:text-accent ${
                   scrolled ? 'text-foreground' : 'text-primary-foreground'
                 }`}
               >
@@ -190,21 +158,21 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
           </div>
 
           {/* Right — language selector + Plan Your Visit */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-4">
             {/* Language selector */}
-            <div className="flex items-center gap-1">
+            <div className="flex shrink-0 items-center gap-0.5 xl:gap-1">
               {languages?.map((lang) => (
                 <button
                   key={lang}
                   onClick={() => setLocale(lang)}
-                  className={`text-label px-2 py-0.5 transition-colors ${
+                  className={`site-nav-label px-1.5 py-0.5 transition-colors xl:px-2 ${
                     activeLang === lang
                       ? scrolled
                         ? 'text-foreground font-semibold'
                         : 'text-primary-foreground font-semibold'
                       : scrolled
-                        ? 'text-muted-foreground hover:text-foreground'
-                        : 'text-primary-foreground/40 hover:text-primary-foreground/70'
+                        ? 'site-nav-on-light-muted hover:text-foreground'
+                        : 'site-nav-on-dark-muted hover:text-primary-foreground'
                   }`}
                   aria-label={t.ui.switchLanguage.replace('{language}', t.ui.languageNames[lang])}
                   aria-pressed={activeLang === lang}
@@ -217,7 +185,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
             {/* Plan Your Visit button — always white/visible, hover matches nav accent */}
             <Link
               href="/visit"
-              className={`text-label px-4 py-2 border transition-colors ${
+              className={`site-nav-label hidden border px-4 py-2 transition-colors xl:inline-flex ${
                 scrolled
                   ? 'border-foreground/30 text-foreground hover:bg-accent hover:text-primary-foreground hover:border-accent'
                   : 'border-primary-foreground/60 text-primary-foreground hover:text-accent hover:border-accent'
@@ -265,7 +233,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                 key={link?.label}
                 href={link?.href}
                 onClick={(e) => handleNavClick(e, link)}
-                className="font-display text-primary-foreground/80 hover:text-primary-foreground border-b border-primary-foreground/10 py-5 transition-colors cursor-pointer"
+                className="mobile-menu-link cursor-pointer border-b border-primary-foreground/10 py-5 font-display transition-colors hover:text-primary-foreground"
                 style={{ fontSize: 'clamp(1.75rem, 5vw, 2.5rem)', animationDelay: `${i * 60}ms` }}
               >
                 {link?.label}
@@ -281,7 +249,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                   className={`text-label transition-colors ${
                     activeLang === lang
                       ? 'text-primary-foreground font-semibold'
-                      : 'text-primary-foreground/40'
+                      : 'site-nav-on-dark-muted'
                   }`}
                   aria-label={t.ui.switchLanguage.replace('{language}', t.ui.languageNames[lang])}
                   aria-pressed={activeLang === lang}

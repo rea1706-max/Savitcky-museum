@@ -56,11 +56,6 @@ export default function MuseumToday() {
           <i />
         </div>
 
-        <div className={styles.sectionMarker} aria-hidden="true">
-          <span>09</span>
-          <i />
-        </div>
-
         <div className={styles.editorialGrid}>
           <header className={styles.intro}>
             <p data-museum-kicker className={styles.kicker}>
@@ -92,7 +87,6 @@ export default function MuseumToday() {
               className={`${styles.story} ${styles.vaultStory}`}
               aria-label={`${t.museumToday.cta}: ${t.museumToday.vaultTitle}`}
             >
-              <div className={styles.storyIndex}>01</div>
               <div className={styles.storyImage}>
                 <Image
                   src={images.vaults.src}
@@ -114,7 +108,6 @@ export default function MuseumToday() {
               className={`${styles.story} ${styles.restorationStory}`}
               aria-label={`${t.museumToday.cta}: ${t.museumToday.restorationTitle}`}
             >
-              <div className={styles.storyIndex}>02</div>
               <div className={styles.storyImage}>
                 <Image
                   src={images.restoration.src}

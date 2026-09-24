@@ -48,9 +48,6 @@ export default function PatternCultureChapter() {
           <path data-weave-red d="m720 589 36 36-36 36-36-36 36-36" />
         </svg>
         <div data-culture-copy className={styles.cultureCopy}>
-          <p data-culture-label className={styles.chapterLabel}>
-            {t.culture.label}
-          </p>
           <h2 data-culture-heading id="pattern-heading">
             <span>{t.footer.groups.collection.karakalpak}</span>
           </h2>

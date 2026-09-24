@@ -33,7 +33,7 @@
     "region": "Qaraqalpaqstan",
     "country": "Ózbekstan",
     "scroll": "Jıljıtıń",
-    "stageLabel": "03 / Jer → Mádeniyat",
+    "stageLabel": "Jer → Mádeniyat",
     "heritage": "Qaraqalpaq miyrası",
     "costume": "Dástúriy kiyim"
   },
@@ -67,7 +67,7 @@
     "collectionValue": "82 000+ saqlanıp atırǵan eksponat"
   },
   "about": {
-    "label": "02 / Tiykar salıwshı hám Missiya",
+    "label": "Tiykar salıwshı hám missiya",
     "title": "Igor Savickiy: Qumdaǵı Luvr",
     "savitskyQuote": "«Men joq bolıp ketiwge máhbir bolǵan kórkem ónerdi qutqarıp qalıwdı qáledim».",
     "savitskyQuoteAuthor": "Igor Savickiy, Tiykar salıwshı",
@@ -88,7 +88,7 @@
     "viewDetails": "Tolıq maǵlıwmat"
   },
   "bridge": {
-    "label": "02 / Ótiw",
+    "label": "Ótiw",
     "title1": "Kórgizbeden",
     "title2": "Mángilik",
     "title3": "Miyras",
@@ -111,7 +111,7 @@
     "vesselAlt": "Ilmek tárizli tutqası hám úsh ayaǵı bar áyyemgi Xorezm terrakota ıdısı."
   },
   "culture": {
-    "label": "05 / Materiallıq mádeniyat",
+    "label": "Materiallıq mádeniyat",
     "titleLine1": "Dástúr",
     "titleLine2": "Hár bir",
     "titleLine3": "Naǵısta.",
@@ -132,7 +132,7 @@
     "label": "Muzey búgin",
     "title": "MUZEY BÚGIN",
     "subtitle": "Qayta tiklew · Tiri arxiv · Nókis",
-    "kicker": "09 Tiri arxiv",
+    "kicker": "Tiri arxiv",
     "copyLine1": "Názik polotnolardı saqlaw.",
     "copyLine2": "Ilimiy kataloglar hám qorlar.",
     "copyLine3": "Nókistiń jáhán kórkem óneri",
@@ -152,7 +152,7 @@
     "asideSub": "Keleshek áwladlar ushın"
   },
   "finalHorizon": {
-    "marker": "10 Gorizont",
+    "marker": "Gorizont",
     "titleLine1": "Kórkem óner",
     "titleLine2": "Qádir tapqan jerde jasaydı",
     "body": "Qaraqalpaqstan qoynında adamzat qáleminiń bul ǵáziyne keshigi pútkil dúnyadan kelgen izertlewshilerdi, sayaxatshılardı hám óner súyiwshilerdi zawıqlandırmaqta.",
@@ -330,18 +330,18 @@
     }
   },
   "storiesPage": {
-    "badge": "10 / TARIYX HÁM MAQALALAR",
+    "badge": "TARIYX HÁM MAQALALAR",
     "titleLine1": "Muzey",
     "titleLine2": "Tariyxı hám Arxiv",
     "introLine1": "Filmler. Izertlewler. Baspalar. Insanlar.",
     "introLine2": "Muzey ómiri diywallardan sırtta da dawam etpekte.",
     "browseJournal": "Jurnaldı kóriw",
-    "featuredReel": "01 / ARNALLI VIDEOMATERIAL",
+    "featuredReel": "ARNALLI VIDEOMATERIAL",
     "featuredTitle": "Qorlar qoynında",
     "featuredSubtitle": "Tiri qalǵan miyras hám turaqlı saqlaw",
     "livingArchive": "Tiri arxiv",
     "location": "Nókis · Qaraqalpaqstan",
-    "archiveIndex": "Arxiv indeksi · 2026",
+    "archiveIndex": "Muzey arxivi · 2026",
     "journalTitle": "Muzey jurnalı",
     "categories": {
       "reels": "Videolar",

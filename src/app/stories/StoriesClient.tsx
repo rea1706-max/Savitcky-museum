@@ -139,7 +139,6 @@ export default function StoriesClient() {
               return (
                 <article key={story.number} className={`${styles.card} ${media.className}`}>
                   <div className={styles.cardHeader}>
-                    <span>{story.number}</span>
                     <p>{story.type}</p>
                     <small>{story.length}</small>
                   </div>

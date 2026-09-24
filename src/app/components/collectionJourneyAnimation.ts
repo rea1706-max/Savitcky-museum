@@ -24,7 +24,6 @@ export function createCollectionJourney(root: HTMLElement) {
 
         bridgePaths.forEach((node) => node.setAttribute('pathLength', '1'));
         gsap.set(bridgePaths, { strokeDasharray: '1 1', strokeDashoffset: 1 });
-        gsap.set(select('[data-bridge-label]'), { autoAlpha: 0 });
         gsap.set(select('[data-mineral-bridge] h2 span'), { autoAlpha: 0, x: 46 });
         gsap.set(select('[data-bridge-note]'), { autoAlpha: 0, y: 10 });
         gsap.set(bridgePopova, {
@@ -102,7 +101,6 @@ export function createCollectionJourney(root: HTMLElement) {
           { xPercent: -5, duration: 36 },
           20
         );
-        timeline.to(select('[data-bridge-label]'), { autoAlpha: 1, duration: 8 }, 18);
         timeline.to(
           select('[data-mineral-bridge] h2 span'),
           { autoAlpha: 1, x: 0, duration: 9, stagger: 1.35, ease: 'power2.out' },

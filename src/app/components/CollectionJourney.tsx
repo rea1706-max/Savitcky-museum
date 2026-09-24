@@ -56,9 +56,6 @@ export default function CollectionJourney({ children }: { children: ReactNode })
             <div className={styles.bridgeEarth} data-bridge-earth aria-hidden="true" />
             <div className={styles.bridgePaper} data-bridge-paper aria-hidden="true" />
             <div className={styles.grain} aria-hidden="true" />
-            <p className={styles.chapterLabel} data-bridge-label>
-              {t.bridge.label}
-            </p>
             <h2 id="bridge-heading" className={styles.bridgeTitle}>
               <span>{t.bridge.title1}</span>
               <span>{t.bridge.title2}</span>

@@ -33,7 +33,7 @@
     "region": "Qoraqalpogʻiston",
     "country": "Oʻzbekiston",
     "scroll": "Aylantiring",
-    "stageLabel": "03 / Zamin → Madaniyat",
+    "stageLabel": "Zamin → Madaniyat",
     "heritage": "Qoraqalpoq merosi",
     "costume": "Anʼanaviy libos"
   },
@@ -67,7 +67,7 @@
     "collectionValue": "82 000+ saqlanayotgan asarlar"
   },
   "about": {
-    "label": "02 / Asoschi va Missiya",
+    "label": "Asoschi va missiya",
     "title": "Igor Savitskiy: Qumdagi Luvr",
     "savitskyQuote": "“Men yoʻqolib ketishga mahkum boʻlgan sanʼatni asrab qolmoqchi edim”.",
     "savitskyQuoteAuthor": "Igor Savitskiy, Asoschi",
@@ -88,7 +88,7 @@
     "viewDetails": "Batafsil"
   },
   "bridge": {
-    "label": "02 / Oʻtish",
+    "label": "Oʻtish",
     "title1": "Koʻrgazmadan",
     "title2": "Boqiy",
     "title3": "Meros",
@@ -111,7 +111,7 @@
     "vesselAlt": "Ilmoqsimon tutqichli va uch oyoqli qadimiy Xorazm sopol idishi."
   },
   "culture": {
-    "label": "05 / Moddiy madaniyat",
+    "label": "Moddiy madaniyat",
     "titleLine1": "Anʼanalar",
     "titleLine2": "Har bir",
     "titleLine3": "Chiziqda.",
@@ -132,7 +132,7 @@
     "label": "Muzey hayoti",
     "title": "MUZEY BUGUN",
     "subtitle": "Restavratsiya · Tirik arxiv · Nukus",
-    "kicker": "09 Tirik arxiv",
+    "kicker": "Tirik arxiv",
     "copyLine1": "Nafis polotnolarni asrash.",
     "copyLine2": "Ilmiy kataloglar va fondlar.",
     "copyLine3": "Nukusning jahon sanʼati",
@@ -152,7 +152,7 @@
     "asideSub": "Kelgusi avlodlar uchun"
   },
   "finalHorizon": {
-    "marker": "10 Ufq",
+    "marker": "Ufq",
     "titleLine1": "Sanʼat uni",
     "titleLine2": "Sevgan joyda yashaydi",
     "body": "Qoraqalpogʻistonning qoq markazida insoniyat ijodining bu buyuk maskani dunyoning barcha burchaklaridan kelgan sayyohlar va tadqiqotchilarni ilhomlantirishda davom etmoqda.",
@@ -330,18 +330,18 @@
     }
   },
   "storiesPage": {
-    "badge": "10 / HIKOYALAR VA ARXIV",
+    "badge": "HIKOYALAR VA ARXIV",
     "titleLine1": "Muzey",
     "titleLine2": "Hikoyalari va Arxivi",
     "introLine1": "Filmlar. Tadqiqotlar. Nashrlar. Shaxslar.",
     "introLine2": "Muzey hayoti koʻrgazma zallaridan tashqarida ham davom etmoqda.",
     "browseJournal": "Jurnalni ochish",
-    "featuredReel": "01 / MAXSUS VIDEO",
+    "featuredReel": "MAXSUS VIDEO",
     "featuredTitle": "Fondlar qaʼrida",
     "featuredSubtitle": "Tirik meros va asrash sanʼati",
     "livingArchive": "Tirik arxiv",
     "location": "Nukus · Qoraqalpogʻiston",
-    "archiveIndex": "Arxiv indeksi · 2026",
+    "archiveIndex": "Muzey arxivi · 2026",
     "journalTitle": "Muzey jurnali",
     "categories": {
       "reels": "Videolar",
