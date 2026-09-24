@@ -1,0 +1,478 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "whatsOn": "What's On",
+    "collection": "Collection",
+    "stories": "Stories",
+    "planVisit": "Plan Your Visit"
+  },
+  "hero": {
+    "museumName": "State Museum of Arts of the Republic of Karakalpakstan named after I.V. Savitsky",
+    "location": "Nukus, Karakalpakstan",
+    "subtitle": "Avant-Garde in the Desert · The Savitsky Collection",
+    "badge": "82,000 works of Russian avant-garde, Karakalpak folk arts, and ancient Khorezm.",
+    "years": "1966 — Present"
+  },
+  "info": {
+    "locationLabel": "Location",
+    "locationValue": "Nukus, Karakalpakstan, Uzbekistan",
+    "hoursLabel": "Opening Hours",
+    "hoursValue": "Tue — Sun: 09:00 — 18:00 · Monday closed",
+    "collectionLabel": "The Collection",
+    "collectionValue": "82,000+ preserved works"
+  },
+  "about": {
+    "label": "02 / The Founder & Mission",
+    "title": "Igor Savitsky: The Louvre in the Sands",
+    "savitskyQuote": "“I wanted to rescue art that was doomed to disappear.”",
+    "savitskyQuoteAuthor": "Igor Savitsky, Founder",
+    "paragraph1": "In the remote desert capital of Nukus, artist and archaeologist Igor Savitsky established one of the world’s most extraordinary cultural sanctuaries. Defying ideological suppression, he gathered over 40,000 banned Russian and Soviet avant-garde masterpieces.",
+    "paragraph2": "Alongside this treasure, Savitsky documented the endangered heritage of the Karakalpak people—collecting exquisite textiles, jewelry, and ritual artifacts that would otherwise have been lost to time.",
+    "learnMore": "Discover the Museum History"
+  },
+  "whatsOn": {
+    "label": "WHAT'S ON",
+    "heading": "Exhibitions & Programmes",
+    "nowOn": "Now on",
+    "upcoming": "Upcoming",
+    "archive": "From the archive",
+    "allExhibitions": "All exhibitions",
+    "viewDetails": "View details"
+  },
+  "bridge": {
+    "label": "What's On — Collection",
+    "title1": "From",
+    "title2": "Exhibition",
+    "title3": "To",
+    "title4": "Enduring",
+    "title5": "Heritage",
+    "note1": "A living archive in Nukus.",
+    "note2": "82,000 works preserved."
+  },
+  "collection": {
+    "label": "04 / Permanent Holdings",
+    "title": "Avant-Garde & Ancient Earth",
+    "intro": "The second-largest collection of Russian avant-garde art in the world, alongside ancient Khorezmian artifacts and Karakalpak ethnographic treasures.",
+    "explore": "Explore the Collection",
+    "volkovBadge": "A. Volkov · Pomegranate Tea House (1924)",
+    "vesselBadge": "Ancient Khorezm · Terracotta Vessel (3rd C. BCE)"
+  },
+  "culture": {
+    "label": "05 / Material Culture",
+    "titleLine1": "Tradition",
+    "titleLine2": "Lives in",
+    "titleLine3": "Detail.",
+    "desc1": "Woven memories, protective ornaments, and enduring desert identity.",
+    "desc2": "From yurt bands to silver bridal crowns.",
+    "link": "Explore Karakalpak Arts",
+    "caption": "Karakalpak textile detail: warp-faced band with horn motifs.",
+    "aside1": "Many stories.",
+    "aside2": "Still to explore."
+  },
+  "desert": {
+    "coordinates": "42°27′49″N 59°36′20″E",
+    "region": "Kyzylkum Desert · Nukus",
+    "quoteLine1": "“Art thrives where courage",
+    "quoteLine2": "meets devotion.”"
+  },
+  "museumToday": {
+    "label": "Current Life",
+    "title": "MUSEUM TODAY",
+    "subtitle": "Conservation · Living Archive · Nukus",
+    "kicker": "09 Living Archive",
+    "copyLine1": "Preserving fragile surfaces.",
+    "copyLine2": "Cataloging rare acquisitions.",
+    "copyLine3": "Connecting Nukus to",
+    "copyLine4": "the global art dialogue.",
+    "cta": "Explore Stories",
+    "noteLine1": "Nukus, Karakalpakstan",
+    "noteLine2": "Open Tuesday–Sunday",
+    "noteLine3": "09:00 — 18:00",
+    "vaultTitle": "Inside the Vaults",
+    "vaultMeta": "Rare works. Careful conditions.",
+    "restorationTitle": "Restoration Studio",
+    "restorationMeta": "Skills. Care. A longer tomorrow.",
+    "bridgeMain": "A RICHER PAST. A MORE OPEN TOMORROW.",
+    "bridgeSecondary": "SAVITSKY MUSEUM · NUKUS, KARAKALPAKSTAN",
+    "conservationCaption": "Restoration Studio, Nukus",
+    "asideWords": "Care\nPreserve\nResearch\nShare",
+    "asideSub": "For future generations"
+  },
+  "finalHorizon": {
+    "marker": "10 Horizon",
+    "titleLine1": "Art Lives",
+    "titleLine2": "Where It Is Loved",
+    "body": "In the heart of Karakalpakstan, an improbable sanctuary of human creativity continues to inspire researchers, travellers, and art lovers from every corner of the world."
+  },
+  "footer": {
+    "sloganLine1": "FROM NUKUS",
+    "sloganLine2": "TO THE WORLD",
+    "tagline": "State Museum of Arts of the Republic of Karakalpakstan named after I.V. Savitsky.",
+    "contact": "Contact",
+    "press": "Press",
+    "copyright": "© 2026 Savitsky Museum. All rights reserved.",
+    "groups": {
+      "museum": {
+        "title": "Museum",
+        "about": "About Museum",
+        "history": "History & Founder",
+        "today": "Museum Today"
+      },
+      "collection": {
+        "title": "Collection",
+        "explore": "Explore All Works",
+        "karakalpak": "Karakalpak Arts",
+        "avantGarde": "Russian Avant-Garde"
+      },
+      "exhibitions": {
+        "title": "Exhibitions",
+        "whatsOn": "What's On",
+        "all": "Exhibition Archive"
+      },
+      "stories": {
+        "title": "Stories",
+        "explore": "Explore Stories",
+        "people": "People · Places · Ideas"
+      },
+      "visit": {
+        "title": "Visit",
+        "plan": "Plan Your Visit",
+        "hours": "Opening Hours",
+        "gettingHere": "Getting Here"
+      }
+    }
+  },
+  "collectionPage": {
+    "eyebrow": "State Museum of Arts — Savitsky",
+    "titleLine1": "Explore",
+    "titleLine2": "The Collection",
+    "description": "82,000+ works across Russian avant-garde, Karakalpak decorative arts, Ancient Khorezm archaeology and modern Karakalpak painting.",
+    "searchPlaceholder": "Search artist, title, period, medium…",
+    "searchAria": "Search the collection",
+    "showing": "Showing",
+    "of": "of",
+    "works": "works",
+    "onView": "On View",
+    "loadMore": "Load More Works",
+    "categories": {
+      "all": "All Works",
+      "avantGarde": "Avant-Garde",
+      "karakalpakArts": "Karakalpak Arts",
+      "heritage": "Heritage & History"
+    },
+    "artworks": {
+      "w1": {
+        "title": "Pomegranate Tea House",
+        "artist": "Alexander Volkov",
+        "year": "1924",
+        "medium": "Oil on canvas",
+        "collection": "Russian & Turkestan Avant-Garde"
+      },
+      "w2": {
+        "title": "Composition No. 7",
+        "artist": "Nikolai Karakhan",
+        "year": "1928",
+        "medium": "Oil on canvas",
+        "collection": "Russian & Turkestan Avant-Garde"
+      },
+      "w3": {
+        "title": "Suzani Embroidery",
+        "artist": "Traditional Karakalpak",
+        "year": "c. 1880",
+        "medium": "Silk on cotton",
+        "collection": "Karakalpak Decorative & Applied Arts"
+      },
+      "w4": {
+        "title": "Terracotta Vessel",
+        "artist": "Ancient Khorezm",
+        "year": "c. 3rd century BCE",
+        "medium": "Terracotta",
+        "collection": "Ancient Khorezm & Archaeology"
+      },
+      "w5": {
+        "title": "Uzbek Landscape",
+        "artist": "Ural Tansykbaev",
+        "year": "1941",
+        "medium": "Oil on canvas",
+        "collection": "Uzbek & Karakalpak Art"
+      },
+      "w6": {
+        "title": "Silver Headdress (Saukele)",
+        "artist": "Traditional Karakalpak",
+        "year": "c. 1900",
+        "medium": "Silver, coral, turquoise",
+        "collection": "Karakalpak Decorative & Applied Arts"
+      },
+      "w7": {
+        "title": "Constructivist Study",
+        "artist": "Viktor Ufimtsev",
+        "year": "1926",
+        "medium": "Gouache on paper",
+        "collection": "Russian & Turkestan Avant-Garde"
+      },
+      "w8": {
+        "title": "Khorezm Coin",
+        "artist": "Ancient Khorezm",
+        "year": "c. 2nd century BCE",
+        "medium": "Silver",
+        "collection": "Ancient Khorezm & Archaeology"
+      }
+    }
+  },
+  "exhibitionsPage": {
+    "back": "← Back to the museum",
+    "eyebrow": "Exhibitions",
+    "title": "WHAT'S ON",
+    "subtitleLine1": "Exhibitions from the Savitsky Museum archive.",
+    "subtitleLine2": "From Nukus to museums around the world.",
+    "onView": "On View",
+    "forthcoming": "Forthcoming",
+    "past": "Past",
+    "filterAll": "All Years"
+  },
+  "storiesPage": {
+    "badge": "10 / STORIES",
+    "titleLine1": "Stories",
+    "titleLine2": "From the archive",
+    "introLine1": "Films. Research. Publications. People.",
+    "introLine2": "The museum continues beyond the walls.",
+    "browseJournal": "Browse the journal",
+    "featuredReel": "01 / FEATURED REEL",
+    "featuredTitle": "Inside the Vaults",
+    "featuredSubtitle": "A collection that lives on",
+    "livingArchive": "Living archive",
+    "location": "Nukus · Karakalpakstan",
+    "archiveIndex": "Archive index · 2026",
+    "journalTitle": "The journal",
+    "categories": {
+      "reels": "Reels",
+      "research": "Research",
+      "publications": "Publications",
+      "history": "History"
+    },
+    "closingStatement": "Every object carries more than one history.",
+    "closingSub": "New stories from Nukus, added throughout the year.",
+    "stories": [
+      {
+        "number": "02",
+        "type": "Conservation",
+        "length": "04 min read",
+        "title": "Restoration in Progress",
+        "dek": "The patient work that gives a fragile painted surface a longer tomorrow."
+      },
+      {
+        "number": "03",
+        "type": "Collection story",
+        "length": "08 min read",
+        "title": "The Avant-Garde in Nukus",
+        "dek": "How a remote museum became a sanctuary for a radical generation of artists."
+      },
+      {
+        "number": "04",
+        "type": "Research",
+        "length": "07 min read",
+        "title": "Savitsky’s Letters",
+        "dek": "Notes, appeals and field records reveal the human story behind the collection."
+      },
+      {
+        "number": "05",
+        "type": "Reel",
+        "length": "02:18",
+        "title": "Karakalpak Craft Today",
+        "dek": "A short encounter with the makers carrying textile memory into the present."
+      },
+      {
+        "number": "06",
+        "type": "Publication",
+        "length": "New release",
+        "title": "Desert Archive",
+        "dek": "The new monograph traces the museum’s ideas, images and unlikely geography."
+      },
+      {
+        "number": "07",
+        "type": "History",
+        "length": "06 min read",
+        "title": "Patterns of Karakalpakstan",
+        "dek": "Reading family, landscape and protection in the geometry of woven cloth."
+      }
+    ]
+  },
+  "visitPage": {
+    "eyebrow": "Visitor Information",
+    "titleLine1": "Plan Your",
+    "titleLine2": "Visit",
+    "intro": "Nukus, Karakalpakstan, Uzbekistan. Open Tuesday through Sunday.",
+    "hoursEyebrow": "Opening Times",
+    "hoursTitle": "Opening Hours",
+    "today": "Today",
+    "closed": "Closed",
+    "lastEntry": "Last entry 16:30",
+    "publicHolidaysNote": "The museum may have adjusted hours on Uzbek national holidays. Please check announcements before visiting.",
+    "days": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    },
+    "ticketsEyebrow": "Admission",
+    "ticketsTitle": "Tickets & Prices",
+    "ticketsDesc": "Tickets can be purchased at the museum entrance. Group bookings and guided tours should be arranged in advance.",
+    "bookAdvance": "Book in Advance",
+    "freeAdmissionNote": "Free admission: First Sunday of every month. Journalists and accredited researchers with valid ID.",
+    "tickets": [
+      {
+        "type": "Adult",
+        "price": "50,000",
+        "currency": "UZS",
+        "note": "General admission",
+        "highlight": false
+      },
+      {
+        "type": "Student",
+        "price": "25,000",
+        "currency": "UZS",
+        "note": "Valid student ID required",
+        "highlight": false
+      },
+      {
+        "type": "Concession",
+        "price": "25,000",
+        "currency": "UZS",
+        "note": "Senior, disabled visitors",
+        "highlight": false
+      },
+      {
+        "type": "Child",
+        "price": "Free",
+        "currency": "",
+        "note": "Under 7 years",
+        "highlight": false
+      },
+      {
+        "type": "Guided Tour",
+        "price": "100,000",
+        "currency": "UZS",
+        "note": "Per person, includes admission",
+        "highlight": true
+      },
+      {
+        "type": "Group (10+)",
+        "price": "35,000",
+        "currency": "UZS",
+        "note": "Per person, advance booking",
+        "highlight": false
+      }
+    ],
+    "locationEyebrow": "Getting Here",
+    "locationTitle": "Location & Directions",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "coordinatesLabel": "Coordinates",
+    "transit": [
+      {
+        "mode": "By Air",
+        "detail": "Nukus Airport (NCU) serves domestic flights from Tashkent. Taxis available outside arrivals."
+      },
+      {
+        "mode": "By Train",
+        "detail": "Nukus Railway Station connects to Tashkent and other Uzbek cities. Journey from Tashkent approx. 18–20 hours."
+      },
+      {
+        "mode": "Local Transport",
+        "detail": "Taxis and shared minibuses operate throughout Nukus. The museum is centrally located."
+      }
+    ],
+    "toursEyebrow": "Guided Experiences",
+    "toursTitle": "Tours",
+    "tours": [
+      {
+        "id": "t1",
+        "name": "Highlights Tour",
+        "duration": "90 minutes",
+        "groupSize": "Up to 15",
+        "languages": "English, Russian, Uzbek, Karakalpak",
+        "price": "100,000 UZS per person",
+        "description": "A curated walk through the museum's most significant avant-garde works and Karakalpak cultural objects. Ideal for first-time visitors.",
+        "available": "Daily 10:00 and 14:00 (Tue–Sat)"
+      },
+      {
+        "id": "t2",
+        "name": "Avant-Garde Deep Dive",
+        "duration": "2.5 hours",
+        "groupSize": "Up to 10",
+        "languages": "English, Russian",
+        "price": "150,000 UZS per person",
+        "description": "An extended specialist tour focusing exclusively on the Russian and Turkestan avant-garde collection, including works not on permanent display.",
+        "available": "Saturday 11:00 (advance booking required)"
+      },
+      {
+        "id": "t3",
+        "name": "Karakalpak Heritage Tour",
+        "duration": "2 hours",
+        "groupSize": "Up to 12",
+        "languages": "Karakalpak, Uzbek, Russian",
+        "price": "120,000 UZS per person",
+        "description": "Explore the decorative arts, textiles, jewelry and material culture of Karakalpakstan across two centuries of the museum's collection.",
+        "available": "Tuesday and Thursday 11:00"
+      }
+    ],
+    "tourLabels": {
+      "duration": "Duration",
+      "groupSize": "Group Size",
+      "languages": "Languages",
+      "schedule": "Schedule",
+      "book": "Book"
+    },
+    "tourGroupNote": "Private & Educational Groups: The museum offers tailored tours for schools, universities and private groups.",
+    "contactTours": "tours@museum.kr.uz",
+    "faqEyebrow": "Before You Arrive",
+    "faqTitle": "Visitor FAQ",
+    "faqContact": "Further questions? Contact us at info@museum.kr.uz",
+    "faqs": [
+      {
+        "id": "f1",
+        "question": "Can I take photographs in the museum?",
+        "answer": "Personal, non-commercial photography without flash is permitted in permanent exhibition galleries. Tripods and professional equipment require prior written permission."
+      },
+      {
+        "id": "f2",
+        "question": "Is the museum accessible for visitors with disabilities?",
+        "answer": "The main museum building is wheelchair accessible with ramp access, lifts between floors and accessible restrooms. Audio guides are available in English and Russian."
+      },
+      {
+        "id": "f3",
+        "question": "Is there a cloakroom or luggage storage?",
+        "answer": "A cloakroom is available near the main entrance and is free to use. Large bags, backpacks and luggage must be deposited before entering the galleries."
+      },
+      {
+        "id": "f4",
+        "question": "Does the museum have a café or restaurant?",
+        "answer": "A small café is located in the museum courtyard serving tea, coffee and light refreshments during open hours."
+      },
+      {
+        "id": "f5",
+        "question": "Is there a museum shop?",
+        "answer": "The museum shop is located near the main entrance and carries exhibition catalogues, art books, postcards, reproductions and Karakalpak craft items."
+      },
+      {
+        "id": "f6",
+        "question": "How long does a typical visit take?",
+        "answer": "A standard visit to the permanent collection takes approximately 1.5 to 2 hours. Visitors wishing to explore in depth should allow 2.5 to 3 hours."
+      },
+      {
+        "id": "f7",
+        "question": "Can I visit without booking in advance?",
+        "answer": "Walk-in visitors are welcome. Tickets can be purchased at the entrance. Guided tours and group visits should be booked in advance."
+      },
+      {
+        "id": "f8",
+        "question": "Does the museum offer research or archive access?",
+        "answer": "The museum archive and study room are accessible to accredited researchers by appointment. Contact research@museum.kr.uz with your research purpose."
+      }
+    ]
+  }
+}

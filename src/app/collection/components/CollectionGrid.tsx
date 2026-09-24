@@ -212,72 +212,80 @@ export default function CollectionGrid({ category = 'all' }: CollectionGridProps
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
-        {visibleArtworks.map((artwork, index) => (
-          <Link
-            key={artwork.id}
-            href="#"
-            className={`group relative overflow-hidden bg-muted reveal-hidden ${artwork.span || 'col-span-1'}`}
-            style={{ transitionDelay: `${index * 80}ms` }}
-            onMouseEnter={() => setHoveredId(artwork.id)}
-            onMouseLeave={() => setHoveredId(null)}
-            aria-label={`${artwork.title} by ${artwork.artist}, ${artwork.year}`}
-          >
-            {/* Image */}
-            <div className={`overflow-hidden ${artwork.heightClass || 'h-[280px]'} relative`}>
-              <AppImage
-                src={artwork.image}
-                alt={artwork.imageAlt}
-                fill
-                className={`object-cover transition-all duration-700 ease-museum ${
-                  hoveredId === artwork.id ? 'scale-105 grayscale-0' : 'grayscale-[20%]'
-                }`}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+        {visibleArtworks.map((artwork, index) => {
+          const item = t.collectionPage.artworks?.[artwork.id];
+          const title = item?.title || artwork.title;
+          const artist = item?.artist || artwork.artist;
+          const year = item?.year || artwork.year;
+          const medium = item?.medium || artwork.medium;
 
-              {/* Hover metadata overlay */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent transition-opacity duration-500 ${
-                  hoveredId === artwork.id ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
+          return (
+            <Link
+              key={artwork.id}
+              href="#"
+              className={`group relative overflow-hidden bg-muted reveal-hidden ${artwork.span || 'col-span-1'}`}
+              style={{ transitionDelay: `${index * 80}ms` }}
+              onMouseEnter={() => setHoveredId(artwork.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              aria-label={`${title} by ${artist}, ${year}`}
+            >
+              {/* Image */}
+              <div className={`overflow-hidden ${artwork.heightClass || 'h-[280px]'} relative`}>
+                <AppImage
+                  src={artwork.image}
+                  alt={artwork.imageAlt}
+                  fill
+                  className={`object-cover transition-all duration-700 ease-museum ${
+                    hoveredId === artwork.id ? 'scale-105 grayscale-0' : 'grayscale-[20%]'
+                  }`}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
 
-              {/* On-view indicator */}
-              {artwork.onView && (
-                <div className="absolute top-3 left-3">
-                  <span className="status-active text-xs bg-primary/70 backdrop-blur-sm px-2 py-1">
-                    {t.collectionPage.onView}
-                  </span>
+                {/* Hover metadata overlay */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent transition-opacity duration-500 ${
+                    hoveredId === artwork.id ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+
+                {/* On-view indicator */}
+                {artwork.onView && (
+                  <div className="absolute top-3 left-3">
+                    <span className="status-active text-xs bg-primary/70 backdrop-blur-sm px-2 py-1">
+                      {t.collectionPage.onView}
+                    </span>
+                  </div>
+                )}
+
+                {/* Hover: metadata reveal */}
+                <div
+                  className={`absolute bottom-0 left-0 right-0 p-5 transition-transform duration-500 ease-museum ${
+                    hoveredId === artwork.id ? 'translate-y-0' : 'translate-y-full'
+                  }`}
+                >
+                  <div className="archive-label inline-block mb-2 bg-primary/70 text-primary-foreground/60 border-primary-foreground/20">
+                    {artwork.inventoryNo}
+                  </div>
+                  <h3 className="font-display text-base font-medium text-primary-foreground leading-tight mb-1">
+                    {title}
+                  </h3>
+                  <p className="text-xs text-primary-foreground/70 font-light">
+                    {artist} · {year}
+                  </p>
+                  <p className="text-xs text-primary-foreground/50 mt-0.5">{medium}</p>
                 </div>
-              )}
-
-              {/* Hover: metadata reveal */}
-              <div
-                className={`absolute bottom-0 left-0 right-0 p-5 transition-transform duration-500 ease-museum ${
-                  hoveredId === artwork.id ? 'translate-y-0' : 'translate-y-full'
-                }`}
-              >
-                <div className="archive-label inline-block mb-2 bg-primary/70 text-primary-foreground/60 border-primary-foreground/20">
-                  {artwork.inventoryNo}
-                </div>
-                <h3 className="font-display text-base font-medium text-primary-foreground leading-tight mb-1">
-                  {artwork.title}
-                </h3>
-                <p className="text-xs text-primary-foreground/70 font-light">
-                  {artwork.artist} · {artwork.year}
-                </p>
-                <p className="text-xs text-primary-foreground/50 mt-0.5">{artwork.medium}</p>
               </div>
-            </div>
 
-            {/* Below-image metadata (always visible) */}
-            <div className="bg-background px-4 py-3 border-t border-border">
-              <p className="text-xs font-medium text-foreground truncate">{artwork.title}</p>
-              <p className="text-xs text-muted-foreground font-light mt-0.5">
-                {artwork.artist} · {artwork.year}
-              </p>
-            </div>
-          </Link>
-        ))}
+              {/* Below-image metadata (always visible) */}
+              <div className="bg-background px-4 py-3 border-t border-border">
+                <p className="text-xs font-medium text-foreground truncate">{title}</p>
+                <p className="text-xs text-muted-foreground font-light mt-0.5">
+                  {artist} · {year}
+                </p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
 
       {/* Load more */}

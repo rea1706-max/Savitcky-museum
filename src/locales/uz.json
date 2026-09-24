@@ -1,0 +1,478 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Muzey haqida",
+    "whatsOn": "Afisha",
+    "collection": "Kolleksiya",
+    "stories": "Hikoyalar",
+    "planVisit": "Tashrifni rejalashtirish"
+  },
+  "hero": {
+    "museumName": "I.V. Savitskiy nomidagi Qoraqalpogʻiston Respublikasi Davlat sanʼat muzeyi",
+    "location": "Nukus, Qoraqalpogʻiston",
+    "subtitle": "Saxrodagi avangard · Savitskiy kolleksiyasi",
+    "badge": "Rus avangardi, Qoraqalpogʻiston amaliy sanʼati va Qadimgi Xorazmga oid 82 000 dan ortiq durdona.",
+    "years": "1966 — Hozirgacha"
+  },
+  "info": {
+    "locationLabel": "Manzil",
+    "locationValue": "Nukus, Qoraqalpogʻiston, Oʻzbekiston",
+    "hoursLabel": "Ish tartibi",
+    "hoursValue": "Sesh — Yak: 09:00 — 18:00 · Dushanba dam olish kuni",
+    "collectionLabel": "Muzey fondi",
+    "collectionValue": "82 000+ saqlanayotgan asarlar"
+  },
+  "about": {
+    "label": "02 / Asoschi va Missiya",
+    "title": "Igor Savitskiy: Qumdagi Luvr",
+    "savitskyQuote": "“Men yoʻqolib ketishga mahkum boʻlgan sanʼatni asrab qolmoqchi edim”.",
+    "savitskyQuoteAuthor": "Igor Savitskiy, Asoschi",
+    "paragraph1": "Olis Nukus shahrida rassom va arxeolog Igor Savitskiy dunyodagi eng noyob madaniy maskanlardan birini yaratdi. Mafkuraviy taqiqlarga qaramay, u 40 000 dan ziyod taqiqlangan rus va turkiston avangardi durdonalarini toʻpladi.",
+    "paragraph2": "Shu bilan birga, Savitskiy qoraqalpoq xalqining yoʻqolib borayotgan boy merosini — nozik matolar, zargarlik buyumlari va qadimiy buyumlarni toʻplab, tarixga qaytardi.",
+    "learnMore": "Muzey tarixi bilan tanishish"
+  },
+  "whatsOn": {
+    "label": "AFISHA",
+    "heading": "Koʻrgazmalar va Dasturlar",
+    "nowOn": "Hozir muzeyda",
+    "upcoming": "Tez kunda",
+    "archive": "Koʻrgazmalar arxividan",
+    "allExhibitions": "Barcha koʻrgazmalar",
+    "viewDetails": "Batafsil"
+  },
+  "bridge": {
+    "label": "Afisha — Kolleksiya",
+    "title1": "Koʻrgazmadan",
+    "title2": "Boqiy",
+    "title3": "Meros",
+    "title4": "Sari",
+    "title5": "Yoʻl",
+    "note1": "Nukusdagi tirik arxiv.",
+    "note2": "82 000 saqlanayotgan asarlar."
+  },
+  "collection": {
+    "label": "04 / Doimiy ekspozitsiya",
+    "title": "Avangard va Qadimiy Zamin",
+    "intro": "Dunyoda rus avangardi boʻyicha ikkinchi oʻrinda turuvchi kolleksiya, Qadimgi Xorazm arxeologiyasi va Qoraqalpogʻiston amaliy sanʼati.",
+    "explore": "Kolleksiyani koʻrish",
+    "volkovBadge": "A. Volkov · Anorli choyxona (1924)",
+    "vesselBadge": "Qadimgi Xorazm · Terrakota idishi (mil. avv. III asr)"
+  },
+  "culture": {
+    "label": "05 / Moddiy madaniyat",
+    "titleLine1": "Anʼanalar",
+    "titleLine2": "Har bir",
+    "titleLine3": "Chiziqda.",
+    "desc1": "Toʻqimachilik xotirasi, saqlovchi naqshlar va sahro ruhiyati.",
+    "desc2": "Oʻtov jiyaklaridan tortib kumush tojgacha.",
+    "link": "Qoraqalpogʻiston sanʼati",
+    "caption": "Qoraqalpoq matosi detali: shoxsimon naqshli oʻtov jiyagi.",
+    "aside1": "Koʻplab hikoyalar.",
+    "aside2": "Kashf etish uchun."
+  },
+  "desert": {
+    "coordinates": "42°27′49″SH 59°36′20″SH",
+    "region": "Qizilqum sahrosi · Nukus",
+    "quoteLine1": "“Sanʼat jasorat va sadoqat",
+    "quoteLine2": "birlashgan joyda gullab-yashnaydi”."
+  },
+  "museumToday": {
+    "label": "Muzey hayoti",
+    "title": "MUZEY BUGUN",
+    "subtitle": "Restavratsiya · Tirik arxiv · Nukus",
+    "kicker": "09 Tirik arxiv",
+    "copyLine1": "Nafis polotnolarni asrash.",
+    "copyLine2": "Ilmiy kataloglar va fondlar.",
+    "copyLine3": "Nukusning jahon sanʼati",
+    "copyLine4": "bilan muloqoti.",
+    "cta": "Hikoyalarni koʻrish",
+    "noteLine1": "Nukus, Qoraqalpogʻiston",
+    "noteLine2": "Seshanbadan yakshanbagacha ochiq",
+    "noteLine3": "09:00 — 18:00",
+    "vaultTitle": "Fondlar qaʼrida",
+    "vaultMeta": "Noyob asarlar. Ehtiyotkor parvarish.",
+    "restorationTitle": "Restavratsiya ustaxonasi",
+    "restorationMeta": "Mahorat. Eʼtibor. Uzoq ertangi kun.",
+    "bridgeMain": "BOY OʻTMISH. OCHIQ KELAJAK.",
+    "bridgeSecondary": "SAVITSKIY MUZEYI · NUKUS, QORAQALPOGʻISTON",
+    "conservationCaption": "Restavratsiya studiyasi, Nukus",
+    "asideWords": "Asrash\nSaqlash\nTadqiq qilish\nUlashish",
+    "asideSub": "Kelgusi avlodlar uchun"
+  },
+  "finalHorizon": {
+    "marker": "10 Ufq",
+    "titleLine1": "Sanʼat uni",
+    "titleLine2": "Sevgan joyda yashaydi",
+    "body": "Qoraqalpogʻistonning qoq markazida insoniyat ijodining bu buyuk maskani dunyoning barcha burchaklaridan kelgan sayyohlar va tadqiqotchilarni ilhomlantirishda davom etmoqda."
+  },
+  "footer": {
+    "sloganLine1": "NUKUSDAN",
+    "sloganLine2": "JAHONGA",
+    "tagline": "I.V. Savitskiy nomidagi Qoraqalpogʻiston Respublikasi Davlat sanʼat muzeyi.",
+    "contact": "Aloqa",
+    "press": "Matbuot",
+    "copyright": "© 2026 Savitskiy muzeyi. Barcha huquqlar himoyalangan.",
+    "groups": {
+      "museum": {
+        "title": "Muzey",
+        "about": "Muzey haqida",
+        "history": "Tarix va Savitskiy",
+        "today": "Muzey bugun"
+      },
+      "collection": {
+        "title": "Kolleksiya",
+        "explore": "Barcha asarlar",
+        "karakalpak": "Qoraqalpoq sanʼati",
+        "avantGarde": "Rus avangardi"
+      },
+      "exhibitions": {
+        "title": "Koʻrgazmalar",
+        "whatsOn": "Hozirgi koʻrgazmalar",
+        "all": "Koʻrgazmalar arxivi"
+      },
+      "stories": {
+        "title": "Hikoyalar",
+        "explore": "Hikoyalarni oʻqish",
+        "people": "Shaxslar · Makonlar · Fikrlar"
+      },
+      "visit": {
+        "title": "Tashrif",
+        "plan": "Tashrifni rejalashtirish",
+        "hours": "Ish vaqti",
+        "gettingHere": "Qanday borish mumkin"
+      }
+    }
+  },
+  "collectionPage": {
+    "eyebrow": "I.V. Savitskiy nomidagi Qoraqalpogʻiston Davlat sanʼat muzeyi",
+    "titleLine1": "Keng qamrovli",
+    "titleLine2": "Kolleksiya",
+    "description": "Rus avangardi, Qoraqalpogʻiston amaliy sanʼati, Qadimgi Xorazm arxeologiyasi va zamonaviy rangtasvir boʻyicha 82 000 dan ortiq durdona asarlar.",
+    "searchPlaceholder": "Rassom, asar nomi, davr yoki yoʻnalish boʻyicha qidiruv…",
+    "searchAria": "Kolleksiyadan qidirish",
+    "showing": "Koʻrsatilmoqda",
+    "of": "/",
+    "works": "asar",
+    "onView": "Ekspozitsiyada",
+    "loadMore": "Yana asarlarni koʻrish",
+    "categories": {
+      "all": "Barcha asarlar",
+      "avantGarde": "Avangard",
+      "karakalpakArts": "Qoraqalpogʻiston sanʼati",
+      "heritage": "Tarix va meros"
+    },
+    "artworks": {
+      "w1": {
+        "title": "Anorli choyxona",
+        "artist": "Aleksandr Volkov",
+        "year": "1924",
+        "medium": "Moyboʻyoq, mato",
+        "collection": "Rus va Turkiston avangardi"
+      },
+      "w2": {
+        "title": "Kompozitsiya № 7",
+        "artist": "Nikolay Karaxan",
+        "year": "1928",
+        "medium": "Moyboʻyoq, mato",
+        "collection": "Rus va Turkiston avangardi"
+      },
+      "w3": {
+        "title": "Soʻzana kashtadoʻzligi",
+        "artist": "Anʼanaviy qoraqalpoq sanʼati",
+        "year": "taxm. 1880 y.",
+        "medium": "Paxta matoga ipak kashta",
+        "collection": "Qoraqalpogʻiston amaliy bezak sanʼati"
+      },
+      "w4": {
+        "title": "Terrakota idishi",
+        "artist": "Qadimgi Xorazm",
+        "year": "mil. avv. III asr",
+        "medium": "Terrakota",
+        "collection": "Qadimgi Xorazm va arxeologiya"
+      },
+      "w5": {
+        "title": "Oʻzbek manzarasi",
+        "artist": "Oʻrol Tansiqboyev",
+        "year": "1941",
+        "medium": "Moyboʻyoq, mato",
+        "collection": "Oʻzbekiston va Qoraqalpogʻiston sanʼati"
+      },
+      "w6": {
+        "title": "Kumush bosh kiyimi (Savkele)",
+        "artist": "Anʼanaviy qoraqalpoq zargarlik sanʼati",
+        "year": "taxm. 1900 y.",
+        "medium": "Kumush, marjon, feruza",
+        "collection": "Qoraqalpogʻiston amaliy bezak sanʼati"
+      },
+      "w7": {
+        "title": "Konstruktivistik etyud",
+        "artist": "Viktor Ufimtsev",
+        "year": "1926",
+        "medium": "Qogʻoz, guash",
+        "collection": "Rus va Turkiston avangardi"
+      },
+      "w8": {
+        "title": "Xorazm tangasi",
+        "artist": "Qadimgi Xorazm",
+        "year": "mil. avv. II asr",
+        "medium": "Kumush, zarb qilingan",
+        "collection": "Qadimgi Xorazm va arxeologiya"
+      }
+    }
+  },
+  "exhibitionsPage": {
+    "back": "← Muzeyga qaytish",
+    "eyebrow": "Koʻrgazmalar",
+    "title": "KOʻRGAZMALAR",
+    "subtitleLine1": "Savitskiy muzeyi arxividan koʻrgazmalar va loyihalar.",
+    "subtitleLine2": "Nukusdan jahonning yetakchi sanʼat markazlarigacha.",
+    "onView": "Ekspozitsiyada",
+    "forthcoming": "Kutilmoqda",
+    "past": "Oʻtgan",
+    "filterAll": "Barcha yillar"
+  },
+  "storiesPage": {
+    "badge": "10 / HIKOYALAR VA ARXIV",
+    "titleLine1": "Muzey",
+    "titleLine2": "Hikoyalari va Arxivi",
+    "introLine1": "Filmlar. Tadqiqotlar. Nashrlar. Shaxslar.",
+    "introLine2": "Muzey hayoti koʻrgazma zallaridan tashqarida ham davom etmoqda.",
+    "browseJournal": "Jurnalni ochish",
+    "featuredReel": "01 / MAXSUS VIDEO",
+    "featuredTitle": "Fondlar qaʼrida",
+    "featuredSubtitle": "Tirik meros va asrash sanʼati",
+    "livingArchive": "Tirik arxiv",
+    "location": "Nukus · Qoraqalpogʻiston",
+    "archiveIndex": "Arxiv indeksi · 2026",
+    "journalTitle": "Muzey jurnali",
+    "categories": {
+      "reels": "Videolar",
+      "research": "Tadqiqotlar",
+      "publications": "Nashrlar",
+      "history": "Tarix"
+    },
+    "closingStatement": "Har bir asar oʻzida bir necha davr tarixini mujassam etgan.",
+    "closingSub": "Nukusdan yangi maqolalar va tadqiqotlar yil davomida eʼlon qilib boriladi.",
+    "stories": [
+      {
+        "number": "02",
+        "type": "Restavratsiya",
+        "length": "4 daqiqa oʻqish",
+        "title": "Restavratsiya jarayoni",
+        "dek": "Nafis boʻyoq qatlamiga uzoq kelajak bagʻishlovchi sabotli mehnat."
+      },
+      {
+        "number": "03",
+        "type": "Toʻplam tarixi",
+        "length": "8 daqiqa oʻqish",
+        "title": "Nukusdagi avangard",
+        "dek": "Qumlar qoʻynidagi muzey qanday qilib oʻz davrining jasur rassomlari boshpanasiga aylandi."
+      },
+      {
+        "number": "04",
+        "type": "Tadqiqot",
+        "length": "7 daqiqa oʻqish",
+        "title": "Savitskiy maktublari",
+        "dek": "Esdaliklar, murojaatlar va dala daftarlari kolleksiya ortidagi insoniy qismatni ochib beradi."
+      },
+      {
+        "number": "05",
+        "type": "Videolavha",
+        "length": "02:18",
+        "title": "Bugungi qoraqalpoq hunarmandchiligi",
+        "dek": "Toʻqimachilik xotirasini bugungi kunga yetkazayotgan ustalar bilan uchrashuv."
+      },
+      {
+        "number": "06",
+        "type": "Nashr",
+        "length": "Yangi nashr",
+        "title": "Sahro arxivi",
+        "dek": "Yangi monografiya muzey gʻoyalari, asarlar tili va Nukus fenomenini tadqiq etadi."
+      },
+      {
+        "number": "07",
+        "type": "Tarix",
+        "length": "6 daqiqa oʻqish",
+        "title": "Qoraqalpogʻiston naqshlari",
+        "dek": "Anʼanaviy matolar geometriyasida oila, tabiat va tumorlar ramzi."
+      }
+    ]
+  },
+  "visitPage": {
+    "eyebrow": "Tashrif buyuruvchilar uchun maʼlumot",
+    "titleLine1": "Savitskiy muzeyiga",
+    "titleLine2": "Tashrif buyuring",
+    "intro": "Nukus, Qoraqalpogʻiston, Oʻzbekiston. Muzey seshanbadan yakshanbagacha ochiq.",
+    "hoursEyebrow": "Ish tartibi",
+    "hoursTitle": "Ish vaqti",
+    "today": "Bugun",
+    "closed": "Dam olish kuni",
+    "lastEntry": "Kirish 16:30 gacha",
+    "publicHolidaysNote": "Bayram kunlarida muzey ish jadvaliga oʻzgartirishlar kiritilishi mumkin. Iltimos, tashrifdan oldin aniqlashtiring.",
+    "days": {
+      "Monday": "Dushanba",
+      "Tuesday": "Seshanba",
+      "Wednesday": "Chorshanba",
+      "Thursday": "Payshanba",
+      "Friday": "Juma",
+      "Saturday": "Shanba",
+      "Sunday": "Yakshanba"
+    },
+    "ticketsEyebrow": "Kirish",
+    "ticketsTitle": "Chiptalar va narxlar",
+    "ticketsDesc": "Chiptalarni muzeyga kirish joyidagi kassadan xarid qilishingiz mumkin. Guruhli tashriflar oldindan buyurtma qilinadi.",
+    "bookAdvance": "Oldindan buyurtma berish",
+    "freeAdmissionNote": "Bepul kirish: har oyning birinchi yakshanbasi. Jurnalistlar va ilmiy xodimlar tegishli guvohnoma asosida.",
+    "tickets": [
+      {
+        "type": "Kattalar uchun",
+        "price": "50 000",
+        "currency": "UZS",
+        "note": "Asosiy ekspozitsiya",
+        "highlight": false
+      },
+      {
+        "type": "Talabalar uchun",
+        "price": "25 000",
+        "currency": "UZS",
+        "note": "Talabalik guvohnomasi bilan",
+        "highlight": false
+      },
+      {
+        "type": "Imtiyozli",
+        "price": "25 000",
+        "currency": "UZS",
+        "note": "Nafaqaxoʻrlar va imkoniyati cheklanganlar",
+        "highlight": false
+      },
+      {
+        "type": "Bolalar",
+        "price": "Bepul",
+        "currency": "",
+        "note": "7 yoshgacha bolalar",
+        "highlight": false
+      },
+      {
+        "type": "Ekskursiya bilan",
+        "price": "100 000",
+        "currency": "UZS",
+        "note": "Bir kishi uchun, kirish chiptasi bilan",
+        "highlight": true
+      },
+      {
+        "type": "Guruhli (10 kishidan)",
+        "price": "35 000",
+        "currency": "UZS",
+        "note": "Bir kishi uchun, oldindan buyurtma asosida",
+        "highlight": false
+      }
+    ],
+    "locationEyebrow": "Qanday yetib borish mumkin",
+    "locationTitle": "Manzil va yoʻnalish",
+    "phoneLabel": "Telefon",
+    "emailLabel": "Elektron pochta",
+    "coordinatesLabel": "Koordinatalar",
+    "transit": [
+      {
+        "mode": "Samolyotda",
+        "detail": "Nukus aeroporti (NCU) Toshkentdan muntazam parvozlarni qabul qiladi. Terminal chiqishida taksi mavjud."
+      },
+      {
+        "mode": "Poyezdda",
+        "detail": "Nukus temir yoʻl vokzali Toshkent va boshqa shaharlar bilan toʻgʻridan-toʻgʻri bogʻlangan (safarlar 18–20 soat)."
+      },
+      {
+        "mode": "Shahar transporti",
+        "detail": "Taksilar va yoʻnalishli avtobuslar Nukus boʻylab harakatlanadi. Muzey shahar markazida joylashgan."
+      }
+    ],
+    "toursEyebrow": "Ekskursiya dasturlari",
+    "toursTitle": "Ekskursiyalar",
+    "tours": [
+      {
+        "id": "t1",
+        "name": "Umumiy tanishuv ekskursiyasi",
+        "duration": "90 daqiqa",
+        "groupSize": "15 kishigacha",
+        "languages": "Qoraqalpoq, oʻzbek, rus, ingliz",
+        "price": "Kishi boshiga 100 000 UZS",
+        "description": "Avangard durdonalari va Qoraqalpogʻiston xalq amaliy sanʼatining eng sara namunalari bilan tanishuv.",
+        "available": "Har kuni 10:00 va 14:00 da (Sesh–Shan)"
+      },
+      {
+        "id": "t2",
+        "name": "Rus va Turkiston avangardi",
+        "duration": "2,5 soat",
+        "groupSize": "10 kishigacha",
+        "languages": "Rus, ingliz",
+        "price": "Kishi boshiga 150 000 UZS",
+        "description": "1920–1930-yillar avangard sanʼati, asarlar taqdiri va rassomlar hayotiga bagʻishlangan maxsus ekskursiya.",
+        "available": "Shanba 11:00 da (oldindan buyurtma orqali)"
+      },
+      {
+        "id": "t3",
+        "name": "Qoraqalpoq madaniy merosi",
+        "duration": "2 soat",
+        "groupSize": "12 kishigacha",
+        "languages": "Qoraqalpoq, oʻzbek, rus",
+        "price": "Kishi boshiga 120 000 UZS",
+        "description": "Qoraqalpoq milliy liboslari, zargarlik buyumlari, gilamdoʻzlik va oʻtov bezaklari bilan batafsil tanishuv.",
+        "available": "Seshanba va payshanba 11:00 da"
+      }
+    ],
+    "tourLabels": {
+      "duration": "Davomiyligi",
+      "groupSize": "Guruh hajmi",
+      "languages": "Tillar",
+      "schedule": "Vaqti",
+      "book": "Buyurtma"
+    },
+    "tourGroupNote": "Taʼlim va xususiy guruhlar: maktablar va universitetlar uchun maxsus moslashtirilgan ekskursiyalar tashkil etiladi.",
+    "contactTours": "tours@museum.kr.uz",
+    "faqEyebrow": "Tashrifdan oldin",
+    "faqTitle": "Koʻp beriladigan savollar",
+    "faqContact": "Savollaringiz bormi? Biz bilan bogʻlaning: info@museum.kr.uz",
+    "faqs": [
+      {
+        "id": "f1",
+        "question": "Muzeyda suratga olish mumkinmi?",
+        "answer": "Doimiy koʻrgazma zallarida chaqnnoqsiz (vspyshkasiz) shaxsiy suratga olishga ruxsat beriladi. Professional uskunalar uchun oldindan ruxsatnoma talab qilinadi."
+      },
+      {
+        "id": "f2",
+        "question": "Imkoniyati cheklangan tashrif buyuruvchilar uchun sharoit bormi?",
+        "answer": "Muzeyning asosiy binosi panduslar, qavatlararo liftlar va maxsus jihozlangan xonalar bilan toʻliq taʼminlangan. Rus va ingliz tillarida audiogidlar mavjud."
+      },
+      {
+        "id": "f3",
+        "question": "Muzeyda garderob va yuk saqlash xonasi bormi?",
+        "answer": "Bosh kirish joyi yonida bepul kiyim ilgich va yuk saqlash xonasi mavjud. Katta sumkalar zallarga kiritilmaydi."
+      },
+      {
+        "id": "f4",
+        "question": "Muzey hududida kafe bormi?",
+        "answer": "Muzey hovlisida issiq choy, qahva va yengil tamaddilar taklif qiluvchi shinam kafe faoliyat yuritadi."
+      },
+      {
+        "id": "f5",
+        "question": "Muzey doʻkoni bormi?",
+        "answer": "Vestibyulda koʻrgazma kataloglari, sanʼat kitoblari, otkritkalar va anʼanaviy qoraqalpoq hunarmandchilik buyumlari doʻkoni joylashgan."
+      },
+      {
+        "id": "f6",
+        "question": "Tashrif odatda qancha vaqt oladi?",
+        "answer": "Doimiy koʻrgazma bilan tanishuv oʻrtacha 1,5–2 soat vaqtni oladi. Barcha boʻlimlarni chuqur oʻrganish uchun 2,5–3 soat tavsiya etiladi."
+      },
+      {
+        "id": "f7",
+        "question": "Chiptalarni oldindan bron qilish shartmi?",
+        "answer": "Alohida tashrif buyuruvchilar chiptalarni kassadan toʻgʻridan-toʻgʻri olishlari mumkin. Ekskursiyalar uchun oldindan yozilish tavsiya etiladi."
+      },
+      {
+        "id": "f8",
+        "question": "Tadqiqotchilar arxivdan qanday foydalanishi mumkin?",
+        "answer": "Ilmiy xodimlar research@museum.kr.uz orqali rasmiy murojaat qilish orqali arxiv fondlari bilan ishlashlari mumkin."
+      }
+    ]
+  }
+}
