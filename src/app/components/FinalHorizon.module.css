@@ -5,7 +5,7 @@
   position: relative;
   z-index: 2;
   min-height: max(940px, 112svh);
-  margin-top: clamp(-250px, -16vw, -150px);
+  margin-top: 0;
   overflow: hidden;
   isolation: isolate;
   background: var(--charcoal);

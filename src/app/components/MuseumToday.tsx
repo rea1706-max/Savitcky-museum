@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '@/lib/i18n';
 import styles from './MuseumToday.module.css';
 
 const images = {
@@ -54,6 +55,7 @@ function TransitionOrnament() {
 
 export default function MuseumToday() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     let disposed = false;
@@ -98,11 +100,11 @@ export default function MuseumToday() {
           </div>
 
           <div data-transition-copy className={styles.transitionCopy}>
-            <p>09 / Museum Today</p>
+            <p>{t.museumToday.label}</p>
             <div className={styles.transitionTitleClip}>
-              <span>Museum Today</span>
+              <span>{t.museumToday.title}</span>
             </div>
-            <small>Material memory, preserved by people.</small>
+            <small>{t.museumToday.subtitle}</small>
           </div>
 
           <figure data-transition-image className={styles.transitionImage}>
@@ -113,7 +115,7 @@ export default function MuseumToday() {
               sizes="(max-width: 767px) 88vw, 58vw"
               className={styles.cover}
             />
-            <figcaption>Conservation in practice · Savitsky Museum</figcaption>
+            <figcaption>{t.museumToday.conservationCaption}</figcaption>
           </figure>
         </div>
       </section>
@@ -138,47 +140,73 @@ export default function MuseumToday() {
 
         <div className={styles.editorialGrid}>
           <header className={styles.intro}>
+            <p data-museum-kicker className={styles.kicker}>
+              {t.museumToday.kicker}
+            </p>
             <div className={styles.titleClip}>
               <h2 id="museum-heading" data-title-line>
-                Museum
+                {t.museumToday.vaultTitle}
               </h2>
             </div>
-            <div className={styles.titleClip}>
-              <span data-title-line>Today</span>
-            </div>
-            <p data-museum-kicker className={styles.kicker}>
-              A living archive
-            </p>
             <p data-museum-copy className={styles.copy}>
-              Conservation. Research.
+              {t.museumToday.copyLine1}
               <br />
-              Education. People.
+              {t.museumToday.copyLine2}
               <br />
-              The museum continues
+              {t.museumToday.copyLine3}
               <br />
-              to grow.
+              {t.museumToday.copyLine4}
             </p>
             <Link data-museum-cta className={styles.primaryCta} href="/stories">
-              See our stories <Arrow />
+              {t.museumToday.cta} <Arrow />
             </Link>
           </header>
 
-          <figure data-museum-main-image className={styles.mainVisual}>
-            <div className={`${styles.imageFrame} imageFrame`}>
-              <Image
-                src={images.conservation.src}
-                alt={images.conservation.alt}
-                fill
-                priority
-                sizes="(max-width: 767px) 100vw, 65vw"
-                className={styles.cover}
-              />
-            </div>
-            <figcaption>
-              <span>Care · Preserve · Research</span>
-              <small>Conservation studio</small>
-            </figcaption>
-          </figure>
+          <div id="museum-today-stories" className={styles.stories}>
+            <Link
+              data-story-card
+              href="/stories"
+              className={`${styles.story} ${styles.vaultStory}`}
+              aria-label={`Open Stories: ${t.museumToday.vaultTitle}`}
+            >
+              <div className={styles.storyIndex}>01</div>
+              <div className={styles.storyImage}>
+                <Image
+                  src={images.vaults.src}
+                  alt={images.vaults.alt}
+                  fill
+                  sizes="(max-width: 767px) 100vw, 42vw"
+                  className={styles.cover}
+                />
+              </div>
+              <div className={styles.storyMeta}>
+                <h3>{t.museumToday.vaultTitle}</h3>
+                <p>{t.museumToday.vaultMeta}</p>
+              </div>
+            </Link>
+
+            <Link
+              data-story-card
+              href="/stories"
+              className={`${styles.story} ${styles.restorationStory}`}
+              aria-label={`Open Stories: ${t.museumToday.restorationTitle}`}
+            >
+              <div className={styles.storyIndex}>02</div>
+              <div className={styles.storyImage}>
+                <Image
+                  src={images.restoration.src}
+                  alt={images.restoration.alt}
+                  fill
+                  sizes="(max-width: 767px) 100vw, 34vw"
+                  className={styles.cover}
+                />
+              </div>
+              <div className={styles.storyMeta}>
+                <h3>{t.museumToday.restorationTitle}</h3>
+                <p>{t.museumToday.restorationMeta}</p>
+              </div>
+            </Link>
+          </div>
 
           <aside data-museum-aside className={styles.rightAside}>
             <p>
@@ -195,64 +223,18 @@ export default function MuseumToday() {
           </aside>
 
           <p data-museum-note className={styles.leftNote}>
-            People. Places.
+            {t.museumToday.noteLine1}
             <br />
-            Ideas for a
+            {t.museumToday.noteLine2}
             <br />
-            wider tomorrow.
+            {t.museumToday.noteLine3}
           </p>
-
-          <div id="museum-today-stories" className={styles.stories}>
-            <Link
-              data-story-card
-              href="/stories"
-              className={`${styles.story} ${styles.vaultStory}`}
-              aria-label="Open Stories: Inside the Vaults"
-            >
-              <div className={styles.storyIndex}>01</div>
-              <div className={styles.storyImage}>
-                <Image
-                  src={images.vaults.src}
-                  alt={images.vaults.alt}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 42vw"
-                  className={styles.cover}
-                />
-              </div>
-              <div className={styles.storyMeta}>
-                <h3>Inside the Vaults</h3>
-                <p>A collection that lives on.</p>
-              </div>
-            </Link>
-
-            <Link
-              data-story-card
-              href="/stories"
-              className={`${styles.story} ${styles.restorationStory}`}
-              aria-label="Open Stories: Restoration in Progress"
-            >
-              <div className={styles.storyIndex}>02</div>
-              <div className={styles.storyImage}>
-                <Image
-                  src={images.restoration.src}
-                  alt={images.restoration.alt}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 34vw"
-                  className={styles.cover}
-                />
-              </div>
-              <div className={styles.storyMeta}>
-                <h3>Restoration in Progress</h3>
-                <p>Skills. Care. A longer tomorrow.</p>
-              </div>
-            </Link>
-          </div>
         </div>
 
         <div className={styles.bottomBridge} aria-hidden="true">
-          <span>A richer past. A more open tomorrow.</span>
+          <span>{t.museumToday.bridgeMain}</span>
           <i />
-          <small>From Nukus to the world</small>
+          <small>{t.museumToday.bridgeSecondary}</small>
         </div>
       </section>
     </div>

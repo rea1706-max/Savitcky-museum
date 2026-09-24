@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import { DM_Sans, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
+import { LanguageProvider } from '@/lib/i18n';
 import '../styles/tailwind.css';
 
 const dmSans = DM_Sans({
@@ -57,7 +58,9 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${dmSans.variable} ${cormorant.variable} ${playfair.variable}`}
     >
-      <body className={dmSans.className}>{children}</body>
+      <body className={dmSans.className}>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

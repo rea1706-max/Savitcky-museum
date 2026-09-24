@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useLanguage } from '@/lib/i18n';
 import styles from './CollectionJourney.module.css';
 
 export function CollectionArrow() {
@@ -12,6 +13,8 @@ export function CollectionArrow() {
 }
 
 export default function CollectionConstellation() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="collection"
@@ -21,23 +24,20 @@ export default function CollectionConstellation() {
     >
       <div className={styles.overviewInner}>
         <p data-collection-label className={styles.chapterLabel}>
-          The Collection
+          {t.collection.label}
         </p>
         <div className={styles.overviewHeader}>
           <h2 id="collection-heading" className={styles.collectionTitle}>
-            {['A collection', 'Beyond', 'Borders'].map((line) => (
-              <span className={styles.lineMask} key={line}>
-                <span data-collection-title>{line}</span>
-              </span>
-            ))}
+            <span className={styles.lineMask}>
+              <span data-collection-title>{t.collection.title}</span>
+            </span>
           </h2>
           <div className={styles.collectionIntroduction}>
             <p data-collection-copy>
-              Russian avant-garde and the material history of Ancient Khorezm, held together in an
-              archive without borders.
+              {t.collection.intro}
             </p>
             <Link data-collection-cta href="/collection" className={styles.link}>
-              Explore Collection <CollectionArrow />
+              {t.collection.explore} <CollectionArrow />
             </Link>
           </div>
         </div>
@@ -59,8 +59,8 @@ export default function CollectionConstellation() {
               </div>
               <figcaption data-volkov-caption>
                 <span className={styles.gatewayNumber}>01</span>
-                <span className={styles.gatewayTitle}>Avant-Garde</span>
-                <span className={styles.gatewayMeta}>Alexander Volkov · Arba, 1924</span>
+                <span className={styles.gatewayTitle}>{t.footer.groups.collection.avantGarde}</span>
+                <span className={styles.gatewayMeta}>{t.collection.volkovBadge}</span>
               </figcaption>
             </Link>
           </figure>
@@ -81,8 +81,8 @@ export default function CollectionConstellation() {
               </div>
               <figcaption data-vessel-caption>
                 <span className={styles.gatewayNumber}>02</span>
-                <span className={styles.gatewayTitle}>Heritage &amp; History</span>
-                <span className={styles.gatewayMeta}>Terracotta vessel · Ancient Khorezm</span>
+                <span className={styles.gatewayTitle}>{t.footer.groups.museum.history}</span>
+                <span className={styles.gatewayMeta}>{t.collection.vesselBadge}</span>
               </figcaption>
             </Link>
           </figure>

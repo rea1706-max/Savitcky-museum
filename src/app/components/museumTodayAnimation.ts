@@ -120,9 +120,6 @@ export function createMuseumTodayAnimation(root: HTMLElement) {
         autoAlpha: 0,
         y: 18,
       });
-      gsap.set(select('[data-museum-main-image] .imageFrame'), {
-        clipPath: 'inset(0 0 0 100%)',
-      });
       gsap.set(select('[data-museum-aside], [data-museum-note]'), { autoAlpha: 0 });
       gsap.set(select('[data-story-card]'), { autoAlpha: 0, y: 38 });
 
@@ -131,22 +128,17 @@ export function createMuseumTodayAnimation(root: HTMLElement) {
       reveal.to(
         select('[data-museum-kicker], [data-museum-copy], [data-museum-cta]'),
         { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.09 },
-        0.24
-      );
-      reveal.to(
-        select('[data-museum-main-image] .imageFrame'),
-        { clipPath: 'inset(0 0 0 0%)', duration: 1.15, ease: 'power2.inOut' },
-        0.12
-      );
-      reveal.to(
-        select('[data-museum-aside], [data-museum-note]'),
-        { autoAlpha: 1, duration: 0.7 },
-        0.65
+        0.18
       );
       reveal.to(
         select('[data-story-card]'),
         { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.15 },
-        0.74
+        0.28
+      );
+      reveal.to(
+        select('[data-museum-aside], [data-museum-note]'),
+        { autoAlpha: 1, duration: 0.7 },
+        0.45
       );
 
       ScrollTrigger.create({
@@ -159,9 +151,7 @@ export function createMuseumTodayAnimation(root: HTMLElement) {
         invalidateOnRefresh: true,
       });
 
-      const parallaxItems = root.querySelectorAll<HTMLElement>(
-        '[data-museum-main-image] img, [data-story-card] img'
-      );
+      const parallaxItems = root.querySelectorAll<HTMLElement>('[data-story-card] img');
       parallaxItems.forEach((image) => {
         const trigger = image.closest<HTMLElement>('figure, article') ?? image;
         gsap.fromTo(

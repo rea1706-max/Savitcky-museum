@@ -2,10 +2,12 @@
 
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '@/lib/i18n';
 import styles from './FinalHorizon.module.css';
 
 export default function FinalHorizon() {
   const sceneRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     let disposed = false;
@@ -47,32 +49,27 @@ export default function FinalHorizon() {
 
       <div className={styles.content}>
         <div className={styles.chapterMarker}>
-          <span>10</span>
+          <span>{t.finalHorizon.marker}</span>
           <i />
         </div>
         <div className={styles.copy}>
           <h2 id="final-horizon-heading" className={styles.title}>
             <span className={styles.lineMask}>
-              <span data-horizon-title>From Nukus</span>
+              <span data-horizon-title>{t.finalHorizon.titleLine1}</span>
             </span>
             <span className={styles.lineMask}>
-              <span data-horizon-title>To the World</span>
+              <span data-horizon-title>{t.finalHorizon.titleLine2}</span>
             </span>
           </h2>
           <p data-horizon-meta className={styles.statement}>
-            A local story.
-            <br />A global dialogue.
+            {t.finalHorizon.body}
           </p>
         </div>
         <p data-horizon-meta className={styles.location}>
-          Nukus
-          <br />
-          Karakalpakstan
-          <br />
-          Uzbekistan
+          {t.info.locationValue}
         </p>
         <p data-horizon-meta className={styles.caption}>
-          Rooted in land. Open to the world.
+          {t.footer.sloganLine1} {t.footer.sloganLine2}
         </p>
       </div>
     </section>

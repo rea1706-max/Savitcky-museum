@@ -3,11 +3,13 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import { useLanguage } from '@/lib/i18n';
 
 const pathProps = { fill: 'none', vectorEffect: 'non-scaling-stroke' as const };
 
 export default function OpeningSequence() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     let disposed = false;
@@ -296,9 +298,7 @@ export default function OpeningSequence() {
                 textShadow: '0 1px 8px rgba(20,17,14,0.55)',
               }}
             >
-              An Avant-Garde Collection
-              <br />
-              Preserved at the Edge of the Desert.
+              {t.hero.subtitle}
             </p>
           </div>
         </div>
@@ -428,9 +428,9 @@ export default function OpeningSequence() {
               margin: 0,
             }}
           >
-            The desert preserves
+            {t.desert.quoteLine1}
             <br />
-            more than landscapes.
+            {t.desert.quoteLine2}
           </p>
         </div>
       </div>

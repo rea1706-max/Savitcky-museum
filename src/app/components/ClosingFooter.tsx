@@ -1,54 +1,54 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useLanguage, type Locale } from '@/lib/i18n';
 import styles from './ClosingFooter.module.css';
 
-const groups = [
-  {
-    title: 'Museum',
-    links: [
-      { label: 'About', href: '/#about' },
-      { label: 'History', href: '/#about' },
-      { label: 'Museum Today', href: '/#stories' },
-    ],
-  },
-  {
-    title: 'Collection',
-    links: [
-      { label: 'Explore', href: '/collection' },
-      { label: 'Karakalpak Arts', href: '/#collection' },
-      { label: 'Avant-Garde', href: '/collection' },
-    ],
-  },
-  {
-    title: 'Exhibitions',
-    links: [
-      { label: "What's On", href: '/#whats-on' },
-      { label: 'All Exhibitions', href: '/exhibitions' },
-    ],
-  },
-  {
-    title: 'Stories',
-    links: [
-      { label: 'Explore Stories', href: '/stories' },
-      { label: 'People · Places · Ideas', href: '/stories' },
-    ],
-  },
-  {
-    title: 'Visit',
-    links: [
-      { label: 'Plan Your Visit', href: '/visit' },
-      { label: 'Opening Hours', href: '/visit' },
-      { label: 'Getting Here', href: '/visit' },
-    ],
-  },
-];
-
-const languages = ['EN', 'RU', 'UZ', 'KK'];
+const languages: Locale[] = ['EN', 'RU', 'UZ', 'KK'];
 
 export default function ClosingFooter() {
-  const [activeLanguage, setActiveLanguage] = useState('EN');
+  const { locale: activeLanguage, setLocale, t } = useLanguage();
+
+  const groups = [
+    {
+      title: t.footer.groups.museum.title,
+      links: [
+        { label: t.footer.groups.museum.about, href: '/#about' },
+        { label: t.footer.groups.museum.history, href: '/#about' },
+        { label: t.footer.groups.museum.today, href: '/#stories' },
+      ],
+    },
+    {
+      title: t.footer.groups.collection.title,
+      links: [
+        { label: t.footer.groups.collection.explore, href: '/collection' },
+        { label: t.footer.groups.collection.karakalpak, href: '/#collection' },
+        { label: t.footer.groups.collection.avantGarde, href: '/collection' },
+      ],
+    },
+    {
+      title: t.footer.groups.exhibitions.title,
+      links: [
+        { label: t.footer.groups.exhibitions.whatsOn, href: '/#whats-on' },
+        { label: t.footer.groups.exhibitions.all, href: '/exhibitions' },
+      ],
+    },
+    {
+      title: t.footer.groups.stories.title,
+      links: [
+        { label: t.footer.groups.stories.explore, href: '/stories' },
+        { label: t.footer.groups.stories.people, href: '/stories' },
+      ],
+    },
+    {
+      title: t.footer.groups.visit.title,
+      links: [
+        { label: t.footer.groups.visit.plan, href: '/visit' },
+        { label: t.footer.groups.visit.hours, href: '/visit' },
+        { label: t.footer.groups.visit.gettingHere, href: '/visit' },
+      ],
+    },
+  ];
 
   return (
     <footer className={styles.footer} aria-label="Savitsky Museum footer">
@@ -60,7 +60,7 @@ export default function ClosingFooter() {
             <br />
             Museum
           </p>
-          <small>Art &nbsp; People &nbsp; Memory &nbsp; Future</small>
+          <small>{t.footer.tagline}</small>
         </div>
 
         <div className={styles.navigation}>
@@ -79,9 +79,9 @@ export default function ClosingFooter() {
             ))}
           </div>
           <p className={styles.signature}>
-            Rooted in land.
+            {t.footer.sloganLine1}
             <br />
-            Open to the world.
+            {t.footer.sloganLine2}
           </p>
         </div>
 
@@ -89,10 +89,10 @@ export default function ClosingFooter() {
           <i />
         </div>
         <div className={styles.bottom}>
-          <p>Nukus, Karakalpakstan, Uzbekistan</p>
+          <p>{t.info.locationValue}</p>
           <div className={styles.contact}>
-            <a href="mailto:info@museum.kr.uz">Contact</a>
-            <a href="mailto:info@museum.kr.uz?subject=Press%20enquiry">Press</a>
+            <a href="mailto:info@museum.kr.uz">{t.footer.contact}</a>
+            <a href="mailto:info@museum.kr.uz?subject=Press%20enquiry">{t.footer.press}</a>
           </div>
           <div className={styles.languages} aria-label="Language selector">
             {languages.map((language) => (
@@ -100,14 +100,14 @@ export default function ClosingFooter() {
                 key={language}
                 type="button"
                 aria-pressed={activeLanguage === language}
-                onClick={() => setActiveLanguage(language)}
+                onClick={() => setLocale(language)}
               >
                 {language}
               </button>
             ))}
           </div>
         </div>
-        <p className={styles.copyright}>© 2026 Savitsky Museum</p>
+        <p className={styles.copyright}>{t.footer.copyright}</p>
       </div>
     </footer>
   );

@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { CollectionArrow } from './CollectionConstellation';
+import { useLanguage } from '@/lib/i18n';
 import styles from './CollectionJourney.module.css';
 
 export default function PatternCultureChapter() {
+  const { t } = useLanguage();
+
   return (
     <section data-material-chapter className={styles.culture} aria-labelledby="pattern-heading">
       <div data-culture-frame className={styles.cultureFrame}>
@@ -17,7 +20,7 @@ export default function PatternCultureChapter() {
             className={styles.textile}
           />
           <figcaption className={styles.textileCaption}>
-            Karakalpak textile · Woven detail
+            {t.culture.caption}
           </figcaption>
         </figure>
         <div data-red-fiber className={styles.redFiber} aria-hidden="true" />
@@ -48,28 +51,27 @@ export default function PatternCultureChapter() {
         </svg>
         <div data-culture-copy className={styles.cultureCopy}>
           <p data-culture-label className={styles.chapterLabel}>
-            Collection · Material Memory
+            {t.culture.label}
           </p>
           <h2 data-culture-heading id="pattern-heading">
-            <span>Karakalpak</span>
-            <span>Arts</span>
+            <span>{t.footer.groups.collection.karakalpak}</span>
           </h2>
           <p data-culture-statement className={styles.cultureStatement}>
-            Tradition
+            {t.culture.titleLine1}
             <br />
-            Lives in Detail.
+            {t.culture.titleLine2} {t.culture.titleLine3}
           </p>
           <p data-culture-desc className={styles.cultureDescription}>
-            Textiles. Jewellery. Craft.
+            {t.culture.desc1}
             <br />
-            Material memory.
+            {t.culture.desc2}
           </p>
           <Link
             data-culture-link
             href="/collection?category=karakalpak-arts"
             className={styles.link}
           >
-            Explore Karakalpak Arts <CollectionArrow />
+            {t.culture.link} <CollectionArrow />
           </Link>
         </div>
         <p data-culture-aside className={styles.cultureAside}>

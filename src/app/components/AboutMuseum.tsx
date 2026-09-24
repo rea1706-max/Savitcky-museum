@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Inter } from 'next/font/google';
+import { useLanguage } from '@/lib/i18n';
 import '@/styles/museum-tokens.css';
 import styles from './AboutMuseum.module.css';
 
@@ -25,6 +26,7 @@ function Arrow() {
 
 export default function AboutMuseum() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     let disposed = false;
@@ -65,40 +67,30 @@ export default function AboutMuseum() {
         <div className={styles.container}>
           <div data-about-label-mask>
             <p data-about-label className={styles.label}>
-              <span>02</span>
-              <span>/</span> ABOUT
+              {t.about.label}
             </p>
           </div>
 
           <div className={styles.composition}>
             <div className={styles.text}>
-              <h2 id="about-heading" className={styles.title} aria-label="About the museum">
-                {['ABOUT', 'THE', 'MUSEUM'].map((line) => (
-                  <span data-about-title-mask className={styles.lineMask} key={line}>
-                    <span data-about-title-line>{line}</span>
-                  </span>
-                ))}
+              <h2 id="about-heading" className={styles.title} aria-label={t.about.title}>
+                <span data-about-title-mask className={styles.lineMask}>
+                  <span data-about-title-line>{t.about.title}</span>
+                </span>
               </h2>
 
               <div data-about-copy-mask className={styles.copy}>
-                <p data-about-copy>
-                  Founded in 1966 by artist and collector Igor Savitsky, the museum in Nukus became
-                  a sanctuary for suppressed Soviet-era art.
-                </p>
-                <p data-about-copy>
-                  Today, more than 100,000 objects bring Russian and Turkestan avant-garde together
-                  with Karakalpak textiles, jewellery, ceramics and the archaeology of Ancient
-                  Khorezm.
-                </p>
+                <p data-about-copy>{t.about.paragraph1}</p>
+                <p data-about-copy>{t.about.paragraph2}</p>
               </div>
 
               <div data-about-links-mask>
                 <div data-about-links className={styles.links}>
                   <Link href="/collection">
-                    Explore the collection <Arrow />
+                    {t.collection.explore} <Arrow />
                   </Link>
-                  <Link href="/stories">
-                    Museum today <Arrow />
+                  <Link href="/#stories">
+                    {t.nav.stories} <Arrow />
                   </Link>
                 </div>
               </div>

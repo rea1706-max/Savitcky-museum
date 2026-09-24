@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import ExhibitionTransitionLink from '@/components/ExhibitionTransitionLink';
 import { exhibitionDates, exhibitionStatus, type Exhibition } from '@/lib/exhibitions';
+import { useLanguage } from '@/lib/i18n';
 import '@/styles/museum-tokens.css';
 import styles from './WhatsOnSection.module.css';
 
@@ -27,6 +28,7 @@ export default function WhatsOnSection({
   today: string;
 }) {
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
   const status = exhibitionStatus(exhibition, today);
   const href = `/exhibitions#${exhibition.slug}`;
 
@@ -63,7 +65,7 @@ export default function WhatsOnSection({
       </svg>
       <div className={styles.container}>
         <h2 data-feature-reveal="label" id="whatson-heading" className={styles.chapterTitle}>
-          WHAT&apos;S ON
+          {t.whatsOn.label}
         </h2>
         <div className={styles.poster}>
           <div className={styles.redMask} data-feature-red-mask aria-hidden="true">
@@ -82,7 +84,7 @@ export default function WhatsOnSection({
             )}
             <div data-feature-reveal="actions" className={styles.allLink}>
               <ExhibitionTransitionLink href="/exhibitions" className={styles.link}>
-                All exhibitions <Arrow />
+                {t.whatsOn.allExhibitions} <Arrow />
               </ExhibitionTransitionLink>
             </div>
           </div>

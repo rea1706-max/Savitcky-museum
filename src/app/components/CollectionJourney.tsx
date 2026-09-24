@@ -4,6 +4,7 @@ import { useEffect, useRef, type ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import CollectionConstellation from './CollectionConstellation';
 import PatternCultureChapter from './PatternCultureChapter';
+import { useLanguage } from '@/lib/i18n';
 import '@/styles/museum-tokens.css';
 import styles from './CollectionJourney.module.css';
 
@@ -11,6 +12,7 @@ const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'], display
 
 export default function CollectionJourney({ children }: { children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     let disposed = false;
@@ -36,14 +38,14 @@ export default function CollectionJourney({ children }: { children: ReactNode })
             <div className={styles.bridgePaper} data-bridge-paper aria-hidden="true" />
             <div className={styles.grain} aria-hidden="true" />
             <p className={styles.chapterLabel} data-bridge-label>
-              What&apos;s On — Collection
+              {t.bridge.label}
             </p>
             <h2 id="bridge-heading" className={styles.bridgeTitle}>
-              <span>From</span>
-              <span>Exhibition</span>
-              <span>To</span>
-              <span>Enduring</span>
-              <span>Heritage.</span>
+              <span>{t.bridge.title1}</span>
+              <span>{t.bridge.title2}</span>
+              <span>{t.bridge.title3}</span>
+              <span>{t.bridge.title4}</span>
+              <span>{t.bridge.title5}</span>
             </h2>
             <div className={styles.staticHinge} data-static-hinge aria-hidden="true" />
             <svg
@@ -56,9 +58,9 @@ export default function CollectionJourney({ children }: { children: ReactNode })
               <path data-static-node d="m410 379 11 11-11 11-11-11 11-11" />
             </svg>
             <p className={styles.bridgeNote} data-bridge-note>
-              Ideas fade.
+              {t.bridge.note1}
               <br />
-              Objects remain.
+              {t.bridge.note2}
             </p>
           </section>
           <CollectionConstellation />

@@ -1,9 +1,12 @@
 'use client';
 
 import React from 'react';
+import { useLanguage } from '@/lib/i18n';
 import '@/styles/museum-tokens.css';
 
 export default function InfoStrip() {
+  const { t } = useLanguage();
+
   return (
     <div
       data-museum-info
@@ -39,7 +42,7 @@ export default function InfoStrip() {
             style={{ background: 'var(--museum-ochre)' }}
             aria-hidden="true"
           />
-          Open Today: 09:00 – 18:00
+          {t.info.hoursValue}
         </span>
 
         {/* Separator */}
@@ -47,8 +50,8 @@ export default function InfoStrip() {
           ·
         </span>
 
-        {/* Days */}
-        <span className="hidden sm:block text-metadata">Tue – Sun &nbsp;·&nbsp; Closed Monday</span>
+        {/* Collection */}
+        <span className="hidden sm:block text-metadata">{t.info.collectionValue}</span>
 
         {/* Separator */}
         <span className="text-metadata hidden md:block" style={{ color: 'var(--museum-earth)' }}>
@@ -57,7 +60,7 @@ export default function InfoStrip() {
 
         {/* Location */}
         <span className="hidden md:block text-metadata" style={{ color: 'var(--museum-earth)' }}>
-          Nukus, Karakalpakstan
+          {t.info.locationValue}
         </span>
       </div>
     </div>

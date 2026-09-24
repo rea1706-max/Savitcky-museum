@@ -95,8 +95,9 @@ export function createCollectionJourney(root: HTMLElement) {
           {
             backgroundColor: '#8a7258',
             clipPath:
-              'polygon(45% 0, 55% 0, 56% 44%, 100% 48%, 100% 52%, 56% 56%, 55% 100%, 45% 100%, 44% 56%, 0 52%, 0 48%, 44% 44%)',
-            scaleX: 0.72,
+              'polygon(0% 48.5%, 45% 48.5%, 50% 38%, 55% 48.5%, 100% 48.5%, 100% 51.5%, 55% 51.5%, 50% 62%, 45% 51.5%, 0% 51.5%)',
+            scaleX: 1.28,
+            opacity: 0.72,
             duration: 20,
           },
           40

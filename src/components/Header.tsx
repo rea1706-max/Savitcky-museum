@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
+import { useLanguage, type Locale } from '@/lib/i18n';
 
 type NavLink = {
   label: string;
@@ -10,15 +11,7 @@ type NavLink = {
   anchor?: string;
 };
 
-const navLinks: NavLink[] = [
-  { label: 'Home', href: '/', anchor: 'hero' },
-  { label: 'About', href: '/#about', anchor: 'about' },
-  { label: "What's On", href: '/#whats-on', anchor: 'whats-on' },
-  { label: 'Collection', href: '/#collection', anchor: 'collection' },
-  { label: 'Stories', href: '/stories' },
-];
-
-const languages = ['KK', 'RU', 'UZ', 'EN'];
+const languages: Locale[] = ['KK', 'RU', 'UZ', 'EN'];
 
 function scrollToAnchor(element: HTMLElement) {
   // What's On lives inside a pinned track. Its own bounding box moves with
@@ -36,9 +29,17 @@ function scrollToAnchor(element: HTMLElement) {
 export default function Header({ openingSequence = false }: { openingSequence?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeLang, setActiveLang] = useState('EN');
+  const { locale: activeLang, setLocale, t } = useLanguage();
   const router = useRouter();
   const pathname = usePathname();
+
+  const navLinks: NavLink[] = [
+    { label: t.nav.home, href: '/', anchor: 'hero' },
+    { label: t.nav.about, href: '/#about', anchor: 'about' },
+    { label: t.nav.whatsOn, href: '/#whats-on', anchor: 'whats-on' },
+    { label: t.nav.collection, href: '/#collection', anchor: 'collection' },
+    { label: t.nav.stories, href: '/stories' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -158,12 +159,12 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
               {languages?.map((lang) => (
                 <button
                   key={lang}
-                  onClick={() => setActiveLang(lang)}
+                  onClick={() => setLocale(lang)}
                   className={`text-label px-2 py-0.5 transition-colors ${
                     activeLang === lang
                       ? scrolled
-                        ? 'text-foreground'
-                        : 'text-primary-foreground'
+                        ? 'text-foreground font-semibold'
+                        : 'text-primary-foreground font-semibold'
                       : scrolled
                         ? 'text-muted-foreground hover:text-foreground'
                         : 'text-primary-foreground/40 hover:text-primary-foreground/70'
@@ -184,7 +185,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                   : 'border-primary-foreground/60 text-primary-foreground hover:text-accent hover:border-accent'
               }`}
             >
-              Plan Your Visit
+              {t.nav.planVisit}
             </Link>
           </div>
 
@@ -238,9 +239,9 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
               {languages?.map((lang) => (
                 <button
                   key={lang}
-                  onClick={() => setActiveLang(lang)}
+                  onClick={() => setLocale(lang)}
                   className={`text-label transition-colors ${
-                    activeLang === lang ? 'text-primary-foreground' : 'text-primary-foreground/40'
+                    activeLang === lang ? 'text-primary-foreground font-semibold' : 'text-primary-foreground/40'
                   }`}
                 >
                   {lang}
@@ -252,10 +253,10 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
               onClick={() => setMenuOpen(false)}
               className="inline-block text-label text-primary-foreground border border-primary-foreground/60 px-5 py-2.5 mb-5 hover:text-accent hover:border-accent transition-colors"
             >
-              Plan Your Visit
+              {t.nav.planVisit}
             </Link>
             <div className="text-metadata text-primary-foreground/50">
-              Open Today: 09:00 – 18:00 &nbsp;·&nbsp; Tue – Sun
+              {t.info.hoursValue}
             </div>
           </div>
         </div>

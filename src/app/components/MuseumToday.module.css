@@ -227,8 +227,8 @@
 
 .museum {
   position: relative;
-  min-height: 1480px;
-  padding: clamp(118px, 12vw, 184px) 5vw 170px;
+  min-height: 960px;
+  padding: clamp(96px, 9vw, 140px) 5vw 120px;
   overflow: hidden;
   isolation: isolate;
   background:
@@ -292,17 +292,18 @@
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 24px;
+  gap: 28px;
   width: min(100%, 1720px);
   margin: 0 auto;
+  align-items: start;
 }
 
 .intro {
   z-index: 4;
   grid-column: 1 / span 4;
   grid-row: 1;
-  align-self: center;
-  padding: 44px 0 20px 4vw;
+  align-self: start;
+  padding: 16px 0 20px 2vw;
 }
 
 .titleClip {
@@ -448,10 +449,10 @@
 }
 
 .leftNote {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 4;
   grid-row: 2;
-  align-self: end;
-  margin: 0 0 78px;
+  align-self: start;
+  margin: 36px 0 0 2vw;
   color: color-mix(in srgb, var(--today-bone) 48%, var(--today-earth));
   font-size: 11px;
   letter-spacing: 0.26em;
@@ -461,12 +462,12 @@
 
 .stories {
   display: grid;
-  grid-column: 3 / span 9;
-  grid-row: 2;
+  grid-column: 5 / span 7;
+  grid-row: 1;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 24px;
+  gap: 28px;
   align-items: start;
-  margin-top: -38px;
+  margin-top: 0;
   scroll-margin-top: 84px;
 }
 
@@ -526,11 +527,12 @@
 
 .storyMeta h3 {
   margin: 0 0 7px;
+  padding-top: 3px;
   font-family: var(--font-playfair), Georgia, serif;
   font-size: clamp(22px, 2vw, 34px);
   font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.15;
   text-transform: uppercase;
 }
 
