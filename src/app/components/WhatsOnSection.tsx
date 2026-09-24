@@ -117,10 +117,10 @@ export default function WhatsOnSection({
                 <p data-feature-reveal="status" className={styles.status}>
                   <span aria-hidden="true" />
                   {status === 'current'
-                    ? 'Now on'
+                    ? t.whatsOn.nowOn
                     : status === 'upcoming'
-                      ? 'Upcoming'
-                      : 'From the archive'}
+                      ? t.whatsOn.upcoming
+                      : t.whatsOn.archive}
                 </p>
                 <p data-feature-reveal="dates" className={styles.dates}>
                   {exhibitionDates(exhibition, true)}{' '}
@@ -132,7 +132,7 @@ export default function WhatsOnSection({
               </div>
               <div data-feature-reveal="actions">
                 <ExhibitionTransitionLink href={href} className={styles.link}>
-                  View details <Arrow />
+                  {t.whatsOn.viewDetails} <Arrow />
                 </ExhibitionTransitionLink>
               </div>
             </div>

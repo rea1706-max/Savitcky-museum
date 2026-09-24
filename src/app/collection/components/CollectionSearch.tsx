@@ -3,13 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Icon from '@/components/ui/AppIcon';
-
-const categories = [
-  { id: 'all', label: 'All Works' },
-  { id: 'avant-garde', label: 'Avant-Garde' },
-  { id: 'karakalpak-arts', label: 'Karakalpak Arts' },
-  { id: 'heritage', label: 'Heritage & History' },
-];
+import { useLanguage } from '@/lib/i18n';
 
 interface CollectionSearchProps {
   initialCategory?: string;
@@ -25,8 +19,16 @@ export default function CollectionSearch({
   onCategoryChange,
 }: CollectionSearchProps) {
   const router = useRouter();
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const categories = [
+    { id: 'all', label: t.collectionPage.categories.all },
+    { id: 'avant-garde', label: t.collectionPage.categories.avantGarde },
+    { id: 'karakalpak-arts', label: t.collectionPage.categories.karakalpakArts },
+    { id: 'heritage', label: t.collectionPage.categories.heritage },
+  ];
 
   useEffect(() => {
     setActiveCategory(initialCategory);
@@ -48,35 +50,35 @@ export default function CollectionSearch({
   return (
     <section
       className="bg-background border-b border-border"
-      aria-label="Collection search and filters"
+      aria-label={t.collectionPage.searchAria}
     >
       <div className="px-6 md:px-12 py-4 max-w-screen-xl mx-auto">
         {/* Search bar */}
         <form onSubmit={handleSearch} className="mb-4" role="search">
           <div className="relative max-w-2xl">
             <label htmlFor="collection-search" className="sr-only">
-              Search the collection
+              {t.collectionPage.searchAria}
             </label>
             <input
               id="collection-search"
               type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search artist, title, period, medium…"
+              placeholder={t.collectionPage.searchPlaceholder}
               className="w-full bg-muted border border-border text-foreground placeholder:text-muted-foreground text-sm py-3 pl-5 pr-12 focus:outline-none focus:border-foreground transition-colors"
-              aria-label="Search the collection"
+              aria-label={t.collectionPage.searchAria}
             />
             <button
               type="submit"
               className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Submit search"
+              aria-label={t.collectionPage.searchAria}
             >
               <Icon name="MagnifyingGlassIcon" size={18} />
             </button>
           </div>
         </form>
 
-        {/* Category tabs only — no view toggle */}
+        {/* Category tabs */}
         <nav
           className="flex items-center gap-0 overflow-x-auto no-scrollbar"
           aria-label="Collection categories"

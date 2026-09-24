@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
+import { useLanguage } from '@/lib/i18n';
 
 interface Artwork {
   id: string;
@@ -175,6 +176,7 @@ const categoryNames: Record<string, string[]> = {
 
 export default function CollectionGrid({ category = 'all' }: CollectionGridProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const selectedCategories = categoryNames[category];
   const visibleArtworks = selectedCategories
@@ -203,21 +205,14 @@ export default function CollectionGrid({ category = 'all' }: CollectionGridProps
       {/* Result count */}
       <div className="flex items-center justify-between mb-8 reveal-hidden">
         <p className="text-label text-muted-foreground">
-          Showing <span className="text-foreground font-medium">{visibleArtworks.length}</span> of
-          82,000+ works
+          {t.collectionPage.showing}{' '}
+          <span className="text-foreground font-medium">{visibleArtworks.length}</span>{' '}
+          {t.collectionPage.of} 82,000+ {t.collectionPage.works}
         </p>
       </div>
 
-      {/* BENTO GRID
-           Row 1: [col-1-2: W1 cs-2 rs-2] [col-3: W2 cs-1 rs-1]
-           Row 2: [col-1-2: W1 continued] [col-3: W3 cs-1 rs-1]
-           Row 3: [col-1: W4] [col-2: W5] [col-3: W6]
-           Row 4: [col-1-2: W7 cs-2] [col-3: W8 cs-1]
-           Placed 8/8 ✓
-        */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
         {visibleArtworks.map((artwork, index) => (
-          /* Card: artwork.id — span: artwork.span */
           <Link
             key={artwork.id}
             href="#"
@@ -250,7 +245,7 @@ export default function CollectionGrid({ category = 'all' }: CollectionGridProps
               {artwork.onView && (
                 <div className="absolute top-3 left-3">
                   <span className="status-active text-xs bg-primary/70 backdrop-blur-sm px-2 py-1">
-                    On View
+                    {t.collectionPage.onView}
                   </span>
                 </div>
               )}
@@ -287,7 +282,7 @@ export default function CollectionGrid({ category = 'all' }: CollectionGridProps
 
       {/* Load more */}
       <div className="flex justify-center mt-12 reveal-hidden">
-        <button className="btn-outline px-12">Load More Works</button>
+        <button className="btn-outline px-12">{t.collectionPage.loadMore}</button>
       </div>
     </div>
   );

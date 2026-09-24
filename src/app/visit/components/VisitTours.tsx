@@ -1,96 +1,79 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-
-const tours = [
-  {
-    id: 't1',
-    name: 'Highlights Tour',
-    duration: '90 minutes',
-    groupSize: 'Up to 15',
-    languages: 'English, Russian, Uzbek',
-    price: '100,000 UZS per person',
-    description:
-      "A curated walk through the museum's most significant avant-garde works and Karakalpak cultural objects. Ideal for first-time visitors.",
-    available: 'Daily 10:00 and 14:00 (Tue–Sat)',
-  },
-  {
-    id: 't2',
-    name: 'Avant-Garde Deep Dive',
-    duration: '2.5 hours',
-    groupSize: 'Up to 10',
-    languages: 'English, Russian',
-    price: '150,000 UZS per person',
-    description:
-      'An extended specialist tour focusing exclusively on the Russian and Turkestan avant-garde collection, including works not on permanent display.',
-    available: 'Saturday 11:00 (advance booking required)',
-  },
-  {
-    id: 't3',
-    name: 'Karakalpak Heritage Tour',
-    duration: '2 hours',
-    groupSize: 'Up to 12',
-    languages: 'Karakalpak, Uzbek, Russian',
-    price: '120,000 UZS per person',
-    description:
-      "Explore the decorative arts, textiles, jewelry and material culture of Karakalpakstan across two centuries of the museum's collection.",
-    available: 'Tuesday and Thursday 11:00',
-  },
-];
+import { useLanguage } from '@/lib/i18n';
 
 export default function VisitTours() {
+  const { t } = useLanguage();
+
   return (
     <section
+      id="tours"
       className="px-6 md:px-12 py-16 md:py-20 bg-muted border-b border-border"
       aria-labelledby="tours-heading"
     >
       <div className="max-w-screen-xl mx-auto">
         <div className="mb-10">
-          <span className="text-label text-muted-foreground block mb-4">Guided Experiences</span>
+          <span className="text-label text-muted-foreground block mb-4">
+            {t.visitPage.toursEyebrow}
+          </span>
           <h2
             id="tours-heading"
             className="font-display font-light text-foreground"
             style={{ fontSize: 'clamp(1.75rem, 3vw, 2.75rem)', letterSpacing: '-0.025em' }}
           >
-            Tours
+            {t.visitPage.toursTitle}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
-          {tours?.map((tour) => (
-            <div key={tour?.id} className="bg-background p-8 flex flex-col">
+          {t.visitPage.tours.map((tour) => (
+            <div key={tour.id} className="bg-background p-8 flex flex-col">
               <div className="flex-1">
                 <div className="rule-oxide mb-5" />
                 <h3 className="font-display text-lg font-medium text-foreground mb-3 leading-snug">
-                  {tour?.name}
+                  {tour.name}
                 </h3>
                 <p className="text-sm text-muted-foreground font-light leading-relaxed mb-6">
-                  {tour?.description}
+                  {tour.description}
                 </p>
 
                 <dl className="space-y-3 mb-6">
-                  {[
-                    { label: 'Duration', value: tour?.duration },
-                    { label: 'Group Size', value: tour?.groupSize },
-                    { label: 'Languages', value: tour?.languages },
-                    { label: 'Schedule', value: tour?.available },
-                  ]?.map((item) => (
-                    <div key={item?.label} className="flex gap-4">
-                      <dt className="text-label text-muted-foreground w-24 flex-shrink-0">
-                        {item?.label}
-                      </dt>
-                      <dd className="text-xs text-foreground font-medium">{item?.value}</dd>
-                    </div>
-                  ))}
+                  <div className="flex gap-4">
+                    <dt className="text-label text-muted-foreground w-28 flex-shrink-0">
+                      {t.visitPage.tourLabels.duration}
+                    </dt>
+                    <dd className="text-xs text-foreground font-medium">{tour.duration}</dd>
+                  </div>
+                  <div className="flex gap-4">
+                    <dt className="text-label text-muted-foreground w-28 flex-shrink-0">
+                      {t.visitPage.tourLabels.groupSize}
+                    </dt>
+                    <dd className="text-xs text-foreground font-medium">{tour.groupSize}</dd>
+                  </div>
+                  <div className="flex gap-4">
+                    <dt className="text-label text-muted-foreground w-28 flex-shrink-0">
+                      {t.visitPage.tourLabels.languages}
+                    </dt>
+                    <dd className="text-xs text-foreground font-medium">{tour.languages}</dd>
+                  </div>
+                  <div className="flex gap-4">
+                    <dt className="text-label text-muted-foreground w-28 flex-shrink-0">
+                      {t.visitPage.tourLabels.schedule}
+                    </dt>
+                    <dd className="text-xs text-foreground font-medium">{tour.available}</dd>
+                  </div>
                 </dl>
               </div>
 
               <div className="border-t border-border pt-5 mt-auto">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-base font-medium text-foreground">
-                    {tour?.price}
+                    {tour.price}
                   </span>
-                  <Link href="#" className="btn-ghost text-xs">
-                    Book
+                  <Link href={`mailto:${t.visitPage.contactTours}?subject=${encodeURIComponent(tour.name)}`} className="btn-ghost text-xs">
+                    {t.visitPage.tourLabels.book}
                     <svg
                       width="10"
                       height="10"
@@ -113,16 +96,13 @@ export default function VisitTours() {
 
         <div className="mt-6 p-5 border border-border bg-background">
           <p className="text-sm text-muted-foreground font-light">
-            <strong className="font-medium text-foreground">Private & Educational Groups:</strong>{' '}
-            The museum offers tailored tours for schools, universities and private groups. Contact
-            us at{' '}
+            <strong className="font-medium text-foreground">{t.visitPage.tourGroupNote}</strong>{' '}
             <a
-              href="mailto:tours@museum.kr.uz"
+              href={`mailto:${t.visitPage.contactTours}`}
               className="text-foreground hover:text-accent transition-colors underline underline-offset-2"
             >
-              tours@museum.kr.uz
-            </a>{' '}
-            to arrange a bespoke visit.
+              {t.visitPage.contactTours}
+            </a>
           </p>
         </div>
       </div>

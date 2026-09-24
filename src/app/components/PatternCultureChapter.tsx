@@ -75,9 +75,9 @@ export default function PatternCultureChapter() {
           </Link>
         </div>
         <p data-culture-aside className={styles.cultureAside}>
-          Many stories.
+          {t.culture.aside1}
           <br />
-          Still to explore.
+          {t.culture.aside2}
         </p>
       </div>
     </section>

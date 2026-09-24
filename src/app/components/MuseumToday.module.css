@@ -315,12 +315,14 @@
   display: block;
   margin: 0;
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(64px, 6.2vw, 110px);
+  font-size: clamp(40px, 4.8vw, 84px);
   font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.79;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
   text-transform: uppercase;
   will-change: transform;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .kicker {
@@ -432,7 +434,8 @@
   margin: 0;
 }
 
-.rightAside span {
+.rightAside span,
+.asideRule {
   display: block;
   width: 1px;
   height: 44px;
@@ -720,7 +723,8 @@
 
   .intro h2,
   .titleClip > span {
-    font-size: clamp(56px, 18vw, 84px);
+    font-size: clamp(32px, 10vw, 54px);
+    line-height: 1.05;
   }
 
   .kicker {

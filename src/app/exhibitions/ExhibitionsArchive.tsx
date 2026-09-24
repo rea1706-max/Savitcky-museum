@@ -6,6 +6,7 @@ import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useLanguage } from '@/lib/i18n';
 import { exhibitionDates, exhibitionStatus, type Exhibition } from '@/lib/exhibitions';
 import '@/styles/museum-tokens.css';
 import styles from './ExhibitionsArchive.module.css';
@@ -25,6 +26,7 @@ export default function ExhibitionsArchive({
   exhibitions: Exhibition[];
   today: string;
 }) {
+  const { t } = useLanguage();
   const [open, setOpen] = useState<string | null>(null);
   const [visited, setVisited] = useState<Set<string>>(new Set());
   const scrollTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -68,7 +70,6 @@ export default function ExhibitionsArchive({
     const next = open === slug ? null : slug;
     setOpen(next);
     if (next) setVisited((previous) => new Set(previous).add(next));
-    // Preserve Next's history state so browser Back/Forward restores the open row.
     window.history.pushState(
       window.history.state,
       '',
@@ -85,18 +86,16 @@ export default function ExhibitionsArchive({
         <div className={environment.hall} aria-hidden="true" />
         <header className={`${styles.container} ${styles.intro}`}>
           <Link href="/#whats-on" className={styles.back}>
-            ← Back to the museum
+            {t.exhibitionsPage.back}
           </Link>
-          <p className={styles.eyebrow}>Exhibitions</p>
+          <p className={styles.eyebrow}>{t.exhibitionsPage.eyebrow}</p>
           <div className={styles.introGrid}>
             <h1 id="exhibitions-heading">
-              WHAT&apos;S
-              <br />
-              ON
+              {t.exhibitionsPage.title}
             </h1>
             <p>
-              Exhibitions from the Savitsky Museum archive.
-              <br className={styles.desktopBreak} /> From Nukus to museums around the world.
+              {t.exhibitionsPage.subtitleLine1}
+              <br className={styles.desktopBreak} /> {t.exhibitionsPage.subtitleLine2}
             </p>
           </div>
         </header>
@@ -138,7 +137,9 @@ export default function ExhibitionsArchive({
                                   {status === 'current' && (
                                     <span aria-hidden="true" className={styles.dot} />
                                   )}
-                                  {status === 'current' ? 'Now on' : 'Upcoming'}
+                                  {status === 'current'
+                                    ? t.exhibitionsPage.onView
+                                    : t.exhibitionsPage.forthcoming}
                                 </span>
                               )}
                               <span className={styles.date}>

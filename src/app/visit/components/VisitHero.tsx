@@ -1,7 +1,12 @@
+'use client';
+
 import React from 'react';
 import AppImage from '@/components/ui/AppImage';
+import { useLanguage } from '@/lib/i18n';
 
 export default function VisitHero() {
+  const { t } = useLanguage();
+
   return (
     <section
       className="relative pt-[72px] md:pt-[88px] overflow-hidden bg-primary"
@@ -10,7 +15,7 @@ export default function VisitHero() {
       <div className="relative h-[280px] md:h-[360px] overflow-hidden">
         <AppImage
           src="https://img.rocket.new/generatedImages/rocket_gen_img_16c8d6924-1765746942795.png"
-          alt="Museum exterior facade in warm afternoon light, clean modernist architecture, wide entrance steps, desert landscape visible in background"
+          alt="Museum exterior facade in warm afternoon light"
           fill
           priority
           className="object-cover opacity-30"
@@ -23,7 +28,7 @@ export default function VisitHero() {
       <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-12 pb-12 pt-32">
         <div className="max-w-screen-xl mx-auto w-full">
           <span className="text-label text-primary-foreground/40 block mb-4">
-            Visitor Information
+            {t.visitPage.eyebrow}
           </span>
           <h1
             id="visit-hero-heading"
@@ -34,12 +39,12 @@ export default function VisitHero() {
               letterSpacing: '-0.03em',
             }}
           >
-            Plan Your
+            {t.visitPage.titleLine1}
             <br />
-            <em className="font-medium not-italic">Visit</em>
+            <em className="font-medium not-italic">{t.visitPage.titleLine2}</em>
           </h1>
           <p className="text-base text-primary-foreground/50 mt-4 font-light max-w-lg">
-            Nukus, Karakalpakstan, Uzbekistan. Open Tuesday through Sunday.
+            {t.visitPage.intro}
           </p>
         </div>
       </div>
