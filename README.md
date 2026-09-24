@@ -75,12 +75,32 @@ The approved homepage sequence uses one pinned horizontal GSAP timeline for **Wh
 Collection**, then releases into a natural vertical **Collection → Karakalpak Arts** transition.
 The Collection frame contains only the Avant-Garde and Heritage & History gateways. The
 Karakalpak Arts CTA opens `/collection?category=karakalpak-arts` with the catalogue filter active.
+The middle state keeps a departing Popova fragment and an arriving Volkov fragment visible at the
+same time, with the red exhibition plane becoming the archive structure. The supplied Popova,
+Volkov, terracotta vessel, and textile files are used without warping or replacement imagery.
 
 Утверждённая последовательность использует один закреплённый горизонтальный GSAP-переход
 **What’s On → Collection**, после чего освобождает прокрутку и продолжает естественным
 вертикальным переходом **Collection → Karakalpak Arts**. В кадре Collection остаются только
 входы Avant-Garde и Heritage & History. CTA Karakalpak Arts открывает каталог с активным
 фильтром `/collection?category=karakalpak-arts`.
+В среднем состоянии одновременно видны уходящий фрагмент Поповой и входящий фрагмент Волкова,
+а красная выставочная плоскость превращается в структуру архива. Предоставленные изображения
+Поповой, Волкова, терракотового сосуда и текстиля используются без деформации и подмены.
+
+## Language and identity / Язык и айдентика
+
+The EN, RU, UZ, and KK controls translate the current view immediately on every route. The choice
+is stored in a cookie and local storage, restored on the next visit, and falls back to the browser
+language on a first visit. Dates, exhibition records, navigation, archive labels, accessibility
+labels, and page-specific copy use the same locale. The official supplied Savitsky mark switches
+between light- and dark-surface variants in the header, opening scene, footer, and browser icon.
+
+Переключатели EN, RU, UZ и KK сразу переводят текущий экран на любом маршруте. Выбор сохраняется
+в cookie и local storage, восстанавливается при следующем визите, а при первом открытии берётся из
+языка браузера. Даты, карточки выставок, навигация, архивные подписи, доступные названия и тексты
+страниц используют одну локаль. Официальный знак Савицкого автоматически меняет светлый и тёмный
+варианты в шапке, вступительной сцене, футере и иконке браузера.
 
 ## Closing homepage sequence / Финал главной страницы
 
@@ -89,9 +109,8 @@ chapter “From Nukus to the World”, and a homepage-specific footer. Museum To
 story teasers; its CTA and the main Stories navigation open the separate `/stories` archive.
 The closing landscape uses the supplied production image at
 `public/images/final/nukus-landscape.png`. Motion uses reversible ScrollTriggers without a
-new pinned or horizontal section and respects reduced-motion preferences. The language
-buttons currently select a language indicator only; translated page content is not yet
-implemented.
+new pinned or horizontal section and respects reduced-motion preferences. The language controls
+translate the full active page and preserve the selection between visits.
 
 После Karakalpak Arts страница продолжается вертикально: Museum Today, пейзажный финал
 «From Nukus to the World» и отдельный футер главной. В Museum Today показаны две истории;
@@ -99,7 +118,7 @@ implemented.
 пейзаж берётся из предоставленного изображения
 `public/images/final/nukus-landscape.png`. Анимация обратима при прокрутке, не добавляет
 нового закреплённого или горизонтального участка и учитывает настройку уменьшения движения.
-Переключатель языков пока меняет только индикатор: переводы содержимого ещё не реализованы.
+Переключатель языка переводит всю активную страницу и сохраняет выбор между визитами.
 
 ## 📱 Deployment
 

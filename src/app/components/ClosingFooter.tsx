@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useLanguage, type Locale } from '@/lib/i18n';
+import MuseumMark from '@/components/MuseumMark';
 import styles from './ClosingFooter.module.css';
 
 const languages: Locale[] = ['EN', 'RU', 'UZ', 'KK'];
@@ -51,14 +52,14 @@ export default function ClosingFooter() {
   ];
 
   return (
-    <footer className={styles.footer} aria-label="Savitsky Museum footer">
+    <footer className={styles.footer} aria-label={t.ui.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <div className={styles.diamond} aria-hidden="true" />
+          <MuseumMark onDark size={58} className={styles.mark} />
           <p>
-            Savitsky
+            {t.ui.brandLine1}
             <br />
-            Museum
+            {t.ui.brandLine2}
           </p>
           <small>{t.footer.tagline}</small>
         </div>
@@ -90,12 +91,13 @@ export default function ClosingFooter() {
         </div>
         <div className={styles.bottom}>
           <p>{t.info.locationValue}</p>
-          <div className={styles.languages} aria-label="Language selector">
+          <div className={styles.languages} aria-label={t.ui.languageSelector}>
             {languages.map((language) => (
               <button
                 key={language}
                 type="button"
                 aria-pressed={activeLanguage === language}
+                aria-label={t.ui.switchLanguage.replace('{language}', t.ui.languageNames[language])}
                 onClick={() => setLocale(language)}
               >
                 {language}

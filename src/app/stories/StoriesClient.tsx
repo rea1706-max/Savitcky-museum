@@ -6,35 +6,29 @@ import Footer from '@/components/Footer';
 import { useLanguage } from '@/lib/i18n';
 import styles from './Stories.module.css';
 
-const storyMedia: Record<string, { image: string; alt: string; className: string }> = {
+const storyMedia: Record<string, { image: string; className: string }> = {
   '02': {
     image: 'https://img.rocket.new/generatedImages/rocket_gen_img_46ebb1ed6-1788627712885.png',
-    alt: 'A conservator working carefully on the painted surface of a historic artwork.',
     className: styles.cardWide,
   },
   '03': {
     image: 'https://img.rocket.new/generatedImages/rocket_gen_img_1465d2c38-1775556134679.png',
-    alt: 'Avant-garde artwork from the Savitsky Museum collection.',
     className: styles.cardTall,
   },
   '04': {
     image: 'https://img.rocket.new/generatedImages/rocket_gen_img_128ad06ee-1770772414980.png',
-    alt: 'Historic handwritten letters and archival documents arranged for research.',
     className: styles.cardStandard,
   },
   '05': {
     image: 'https://img.rocket.new/generatedImages/rocket_gen_img_1f8cf00df-1764641083614.png',
-    alt: 'A Karakalpak craftsperson working with traditional materials.',
     className: styles.cardStandard,
   },
   '06': {
     image: 'https://img.rocket.new/generatedImages/rocket_gen_img_139a48f59-1773722663439.png',
-    alt: 'The Desert Archive museum monograph displayed on a dark surface.',
     className: styles.cardWide,
   },
   '07': {
     image: '/images/collection/karakalpak-textile-macro.png',
-    alt: 'Close detail of a richly patterned Karakalpak textile.',
     className: styles.cardTall,
   },
 };
@@ -77,9 +71,7 @@ export default function StoriesClient() {
 
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}>
-                {t.storiesPage.badge}
-              </p>
+              <p className={styles.eyebrow}>{t.storiesPage.badge}</p>
               <h1 id="stories-title">
                 <span>{t.storiesPage.titleLine1}</span>
                 <span>{t.storiesPage.titleLine2}</span>
@@ -97,7 +89,7 @@ export default function StoriesClient() {
             <figure className={styles.heroVisual}>
               <Image
                 src="https://img.rocket.new/generatedImages/rocket_gen_img_45b2bc068-1788627713692.png"
-                alt="Museum storage vault with rows of framed paintings on archival racks."
+                alt={t.ui.storiesHeroAlt}
                 fill
                 priority
                 sizes="(max-width: 767px) 92vw, 58vw"
@@ -128,7 +120,7 @@ export default function StoriesClient() {
           <div className={styles.journalHeading}>
             <p>{t.storiesPage.archiveIndex}</p>
             <h2 id="journal-title">{t.storiesPage.journalTitle}</h2>
-            <div className={styles.categories} aria-label="Story formats">
+            <div className={styles.categories} aria-label={t.ui.storyFormats}>
               <span>{t.storiesPage.categories.reels}</span>
               <span>{t.storiesPage.categories.research}</span>
               <span>{t.storiesPage.categories.publications}</span>
@@ -139,8 +131,8 @@ export default function StoriesClient() {
           <div className={styles.storyGrid}>
             {t.storiesPage.stories.map((story) => {
               const media = storyMedia[story.number] || {
-                image: 'https://img.rocket.new/generatedImages/rocket_gen_img_46ebb1ed6-1788627712885.png',
-                alt: story.title,
+                image:
+                  'https://img.rocket.new/generatedImages/rocket_gen_img_46ebb1ed6-1788627712885.png',
                 className: styles.cardStandard,
               };
 
@@ -154,7 +146,7 @@ export default function StoriesClient() {
                   <div className={styles.cardImage}>
                     <Image
                       src={media.image}
-                      alt={media.alt}
+                      alt={`${story.title}. ${story.dek}`}
                       fill
                       sizes="(max-width: 767px) 86vw, (max-width: 1100px) 44vw, 31vw"
                       className={styles.cover}
@@ -171,7 +163,7 @@ export default function StoriesClient() {
           </div>
         </section>
 
-        <section className={styles.closing} aria-label="Stories archive statement">
+        <section className={styles.closing} aria-label={t.ui.storiesClosing}>
           <div className={styles.closingPattern} aria-hidden="true" />
           <p>{t.storiesPage.closingStatement}</p>
           <span>{t.storiesPage.closingSub}</span>

@@ -521,16 +521,16 @@
   text-transform: uppercase;
 }
 
-:global(html):has(.page) :global(nav[aria-label='Main navigation']) {
+:global(html):has(.page) :global(nav[data-site-navigation]) {
   background: color-mix(in srgb, var(--stories-charcoal) 92%, transparent);
   border-bottom-color: color-mix(in srgb, var(--stories-earth) 34%, transparent);
 }
 
-:global(html):has(.page) :global(nav[aria-label='Main navigation']) :global(:is(a, button, span)) {
+:global(html):has(.page) :global(nav[data-site-navigation]) :global(:is(a, button, span)) {
   color: var(--stories-bone);
 }
 
-:global(html):has(.page) :global(nav[aria-label='Main navigation']) :global(a.border) {
+:global(html):has(.page) :global(nav[data-site-navigation]) :global(a.border) {
   border-color: var(--stories-earth);
 }
 

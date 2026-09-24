@@ -26,7 +26,7 @@ export default function ExhibitionsArchive({
   exhibitions: Exhibition[];
   today: string;
 }) {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
   const [open, setOpen] = useState<string | null>(null);
   const [visited, setVisited] = useState<Set<string>>(new Set());
   const scrollTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -90,9 +90,7 @@ export default function ExhibitionsArchive({
           </Link>
           <p className={styles.eyebrow}>{t.exhibitionsPage.eyebrow}</p>
           <div className={styles.introGrid}>
-            <h1 id="exhibitions-heading">
-              {t.exhibitionsPage.title}
-            </h1>
+            <h1 id="exhibitions-heading">{t.exhibitionsPage.title}</h1>
             <p>
               {t.exhibitionsPage.subtitleLine1}
               <br className={styles.desktopBreak} /> {t.exhibitionsPage.subtitleLine2}
@@ -101,10 +99,8 @@ export default function ExhibitionsArchive({
         </header>
       </section>
       <div className={styles.container}>
-        <div className={styles.archive} aria-label="Exhibition archive">
-          {!records.length && (
-            <p className={styles.empty}>Exhibition information will be announced here.</p>
-          )}
+        <div className={styles.archive} aria-label={t.exhibitionsPage.archiveAria}>
+          {!records.length && <p className={styles.empty}>{t.exhibitionsPage.emptyState}</p>}
           {years.map((year) => (
             <section className={styles.yearGroup} key={year} aria-labelledby={`year-${year}`}>
               <h2 id={`year-${year}`} className={styles.year}>
@@ -116,6 +112,10 @@ export default function ExhibitionsArchive({
                   .map((exhibition) => {
                     const expanded = open === exhibition.slug;
                     const status = exhibitionStatus(exhibition, today);
+                    const localizedExhibition = {
+                      ...exhibition,
+                      ...t.exhibitionsPage.entries[exhibition.id],
+                    };
                     return (
                       <article
                         className={styles.row}
@@ -143,13 +143,15 @@ export default function ExhibitionsArchive({
                                 </span>
                               )}
                               <span className={styles.date}>
-                                {exhibitionDates(exhibition, true)}
+                                {exhibitionDates(exhibition, true, locale)}
                               </span>
                             </span>
                             <span className={styles.rowTitle}>
-                              {exhibition.title}
-                              {exhibition.subtitle && (
-                                <span className={styles.subtitle}>{exhibition.subtitle}</span>
+                              {localizedExhibition.title}
+                              {localizedExhibition.subtitle && (
+                                <span className={styles.subtitle}>
+                                  {localizedExhibition.subtitle}
+                                </span>
                               )}
                             </span>
                             <svg
@@ -182,42 +184,43 @@ export default function ExhibitionsArchive({
                                       <div className={styles.imageMask}>
                                         <AppImage
                                           src={exhibition.image}
-                                          alt={exhibition.imageAlt}
+                                          alt={localizedExhibition.imageAlt}
                                           width={exhibition.imageWidth ?? 1280}
                                           height={exhibition.imageHeight ?? 1586}
                                           sizes="(max-width: 767px) 84vw, 34vw"
                                           className={styles.image}
                                         />
                                       </div>
-                                      {exhibition.imageCredit && (
-                                        <figcaption>{exhibition.imageCredit}</figcaption>
+                                      {localizedExhibition.imageCredit && (
+                                        <figcaption>{localizedExhibition.imageCredit}</figcaption>
                                       )}
                                     </figure>
                                   )}
                                   <div className={styles.information}>
                                     <p className={styles.description}>
-                                      {exhibition.fullDescription || exhibition.shortDescription}
+                                      {localizedExhibition.fullDescription ||
+                                        localizedExhibition.shortDescription}
                                     </p>
                                     <dl>
                                       <div>
-                                        <dt>Dates</dt>
-                                        <dd>{exhibitionDates(exhibition)}</dd>
+                                        <dt>{t.exhibitionsPage.dates}</dt>
+                                        <dd>{exhibitionDates(exhibition, false, locale)}</dd>
                                       </div>
                                       {exhibition.location && (
                                         <div>
-                                          <dt>Location</dt>
-                                          <dd>{exhibition.location}</dd>
+                                          <dt>{t.exhibitionsPage.location}</dt>
+                                          <dd>{localizedExhibition.location}</dd>
                                         </div>
                                       )}
                                       {exhibition.address && (
                                         <div>
-                                          <dt>Address</dt>
+                                          <dt>{t.exhibitionsPage.address}</dt>
                                           <dd>{exhibition.address}</dd>
                                         </div>
                                       )}
                                       {exhibition.admissionInfo && (
                                         <div>
-                                          <dt>Admission</dt>
+                                          <dt>{t.exhibitionsPage.admission}</dt>
                                           <dd>{exhibition.admissionInfo}</dd>
                                         </div>
                                       )}
@@ -229,12 +232,13 @@ export default function ExhibitionsArchive({
                                         target="_blank"
                                         rel="noreferrer"
                                       >
-                                        Exhibition source <span aria-hidden="true">↗</span>
+                                        {t.exhibitionsPage.source} <span aria-hidden="true">↗</span>
                                       </a>
                                     )}
                                     {status !== 'past' && (
                                       <Link className={styles.visitLink} href="/visit">
-                                        Plan your visit <span aria-hidden="true">↗</span>
+                                        {t.exhibitionsPage.planVisit}{' '}
+                                        <span aria-hidden="true">↗</span>
                                       </Link>
                                     )}
                                   </div>

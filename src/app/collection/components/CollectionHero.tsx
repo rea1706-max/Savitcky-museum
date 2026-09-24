@@ -15,7 +15,7 @@ export default function CollectionHero() {
       <div className="relative h-[320px] md:h-[420px] overflow-hidden">
         <AppImage
           src="https://img.rocket.new/generatedImages/rocket_gen_img_18ab39334-1772064904874.png"
-          alt="Museum gallery interior"
+          alt={t.ui.collectionHeroAlt}
           fill
           priority
           className="object-cover opacity-40"

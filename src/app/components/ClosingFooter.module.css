@@ -21,20 +21,10 @@
   text-align: center;
 }
 
-.diamond {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  margin-bottom: 30px;
-  border: 1px solid #b3a38c;
-  transform: rotate(45deg);
-}
-
-.diamond::after {
-  position: absolute;
-  inset: 6px;
-  background: #f2ebdd;
-  content: '';
+.mark {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 27px;
 }
 
 .brand p {
@@ -48,10 +38,14 @@
 }
 
 .brand small {
+  width: min(100%, 760px);
   margin-top: 25px;
   color: #c4b59f;
   font-size: 11px;
   letter-spacing: 0.28em;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
   text-transform: uppercase;
 }
 

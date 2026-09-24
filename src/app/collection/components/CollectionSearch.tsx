@@ -81,7 +81,7 @@ export default function CollectionSearch({
         {/* Category tabs */}
         <nav
           className="flex items-center gap-0 overflow-x-auto no-scrollbar"
-          aria-label="Collection categories"
+          aria-label={t.ui.collectionCategories}
         >
           {categories.map((cat) => (
             <button

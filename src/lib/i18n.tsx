@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 import enLocale from '@/locales/en.json';
 import ruLocale from '@/locales/ru.json';
 import uzLocale from '@/locales/uz.json';
@@ -9,6 +10,45 @@ import kkLocale from '@/locales/kk.json';
 export type Locale = 'EN' | 'RU' | 'UZ' | 'KK';
 
 export interface Translations {
+  ui: {
+    brandLine1: string;
+    brandLine2: string;
+    mainNavigation: string;
+    museumHome: string;
+    languageSelector: string;
+    switchLanguage: string;
+    openMenu: string;
+    closeMenu: string;
+    footer: string;
+    openingSequence: string;
+    scrollToExplore: string;
+    ustyurtAlt: string;
+    portraitAlt: string;
+    aboutPortraitAlt: string;
+    collectionHeroAlt: string;
+    visitHeroAlt: string;
+    storiesHeroAlt: string;
+    collectionCategories: string;
+    storyFormats: string;
+    storiesClosing: string;
+    museumMap: string;
+    languageNames: Record<Locale, string>;
+  };
+  opening: {
+    city: string;
+    region: string;
+    country: string;
+    scroll: string;
+    stageLabel: string;
+    heritage: string;
+    costume: string;
+  };
+  notFound: {
+    title: string;
+    description: string;
+    back: string;
+    home: string;
+  };
   nav: {
     home: string;
     about: string;
@@ -40,6 +80,9 @@ export interface Translations {
     paragraph1: string;
     paragraph2: string;
     learnMore: string;
+    archiveCredit: string;
+    established: string;
+    location: string;
   };
   whatsOn: {
     label: string;
@@ -67,6 +110,11 @@ export interface Translations {
     explore: string;
     volkovBadge: string;
     vesselBadge: string;
+    archiveLine: string;
+    volkovAria: string;
+    vesselAria: string;
+    volkovAlt: string;
+    vesselAlt: string;
   };
   culture: {
     label: string;
@@ -114,6 +162,7 @@ export interface Translations {
     titleLine1: string;
     titleLine2: string;
     body: string;
+    imageAlt: string;
   };
   footer: {
     sloganLine1: string;
@@ -192,6 +241,26 @@ export interface Translations {
     forthcoming: string;
     past: string;
     filterAll: string;
+    archiveAria: string;
+    emptyState: string;
+    dates: string;
+    location: string;
+    address: string;
+    admission: string;
+    source: string;
+    planVisit: string;
+    entries: Record<
+      string,
+      {
+        title: string;
+        subtitle: string;
+        imageAlt: string;
+        imageCredit?: string;
+        shortDescription: string;
+        fullDescription: string;
+        location?: string;
+      }
+    >;
   };
   storiesPage: {
     badge: string;
@@ -307,27 +376,85 @@ const LanguageContext = createContext<LanguageContextType>({
   t: translations.EN,
 });
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('EN');
+const htmlLanguages: Record<Locale, string> = {
+  EN: 'en',
+  RU: 'ru',
+  UZ: 'uz',
+  KK: 'kaa',
+};
+
+function isLocale(value: string | null | undefined): value is Locale {
+  return value === 'EN' || value === 'RU' || value === 'UZ' || value === 'KK';
+}
+
+function browserLocale(): Locale {
+  const languages = typeof navigator === 'undefined' ? [] : navigator.languages;
+  for (const language of languages) {
+    const normalized = language.toLowerCase();
+    if (normalized.startsWith('ru')) return 'RU';
+    if (normalized.startsWith('uz')) return 'UZ';
+    if (normalized.startsWith('kaa') || normalized.startsWith('kk')) return 'KK';
+  }
+  return 'EN';
+}
+
+export function LanguageProvider({
+  children,
+  initialLocale,
+}: {
+  children: ReactNode;
+  initialLocale?: Locale;
+}) {
+  const [locale, setLocaleState] = useState<Locale>(initialLocale ?? 'EN');
+  const pathname = usePathname();
 
   useEffect(() => {
+    if (initialLocale) return;
+    let detected = browserLocale();
     try {
-      const saved = localStorage.getItem('savitsky_locale') as Locale | null;
-      if (saved && (saved === 'EN' || saved === 'RU' || saved === 'UZ' || saved === 'KK')) {
-        setLocaleState(saved);
-      }
+      const saved = localStorage.getItem('savitsky_locale');
+      if (isLocale(saved)) detected = saved;
     } catch {
-      // Ignore
+      // Storage can be unavailable in privacy-restricted contexts.
     }
-  }, []);
+    setLocaleState(detected);
+  }, [initialLocale]);
+
+  useEffect(() => {
+    const copy = translations[locale];
+    const museumName = `${copy.ui.brandLine1} ${copy.ui.brandLine2}`;
+    const sectionTitle = pathname.startsWith('/collection')
+      ? `${copy.collectionPage.titleLine1} ${copy.collectionPage.titleLine2}`
+      : pathname.startsWith('/exhibitions')
+        ? copy.exhibitionsPage.title
+        : pathname.startsWith('/stories')
+          ? `${copy.storiesPage.titleLine1} ${copy.storiesPage.titleLine2}`
+          : pathname.startsWith('/visit')
+            ? `${copy.visitPage.titleLine1} ${copy.visitPage.titleLine2}`
+            : copy.opening.city;
+    const localizedTitle =
+      pathname === '/' ? `${museumName} — ${sectionTitle}` : `${sectionTitle} — ${museumName}`;
+    const syncTitle = () => {
+      if (document.title !== localizedTitle) document.title = localizedTitle;
+    };
+
+    document.documentElement.lang = htmlLanguages[locale];
+    syncTitle();
+    const titleObserver = new MutationObserver(syncTitle);
+    titleObserver.observe(document.head, { childList: true, subtree: true, characterData: true });
+    window.requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+    return () => titleObserver.disconnect();
+  }, [locale, pathname]);
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
     try {
       localStorage.setItem('savitsky_locale', newLocale);
-      document.documentElement.lang = newLocale.toLowerCase();
+      document.cookie = `savitsky_locale=${newLocale}; Path=/; Max-Age=31536000; SameSite=Lax${
+        window.location.protocol === 'https:' ? '; Secure' : ''
+      }`;
     } catch {
-      // Ignore
+      // The current view still updates even when persistence is unavailable.
     }
   };
 

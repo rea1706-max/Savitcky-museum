@@ -28,9 +28,13 @@ export default function WhatsOnSection({
   today: string;
 }) {
   const sectionRef = useRef<HTMLElement>(null);
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
   const status = exhibitionStatus(exhibition, today);
   const href = `/exhibitions#${exhibition.slug}`;
+  const localizedExhibition = {
+    ...exhibition,
+    ...t.exhibitionsPage.entries[exhibition.id],
+  };
 
   useEffect(() => {
     let disposed = false;
@@ -73,11 +77,11 @@ export default function WhatsOnSection({
           </div>
           <div className={styles.titleBlock}>
             <h3 data-feature-reveal="title" className={styles.title}>
-              {exhibition.title}
+              {localizedExhibition.title}
             </h3>
-            {exhibition.subtitle && (
+            {localizedExhibition.subtitle && (
               <p data-feature-reveal="subtitle" className={styles.subtitle}>
-                {exhibition.subtitle.split(' ').map((word, index) => (
+                {localizedExhibition.subtitle.split(' ').map((word, index) => (
                   <span key={`${word}-${index}`}>{word}</span>
                 ))}
               </p>
@@ -93,13 +97,13 @@ export default function WhatsOnSection({
               href={href}
               className={styles.artwork}
               data-feature-artwork
-              aria-label={`View details: ${exhibition.title}`}
+              aria-label={`${t.whatsOn.viewDetails}: ${localizedExhibition.title}`}
             >
               <div data-feature-mask className={styles.imageMask}>
                 <Image
                   data-feature-image
                   src={exhibition.image}
-                  alt={exhibition.imageAlt}
+                  alt={localizedExhibition.imageAlt}
                   fill
                   sizes="(max-width: 767px) 84vw, (max-width: 1023px) 55vw, 44vw"
                   quality={85}
@@ -107,9 +111,9 @@ export default function WhatsOnSection({
                 />
               </div>
             </ExhibitionTransitionLink>
-            {exhibition.imageCredit && (
+            {localizedExhibition.imageCredit && (
               <figcaption data-feature-reveal="credit" className={styles.credit}>
-                {exhibition.imageCredit}
+                {localizedExhibition.imageCredit}
               </figcaption>
             )}
             <div className={styles.details}>
@@ -123,7 +127,7 @@ export default function WhatsOnSection({
                       : t.whatsOn.archive}
                 </p>
                 <p data-feature-reveal="dates" className={styles.dates}>
-                  {exhibitionDates(exhibition, true)}{' '}
+                  {exhibitionDates(exhibition, true, locale)}{' '}
                   {exhibition.endDate &&
                   exhibition.startDate.slice(0, 4) === exhibition.endDate.slice(0, 4)
                     ? exhibition.endDate.slice(0, 4)
@@ -139,7 +143,7 @@ export default function WhatsOnSection({
           </figure>
           <aside className={styles.aside}>
             <p data-feature-reveal="copy" className={styles.copy}>
-              {exhibition.shortDescription}
+              {localizedExhibition.shortDescription}
             </p>
           </aside>
         </div>

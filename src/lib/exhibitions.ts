@@ -37,7 +37,9 @@ export const exhibitions: Exhibition[] = [
     startDate: '2024-04-17',
     endDate: '2024-09-29',
     publicationStatus: 'published',
-    image: '/images/exhibitions/popova-composition.jpg',
+    image: '/images/exhibitions/popova-composition.png',
+    imageWidth: 1124,
+    imageHeight: 1402,
     imageAlt:
       'Lyubov Popova, Composition: intersecting angular forms in earth, burgundy, green and charcoal.',
     imageCredit: 'Lyubov Popova · Composition, 1921 · Visual reference',
@@ -162,15 +164,101 @@ export function featuredExhibition(
   );
 }
 
-export function exhibitionDates(exhibition: Exhibition, compact = false) {
-  const format = (date: string, year: boolean) =>
-    new Intl.DateTimeFormat('en-GB', {
-      day: 'numeric',
-      month: compact ? 'short' : 'long',
-      ...(year ? { year: 'numeric' as const } : {}),
-      timeZone: 'UTC',
-    }).format(new Date(`${date}T12:00:00Z`));
-  if (!exhibition.endDate) return `Opening ${format(exhibition.startDate, true)}`;
+export function exhibitionDates(exhibition: Exhibition, compact = false, locale = 'EN') {
+  const months: Record<string, { short: string[]; long: string[]; separator: string }> = {
+    EN: {
+      short: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      long: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ],
+      separator: ' ',
+    },
+    RU: {
+      short: [
+        'янв.',
+        'февр.',
+        'мар.',
+        'апр.',
+        'мая',
+        'июня',
+        'июля',
+        'авг.',
+        'сент.',
+        'окт.',
+        'нояб.',
+        'дек.',
+      ],
+      long: [
+        'января',
+        'февраля',
+        'марта',
+        'апреля',
+        'мая',
+        'июня',
+        'июля',
+        'августа',
+        'сентября',
+        'октября',
+        'ноября',
+        'декабря',
+      ],
+      separator: ' ',
+    },
+    UZ: {
+      short: ['yan', 'fev', 'mar', 'apr', 'may', 'iyun', 'iyul', 'avg', 'sen', 'okt', 'noy', 'dek'],
+      long: [
+        'yanvar',
+        'fevral',
+        'mart',
+        'aprel',
+        'may',
+        'iyun',
+        'iyul',
+        'avgust',
+        'sentabr',
+        'oktabr',
+        'noyabr',
+        'dekabr',
+      ],
+      separator: '-',
+    },
+    KK: {
+      short: ['yan', 'fev', 'mar', 'apr', 'may', 'iyun', 'iyul', 'avg', 'sen', 'okt', 'noy', 'dek'],
+      long: [
+        'yanvar',
+        'fevral',
+        'mart',
+        'aprel',
+        'may',
+        'iyun',
+        'iyul',
+        'avgust',
+        'sentyabr',
+        'oktyabr',
+        'noyabr',
+        'dekabr',
+      ],
+      separator: '-',
+    },
+  };
+  const monthSet = months[locale] ?? months.EN;
+  const format = (date: string, year: boolean) => {
+    const [dateYear, dateMonth, dateDay] = date.split('-');
+    const month = (compact ? monthSet.short : monthSet.long)[Number(dateMonth) - 1];
+    return `${Number(dateDay)}${monthSet.separator}${month}${year ? ` ${dateYear}` : ''}`;
+  };
+  if (!exhibition.endDate) return format(exhibition.startDate, true);
   const crossYear = exhibition.startDate.slice(0, 4) !== exhibition.endDate.slice(0, 4);
   return `${format(exhibition.startDate, crossYear)} — ${format(exhibition.endDate, !compact || crossYear)}`;
 }

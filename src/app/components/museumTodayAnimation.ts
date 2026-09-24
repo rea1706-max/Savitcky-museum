@@ -87,7 +87,9 @@ export function createMuseumTodayAnimation(root: HTMLElement) {
 
     media.add('(max-width: 767px) and (prefers-reduced-motion: no-preference)', () => {
       const mobileReveal = gsap.from(
-        select('[data-museum-kicker], [data-title-line], [data-museum-copy], [data-museum-cta], [data-story-card]'),
+        select(
+          '[data-museum-kicker], [data-title-line], [data-museum-copy], [data-museum-cta], [data-story-card]'
+        ),
         {
           autoAlpha: 0,
           y: 22,

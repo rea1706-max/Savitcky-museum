@@ -101,7 +101,7 @@ export default function AboutMuseum() {
                 <Image
                   data-about-photo
                   src="/images/archive/03-igor-savitsky-archive.png"
-                  alt="Igor Savitsky examining Karakalpak jewellery, holding a cultural object in his hands. Archival photograph."
+                  alt={t.ui.aboutPortraitAlt}
                   width={808}
                   height={1154}
                   sizes="(max-width: 767px) 84vw, (max-width: 1023px) 42vw, 35vw"
@@ -111,19 +111,19 @@ export default function AboutMuseum() {
               </div>
               <figcaption data-about-credit-mask className={styles.creditMask}>
                 <span data-about-credit className={styles.credit}>
-                  IGOR SAVITSKY <span>·</span> THE MUSEUM ARCHIVE
+                  {t.about.archiveCredit}
                 </span>
               </figcaption>
             </figure>
 
             <div data-about-established-mask className={styles.establishedMask}>
               <p data-about-established className={styles.established}>
-                <span aria-hidden="true" /> EST. 1966
+                <span aria-hidden="true" /> {t.about.established}
               </p>
             </div>
             <div data-about-location-mask className={styles.locationMask}>
               <p data-about-location className={styles.location}>
-                NUKUS <span>·</span> KARAKALPAKSTAN
+                {t.about.location}
               </p>
             </div>
           </div>

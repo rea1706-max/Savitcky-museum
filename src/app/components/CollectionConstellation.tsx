@@ -33,9 +33,7 @@ export default function CollectionConstellation() {
             </span>
           </h2>
           <div className={styles.collectionIntroduction}>
-            <p data-collection-copy>
-              {t.collection.intro}
-            </p>
+            <p data-collection-copy>{t.collection.intro}</p>
             <Link data-collection-cta href="/collection" className={styles.link}>
               {t.collection.explore} <CollectionArrow />
             </Link>
@@ -46,12 +44,12 @@ export default function CollectionConstellation() {
             <Link
               href="/collection?category=avant-garde"
               className={styles.objectLink}
-              aria-label="Explore the Avant-Garde collection"
+              aria-label={t.collection.volkovAria}
             >
               <div data-volkov-mask className={styles.volkovImage}>
                 <Image
                   src="/images/collection/volkov-arba-1924.png"
-                  alt="Alexander Volkov, Arba, 1924 — ochre, red and dark geometric forms."
+                  alt={t.collection.volkovAlt}
                   fill
                   sizes="(min-width: 1024px) 54vw, 90vw"
                   className={styles.painting}
@@ -68,12 +66,12 @@ export default function CollectionConstellation() {
             <Link
               href="/collection?category=heritage"
               className={styles.objectLink}
-              aria-label="Explore the Heritage and History collection"
+              aria-label={t.collection.vesselAria}
             >
               <div data-vessel-mask className={styles.vesselImage}>
                 <Image
                   src="/images/collection/heritage-terracotta-vessel.jpg"
-                  alt="The terracotta vessel from the existing Heritage and History selection, with a loop handle and three feet."
+                  alt={t.collection.vesselAlt}
                   fill
                   sizes="(min-width: 1024px) 26vw, 68vw"
                   className={styles.vesselObject}
@@ -89,7 +87,7 @@ export default function CollectionConstellation() {
         </div>
         <div data-archive-rule className={styles.archiveRule} aria-hidden="true">
           <span />
-          <small>Archive line</small>
+          <small>{t.collection.archiveLine}</small>
         </div>
       </div>
     </section>

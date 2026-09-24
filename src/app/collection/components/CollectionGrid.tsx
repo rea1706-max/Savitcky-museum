@@ -227,13 +227,13 @@ export default function CollectionGrid({ category = 'all' }: CollectionGridProps
               style={{ transitionDelay: `${index * 80}ms` }}
               onMouseEnter={() => setHoveredId(artwork.id)}
               onMouseLeave={() => setHoveredId(null)}
-              aria-label={`${title} by ${artist}, ${year}`}
+              aria-label={`${title} — ${artist}, ${year}`}
             >
               {/* Image */}
               <div className={`overflow-hidden ${artwork.heightClass || 'h-[280px]'} relative`}>
                 <AppImage
                   src={artwork.image}
-                  alt={artwork.imageAlt}
+                  alt={`${title}. ${artist}, ${year}. ${medium}.`}
                   fill
                   className={`object-cover transition-all duration-700 ease-museum ${
                     hoveredId === artwork.id ? 'scale-105 grayscale-0' : 'grayscale-[20%]'

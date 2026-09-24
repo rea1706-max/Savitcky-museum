@@ -19,12 +19,24 @@ export function createCollectionJourney(root: HTMLElement) {
         );
         const redPlane = select('[data-feature-red-mask]');
         const redField = select('[data-feature-red]');
+        const bridgePopova = select('[data-bridge-popova]');
+        const bridgeVolkov = select('[data-bridge-volkov]');
 
         bridgePaths.forEach((node) => node.setAttribute('pathLength', '1'));
         gsap.set(bridgePaths, { strokeDasharray: '1 1', strokeDashoffset: 1 });
         gsap.set(select('[data-bridge-label]'), { autoAlpha: 0 });
         gsap.set(select('[data-mineral-bridge] h2 span'), { autoAlpha: 0, x: 46 });
         gsap.set(select('[data-bridge-note]'), { autoAlpha: 0, y: 10 });
+        gsap.set(bridgePopova, {
+          xPercent: -14,
+          opacity: 0.78,
+          clipPath: 'polygon(0 0, 72% 0, 58% 100%, 0 100%)',
+        });
+        gsap.set(bridgeVolkov, {
+          xPercent: 18,
+          opacity: 0,
+          clipPath: 'polygon(100% 20%, 100% 20%, 100% 80%, 100% 80%)',
+        });
         gsap.set(select('[data-static-hinge]'), {
           scaleX: 0.52,
           transformOrigin: '0% 50%',
@@ -57,6 +69,27 @@ export function createCollectionJourney(root: HTMLElement) {
         );
         timeline.to(redPlane, { xPercent: 19, duration: 26 }, 5);
         timeline.to(redField, { backgroundColor: '#81493b', duration: 26 }, 5);
+        timeline.to(
+          bridgePopova,
+          {
+            xPercent: 0,
+            opacity: 0.92,
+            clipPath: 'polygon(0 0, 100% 0, 82% 100%, 0 100%)',
+            duration: 20,
+          },
+          12
+        );
+        timeline.to(
+          bridgeVolkov,
+          {
+            xPercent: 0,
+            opacity: 1,
+            clipPath: 'polygon(18% 0, 100% 0, 100% 84%, 86% 100%, 0 100%, 0 22%)',
+            duration: 25,
+            ease: 'power2.inOut',
+          },
+          26
+        );
         timeline.fromTo(
           select('[data-bridge-earth]'),
           { xPercent: 18 },
@@ -102,11 +135,13 @@ export function createCollectionJourney(root: HTMLElement) {
           },
           40
         );
-        timeline.to(select('[data-collection-label]'), { autoAlpha: 1, duration: 6 }, 57);
+        timeline.to(bridgePopova, { xPercent: -12, opacity: 0.48, duration: 22 }, 43);
+        timeline.to(bridgeVolkov, { xPercent: -5, duration: 20 }, 46);
+        timeline.to(select('[data-collection-label]'), { autoAlpha: 1, duration: 6 }, 53);
         timeline.to(
           select('[data-collection-title]'),
           { yPercent: 0, duration: 8, stagger: 1.6, ease: 'power3.out' },
-          59
+          56
         );
         timeline.to(
           select('[data-volkov-mask]'),
@@ -115,9 +150,9 @@ export function createCollectionJourney(root: HTMLElement) {
             duration: 10,
             ease: 'power2.inOut',
           },
-          65
+          62
         );
-        timeline.to(select('[data-volkov-caption]'), { autoAlpha: 1, duration: 5 }, 69);
+        timeline.to(select('[data-volkov-caption]'), { autoAlpha: 1, duration: 5 }, 67);
         timeline.to(
           select('[data-vessel-mask]'),
           {
@@ -125,11 +160,11 @@ export function createCollectionJourney(root: HTMLElement) {
             duration: 10,
             ease: 'power2.inOut',
           },
-          70
+          69
         );
-        timeline.to(select('[data-vessel-caption]'), { autoAlpha: 1, duration: 5 }, 74);
-        timeline.to(select('[data-collection-copy]'), { autoAlpha: 1, duration: 7 }, 73);
-        timeline.to(select('[data-collection-cta]'), { autoAlpha: 1, duration: 7 }, 77);
+        timeline.to(select('[data-vessel-caption]'), { autoAlpha: 1, duration: 5 }, 73);
+        timeline.to(select('[data-collection-copy]'), { autoAlpha: 1, duration: 7 }, 70);
+        timeline.to(select('[data-collection-cta]'), { autoAlpha: 1, duration: 7 }, 75);
         timeline.to(
           select('[data-archive-rule] > span'),
           { scaleX: 1, duration: 8, ease: 'power2.out' },

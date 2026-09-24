@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLanguage, type Locale } from '@/lib/i18n';
+import MuseumMark from '@/components/MuseumMark';
 
 type NavLink = {
   label: string;
@@ -28,6 +29,7 @@ function scrollToAnchor(element: HTMLElement) {
 
 export default function Header({ openingSequence = false }: { openingSequence?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
+  const [darkStage, setDarkStage] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { locale: activeLang, setLocale, t } = useLanguage();
   const router = useRouter();
@@ -50,6 +52,30 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [openingSequence]);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncStageTone = () => {
+      setDarkStage(
+        root.hasAttribute('data-museum-archive') ||
+          root.hasAttribute('data-museum-feature') ||
+          root.hasAttribute('data-museum-culture') ||
+          root.hasAttribute('data-museum-today')
+      );
+    };
+    syncStageTone();
+    const observer = new MutationObserver(syncStageTone);
+    observer.observe(root, {
+      attributes: true,
+      attributeFilter: [
+        'data-museum-archive',
+        'data-museum-feature',
+        'data-museum-culture',
+        'data-museum-today',
+      ],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (menuOpen) {
@@ -108,22 +134,33 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
     <>
       {/* Main Navigation */}
       <nav
+        data-site-navigation
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled ? 'bg-background/95 backdrop-blur-sm border-b border-border' : 'bg-transparent'
         }`}
-        aria-label="Main navigation"
+        aria-label={t.ui.mainNavigation}
       >
         <div className="flex items-center justify-between px-6 md:px-12 py-4">
           {/* Logo — Cormorant Garamond wordmark */}
-          <Link href="/" className="flex items-center group" aria-label="Savitsky Museum home">
-            <div className="flex flex-col">
+          <Link
+            href="/"
+            className="flex min-w-0 items-center gap-3 group"
+            aria-label={t.ui.museumHome}
+          >
+            <MuseumMark
+              onDark={!scrolled || darkStage}
+              size={38}
+              priority
+              className="h-9 w-9 flex-none transition-opacity group-hover:opacity-80"
+            />
+            <div className="flex min-w-0 flex-col">
               <span
                 className={`font-display font-medium tracking-widest uppercase transition-colors ${
                   scrolled ? 'text-foreground' : 'text-primary-foreground'
                 } group-hover:text-accent`}
                 style={{ fontSize: '0.95rem', letterSpacing: '0.2em', fontStyle: 'normal' }}
               >
-                Savitsky
+                {t.ui.brandLine1}
               </span>
               <span
                 className={`transition-colors font-display font-light ${
@@ -131,7 +168,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                 }`}
                 style={{ fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase' }}
               >
-                Museum
+                {t.ui.brandLine2}
               </span>
             </div>
           </Link>
@@ -169,7 +206,8 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                         ? 'text-muted-foreground hover:text-foreground'
                         : 'text-primary-foreground/40 hover:text-primary-foreground/70'
                   }`}
-                  aria-label={`Switch to ${lang}`}
+                  aria-label={t.ui.switchLanguage.replace('{language}', t.ui.languageNames[lang])}
+                  aria-pressed={activeLang === lang}
                 >
                   {lang}
                 </button>
@@ -195,7 +233,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
             className={`lg:hidden flex flex-col gap-1.5 w-8 group transition-colors ${
               scrolled ? 'text-foreground' : 'text-primary-foreground'
             }`}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={menuOpen ? t.ui.closeMenu : t.ui.openMenu}
             aria-expanded={menuOpen}
           >
             <span
@@ -241,8 +279,12 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                   key={lang}
                   onClick={() => setLocale(lang)}
                   className={`text-label transition-colors ${
-                    activeLang === lang ? 'text-primary-foreground font-semibold' : 'text-primary-foreground/40'
+                    activeLang === lang
+                      ? 'text-primary-foreground font-semibold'
+                      : 'text-primary-foreground/40'
                   }`}
+                  aria-label={t.ui.switchLanguage.replace('{language}', t.ui.languageNames[lang])}
+                  aria-pressed={activeLang === lang}
                 >
                   {lang}
                 </button>
@@ -255,9 +297,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
             >
               {t.nav.planVisit}
             </Link>
-            <div className="text-metadata text-primary-foreground/50">
-              {t.info.hoursValue}
-            </div>
+            <div className="text-metadata text-primary-foreground/50">{t.info.hoursValue}</div>
           </div>
         </div>
       </div>

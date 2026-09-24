@@ -72,7 +72,10 @@ export default function VisitTours() {
                   <span className="font-display text-base font-medium text-foreground">
                     {tour.price}
                   </span>
-                  <Link href={`mailto:${t.visitPage.contactTours}?subject=${encodeURIComponent(tour.name)}`} className="btn-ghost text-xs">
+                  <Link
+                    href={`mailto:${t.visitPage.contactTours}?subject=${encodeURIComponent(tour.name)}`}
+                    className="btn-ghost text-xs"
+                  >
                     {t.visitPage.tourLabels.book}
                     <svg
                       width="10"

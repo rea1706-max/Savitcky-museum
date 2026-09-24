@@ -16,7 +16,15 @@ const scheduleData = [
 export default function VisitHours() {
   const { t } = useLanguage();
   const todayIndex = new Date().getDay(); // 0 is Sunday, 1 is Monday...
-  const weekdayKeys = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const weekdayKeys = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
   const currentDayKey = weekdayKeys[todayIndex];
 
   const todaySchedule = scheduleData.find((s) => s.dayKey === currentDayKey);

@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
+import { cookies } from 'next/headers';
 import { DM_Sans, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
-import { LanguageProvider } from '@/lib/i18n';
+import { LanguageProvider, type Locale } from '@/lib/i18n';
 import '../styles/tailwind.css';
 
 const dmSans = DM_Sans({
@@ -38,28 +39,41 @@ export const metadata: Metadata = {
   description:
     "The world's second-largest Russian avant-garde collection in Nukus, Karakalpakstan. 82,000 works spanning avant-garde, Karakalpak arts, and Ancient Khorezm.",
   icons: {
-    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
+    icon: [{ url: '/brand/savitsky-logo-mark.svg', type: 'image/svg+xml' }],
   },
   openGraph: {
     title: 'Savitsky Museum — Nukus',
     description: 'An extraordinary collection in the Uzbek desert.',
-    images: [{ url: '/assets/images/app_logo.png', width: 1200, height: 630 }],
+    images: [{ url: '/brand/savitsky-logo-mark-dark.svg', width: 64, height: 64 }],
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieLocale = (await cookies()).get('savitsky_locale')?.value;
+  const initialLocale = ['EN', 'RU', 'UZ', 'KK'].includes(cookieLocale ?? '')
+    ? (cookieLocale as Locale)
+    : undefined;
+  const initialLanguage =
+    initialLocale === 'RU'
+      ? 'ru'
+      : initialLocale === 'UZ'
+        ? 'uz'
+        : initialLocale === 'KK'
+          ? 'kaa'
+          : 'en';
+
   return (
     <html
-      lang="en"
+      lang={initialLanguage}
       data-scroll-behavior="smooth"
       className={`${dmSans.variable} ${cormorant.variable} ${playfair.variable}`}
     >
       <body className={dmSans.className}>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider initialLocale={initialLocale}>{children}</LanguageProvider>
       </body>
     </html>
   );

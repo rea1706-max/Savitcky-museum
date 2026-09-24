@@ -15,7 +15,7 @@ export default function VisitHero() {
       <div className="relative h-[280px] md:h-[360px] overflow-hidden">
         <AppImage
           src="https://img.rocket.new/generatedImages/rocket_gen_img_16c8d6924-1765746942795.png"
-          alt="Museum exterior facade in warm afternoon light"
+          alt={t.ui.visitHeroAlt}
           fill
           priority
           className="object-cover opacity-30"

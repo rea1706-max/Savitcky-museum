@@ -1,4 +1,48 @@
 {
+  "ui": {
+    "brandLine1": "Savickiy",
+    "brandLine2": "Muzeyi",
+    "mainNavigation": "Tiykarǵı navigaciya",
+    "museumHome": "Savickiy muzeyi bas beti",
+    "languageSelector": "Tildi tańlaw",
+    "switchLanguage": "{language} tiline ótiw",
+    "openMenu": "Menyunı ashıw",
+    "closeMenu": "Menyunı jabıw",
+    "footer": "Savickiy muzeyi betiniń juwmaǵı",
+    "openingSequence": "Kirisiw saxnası — Shól",
+    "scrollToExplore": "Dawam etiw ushın jıljıtıń",
+    "ustyurtAlt": "Qaraqalpaqstandaǵı Ústirt platosı — kókshil-súr aspan astındaǵı aqshıl hák taslı shól.",
+    "portraitAlt": "Dástúriy kesteli qaraqalpaq kiyimi hám qızǵılt bas kiyimdegi hayal.",
+    "aboutPortraitAlt": "Igor Savickiy qaraqalpaq zergerlik buyımın kórip atır. Arxiv súwreti.",
+    "collectionHeroAlt": "Muzey galereyasınıń ishki kórinisi.",
+    "visitHeroAlt": "Jıllı túski jaqtılıqtaǵı muzey imaratı.",
+    "storiesHeroAlt": "Arxiv stellajlarındaǵı súwretler menen muzey qorxanası.",
+    "collectionCategories": "Kollekciya bólimleri",
+    "storyFormats": "Tariyx formatları",
+    "storiesClosing": "Tariyxlar arxiviniń juwmaǵı",
+    "museumMap": "Muzey jaylasqan jer kartası",
+    "languageNames": {
+      "EN": "inglis",
+      "RU": "orys",
+      "UZ": "ózbek",
+      "KK": "qaraqalpaq"
+    }
+  },
+  "opening": {
+    "city": "Nókis",
+    "region": "Qaraqalpaqstan",
+    "country": "Ózbekstan",
+    "scroll": "Jıljıtıń",
+    "stageLabel": "03 / Jer → Mádeniyat",
+    "heritage": "Qaraqalpaq miyrası",
+    "costume": "Dástúriy kiyim"
+  },
+  "notFound": {
+    "title": "Bet tabılmadı",
+    "description": "Siz izlegen bet joq.",
+    "back": "Artqa",
+    "home": "Bas betke"
+  },
   "nav": {
     "home": "Bas bet",
     "about": "Muzey haqqında",
@@ -29,34 +73,42 @@
     "savitskyQuoteAuthor": "Igor Savickiy, Tiykar salıwshı",
     "paragraph1": "Alys Nókis qalasında súwretshi hám arxeolog Igor Savickiy dúnyadaǵı eń ǵáziyne kórkem óner oraylarınan birin payda etti. Ideologiyalıq qadaǵanlarǵa qaramay, ol 40 000-nan aslam qadaǵan etilgen orys hám túrkstan avangard durdanaların topladı.",
     "paragraph2": "Sonıń menen birge, Savickiy qaraqalpaq xalqınıń joǵalıp baratırǵan kórkem miyrasın — unikal toqımashılıq buyımların, zergerlik kórkem ónerin hám áyyemgi salt buyımların saqlap qaldı.",
-    "learnMore": "Muzey tariyxı menen tanıısıw"
+    "learnMore": "Muzey tariyxı menen tanısıw",
+    "archiveCredit": "IGOR SAVICKIY · MUZEY ARXIVI",
+    "established": "1966-JILI TIYKAR SALINǴAN",
+    "location": "NÓKIS · QARAQALPAQSTAN"
   },
   "whatsOn": {
     "label": "AFISHA",
     "heading": "Kórgizbeler hám Joybarlar",
     "nowOn": "Házir muzeyde",
-    "upcoming": "Ja эффект jaqında",
+    "upcoming": "Jaqında",
     "archive": "Kórgizbeler arxivinen",
     "allExhibitions": "Barlıq kórgizbeler",
     "viewDetails": "Tolıq maǵlıwmat"
   },
   "bridge": {
-    "label": "Afisha — Kollekciya",
+    "label": "02 / Ótiw",
     "title1": "Kórgizbeden",
     "title2": "Mángilik",
     "title3": "Miyras",
     "title4": "Sarı",
     "title5": "Baǵdar",
-    "note1": "Nókistegi tiri arxiv.",
-    "note2": "82 000 saqlanǵan jumıs."
+    "note1": "Ideyalar ótip ketedi.",
+    "note2": "Buyımlar qaladı."
   },
   "collection": {
-    "label": "04 / Turaqlı ekspoziciya",
-    "title": "Avangard hám Áyyemgi Topıraq",
+    "label": "Kollekciya",
+    "title": "Shegarasız\nKollekciya",
     "intro": "Dúnyadaǵı ekinshi orında turatuǵın orys avangardı qorı, Áyyemgi Xorezm arxeologiyası hám Qaraqalpaqstan xalıq ámeliy kórkem óneri.",
     "explore": "Kollekciyanı kóriw",
     "volkovBadge": "A. Volkov · Anarlı shayxana (1924)",
-    "vesselBadge": "Áyyemgi Xorezm · Terrakota ıdısı (b.e.sh. III ásir)"
+    "vesselBadge": "Áyyemgi Xorezm · Terrakota ıdısı (b.e.sh. III ásir)",
+    "archiveLine": "Arxiv sızıǵı",
+    "volkovAria": "Avangard kollekciyasın ashıw",
+    "vesselAria": "Miyras hám tariyx kollekciyasın ashıw",
+    "volkovAlt": "Aleksandr Volkov, «Arba», 1924 — shabandozlar hám atlar múyeshli reń tegisliklerinde.",
+    "vesselAlt": "Ilmek tárizli tutqası hám úsh ayaǵı bar áyyemgi Xorezm terrakota ıdısı."
   },
   "culture": {
     "label": "05 / Materiallıq mádeniyat",
@@ -103,7 +155,8 @@
     "marker": "10 Gorizont",
     "titleLine1": "Kórkem óner",
     "titleLine2": "Qádir tapqan jerde jasaydı",
-    "body": "Qaraqalpaqstan qoynında adamzat qáleminiń bul ǵáziyne keshigi pútkil dúnyadan kelgen izertlewshilerdi, sayaxatshılardı hám óner súyiwshilerdi zawıqlandırmaqta."
+    "body": "Qaraqalpaqstan qoynında adamzat qáleminiń bul ǵáziyne keshigi pútkil dúnyadan kelgen izertlewshilerdi, sayaxatshılardı hám óner súyiwshilerdi zawıqlandırmaqta.",
+    "imageAlt": "Uzaqtaǵı tegis shıńlı tóbelikler arqasında keń shól ústindegi kún batısı."
   },
   "footer": {
     "sloganLine1": "NÓKISTEN",
@@ -229,7 +282,52 @@
     "onView": "Ekspoziciyada",
     "forthcoming": "Kútilmekte",
     "past": "Ótken",
-    "filterAll": "Barlıq jıllar"
+    "filterAll": "Barlıq jıllar",
+    "archiveAria": "Kórgizbeler arxivi",
+    "emptyState": "Kórgizbeler haqqında maǵlıwmat usı jerde járiyalanadı.",
+    "dates": "Sáneler",
+    "location": "Ótkeriletuǵın jer",
+    "address": "Mánzil",
+    "admission": "Kiriw",
+    "source": "Kórgizbe deregi",
+    "planVisit": "Sapardı rejelestiriw",
+    "entries": {
+      "ex1": {
+        "title": "Forma hám belgi",
+        "subtitle": "Ózbekstan: shóldegi avangard",
+        "imageAlt": "Lyubov Popova, «Kompoziciya» — oxra, qızıl, jasıl, aq hám qara geometriyalıq tegislikler.",
+        "imageCredit": "Lyubov Popova · Kompoziciya · Vizual obraz",
+        "shortDescription": "Avangard tájiriybesi menen Oraylıq Aziya kórkem dástúrleriniń ushırasıwı.",
+        "fullDescription": "«Ózbekstan: shóldegi avangard» joybarınıń Veneciya bólimi Nókistegi Savickiy muzeyi hám Ózbekstan Mámleketlik kórkem óner muzeyi shıǵarmaların birlestirdi. Súwretshilik hám ámeliy óner Evropa avangardı menen Oraylıq Aziya kórkem dástúrleri arasındaǵı baylanıstı kórsetti.",
+        "location": "Ka’ Foskari Esposizioni · Veneciya, Italiya"
+      },
+      "ex2": {
+        "title": "Jaqtılıq hám reń",
+        "subtitle": "Ózbekstan: shóldegi avangard",
+        "imageAlt": "Oraylıq Aziya turmısı hám arxitekturası súwretlengen kartinalar kórgizbe zalında.",
+        "imageCredit": "Kórgizbe kórinisi · Uffici galereyası",
+        "shortDescription": "Nókis hám Tashkent kollekciyalarında Oraylıq Aziyanıń jaqtılıǵı hám reńleri.",
+        "fullDescription": "Palacco Pittide Nókis hám Tashkentten alıp kelingen súwretler menen toqımashılıq úlgileri Oraylıq Aziyada qáliplesken avangardtı kórsetti. Kórgizbe XX ásir basındaǵı jaqtılıq, reń hám kórkem ushırasıwlarǵa baǵıshlandı.",
+        "location": "Palacco Pitti · Florenciya, Italiya"
+      },
+      "ex3": {
+        "title": "Dúnyalar arasındaǵı jaqtılıq",
+        "subtitle": "Eki kollekciya — ulıwma modernizm",
+        "imageAlt": "Kórgizbeniń rásmiy súwretinde oxra reńli imarat janındaǵı úsh tulǵa.",
+        "imageCredit": "Kórgizbe xabarı · Jańa Ierusalim muzeyi",
+        "shortDescription": "Eki muzey kollekciyasında 1920–1930-jıllar modernizmi.",
+        "fullDescription": "Qırıq súwretshiniń 160-tan aslam shıǵarması Savickiy muzeyi hám Jańa Ierusalim muzeyi kollekciyaların bir dialogqa qosıp, 1920–1930-jıllardaǵı kórkem tájiriybelerdi ashıp berdi.",
+        "location": "Jańa Ierusalim muzeyi · Istra, Rossiya"
+      },
+      "ex4": {
+        "title": "Nókis ǵáziyneleri",
+        "subtitle": "Savickiy muzeyi kollekciyasınan",
+        "imageAlt": "",
+        "shortDescription": "Nókis kollekciyası Moskvadaǵı Pushkin muzeyinde.",
+        "fullDescription": "Eki júzge jaqın súwret hám grafika shıǵarmaları arxeologiyalıq buyımlar hám qaraqalpaq ámeliy óneri menen birge kórsetildi.",
+        "location": "A.S. Pushkin atındaǵı Mámleketlik kórkem óner muzeyi · Moskva, Rossiya"
+      }
+    }
   },
   "storiesPage": {
     "badge": "10 / TARIYX HÁM MAQALALAR",

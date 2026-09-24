@@ -1,4 +1,48 @@
 {
+  "ui": {
+    "brandLine1": "Savitsky",
+    "brandLine2": "Museum",
+    "mainNavigation": "Main navigation",
+    "museumHome": "Savitsky Museum home",
+    "languageSelector": "Language selector",
+    "switchLanguage": "Switch to {language}",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "footer": "Savitsky Museum footer",
+    "openingSequence": "Opening sequence — The Desert",
+    "scrollToExplore": "Scroll to explore",
+    "ustyurtAlt": "Ustyurt plateau, Karakalpakstan — pale limestone desert beneath a blue-grey sky.",
+    "portraitAlt": "Woman wearing a traditional embroidered Karakalpak costume and burgundy headdress.",
+    "aboutPortraitAlt": "Igor Savitsky examining Karakalpak jewellery in an archival photograph.",
+    "collectionHeroAlt": "Museum gallery interior.",
+    "visitHeroAlt": "Museum exterior in warm afternoon light.",
+    "storiesHeroAlt": "Museum storage vault with framed paintings on archival racks.",
+    "collectionCategories": "Collection categories",
+    "storyFormats": "Story formats",
+    "storiesClosing": "Stories archive statement",
+    "museumMap": "Museum location map",
+    "languageNames": {
+      "EN": "English",
+      "RU": "Russian",
+      "UZ": "Uzbek",
+      "KK": "Karakalpak"
+    }
+  },
+  "opening": {
+    "city": "Nukus",
+    "region": "Karakalpakstan",
+    "country": "Uzbekistan",
+    "scroll": "Scroll",
+    "stageLabel": "03 / Land → Culture",
+    "heritage": "Karakalpak Heritage",
+    "costume": "Traditional costume"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you’re looking for doesn’t exist.",
+    "back": "Go back",
+    "home": "Back to home"
+  },
   "nav": {
     "home": "Home",
     "about": "About",
@@ -29,7 +73,10 @@
     "savitskyQuoteAuthor": "Igor Savitsky, Founder",
     "paragraph1": "In the remote desert capital of Nukus, artist and archaeologist Igor Savitsky established one of the world’s most extraordinary cultural sanctuaries. Defying ideological suppression, he gathered over 40,000 banned Russian and Soviet avant-garde masterpieces.",
     "paragraph2": "Alongside this treasure, Savitsky documented the endangered heritage of the Karakalpak people—collecting exquisite textiles, jewelry, and ritual artifacts that would otherwise have been lost to time.",
-    "learnMore": "Discover the Museum History"
+    "learnMore": "Discover the Museum History",
+    "archiveCredit": "IGOR SAVITSKY · THE MUSEUM ARCHIVE",
+    "established": "EST. 1966",
+    "location": "NUKUS · KARAKALPAKSTAN"
   },
   "whatsOn": {
     "label": "WHAT'S ON",
@@ -41,22 +88,27 @@
     "viewDetails": "View details"
   },
   "bridge": {
-    "label": "What's On — Collection",
+    "label": "02 / Transition",
     "title1": "From",
     "title2": "Exhibition",
     "title3": "To",
     "title4": "Enduring",
     "title5": "Heritage",
-    "note1": "A living archive in Nukus.",
-    "note2": "82,000 works preserved."
+    "note1": "Ideas fade.",
+    "note2": "Objects remain."
   },
   "collection": {
-    "label": "04 / Permanent Holdings",
-    "title": "Avant-Garde & Ancient Earth",
+    "label": "The Collection",
+    "title": "A Collection\nBeyond\nBorders",
     "intro": "The second-largest collection of Russian avant-garde art in the world, alongside ancient Khorezmian artifacts and Karakalpak ethnographic treasures.",
     "explore": "Explore the Collection",
     "volkovBadge": "A. Volkov · Pomegranate Tea House (1924)",
-    "vesselBadge": "Ancient Khorezm · Terracotta Vessel (3rd C. BCE)"
+    "vesselBadge": "Ancient Khorezm · Terracotta Vessel (3rd C. BCE)",
+    "archiveLine": "Archive line",
+    "volkovAria": "Explore the Avant-Garde collection",
+    "vesselAria": "Explore the Heritage and History collection",
+    "volkovAlt": "Alexander Volkov, Arba, 1924 — a painting of riders and horses in angular planes of colour.",
+    "vesselAlt": "Ancient Khorezm terracotta vessel with a loop handle and three feet."
   },
   "culture": {
     "label": "05 / Material Culture",
@@ -103,7 +155,8 @@
     "marker": "10 Horizon",
     "titleLine1": "Art Lives",
     "titleLine2": "Where It Is Loved",
-    "body": "In the heart of Karakalpakstan, an improbable sanctuary of human creativity continues to inspire researchers, travellers, and art lovers from every corner of the world."
+    "body": "In the heart of Karakalpakstan, an improbable sanctuary of human creativity continues to inspire researchers, travellers, and art lovers from every corner of the world.",
+    "imageAlt": "Sunset over a broad desert landscape with distant flat-topped hills."
   },
   "footer": {
     "sloganLine1": "FROM NUKUS",
@@ -229,7 +282,52 @@
     "onView": "On View",
     "forthcoming": "Forthcoming",
     "past": "Past",
-    "filterAll": "All Years"
+    "filterAll": "All Years",
+    "archiveAria": "Exhibition archive",
+    "emptyState": "Exhibition information will be announced here.",
+    "dates": "Dates",
+    "location": "Location",
+    "address": "Address",
+    "admission": "Admission",
+    "source": "Exhibition source",
+    "planVisit": "Plan your visit",
+    "entries": {
+      "ex1": {
+        "title": "Form and Symbol",
+        "subtitle": "Uzbekistan: Avant-Garde in the Desert",
+        "imageAlt": "Lyubov Popova, Composition — intersecting geometric planes in ochre, red, green, ivory and black.",
+        "imageCredit": "Lyubov Popova · Composition · Visual reference",
+        "shortDescription": "A meeting of avant-garde experiment and the artistic traditions of Central Asia.",
+        "fullDescription": "The Venice chapter of Uzbekistan: Avant-Garde in the Desert brought together works from the Savitsky Museum in Nukus and the State Museum of Arts of Uzbekistan. Painting and applied arts traced exchanges between European avant-garde ideas and Central Asian visual traditions.",
+        "location": "Ca’ Foscari Esposizioni · Venice, Italy"
+      },
+      "ex2": {
+        "title": "Light and Colour",
+        "subtitle": "Uzbekistan: Avant-Garde in the Desert",
+        "imageAlt": "Paintings of Central Asian architecture and daily life displayed against a teal gallery wall.",
+        "imageCredit": "Exhibition view · Uffizi Galleries",
+        "shortDescription": "Central Asian light and colour through the collections of Nukus and Tashkent.",
+        "fullDescription": "At Palazzo Pitti, paintings and textiles from Nukus and Tashkent explored an avant-garde shaped by Central Asia. The exhibition focused on the region’s light, colour and artistic encounters in the early twentieth century.",
+        "location": "Palazzo Pitti · Florence, Italy"
+      },
+      "ex3": {
+        "title": "Light Between Worlds",
+        "subtitle": "Two collections, a shared modernism",
+        "imageAlt": "Three figures beside an ochre building in the official exhibition artwork.",
+        "imageCredit": "Exhibition announcement · New Jerusalem Museum",
+        "shortDescription": "Modernism of the 1920s and 1930s through two museum collections.",
+        "fullDescription": "More than 160 paintings and works on paper by 40 artists brought the Savitsky Museum collection into conversation with the New Jerusalem Museum and the varied experiments of the 1920s and 1930s.",
+        "location": "New Jerusalem Museum · Istra, Russia"
+      },
+      "ex4": {
+        "title": "Treasures of Nukus",
+        "subtitle": "From the collection of the Savitsky Museum",
+        "imageAlt": "",
+        "shortDescription": "The collection of Nukus presented at the Pushkin Museum in Moscow.",
+        "fullDescription": "Around 200 paintings and works on paper were shown alongside archaeological objects and Karakalpak decorative arts, bringing different strands of the Savitsky collection together.",
+        "location": "Pushkin State Museum of Fine Arts · Moscow, Russia"
+      }
+    }
   },
   "storiesPage": {
     "badge": "10 / STORIES",

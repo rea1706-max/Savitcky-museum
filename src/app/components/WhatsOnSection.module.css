@@ -210,17 +210,17 @@
 .section:global([data-feature-ready='false']) .geometry {
   pointer-events: none;
 }
-:global(html[data-museum-feature]):has(.section) :global(nav[aria-label='Main navigation']) {
+:global(html[data-museum-feature]):has(.section) :global(nav[data-site-navigation]) {
   background: var(--museum-charcoal);
   border-bottom-color: color-mix(in srgb, var(--museum-earth) 32%, transparent);
 }
 :global(html[data-museum-feature]):has(.section)
-  :global(nav[aria-label='Main navigation'])
+  :global(nav[data-site-navigation])
   :global(:is(a, button, span)) {
   color: var(--museum-bone);
 }
 :global(html[data-museum-feature]):has(.section)
-  :global(nav[aria-label='Main navigation'])
+  :global(nav[data-site-navigation])
   :global(a.border) {
   border-color: var(--museum-earth);
 }

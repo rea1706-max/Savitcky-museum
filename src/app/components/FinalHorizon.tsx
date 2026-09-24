@@ -32,7 +32,7 @@ export default function FinalHorizon() {
         <Image
           data-horizon-image
           src="/images/final/nukus-landscape.png"
-          alt="Sunset over a broad desert landscape with distant flat-topped hills."
+          alt={t.finalHorizon.imageAlt}
           fill
           sizes="100vw"
           quality={85}

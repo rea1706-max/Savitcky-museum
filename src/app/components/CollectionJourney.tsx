@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Inter } from 'next/font/google';
+import Image from 'next/image';
 import CollectionConstellation from './CollectionConstellation';
 import PatternCultureChapter from './PatternCultureChapter';
 import { useLanguage } from '@/lib/i18n';
@@ -34,6 +35,24 @@ export default function CollectionJourney({ children }: { children: ReactNode })
             {children}
           </div>
           <section className={styles.bridge} data-mineral-bridge aria-labelledby="bridge-heading">
+            <figure className={styles.bridgePrevious} data-bridge-popova aria-hidden="true">
+              <Image
+                src="/images/exhibitions/popova-composition.png"
+                alt=""
+                fill
+                sizes="34vw"
+                className={styles.bridgeArtwork}
+              />
+            </figure>
+            <figure className={styles.bridgeFuture} data-bridge-volkov aria-hidden="true">
+              <Image
+                src="/images/collection/volkov-arba-1924.png"
+                alt=""
+                fill
+                sizes="38vw"
+                className={styles.bridgeArtwork}
+              />
+            </figure>
             <div className={styles.bridgeEarth} data-bridge-earth aria-hidden="true" />
             <div className={styles.bridgePaper} data-bridge-paper aria-hidden="true" />
             <div className={styles.grain} aria-hidden="true" />

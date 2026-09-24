@@ -1,4 +1,48 @@
 {
+  "ui": {
+    "brandLine1": "Savitskiy",
+    "brandLine2": "Muzeyi",
+    "mainNavigation": "Asosiy navigatsiya",
+    "museumHome": "Savitskiy muzeyi bosh sahifasi",
+    "languageSelector": "Tilni tanlash",
+    "switchLanguage": "{language} tiliga oʻtish",
+    "openMenu": "Menyuni ochish",
+    "closeMenu": "Menyuni yopish",
+    "footer": "Savitskiy muzeyi sahifa yakuni",
+    "openingSequence": "Kirish sahnasi — Sahro",
+    "scrollToExplore": "Davom etish uchun aylantiring",
+    "ustyurtAlt": "Qoraqalpogʻistondagi Ustyurt platosi — moviy-kulrang osmon ostidagi och rang ohaktoshli sahro.",
+    "portraitAlt": "Anʼanaviy kashtali qoraqalpoq libosi va toʻq qizil bosh kiyimidagi ayol.",
+    "aboutPortraitAlt": "Igor Savitskiy qoraqalpoq taqinchoqlarini koʻzdan kechirmoqda. Arxiv fotosurati.",
+    "collectionHeroAlt": "Muzey galereyasi interyeri.",
+    "visitHeroAlt": "Iliq peshindan keyingi yorugʻlikdagi muzey binosi.",
+    "storiesHeroAlt": "Arxiv javonlaridagi kartinalar bilan muzey fondxonasi.",
+    "collectionCategories": "Toʻplam boʻlimlari",
+    "storyFormats": "Hikoya formatlari",
+    "storiesClosing": "Hikoyalar arxivi yakuni",
+    "museumMap": "Muzey joylashuvi xaritasi",
+    "languageNames": {
+      "EN": "ingliz",
+      "RU": "rus",
+      "UZ": "oʻzbek",
+      "KK": "qoraqalpoq"
+    }
+  },
+  "opening": {
+    "city": "Nukus",
+    "region": "Qoraqalpogʻiston",
+    "country": "Oʻzbekiston",
+    "scroll": "Aylantiring",
+    "stageLabel": "03 / Zamin → Madaniyat",
+    "heritage": "Qoraqalpoq merosi",
+    "costume": "Anʼanaviy libos"
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "description": "Siz izlagan sahifa mavjud emas.",
+    "back": "Orqaga",
+    "home": "Bosh sahifaga"
+  },
   "nav": {
     "home": "Bosh sahifa",
     "about": "Muzey haqida",
@@ -29,7 +73,10 @@
     "savitskyQuoteAuthor": "Igor Savitskiy, Asoschi",
     "paragraph1": "Olis Nukus shahrida rassom va arxeolog Igor Savitskiy dunyodagi eng noyob madaniy maskanlardan birini yaratdi. Mafkuraviy taqiqlarga qaramay, u 40 000 dan ziyod taqiqlangan rus va turkiston avangardi durdonalarini toʻpladi.",
     "paragraph2": "Shu bilan birga, Savitskiy qoraqalpoq xalqining yoʻqolib borayotgan boy merosini — nozik matolar, zargarlik buyumlari va qadimiy buyumlarni toʻplab, tarixga qaytardi.",
-    "learnMore": "Muzey tarixi bilan tanishish"
+    "learnMore": "Muzey tarixi bilan tanishish",
+    "archiveCredit": "IGOR SAVITSKIY · MUZEY ARXIVI",
+    "established": "1966-YILDA ASOS SOLINGAN",
+    "location": "NUKUS · QORAQALPOGʻISTON"
   },
   "whatsOn": {
     "label": "AFISHA",
@@ -41,22 +88,27 @@
     "viewDetails": "Batafsil"
   },
   "bridge": {
-    "label": "Afisha — Kolleksiya",
+    "label": "02 / Oʻtish",
     "title1": "Koʻrgazmadan",
     "title2": "Boqiy",
     "title3": "Meros",
     "title4": "Sari",
     "title5": "Yoʻl",
-    "note1": "Nukusdagi tirik arxiv.",
-    "note2": "82 000 saqlanayotgan asarlar."
+    "note1": "Gʻoyalar oʻtadi.",
+    "note2": "Asarlar qoladi."
   },
   "collection": {
-    "label": "04 / Doimiy ekspozitsiya",
-    "title": "Avangard va Qadimiy Zamin",
+    "label": "Toʻplam",
+    "title": "Chegaralardan\nOshgan\nToʻplam",
     "intro": "Dunyoda rus avangardi boʻyicha ikkinchi oʻrinda turuvchi kolleksiya, Qadimgi Xorazm arxeologiyasi va Qoraqalpogʻiston amaliy sanʼati.",
     "explore": "Kolleksiyani koʻrish",
     "volkovBadge": "A. Volkov · Anorli choyxona (1924)",
-    "vesselBadge": "Qadimgi Xorazm · Terrakota idishi (mil. avv. III asr)"
+    "vesselBadge": "Qadimgi Xorazm · Terrakota idishi (mil. avv. III asr)",
+    "archiveLine": "Arxiv chizigʻi",
+    "volkovAria": "Avangard toʻplamini ochish",
+    "vesselAria": "Meros va tarix toʻplamini ochish",
+    "volkovAlt": "Aleksandr Volkov, «Arava», 1924 — chavandozlar va otlar burchakli rang tekisliklarida tasvirlangan.",
+    "vesselAlt": "Ilmoqsimon tutqichli va uch oyoqli qadimiy Xorazm sopol idishi."
   },
   "culture": {
     "label": "05 / Moddiy madaniyat",
@@ -103,7 +155,8 @@
     "marker": "10 Ufq",
     "titleLine1": "Sanʼat uni",
     "titleLine2": "Sevgan joyda yashaydi",
-    "body": "Qoraqalpogʻistonning qoq markazida insoniyat ijodining bu buyuk maskani dunyoning barcha burchaklaridan kelgan sayyohlar va tadqiqotchilarni ilhomlantirishda davom etmoqda."
+    "body": "Qoraqalpogʻistonning qoq markazida insoniyat ijodining bu buyuk maskani dunyoning barcha burchaklaridan kelgan sayyohlar va tadqiqotchilarni ilhomlantirishda davom etmoqda.",
+    "imageAlt": "Uzoqdagi tekis choʻqqili tepaliklar ortida keng sahro uzra quyosh botishi."
   },
   "footer": {
     "sloganLine1": "NUKUSDAN",
@@ -229,7 +282,52 @@
     "onView": "Ekspozitsiyada",
     "forthcoming": "Kutilmoqda",
     "past": "Oʻtgan",
-    "filterAll": "Barcha yillar"
+    "filterAll": "Barcha yillar",
+    "archiveAria": "Koʻrgazmalar arxivi",
+    "emptyState": "Koʻrgazmalar haqidagi maʼlumot shu yerda eʼlon qilinadi.",
+    "dates": "Sanalar",
+    "location": "Joy",
+    "address": "Manzil",
+    "admission": "Kirish",
+    "source": "Koʻrgazma manbasi",
+    "planVisit": "Tashrifni rejalashtirish",
+    "entries": {
+      "ex1": {
+        "title": "Shakl va ramz",
+        "subtitle": "Oʻzbekiston: sahrodagi avangard",
+        "imageAlt": "Lyubov Popova, «Kompozitsiya» — oxra, qizil, yashil, oq va qora geometrik tekisliklar.",
+        "imageCredit": "Lyubov Popova · Kompozitsiya · Vizual obraz",
+        "shortDescription": "Avangard tajribasi va Markaziy Osiyo badiiy anʼanalarining uchrashuvi.",
+        "fullDescription": "«Oʻzbekiston: sahrodagi avangard» loyihasining Venetsiya qismi Nukusdagi Savitskiy muzeyi va Oʻzbekiston Davlat sanʼat muzeyi asarlarini birlashtirdi. Rangtasvir va amaliy sanʼat Yevropa avangardi bilan Markaziy Osiyo tasviriy anʼanalari oʻrtasidagi muloqotni ochib berdi.",
+        "location": "Ka’ Foskari Esposizioni · Venetsiya, Italiya"
+      },
+      "ex2": {
+        "title": "Yorugʻlik va rang",
+        "subtitle": "Oʻzbekiston: sahrodagi avangard",
+        "imageAlt": "Markaziy Osiyo hayoti va meʼmorchiligi tasvirlangan kartinalar koʻrgazma zalida.",
+        "imageCredit": "Koʻrgazma koʻrinishi · Uffitsi galereyasi",
+        "shortDescription": "Nukus va Toshkent toʻplamlarida Markaziy Osiyo yorugʻligi va ranglari.",
+        "fullDescription": "Palatstso Pittida Nukus va Toshkentdan keltirilgan rangtasvir hamda toʻqimachilik namunalari Markaziy Osiyoda shakllangan avangardni namoyish etdi. Koʻrgazma XX asr boshidagi yorugʻlik, rang va ijodiy uchrashuvlarga bagʻishlandi.",
+        "location": "Palatstso Pitti · Florensiya, Italiya"
+      },
+      "ex3": {
+        "title": "Olamlar orasidagi yorugʻlik",
+        "subtitle": "Ikki toʻplam — mushtarak modernizm",
+        "imageAlt": "Koʻrgazmaning rasmiy tasvirida oxra rang bino yonidagi uch figura.",
+        "imageCredit": "Koʻrgazma eʼloni · Yangi Quddus muzeyi",
+        "shortDescription": "Ikki muzey toʻplamida 1920–1930-yillar modernizmi.",
+        "fullDescription": "Qirq rassomning 160 dan ortiq asari Savitskiy muzeyi va Yangi Quddus muzeyi toʻplamlarini bir muloqotga birlashtirib, 1920–1930-yillardagi turli badiiy tajribalarni koʻrsatdi.",
+        "location": "Yangi Quddus muzeyi · Istra, Rossiya"
+      },
+      "ex4": {
+        "title": "Nukus xazinalari",
+        "subtitle": "Savitskiy muzeyi toʻplamidan",
+        "imageAlt": "",
+        "shortDescription": "Nukus toʻplami Moskvadagi Pushkin muzeyida.",
+        "fullDescription": "Ikki yuzga yaqin rangtasvir va grafika asari arxeologik topilmalar hamda qoraqalpoq amaliy sanʼati bilan birga namoyish etildi.",
+        "location": "Pushkin nomidagi Davlat tasviriy sanʼat muzeyi · Moskva, Rossiya"
+      }
+    }
   },
   "storiesPage": {
     "badge": "10 / HIKOYALAR VA ARXIV",

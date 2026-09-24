@@ -11,19 +11,19 @@
 }
 
 /* Contrast follows the archive under the fixed navigation; other chapters are unaffected. */
-html[data-museum-archive] nav[aria-label='Main navigation'] {
+html[data-museum-archive] nav[data-site-navigation] {
   background: var(--museum-charcoal);
   border-bottom-color: color-mix(in srgb, var(--museum-earth) 32%, transparent);
 }
 
-html[data-museum-archive] nav[aria-label='Main navigation'] :is(a, button, span) {
+html[data-museum-archive] nav[data-site-navigation] :is(a, button, span) {
   color: var(--museum-bone);
 }
 
-html[data-museum-archive] nav[aria-label='Main navigation'] a.border {
+html[data-museum-archive] nav[data-site-navigation] a.border {
   border-color: color-mix(in srgb, var(--museum-earth) 65%, transparent);
 }
 
-html[data-museum-archive] nav[aria-label='Main navigation'] :is(a, button):hover {
+html[data-museum-archive] nav[data-site-navigation] :is(a, button):hover {
   color: var(--museum-ochre);
 }

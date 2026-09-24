@@ -9,11 +9,9 @@ import styles from './MuseumToday.module.css';
 const images = {
   vaults: {
     src: '/images/stories/museum-today-vaults.png',
-    alt: 'Museum storage vault with rows of framed paintings on archival racks.',
   },
   restoration: {
     src: '/images/stories/museum-today-restoration.png',
-    alt: 'Close view of a conservator at work on a historic painted surface.',
   },
 };
 
@@ -92,13 +90,13 @@ export default function MuseumToday() {
               data-story-card
               href="/stories"
               className={`${styles.story} ${styles.vaultStory}`}
-              aria-label={`Open Stories: ${t.museumToday.vaultTitle}`}
+              aria-label={`${t.museumToday.cta}: ${t.museumToday.vaultTitle}`}
             >
               <div className={styles.storyIndex}>01</div>
               <div className={styles.storyImage}>
                 <Image
                   src={images.vaults.src}
-                  alt={images.vaults.alt}
+                  alt={`${t.museumToday.vaultTitle}. ${t.museumToday.vaultMeta}`}
                   fill
                   sizes="(max-width: 767px) 100vw, 42vw"
                   className={styles.cover}
@@ -114,13 +112,13 @@ export default function MuseumToday() {
               data-story-card
               href="/stories"
               className={`${styles.story} ${styles.restorationStory}`}
-              aria-label={`Open Stories: ${t.museumToday.restorationTitle}`}
+              aria-label={`${t.museumToday.cta}: ${t.museumToday.restorationTitle}`}
             >
               <div className={styles.storyIndex}>02</div>
               <div className={styles.storyImage}>
                 <Image
                   src={images.restoration.src}
-                  alt={images.restoration.alt}
+                  alt={`${t.museumToday.restorationTitle}. ${t.museumToday.restorationMeta}`}
                   fill
                   sizes="(max-width: 767px) 100vw, 34vw"
                   className={styles.cover}

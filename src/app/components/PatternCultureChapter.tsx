@@ -13,15 +13,13 @@ export default function PatternCultureChapter() {
         <figure data-textile-field className={styles.textileField}>
           <Image
             src="/images/collection/karakalpak-textile-macro.png"
-            alt="Close detail of a Karakalpak textile woven in red, black, ivory and ochre."
+            alt={t.culture.caption}
             fill
             sizes="100vw"
             quality={100}
             className={styles.textile}
           />
-          <figcaption className={styles.textileCaption}>
-            {t.culture.caption}
-          </figcaption>
+          <figcaption className={styles.textileCaption}>{t.culture.caption}</figcaption>
         </figure>
         <div data-red-fiber className={styles.redFiber} aria-hidden="true" />
         <div data-fiber-tone className={styles.fiberTone} aria-hidden="true" />

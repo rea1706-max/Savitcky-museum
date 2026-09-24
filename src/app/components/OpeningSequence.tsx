@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import MuseumMark from '@/components/MuseumMark';
 import { useLanguage } from '@/lib/i18n';
 
 const pathProps = { fill: 'none', vectorEffect: 'non-scaling-stroke' as const };
@@ -35,7 +36,7 @@ export default function OpeningSequence() {
           overflow: 'hidden',
           background: '#191816',
         }}
-        aria-label="Opening sequence — The Desert"
+        aria-label={t.ui.openingSequence}
       >
         {/* ── LAYER 1: USTYURT BACKGROUND ── */}
         <div
@@ -50,7 +51,7 @@ export default function OpeningSequence() {
         >
           <Image
             src="/assets/images/ustyurt-hero.jpg-1788636504270.webp"
-            alt="Ustyurt plateau, Karakalpakstan — vast pale limestone desert under a pale blue-grey sky"
+            alt={t.ui.ustyurtAlt}
             fill
             priority
             sizes="100vw"
@@ -121,7 +122,7 @@ export default function OpeningSequence() {
             <Image
               data-art-image
               src="/images/culture/karakalpak-cultural-portrait.png"
-              alt="Woman wearing a traditional embroidered costume and burgundy headdress"
+              alt={t.ui.portraitAlt}
               width={900}
               height={1120}
               priority
@@ -256,16 +257,25 @@ export default function OpeningSequence() {
                 textShadow: '0 1px 8px rgba(20,17,14,0.55)',
               }}
             >
-              Nukus
+              {t.opening.city}
               <br />
-              Karakalpakstan
+              {t.opening.region}
               <br />
-              Uzbekistan
+              {t.opening.country}
             </span>
           </div>
 
           {/* SAVITSKY masked reveal */}
-          <div data-hero-title style={{ overflow: 'hidden' }}>
+          <div
+            data-hero-title
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'clamp(16px, 2vw, 34px)',
+              overflow: 'hidden',
+            }}
+          >
+            <MuseumMark onDark size={64} priority className="opening-museum-mark" />
             <h1
               style={{
                 fontFamily: 'var(--font-playfair), "Playfair Display", Georgia, serif',
@@ -278,7 +288,7 @@ export default function OpeningSequence() {
                 whiteSpace: 'nowrap',
               }}
             >
-              SAVITSKY
+              {t.ui.brandLine1}
             </h1>
           </div>
 
@@ -316,7 +326,7 @@ export default function OpeningSequence() {
             alignItems: 'center',
             gap: '10px',
           }}
-          aria-label="Scroll to explore"
+          aria-label={t.ui.scrollToExplore}
         >
           <span
             style={{
@@ -328,7 +338,7 @@ export default function OpeningSequence() {
               color: 'rgba(242,235,221,0.55)',
             }}
           >
-            Scroll
+            {t.opening.scroll}
           </span>
           <svg width="18" height="30" viewBox="0 0 18 30" fill="none" aria-hidden="true">
             <rect
@@ -376,7 +386,7 @@ export default function OpeningSequence() {
               color: '#8A7258',
             }}
           >
-            03 / Land → Culture
+            {t.opening.stageLabel}
           </span>
           <span
             style={{
@@ -388,7 +398,7 @@ export default function OpeningSequence() {
               color: '#191816',
             }}
           >
-            Karakalpak Heritage
+            {t.opening.heritage}
           </span>
           <span
             style={{
@@ -400,7 +410,7 @@ export default function OpeningSequence() {
               color: '#8A7258',
             }}
           >
-            Traditional costume
+            {t.opening.costume}
           </span>
         </div>
 
@@ -446,6 +456,7 @@ export default function OpeningSequence() {
         @media (max-width: 639px) {
           [data-hero-copy] { max-width: 84vw !important; }
           [data-hero-title] h1 { font-size: 17vw !important; }
+          .opening-museum-mark { width: 42px; height: 42px; }
           [data-art-caption] { max-width: 105px !important; }
         }
         @media (prefers-reduced-motion: reduce) {

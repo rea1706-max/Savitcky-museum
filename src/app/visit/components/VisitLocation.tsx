@@ -4,58 +4,52 @@ import React from 'react';
 import { useLanguage } from '@/lib/i18n';
 
 const transitIcons = [
-  (
-    <svg
-      key="air"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4H5c-2 0-2 2 0 3.5L8 11l-1.8 8.2c-.2.8.8 1.4 1.5.9l4.3-3 4.3 3c.7.5 1.7-.1 1.5-.9z" />
-    </svg>
-  ),
-  (
-    <svg
-      key="train"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="2" y="7" width="20" height="14" rx="2" />
-      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-    </svg>
-  ),
-  (
-    <svg
-      key="local"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3" />
-      <rect x="9" y="11" width="14" height="10" rx="1" />
-      <circle cx="12" cy="21" r="1" />
-      <circle cx="20" cy="21" r="1" />
-    </svg>
-  ),
+  <svg
+    key="air"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4H5c-2 0-2 2 0 3.5L8 11l-1.8 8.2c-.2.8.8 1.4 1.5.9l4.3-3 4.3 3c.7.5 1.7-.1 1.5-.9z" />
+  </svg>,
+  <svg
+    key="train"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="2" y="7" width="20" height="14" rx="2" />
+    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+  </svg>,
+  <svg
+    key="local"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3" />
+    <rect x="9" y="11" width="14" height="10" rx="1" />
+    <circle cx="12" cy="21" r="1" />
+    <circle cx="20" cy="21" r="1" />
+  </svg>,
 ];
 
 export default function VisitLocation() {
@@ -83,17 +77,15 @@ export default function VisitLocation() {
             <div className="rule-oxide mb-6" />
 
             <address className="not-italic mb-8">
-              <p className="text-sm font-semibold text-foreground mb-1">
-                {t.hero.museumName}
-              </p>
-              <p className="text-sm text-muted-foreground font-light">
-                {t.info.locationValue}
-              </p>
+              <p className="text-sm font-semibold text-foreground mb-1">{t.hero.museumName}</p>
+              <p className="text-sm text-muted-foreground font-light">{t.info.locationValue}</p>
             </address>
 
             <div className="space-y-3 mb-8">
               <div>
-                <div className="text-label text-muted-foreground mb-1">{t.visitPage.phoneLabel}</div>
+                <div className="text-label text-muted-foreground mb-1">
+                  {t.visitPage.phoneLabel}
+                </div>
                 <a
                   href="tel:+998612222556"
                   className="text-sm text-foreground hover:text-accent transition-colors"
@@ -102,7 +94,9 @@ export default function VisitLocation() {
                 </a>
               </div>
               <div>
-                <div className="text-label text-muted-foreground mb-1">{t.visitPage.emailLabel}</div>
+                <div className="text-label text-muted-foreground mb-1">
+                  {t.visitPage.emailLabel}
+                </div>
                 <a
                   href="mailto:info@museum.kr.uz"
                   className="text-sm text-foreground hover:text-accent transition-colors"
@@ -111,8 +105,12 @@ export default function VisitLocation() {
                 </a>
               </div>
               <div>
-                <div className="text-label text-muted-foreground mb-1">{t.visitPage.coordinatesLabel}</div>
-                <span className="text-sm text-muted-foreground font-light">{t.desert.coordinates}</span>
+                <div className="text-label text-muted-foreground mb-1">
+                  {t.visitPage.coordinatesLabel}
+                </div>
+                <span className="text-sm text-muted-foreground font-light">
+                  {t.desert.coordinates}
+                </span>
               </div>
             </div>
           </div>
@@ -121,7 +119,7 @@ export default function VisitLocation() {
           <div className="lg:col-span-8">
             <div
               className="bg-muted border border-border h-[280px] md:h-[360px] flex items-center justify-center mb-6 relative overflow-hidden"
-              aria-label="Museum location map"
+              aria-label={t.ui.museumMap}
               role="img"
             >
               <div className="absolute inset-0 grid-lines-overlay opacity-30" aria-hidden="true" />
@@ -141,7 +139,9 @@ export default function VisitLocation() {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <p className="text-label text-muted-foreground">Savitsky Museum</p>
+                <p className="max-w-md text-label text-muted-foreground text-balance">
+                  {t.hero.museumName}
+                </p>
                 <p className="text-xs text-muted-foreground/60 mt-1">{t.info.locationValue}</p>
               </div>
             </div>
@@ -150,7 +150,9 @@ export default function VisitLocation() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border">
               {t.visitPage.transit.map((item, index) => (
                 <div key={item.mode} className="bg-background p-5">
-                  <div className="text-muted-foreground mb-3">{transitIcons[index] || transitIcons[0]}</div>
+                  <div className="text-muted-foreground mb-3">
+                    {transitIcons[index] || transitIcons[0]}
+                  </div>
                   <div className="text-label text-foreground mb-2">{item.mode}</div>
                   <p className="text-xs text-muted-foreground font-light leading-relaxed">
                     {item.detail}

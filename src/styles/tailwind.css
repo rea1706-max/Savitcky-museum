@@ -579,16 +579,16 @@
 }
 
 /* Focus styles */
-nav[aria-label='Main navigation'].bg-background\/95 {
+nav[data-site-navigation].bg-background\/95 {
   background-color: rgb(234 226 208 / 0.95);
 }
 
-html[data-museum-today] nav[aria-label='Main navigation'] {
+html[data-museum-today] nav[data-site-navigation] {
   background-color: rgb(25 24 22 / 0.95);
   border-bottom-color: rgb(138 114 88 / 0.32);
 }
 
-html[data-museum-today] nav[aria-label='Main navigation'] :is(a, button, span) {
+html[data-museum-today] nav[data-site-navigation] :is(a, button, span) {
   color: #f2ebdd;
 }
 

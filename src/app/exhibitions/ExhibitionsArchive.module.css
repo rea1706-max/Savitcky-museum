@@ -270,33 +270,33 @@
   border-top: 1px solid var(--museum-earth);
   font-size: 14px;
 }
-.page :global(nav[aria-label='Main navigation']) {
+.page :global(nav[data-site-navigation]) {
   background: var(--museum-desert-ivory);
   border-bottom-color: color-mix(in srgb, var(--museum-earth) 30%, transparent);
 }
-.page :global(nav[aria-label='Main navigation'].bg-transparent) {
+.page :global(nav[data-site-navigation].bg-transparent) {
   background: transparent;
 }
-.page :global(nav[aria-label='Main navigation']) :global(:is(a, button, span)) {
+.page :global(nav[data-site-navigation]) :global(:is(a, button, span)) {
   color: var(--museum-charcoal);
 }
-.page :global(nav[aria-label='Main navigation']) :global(a.border) {
+.page :global(nav[data-site-navigation]) :global(a.border) {
   border-color: color-mix(in srgb, var(--museum-charcoal) 72%, var(--museum-earth));
 }
-.page :global(nav[aria-label='Main navigation'].bg-transparent) :global(:is(a, button, span)) {
+.page :global(nav[data-site-navigation].bg-transparent) :global(:is(a, button, span)) {
   color: var(--museum-bone);
 }
-.page :global(nav[aria-label='Main navigation'].bg-transparent) :global(a.border) {
+.page :global(nav[data-site-navigation].bg-transparent) :global(a.border) {
   border-color: color-mix(in srgb, var(--museum-bone) 60%, transparent);
 }
 .back:focus-visible {
   outline-color: var(--museum-bone);
 }
-.page :global(nav[aria-label='Main navigation']:has(button[aria-expanded='true'])) {
+.page :global(nav[data-site-navigation]:has(button[aria-expanded='true'])) {
   background: var(--museum-charcoal);
 }
 .page
-  :global(nav[aria-label='Main navigation']:has(button[aria-expanded='true']))
+  :global(nav[data-site-navigation]:has(button[aria-expanded='true']))
   :global(:is(a, button, span)) {
   color: var(--museum-bone);
 }
