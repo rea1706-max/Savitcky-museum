@@ -118,12 +118,12 @@ export function createOpeningAnimation(root: HTMLDivElement) {
             setPath(`${side}-end`, diamond(end, y, node * 0.7));
             setPath(`${side}-junction`, diamond(middle, y - height * 0.13, node * 0.6));
           }
-          // Frame the eyes and embroidered headpiece within the first aperture.
-          // The cropped photograph must cover all four viewport edges, including
-          // tall screens. Its scale and focal point never change during scrolling.
-          const ratio = 747 / 1120;
+          // Frame the face and embroidered headpiece within the first aperture.
+          // Scale from the supplied photograph's native aspect ratio so it covers
+          // every viewport without stretching as the diamond opens.
+          const ratio = 1227 / 1281;
           const focalX = 0.585;
-          const focalY = 0.22;
+          const focalY = 0.315;
           const portraitWidth = Math.max(
             width / (2 * focalX),
             width / (2 * (1 - focalX)),

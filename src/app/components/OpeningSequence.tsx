@@ -117,27 +117,30 @@ export default function OpeningSequence() {
               overflow: 'hidden',
             }}
           >
-            {/* Crop the source's white margins and edge fringe without editing the file. */}
+            {/* Preserve the high-resolution portrait without stretching its proportions. */}
             <Image
               data-art-image
-              src="/images/culture/karakalpak-cultural-portrait.png"
+              src="/images/culture/karakalpak-cultural-portrait-hq.png"
               alt={t.ui.portraitAlt}
-              width={900}
-              height={1120}
+              width={1227}
+              height={1281}
+              quality={100}
+              sizes="100vw"
               priority
               style={{
                 position: 'absolute',
-                left: `${(-76 / 747) * 100}%`,
-                width: `${(900 / 747) * 100}%`,
+                inset: 0,
+                width: '100%',
                 height: '100%',
                 maxWidth: 'none',
-                filter: 'saturate(0.84) contrast(0.9) brightness(1.08)',
+                objectFit: 'cover',
+                objectPosition: '56% 0%',
               }}
             />
           </div>
           <div
             data-portrait-veil
-            style={{ position: 'absolute', inset: 0, background: '#F2EBDD', opacity: 0.065 }}
+            style={{ position: 'absolute', inset: 0, background: '#F2EBDD', opacity: 0.025 }}
           />
         </div>
 
