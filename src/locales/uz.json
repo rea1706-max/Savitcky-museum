@@ -200,10 +200,13 @@
     "eyebrow": "I.V. Savitskiy nomidagi Qoraqalpogʻiston Davlat sanʼat muzeyi",
     "titleLine1": "Keng qamrovli",
     "titleLine2": "Kolleksiya",
-    "description": "Rus avangardi, Qoraqalpogʻiston amaliy sanʼati, Qadimgi Xorazm arxeologiyasi va zamonaviy rangtasvir boʻyicha 82 000 dan ortiq durdona asarlar.",
+    "description": "Muzey rus va Turkiston avangardi, Oʻzbekiston va Qoraqalpogʻiston sanʼati, qoraqalpoq hunarmandchiligi hamda Qadimgi Xorazm arxeologiyasini birlashtiradi.",
     "searchPlaceholder": "Rassom, asar nomi, davr yoki yoʻnalish boʻyicha qidiruv…",
     "searchAria": "Kolleksiyadan qidirish",
     "showing": "Koʻrsatilmoqda",
+    "sections": "kolleksiya boʻlimi",
+    "visualReference": "Tahririy tasvir — kolleksiya mavzulari",
+    "emptyState": "Bu soʻrov boʻyicha kolleksiya boʻlimi topilmadi.",
     "of": "/",
     "works": "asar",
     "onView": "Ekspozitsiyada",
@@ -211,8 +214,27 @@
     "categories": {
       "all": "Barcha asarlar",
       "avantGarde": "Avangard",
+      "uzbekArt": "Oʻzbekiston va Qoraqalpogʻiston sanʼati",
       "karakalpakArts": "Qoraqalpogʻiston sanʼati",
       "heritage": "Tarix va meros"
+    },
+    "categoryCards": {
+      "avant-garde": {
+        "title": "Rus va Turkiston avangardi",
+        "description": "XX asr boshida Markaziy Osiyo madaniyatini yangilagan badiiy tajribalarning rangtasvir va grafika asarlari."
+      },
+      "uzbek-art": {
+        "title": "Oʻzbekiston va Qoraqalpogʻiston sanʼati",
+        "description": "Oʻzbekiston va Qoraqalpogʻiston manzaralari, odamlari va tasviriy madaniyatiga bogʻliq rangtasvir hamda haykaltaroshlik."
+      },
+      "karakalpak-arts": {
+        "title": "Qoraqalpoq amaliy sanʼati",
+        "description": "Qoraqalpoq ustalarining avloddan avlodga oʻtgan toʻqimachilik, zargarlik, yogʻoch oʻymakorligi va maishiy buyumlari."
+      },
+      "heritage": {
+        "title": "Qadimgi Xorazm va arxeologiya",
+        "description": "Qadimgi Xorazmga oid arxeologik materiallar, jumladan sopol buyumlar va qadimgi manzilgohlar topilmalari."
+      }
     },
     "artworks": {
       "w1": {

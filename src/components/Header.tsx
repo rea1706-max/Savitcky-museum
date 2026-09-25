@@ -45,32 +45,23 @@ function scrollToAnchor(element: HTMLElement) {
       };
 
       if (currentJourney.dataset.collectionNavigationReady === 'true') {
-        const desktopTarget = Number(currentJourney.dataset.collectionScrollTarget);
-        if (window.matchMedia('(min-width: 1024px)').matches && Number.isFinite(desktopTarget)) {
-          const alignDesktopCollection = () => {
+        const journeyTarget = Number(currentJourney.dataset.collectionScrollTarget);
+        if (Number.isFinite(journeyTarget)) {
+          const alignJourneyCollection = () => {
             if (request !== activeAnchorRequest) return;
             const liveJourney = document.querySelector<HTMLElement>('[data-collection-journey]');
             const liveTarget = Number(liveJourney?.dataset.collectionScrollTarget);
             if (Number.isFinite(liveTarget)) jumpToScrollPosition(liveTarget);
           };
 
-          alignDesktopCollection();
-          window.setTimeout(alignDesktopCollection, 120);
-          window.setTimeout(alignDesktopCollection, 500);
-          return;
-        }
-
-        if (window.matchMedia('(max-width: 1023px)').matches) {
-          // Pin spacing can settle after the first tap on slower devices.
-          // Re-align twice so the final mobile position remains exact.
-          alignResponsiveCollection();
-          window.setTimeout(alignResponsiveCollection, 600);
-          window.setTimeout(alignResponsiveCollection, 1600);
+          alignJourneyCollection();
+          window.setTimeout(alignJourneyCollection, 120);
+          window.setTimeout(alignJourneyCollection, 500);
           return;
         }
       }
 
-      if (attempt === 0 && window.matchMedia('(min-width: 1024px)').matches) {
+      if (attempt === 0) {
         const stage = currentJourney.querySelector<HTMLElement>('[data-journey-stage]');
         if (stage) {
           const start = window.scrollY + stage.getBoundingClientRect().top;
@@ -85,7 +76,7 @@ function scrollToAnchor(element: HTMLElement) {
       }
 
       const stage = currentJourney.querySelector<HTMLElement>('[data-journey-stage]');
-      if (window.matchMedia('(min-width: 1024px)').matches && stage) {
+      if (stage) {
         const start = window.scrollY + stage.getBoundingClientRect().top;
         jumpToScrollPosition(start + stage.clientHeight * 2.5 * 0.84);
       } else {

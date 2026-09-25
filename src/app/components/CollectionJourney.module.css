@@ -651,30 +651,31 @@
 
 @media (max-width: 1023px) {
   .journey {
-    overflow: hidden;
+    overflow: clip;
   }
   .stage {
-    height: auto;
-    min-height: 0;
-    overflow: visible;
+    height: 100svh;
+    min-height: 640px;
+    overflow: hidden;
   }
   .track {
-    display: block;
-    width: 100%;
-    height: auto;
-    transform: none !important;
+    display: flex;
+    width: 300vw;
+    height: 100%;
   }
   .exitPanel,
   .bridge,
   .overview {
-    width: 100%;
-    height: auto;
+    flex: 0 0 100vw;
+    width: 100vw;
+    height: 100%;
   }
   .exitPanel :global(#whats-on) {
-    height: auto;
+    height: 100%;
+    min-height: 100%;
   }
   .bridge {
-    min-height: 620px;
+    min-height: 100%;
     padding: 72px 8vw;
   }
   .bridgePrevious {
@@ -700,7 +701,7 @@
     width: 36vw;
   }
   .overview {
-    min-height: 920px;
+    min-height: 100%;
   }
   .overviewInner {
     padding-block: 78px 76px;
@@ -726,29 +727,15 @@
     bottom: 34px;
   }
   .culture {
-    height: auto;
-    min-height: 0;
+    height: 190svh;
+    min-height: 1160px;
+    overflow: clip;
   }
   .cultureFrame {
-    position: relative;
-    min-height: 820px;
+    position: sticky;
+    top: 0;
+    min-height: 640px;
     height: 100svh;
-  }
-  .textileField {
-    clip-path: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .redFiber {
-    clip-path: polygon(58% 0, 100% 0, 100% 100%, 73% 100%) !important;
-    opacity: 0.14 !important;
-  }
-  .fiberTone {
-    clip-path: polygon(0 0, 68% 0, 54% 100%, 0 100%) !important;
-    opacity: 0.84 !important;
-  }
-  .cultureGrain {
-    opacity: 0.7;
   }
   .cultureCopy {
     width: min(51vw, 570px);
@@ -769,7 +756,7 @@
 
 @media (max-width: 767px) {
   .bridge {
-    min-height: 570px;
+    min-height: 100%;
     padding: 58px 8vw;
   }
   .bridgeTitle {
@@ -793,7 +780,7 @@
     height: 72%;
   }
   .overview {
-    min-height: 1190px;
+    min-height: 100%;
   }
   .overview::before {
     width: 44%;
@@ -801,48 +788,49 @@
   }
   .overviewInner {
     width: 84%;
-    padding-block: 62px 84px;
+    height: 100%;
+    padding-block: 50px 34px;
   }
   .overviewHeader {
     display: block;
-    margin-top: 27px;
+    margin-top: 17px;
   }
   .collectionTitle {
-    font-size: clamp(44px, 13.3vw, 64px);
+    font-size: clamp(37px, 10.8vw, 52px);
   }
   .collectionIntroduction {
-    margin-top: 25px;
+    margin-top: 12px;
   }
   .collectionIntroduction > p {
-    margin-bottom: 22px;
-    font-size: 12px;
+    max-width: 38ch;
+    margin-bottom: 11px;
+    font-size: 10px;
+    line-height: 1.55;
   }
   .objects {
-    position: relative;
-    inset: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 38px;
-    margin-top: 46px;
+    position: absolute;
+    inset: 48% 0 38px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.72fr);
+    gap: 11px;
+    margin: 0;
   }
   .volkov,
   .vessel {
     position: relative;
     inset: auto;
     width: 100%;
-    height: auto;
+    height: 100%;
   }
   .volkovImage {
-    height: auto;
-    aspect-ratio: 1.5;
+    height: calc(100% - 44px);
   }
   .vessel {
-    width: 71%;
-    align-self: flex-end;
+    width: 100%;
+    align-self: stretch;
   }
   .vesselImage {
-    height: auto;
-    aspect-ratio: 0.9;
+    height: calc(100% - 55px);
   }
   .objectLink figcaption {
     display: block;
@@ -858,8 +846,8 @@
     display: none;
   }
   .cultureFrame {
-    min-height: 780px;
-    height: max(100svh, 780px);
+    min-height: 640px;
+    height: 100svh;
   }
   .textile {
     object-position: 65% 50%;
@@ -876,7 +864,7 @@
     bottom: 9vh;
     left: 8vw;
     width: auto;
-    transform: none !important;
+    transform: none;
   }
   .cultureCopy h2 {
     margin-bottom: 24px;

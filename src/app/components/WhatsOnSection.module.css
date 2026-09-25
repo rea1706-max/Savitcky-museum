@@ -225,6 +225,14 @@
   border-color: var(--museum-earth);
 }
 @media (min-width: 768px) and (max-width: 1023px) {
+  .section {
+    height: 100%;
+    padding-block: 58px 28px;
+    overflow: hidden;
+  }
+  .container {
+    height: 100%;
+  }
   .poster {
     grid-template-columns: 34% 62%;
     gap: 4%;
@@ -233,7 +241,7 @@
     font-size: 4.8vw;
   }
   .artwork {
-    height: 58vw;
+    height: min(43svh, 390px);
   }
   .aside {
     grid-column: 2;
@@ -257,7 +265,15 @@
 }
 @media (max-width: 767px) {
   .section {
-    padding-block: 68px 100px;
+    height: 100%;
+    padding-block: 72px 24px;
+    overflow: hidden;
+  }
+  .container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .poster {
@@ -271,16 +287,16 @@
   .title {
     position: relative;
     z-index: 2;
-    font-size: clamp(39px, 11vw, 72px);
+    font-size: clamp(28px, 8.2vw, 42px);
     max-width: 100%;
-    margin-bottom: 22px;
+    margin-bottom: 8px;
     order: 0;
   }
   .subtitle {
     position: relative;
     z-index: 2;
     font-size: 11px;
-    margin: 0 0 32px;
+    margin: 0 0 14px;
     max-width: none;
     order: 1;
   }
@@ -290,38 +306,35 @@
   .artwork {
     order: 2;
     width: 100%;
-    height: auto;
-    aspect-ratio: 1280 / 1586;
+    height: min(34svh, 275px);
+    aspect-ratio: auto;
   }
   .redMask {
     left: -5%;
-    top: 100px;
+    top: 82px;
     width: 106%;
     height: 58%;
     clip-path: polygon(0 0, 34% 0, 100% 100%, 75% 100%);
   }
   .credit {
-    order: 3;
-    font-size: 7px;
-    letter-spacing: 0.06em;
+    display: none;
   }
   .details {
     display: contents;
   }
   .details > div:first-child {
     order: 4;
-    margin-top: 26px;
+    margin-top: 12px;
   }
   .details > div:last-child {
-    order: 6;
-    margin-top: 26px;
+    order: 5;
+    margin-top: 12px;
   }
   .dates {
     font-size: 10px;
   }
   .aside {
-    order: 5;
-    padding-top: 25px;
+    display: none;
   }
   .copy {
     font-size: 13px;
@@ -330,9 +343,7 @@
   }
 
   .allLink {
-    order: 7;
-    padding: 26px 0 0;
-    margin: 0;
+    display: none;
   }
   .geometry {
     opacity: 0.27;
@@ -360,10 +371,10 @@
 }
 @media (max-width: 767px) {
   .chapterTitle {
-    font-size: clamp(45px, 12.5vw, 76px);
-    margin-bottom: 36px;
+    font-size: clamp(38px, 10.5vw, 52px);
+    margin-bottom: 12px;
   }
   .title {
-    font-size: clamp(32px, 9vw, 54px);
+    font-size: clamp(28px, 8.2vw, 42px);
   }
 }

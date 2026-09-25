@@ -2,14 +2,21 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CollectionHero from '@/app/collection/components/CollectionHero';
-import CollectionSearch from '@/app/collection/components/CollectionSearch';
-import CollectionGrid from '@/app/collection/components/CollectionGrid';
+import CollectionExplorer from '@/app/collection/components/CollectionExplorer';
+import styles from './Collection.module.css';
+import '@/styles/museum-tokens.css';
 
 type CollectionPageProps = {
   searchParams?: Promise<{ category?: string | string[] }>;
 };
 
-const collectionCategories = new Set(['all', 'avant-garde', 'karakalpak-arts', 'heritage']);
+const collectionCategories = new Set([
+  'all',
+  'avant-garde',
+  'uzbek-art',
+  'karakalpak-arts',
+  'heritage',
+]);
 
 export default async function CollectionPage({ searchParams }: CollectionPageProps) {
   const params = await searchParams;
@@ -18,11 +25,10 @@ export default async function CollectionPage({ searchParams }: CollectionPagePro
     requestedCategory && collectionCategories.has(requestedCategory) ? requestedCategory : 'all';
 
   return (
-    <main className="bg-background min-h-screen">
+    <main className={styles.page}>
       <Header />
       <CollectionHero />
-      <CollectionSearch initialCategory={category} />
-      <CollectionGrid category={category} />
+      <CollectionExplorer initialCategory={category} />
       <Footer />
     </main>
   );

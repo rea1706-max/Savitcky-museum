@@ -2,11 +2,20 @@
   background-color: var(--museum-desert-ivory);
 }
 .hero {
-  /* Identical framing in the diamond and the destination prevents an image jump. */
   position: relative;
-  height: 540px;
+  height: 620px;
   overflow: hidden;
   background-color: var(--museum-charcoal);
+}
+.hero::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 86px;
+  content: '';
+  background: linear-gradient(to bottom, transparent, rgb(25 24 22 / 0.48));
+  pointer-events: none;
 }
 .aperture {
   position: fixed;
@@ -19,14 +28,19 @@
   inset: 0;
   background:
     linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--museum-charcoal) 20%, transparent),
-      color-mix(in srgb, var(--museum-charcoal) 65%, transparent)
+      90deg,
+      rgb(25 24 22 / 0.92) 0%,
+      rgb(25 24 22 / 0.54) 42%,
+      rgb(25 24 22 / 0.16) 78%
     ),
-    url('/images/exhibitions/museum-hall.png') center / cover no-repeat;
+    linear-gradient(to bottom, rgb(25 24 22 / 0.1), rgb(25 24 22 / 0.42)),
+    url('/images/exhibitions/gallery-archive-dark.png') center 51% / cover no-repeat;
 }
 @media (max-width: 767px) {
   .hero {
-    height: 560px;
+    height: 610px;
+  }
+  .hall {
+    background-position: 61% 50%;
   }
 }

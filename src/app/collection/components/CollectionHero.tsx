@@ -1,51 +1,40 @@
 'use client';
 
-import React from 'react';
-import AppImage from '@/components/ui/AppImage';
+import Image from 'next/image';
 import { useLanguage } from '@/lib/i18n';
+import styles from '../Collection.module.css';
 
 export default function CollectionHero() {
   const { t } = useLanguage();
 
   return (
-    <section
-      className="relative pt-[72px] md:pt-[88px] bg-primary overflow-hidden"
-      aria-labelledby="collection-hero-heading"
-    >
-      <div className="relative h-[320px] md:h-[420px] overflow-hidden">
-        <AppImage
-          src="https://img.rocket.new/generatedImages/rocket_gen_img_18ab39334-1772064904874.png"
-          alt={t.ui.collectionHeroAlt}
-          fill
-          priority
-          className="object-cover opacity-40"
-          sizes="100vw"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary/90" />
-      </div>
-
-      <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-12 pb-12 md:pb-16 pt-32">
-        <div className="max-w-screen-xl mx-auto w-full">
-          <span className="text-label text-primary-foreground/40 block mb-4">
-            {t.collectionPage.eyebrow}
-          </span>
-          <h1
-            id="collection-hero-heading"
-            className="font-display font-light text-primary-foreground"
-            style={{
-              fontSize: 'clamp(2.5rem, 7vw, 6rem)',
-              lineHeight: '0.9',
-              letterSpacing: '-0.03em',
-            }}
-          >
+    <section className={styles.hero} aria-labelledby="collection-hero-heading">
+      <Image
+        src="/images/collection/collection-avant-garde-hall.png"
+        alt={t.ui.collectionHeroAlt}
+        fill
+        priority
+        quality={85}
+        sizes="100vw"
+        className={styles.heroImage}
+      />
+      <div className={styles.heroTone} aria-hidden="true" />
+      <svg className={styles.heroGeometry} viewBox="0 0 1440 620" fill="none" aria-hidden="true">
+        <path d="M930 -90 1130 112 928 314 1130 516 930 718" />
+        <path d="M930 112H1440M930 516H1440" />
+        <path d="m1130 96 16 16-16 16-16-16 16-16" />
+      </svg>
+      <div className={styles.heroInner}>
+        <p className={styles.eyebrow}>{t.collectionPage.eyebrow}</p>
+        <div className={styles.heroGrid}>
+          <h1 id="collection-hero-heading">
             {t.collectionPage.titleLine1}
-            <br />
-            <em className="font-medium not-italic">{t.collectionPage.titleLine2}</em>
+            <span>{t.collectionPage.titleLine2}</span>
           </h1>
-          <p className="text-base text-primary-foreground/50 mt-4 font-light max-w-xl">
-            {t.collectionPage.description}
-          </p>
+          <div className={styles.heroCopy}>
+            <p>{t.collectionPage.description}</p>
+            <span>{t.collectionPage.visualReference}</span>
+          </div>
         </div>
       </div>
     </section>

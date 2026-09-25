@@ -200,10 +200,13 @@
     "eyebrow": "State Museum of Arts — Savitsky",
     "titleLine1": "Explore",
     "titleLine2": "The Collection",
-    "description": "82,000+ works across Russian avant-garde, Karakalpak decorative arts, Ancient Khorezm archaeology and modern Karakalpak painting.",
+    "description": "The museum unites Russian and Turkestan avant-garde, Uzbek and Karakalpak art, Karakalpak decorative traditions and the archaeology of Ancient Khorezm.",
     "searchPlaceholder": "Search artist, title, period, medium…",
     "searchAria": "Search the collection",
     "showing": "Showing",
+    "sections": "collection areas",
+    "visualReference": "Editorial visual — collection themes",
+    "emptyState": "No collection area matches this search.",
     "of": "of",
     "works": "works",
     "onView": "On View",
@@ -211,8 +214,27 @@
     "categories": {
       "all": "All Works",
       "avantGarde": "Avant-Garde",
+      "uzbekArt": "Uzbek & Karakalpak Art",
       "karakalpakArts": "Karakalpak Arts",
       "heritage": "Heritage & History"
+    },
+    "categoryCards": {
+      "avant-garde": {
+        "title": "Russian & Turkestan Avant-Garde",
+        "description": "Painting and works on paper from the artistic experiments that transformed Central Asia in the early twentieth century."
+      },
+      "uzbek-art": {
+        "title": "Uzbek & Karakalpak Art",
+        "description": "Modern painting and sculpture shaped by the landscapes, people and visual culture of Uzbekistan and Karakalpakstan."
+      },
+      "karakalpak-arts": {
+        "title": "Karakalpak Decorative Arts",
+        "description": "Textiles, jewellery, woodwork and everyday objects preserving generations of Karakalpak craftsmanship."
+      },
+      "heritage": {
+        "title": "Ancient Khorezm & Archaeology",
+        "description": "Archaeological material from Ancient Khorezm, including ceramics and objects connected with the region’s early settlements."
+      }
     },
     "artworks": {
       "w1": {

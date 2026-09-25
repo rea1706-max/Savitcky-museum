@@ -200,10 +200,13 @@
     "eyebrow": "I.V. Savickiy atındaǵı Qaraqalpaqstan Mámleketlik Kórkem Óner Muzeyi",
     "titleLine1": "Kólemdi",
     "titleLine2": "Kollekciya",
-    "description": "Orys avangardı, qaraqalpaq ámeliy kórkem óneri, Áyyemgi Xorezm arxeologiyası hám zamanagóy kórkem súwretshilik boyınsha 82 000-nan aslam eksponat.",
+    "description": "Muzey orıs hám Túrkstan avangardın, Ózbekstan hám Qaraqalpaqstan kórkem ónerin, qaraqalpaq ónermentshiligin hám Áyyemgi Xorezm arxeologiyasın birlestiredi.",
     "searchPlaceholder": "Súwretshi, atama, dáwir, baǵdar boyınsha izlew…",
     "searchAria": "Kollekciyadan izlew",
     "showing": "Kórsetilmekte",
+    "sections": "kollekciya bólimi",
+    "visualReference": "Redakciyalıq obraz — kollekciya temaları",
+    "emptyState": "Bul izlew boyınsha kollekciya bólimi tabılmadı.",
     "of": "/",
     "works": "eksponat",
     "onView": "Ekspoziciyada",
@@ -211,8 +214,27 @@
     "categories": {
       "all": "Barlıq eksponatlar",
       "avantGarde": "Avangard",
+      "uzbekArt": "Ózbekstan hám Qaraqalpaqstan kórkem óneri",
       "karakalpakArts": "Qaraqalpaq kórkem óneri",
       "heritage": "Tariyx hám miyras"
+    },
+    "categoryCards": {
+      "avant-garde": {
+        "title": "Orıs hám Túrkstan avangardı",
+        "description": "XX ásir basında Oraylıq Aziya mádeniyatın ózgertken kórkem tájiriybelerdiń súwret hám grafika shıǵarmaları."
+      },
+      "uzbek-art": {
+        "title": "Ózbekstan hám Qaraqalpaqstan kórkem óneri",
+        "description": "Ózbekstan hám Qaraqalpaqstan tábiyatı, adamları hám kórkem mádeniyatına baylanıslı súwretshilik penen haykeltaraşlıq."
+      },
+      "karakalpak-arts": {
+        "title": "Qaraqalpaq ámeliy kórkem óneri",
+        "description": "Qaraqalpaq ustalarınıń toqımashılıq, zergerlik, aǵash oymashılıǵı hám kúndelikli turmıs buyımları."
+      },
+      "heritage": {
+        "title": "Áyyemgi Xorezm hám arxeologiya",
+        "description": "Áyyemgi Xorezm arxeologiyalıq materialları, sonıń ishinde keramika hám erte qonıslar menen baylanıslı buyımlar."
+      }
     },
     "artworks": {
       "w1": {

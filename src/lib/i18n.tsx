@@ -210,6 +210,9 @@ export interface Translations {
     searchPlaceholder: string;
     searchAria: string;
     showing: string;
+    sections: string;
+    visualReference: string;
+    emptyState: string;
     of: string;
     works: string;
     onView: string;
@@ -217,9 +220,17 @@ export interface Translations {
     categories: {
       all: string;
       avantGarde: string;
+      uzbekArt: string;
       karakalpakArts: string;
       heritage: string;
     };
+    categoryCards: Record<
+      'avant-garde' | 'uzbek-art' | 'karakalpak-arts' | 'heritage',
+      {
+        title: string;
+        description: string;
+      }
+    >;
     artworks?: Record<
       string,
       {

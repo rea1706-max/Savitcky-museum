@@ -13,7 +13,7 @@ export function createCollectionJourney(root: HTMLElement) {
 
   const context = gsap.context(() => {
     media.add(
-      '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
+      '(prefers-reduced-motion: no-preference)',
       () => {
         const bridgePaths = Array.from(
           root.querySelectorAll<SVGPathElement>('[data-static-path], [data-static-node]')
@@ -210,7 +210,7 @@ export function createCollectionJourney(root: HTMLElement) {
     );
 
     media.add(
-      '(min-width: 1024px) and (prefers-reduced-motion: no-preference)',
+      '(prefers-reduced-motion: no-preference)',
       () => {
         const weavePaths = Array.from(
           root.querySelectorAll<SVGPathElement>('[data-woven-ornament] path')
@@ -327,7 +327,7 @@ export function createCollectionJourney(root: HTMLElement) {
     );
 
     media.add(
-      '(max-width: 1023px) and (prefers-reduced-motion: no-preference)',
+      '(max-width: 0px) and (prefers-reduced-motion: no-preference)',
       () => {
         const bridge = root.querySelector<HTMLElement>('[data-mineral-bridge]')!;
         const overview = root.querySelector<HTMLElement>('[data-collection-overview]')!;

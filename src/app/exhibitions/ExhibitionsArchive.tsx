@@ -146,6 +146,21 @@ export default function ExhibitionsArchive({
                                 {exhibitionDates(exhibition, true, locale)}
                               </span>
                             </span>
+                            <span className={styles.rowThumb} aria-hidden="true">
+                              {exhibition.image ? (
+                                <AppImage
+                                  src={exhibition.image}
+                                  alt=""
+                                  fill
+                                  sizes="(max-width: 767px) 84vw, 28vw"
+                                  className={styles.rowThumbImage}
+                                />
+                              ) : (
+                                <span className={styles.rowThumbEmpty}>
+                                  <i />
+                                </span>
+                              )}
+                            </span>
                             <span className={styles.rowTitle}>
                               {localizedExhibition.title}
                               {localizedExhibition.subtitle && (

@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 112px 0 48px;
+  padding: 118px 0 56px;
   color: var(--museum-bone);
 }
 .back {
@@ -35,7 +35,7 @@
 }
 .introGrid {
   display: grid;
-  grid-template-columns: 52% 1fr;
+  grid-template-columns: 56% 1fr;
   align-items: flex-end;
 }
 .intro h1 {
@@ -53,12 +53,12 @@
   max-width: 40ch;
 }
 .archive {
-  padding-top: 56px;
+  padding-top: 62px;
   padding-bottom: 128px;
 }
 .yearGroup {
   display: grid;
-  grid-template-columns: 12% 1fr;
+  grid-template-columns: 10% 1fr;
   border-top: 1px solid var(--museum-earth);
   padding-top: 18px;
 }
@@ -81,16 +81,50 @@
 }
 .rowButton {
   display: grid;
-  grid-template-columns: 23% 1fr 36px;
+  grid-template-columns: 15% minmax(180px, 29%) minmax(0, 1fr) 36px;
   width: 100%;
-  gap: 4%;
-  padding: 30px 0 32px;
+  gap: 3%;
+  padding: 22px 0;
   text-align: left;
   align-items: center;
   background: none;
   color: inherit;
   border: 0;
   cursor: pointer;
+}
+.rowThumb {
+  position: relative;
+  display: block;
+  min-height: 116px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--museum-earth) 19%, var(--museum-desert-ivory));
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 94% 100%, 0 100%);
+}
+.rowThumb > div {
+  position: absolute !important;
+  inset: 0;
+  width: auto !important;
+  height: auto !important;
+}
+.rowThumbImage {
+  object-fit: cover;
+  filter: saturate(0.82) contrast(0.96);
+  transition: transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.rowThumbEmpty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, transparent 49.7%, var(--museum-earth) 50%, transparent 50.3%),
+    color-mix(in srgb, var(--museum-earth) 17%, var(--museum-desert-ivory));
+}
+.rowThumbEmpty i {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--museum-earth);
+  transform: rotate(45deg);
 }
 .schedule {
   display: flex;
@@ -159,6 +193,9 @@
   }
   .rowButton:hover {
     color: var(--museum-karakalpak-red);
+  }
+  .rowButton:hover .rowThumbImage {
+    transform: scale(1.025);
   }
 }
 .rowButton:focus-visible,
@@ -307,7 +344,7 @@
     grid-template-columns: 46% 1fr;
   }
   .rowButton {
-    grid-template-columns: 25% 1fr 24px;
+    grid-template-columns: 18% 28% 1fr 24px;
     gap: 3%;
   }
 }
@@ -348,7 +385,7 @@
   }
   .rowButton {
     grid-template-columns: 1fr 26px;
-    padding-block: 24px;
+    padding-block: 24px 28px;
     gap: 14px 12px;
   }
   .schedule {
@@ -356,13 +393,19 @@
     gap: 7px;
   }
   .rowTitle {
-    grid-row: 2;
+    grid-row: 3;
     grid-column: 1;
     font-size: 29px;
   }
+  .rowThumb {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    min-height: 0;
+    aspect-ratio: 2.1;
+  }
   .arrow {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
     width: 25px;
     height: 25px;
   }
