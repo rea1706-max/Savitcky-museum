@@ -34,17 +34,22 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://savitsky.87-192-248-137.sslip.io'
+  ),
   title: 'Savitsky Museum — Avant-Garde & Karakalpak Heritage',
   description:
     "The world's second-largest Russian avant-garde collection in Nukus, Karakalpakstan. 82,000 works spanning avant-garde, Karakalpak arts, and Ancient Khorezm.",
-  icons: {
-    icon: [{ url: '/favicon.ico' }],
-  },
   openGraph: {
     title: 'Savitsky Museum — Nukus',
     description: 'An extraordinary collection in the Uzbek desert.',
-    images: [{ url: '/assets/images/app_logo.png', width: 512, height: 512 }],
+    siteName: 'Savitsky Museum',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Savitsky Museum — Nukus',
+    description: 'An extraordinary collection in the Uzbek desert.',
   },
 };
 

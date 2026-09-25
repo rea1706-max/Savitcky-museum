@@ -71,6 +71,44 @@ export function createFinalHorizonAnimation(scene: HTMLElement) {
         invalidateOnRefresh: true,
       });
     });
+
+    media.add('(max-width: 767px) and (prefers-reduced-motion: no-preference)', () => {
+      const reveal = gsap.timeline({ defaults: { ease: 'none' } });
+      reveal.fromTo(
+        select('[data-horizon-aperture]'),
+        { clipPath: 'inset(9% 0 0 0)' },
+        { clipPath: 'inset(0% 0 0 0)', duration: 1 },
+        0
+      );
+      reveal.fromTo(
+        select('[data-horizon-image]'),
+        { scale: 1.035, yPercent: -1.5 },
+        { scale: 1, yPercent: 0, duration: 1 },
+        0
+      );
+      reveal.fromTo(
+        select('[data-horizon-title]'),
+        { yPercent: 108 },
+        { yPercent: 0, duration: 0.56, stagger: 0.1, ease: 'power2.out' },
+        0.24
+      );
+      reveal.fromTo(
+        select('[data-horizon-meta]'),
+        { autoAlpha: 0, y: 10 },
+        { autoAlpha: 1, y: 0, duration: 0.42, stagger: 0.08, ease: 'power2.out' },
+        0.5
+      );
+
+      ScrollTrigger.create({
+        id: 'savitsky-final-horizon-responsive',
+        trigger: scene,
+        animation: reveal,
+        start: 'top 88%',
+        end: 'top 20%',
+        scrub: 0.42,
+        invalidateOnRefresh: true,
+      });
+    });
   }, scene);
 
   const image = scene.querySelector<HTMLImageElement>('[data-horizon-image]');

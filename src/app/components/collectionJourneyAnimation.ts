@@ -9,6 +9,7 @@ export function createCollectionJourney(root: HTMLElement) {
   const culture = root.querySelector<HTMLElement>('[data-material-chapter]')!;
   const media = gsap.matchMedia();
   let disposed = false;
+  let collectionProgress = 0.84;
 
   const context = gsap.context(() => {
     media.add(
@@ -169,9 +170,17 @@ export function createCollectionJourney(root: HTMLElement) {
           78
         );
         timeline.to(select('[data-archive-rule] small'), { autoAlpha: 1, duration: 5 }, 82);
+        timeline.addLabel('collection-ready', 87);
         timeline.to({}, { duration: 16 });
+        collectionProgress = timeline.labels['collection-ready'] / timeline.duration();
 
-        ScrollTrigger.create({
+        const publishCollectionTarget = (trigger: ScrollTrigger) => {
+          root.dataset.collectionScrollTarget = String(
+            trigger.start + (trigger.end - trigger.start) * collectionProgress
+          );
+        };
+
+        const journeyTrigger = ScrollTrigger.create({
           id: 'savitsky-collection-journey',
           trigger: stage,
           animation: timeline,
@@ -186,11 +195,14 @@ export function createCollectionJourney(root: HTMLElement) {
             root.toggleAttribute('data-light-stage', self.progress > 0.59);
           },
           onRefresh: (self) => {
+            publishCollectionTarget(self);
             root.toggleAttribute('data-light-stage', self.progress > 0.59);
           },
         });
+        publishCollectionTarget(journeyTrigger);
 
         return () => {
+          delete root.dataset.collectionScrollTarget;
           root.removeAttribute('data-light-stage');
         };
       },
@@ -313,7 +325,181 @@ export function createCollectionJourney(root: HTMLElement) {
       },
       root
     );
+
+    media.add(
+      '(max-width: 1023px) and (prefers-reduced-motion: no-preference)',
+      () => {
+        const bridge = root.querySelector<HTMLElement>('[data-mineral-bridge]')!;
+        const overview = root.querySelector<HTMLElement>('[data-collection-overview]')!;
+        const bridgePaths = Array.from(
+          bridge.querySelectorAll<SVGPathElement>('[data-static-path], [data-static-node]')
+        );
+
+        bridgePaths.forEach((path) => path.setAttribute('pathLength', '1'));
+        gsap.set(bridgePaths, { strokeDasharray: '1 1', strokeDashoffset: 1 });
+
+        const bridgeReveal = gsap.timeline({
+          defaults: { ease: 'none' },
+          scrollTrigger: {
+            id: 'savitsky-collection-bridge-responsive',
+            trigger: bridge,
+            start: 'top 88%',
+            end: 'bottom 28%',
+            scrub: 0.42,
+            invalidateOnRefresh: true,
+          },
+        });
+        bridgeReveal.fromTo(
+          select('[data-bridge-popova]'),
+          { xPercent: -9, opacity: 0.34 },
+          { xPercent: 0, opacity: 0.62, duration: 1 },
+          0
+        );
+        bridgeReveal.fromTo(
+          select('[data-bridge-volkov]'),
+          {
+            xPercent: 14,
+            opacity: 0.08,
+            clipPath: 'polygon(90% 18%, 100% 18%, 100% 82%, 90% 82%)',
+          },
+          {
+            xPercent: 0,
+            opacity: 0.86,
+            clipPath: 'polygon(18% 0, 100% 0, 100% 84%, 86% 100%, 0 100%, 0 22%)',
+            duration: 1,
+            ease: 'power2.inOut',
+          },
+          0.08
+        );
+        bridgeReveal.fromTo(
+          select('[data-mineral-bridge] h2 span'),
+          { autoAlpha: 0, x: 22 },
+          { autoAlpha: 1, x: 0, duration: 0.48, stagger: 0.07, ease: 'power2.out' },
+          0.16
+        );
+        bridgeReveal.fromTo(
+          select('[data-static-hinge]'),
+          { scaleX: 0.58, transformOrigin: '0% 50%' },
+          { scaleX: 1, duration: 0.7 },
+          0.18
+        );
+        bridgeReveal.to(bridgePaths, { strokeDashoffset: 0, duration: 0.62, stagger: 0.08 }, 0.24);
+        bridgeReveal.fromTo(
+          select('[data-bridge-note]'),
+          { autoAlpha: 0, y: 10 },
+          { autoAlpha: 1, y: 0, duration: 0.42, ease: 'power2.out' },
+          0.5
+        );
+
+        const collectionReveal = gsap.timeline({
+          defaults: { ease: 'none' },
+          scrollTrigger: {
+            id: 'savitsky-collection-overview-responsive',
+            trigger: overview,
+            start: 'top 88%',
+            end: 'top 18%',
+            scrub: 0.42,
+            invalidateOnRefresh: true,
+          },
+        });
+        collectionReveal.fromTo(
+          select('[data-collection-label]'),
+          { autoAlpha: 0, y: 10 },
+          { autoAlpha: 1, y: 0, duration: 0.24 },
+          0
+        );
+        collectionReveal.fromTo(
+          select('[data-collection-title]'),
+          { yPercent: 108 },
+          { yPercent: 0, duration: 0.46, ease: 'power3.out' },
+          0.08
+        );
+        collectionReveal.fromTo(
+          select('[data-collection-copy], [data-collection-cta]'),
+          { autoAlpha: 0, y: 12 },
+          { autoAlpha: 1, y: 0, duration: 0.34, stagger: 0.08, ease: 'power2.out' },
+          0.24
+        );
+        collectionReveal.fromTo(
+          select('[data-volkov-mask]'),
+          { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' },
+          {
+            clipPath: 'polygon(0 0, 100% 0, 100% 88%, 93% 100%, 0 100%)',
+            duration: 0.48,
+            ease: 'power2.inOut',
+          },
+          0.34
+        );
+        collectionReveal.fromTo(
+          select('[data-vessel-mask]'),
+          { clipPath: 'polygon(50% 48%, 50% 48%, 50% 52%, 50% 52%)' },
+          {
+            clipPath: 'polygon(0 7%, 8% 0, 100% 0, 100% 100%, 0 100%)',
+            duration: 0.46,
+            ease: 'power2.inOut',
+          },
+          0.48
+        );
+        collectionReveal.fromTo(
+          select('[data-volkov-caption], [data-vessel-caption]'),
+          { autoAlpha: 0, y: 8 },
+          { autoAlpha: 1, y: 0, duration: 0.28, stagger: 0.1, ease: 'power2.out' },
+          0.56
+        );
+        collectionReveal.fromTo(
+          select('[data-archive-rule] > span'),
+          { scaleX: 0, transformOrigin: '0% 50%' },
+          { scaleX: 1, duration: 0.34, ease: 'power2.out' },
+          0.66
+        );
+
+        const responsiveWeavePaths = Array.from(
+          culture.querySelectorAll<SVGPathElement>('[data-woven-ornament] path')
+        );
+        responsiveWeavePaths.forEach((path) => path.setAttribute('pathLength', '1'));
+        gsap.set(responsiveWeavePaths, { strokeDasharray: '1 1', strokeDashoffset: 1 });
+
+        const cultureReveal = gsap.timeline({
+          defaults: { ease: 'none' },
+          scrollTrigger: {
+            id: 'savitsky-material-culture-responsive',
+            trigger: culture,
+            start: 'top 86%',
+            end: 'top 18%',
+            scrub: 0.42,
+            invalidateOnRefresh: true,
+          },
+        });
+        cultureReveal.to(
+          responsiveWeavePaths,
+          { strokeDashoffset: 0, duration: 0.62, stagger: 0.018 },
+          0
+        );
+        cultureReveal.fromTo(
+          select('[data-culture-copy]'),
+          { autoAlpha: 0 },
+          { autoAlpha: 1, duration: 0.38, ease: 'power2.out' },
+          0.35
+        );
+
+        ScrollTrigger.create({
+          id: 'savitsky-material-culture-responsive-nav',
+          trigger: culture,
+          start: 'top 45%',
+          end: 'bottom 15%',
+          onToggle: ({ isActive }) => {
+            document.documentElement.toggleAttribute('data-museum-culture', isActive);
+          },
+        });
+
+        return () => {
+          document.documentElement.removeAttribute('data-museum-culture');
+        };
+      },
+      root
+    );
   }, root);
+  root.dataset.collectionNavigationReady = 'true';
 
   const images = Array.from(root.querySelectorAll('img'));
   Promise.allSettled([...images.map((image) => image.decode()), document.fonts.ready]).then(() => {
@@ -322,6 +508,8 @@ export function createCollectionJourney(root: HTMLElement) {
 
   return () => {
     disposed = true;
+    delete root.dataset.collectionNavigationReady;
+    delete root.dataset.collectionScrollTarget;
     document.documentElement.removeAttribute('data-museum-culture');
     media.revert();
     context.revert();

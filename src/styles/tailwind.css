@@ -100,12 +100,46 @@
     text-transform: uppercase;
   }
 
-  .site-nav-on-dark-muted {
-    color: rgb(234 226 208 / 0.76);
+  .site-nav-on-dark {
+    color: rgb(234 226 208);
   }
 
-  .site-nav-on-light-muted {
-    color: rgb(30 26 22 / 0.72);
+  .site-nav-on-light {
+    color: rgb(30 26 22);
+  }
+
+  .site-language-option {
+    position: relative;
+    opacity: 0.74;
+    transition:
+      color 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .site-language-option::after {
+    position: absolute;
+    right: 0.42rem;
+    bottom: -0.18rem;
+    left: 0.42rem;
+    height: 1px;
+    content: '';
+    background: currentColor;
+    opacity: 0;
+    transform: scaleX(0.25);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .site-language-option:hover,
+  .site-language-option:focus-visible,
+  .site-language-option[aria-pressed='true'] {
+    opacity: 1;
+  }
+
+  .site-language-option[aria-pressed='true']::after {
+    opacity: 0.72;
+    transform: scaleX(1);
   }
 
   .mobile-menu-link {

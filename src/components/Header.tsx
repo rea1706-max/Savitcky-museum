@@ -12,14 +12,94 @@ type NavLink = {
 };
 
 const languages: Locale[] = ['KK', 'RU', 'UZ', 'EN'];
+let activeAnchorRequest = 0;
+
+function jumpToScrollPosition(top: number) {
+  const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+  document.documentElement.style.scrollBehavior = 'auto';
+  window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+  document.documentElement.style.scrollBehavior = previousScrollBehavior;
+}
 
 function scrollToAnchor(element: HTMLElement) {
+  const request = ++activeAnchorRequest;
+  const journey = document.querySelector<HTMLElement>('[data-collection-journey]');
+
+  if (element.id === 'collection' && journey) {
+    const dispatchWhenReady = (attempt = 0) => {
+      if (request !== activeAnchorRequest) return;
+
+      const currentJourney = document.querySelector<HTMLElement>('[data-collection-journey]');
+      const currentCollection = document.getElementById('collection') ?? element;
+      if (!currentJourney) return;
+
+      const alignResponsiveCollection = () => {
+        if (request !== activeAnchorRequest) return;
+        const liveCollection = document.getElementById('collection') ?? currentCollection;
+        const navigationHeight =
+          document.querySelector<HTMLElement>('[data-site-navigation]')?.offsetHeight ?? 72;
+        const offset = liveCollection.getBoundingClientRect().top - navigationHeight;
+        if (Math.abs(offset) > 8) {
+          window.scrollTo({ top: Math.max(0, window.scrollY + offset), behavior: 'smooth' });
+        }
+      };
+
+      if (currentJourney.dataset.collectionNavigationReady === 'true') {
+        const desktopTarget = Number(currentJourney.dataset.collectionScrollTarget);
+        if (window.matchMedia('(min-width: 1024px)').matches && Number.isFinite(desktopTarget)) {
+          const alignDesktopCollection = () => {
+            if (request !== activeAnchorRequest) return;
+            const liveJourney = document.querySelector<HTMLElement>('[data-collection-journey]');
+            const liveTarget = Number(liveJourney?.dataset.collectionScrollTarget);
+            if (Number.isFinite(liveTarget)) jumpToScrollPosition(liveTarget);
+          };
+
+          alignDesktopCollection();
+          window.setTimeout(alignDesktopCollection, 120);
+          window.setTimeout(alignDesktopCollection, 500);
+          return;
+        }
+
+        if (window.matchMedia('(max-width: 1023px)').matches) {
+          // Pin spacing can settle after the first tap on slower devices.
+          // Re-align twice so the final mobile position remains exact.
+          alignResponsiveCollection();
+          window.setTimeout(alignResponsiveCollection, 600);
+          window.setTimeout(alignResponsiveCollection, 1600);
+          return;
+        }
+      }
+
+      if (attempt === 0 && window.matchMedia('(min-width: 1024px)').matches) {
+        const stage = currentJourney.querySelector<HTMLElement>('[data-journey-stage]');
+        if (stage) {
+          const start = window.scrollY + stage.getBoundingClientRect().top;
+          const target = start + stage.clientHeight * 2.5 * 0.84;
+          window.scrollTo({ top: target, behavior: 'smooth' });
+        }
+      }
+
+      if (attempt < 80) {
+        window.setTimeout(() => dispatchWhenReady(attempt + 1), 100);
+        return;
+      }
+
+      const stage = currentJourney.querySelector<HTMLElement>('[data-journey-stage]');
+      if (window.matchMedia('(min-width: 1024px)').matches && stage) {
+        const start = window.scrollY + stage.getBoundingClientRect().top;
+        jumpToScrollPosition(start + stage.clientHeight * 2.5 * 0.84);
+      } else {
+        alignResponsiveCollection();
+      }
+    };
+
+    dispatchWhenReady();
+    return;
+  }
+
   // What's On lives inside a pinned track. Its own bounding box moves with
   // ScrollTrigger; the outer journey stays at a stable document position.
-  const target =
-    element.id === 'whats-on'
-      ? (document.querySelector<HTMLElement>('[data-collection-journey]') ?? element)
-      : element;
+  const target = element.id === 'whats-on' ? (journey ?? element) : element;
   window.scrollTo({
     top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - 76),
     behavior: 'smooth',
@@ -65,7 +145,9 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
   // Navigate to homepage anchor — works from any page
   const handleNavClick = (e: React.MouseEvent, link: NavLink) => {
     e.preventDefault();
+    activeAnchorRequest += 1;
     setMenuOpen(false);
+    document.body.style.overflow = '';
 
     if (!link.anchor) {
       router.push(link.href);
@@ -74,6 +156,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
 
     if (link.anchor === 'hero' || link.href === '/') {
       if (pathname === '/') {
+        window.history.pushState(null, '', '/');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         router.push('/');
@@ -85,6 +168,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
       // Already on homepage — scroll to anchor
       const el = document.getElementById(link.anchor);
       if (el) {
+        window.history.pushState(null, '', link.href);
         scrollToAnchor(el);
       }
     } else {
@@ -165,14 +249,8 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                 <button
                   key={lang}
                   onClick={() => setLocale(lang)}
-                  className={`site-nav-label px-1.5 py-0.5 transition-colors xl:px-2 ${
-                    activeLang === lang
-                      ? scrolled
-                        ? 'text-foreground font-semibold'
-                        : 'text-primary-foreground font-semibold'
-                      : scrolled
-                        ? 'site-nav-on-light-muted hover:text-foreground'
-                        : 'site-nav-on-dark-muted hover:text-primary-foreground'
+                  className={`site-language-option site-nav-label px-1.5 py-0.5 xl:px-2 ${
+                    scrolled ? 'site-nav-on-light' : 'site-nav-on-dark'
                   }`}
                   aria-label={t.ui.switchLanguage.replace('{language}', t.ui.languageNames[lang])}
                   aria-pressed={activeLang === lang}
@@ -246,11 +324,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
                 <button
                   key={lang}
                   onClick={() => setLocale(lang)}
-                  className={`text-label transition-colors ${
-                    activeLang === lang
-                      ? 'text-primary-foreground font-semibold'
-                      : 'site-nav-on-dark-muted'
-                  }`}
+                  className="site-language-option site-nav-on-dark text-label"
                   aria-label={t.ui.switchLanguage.replace('{language}', t.ui.languageNames[lang])}
                   aria-pressed={activeLang === lang}
                 >
