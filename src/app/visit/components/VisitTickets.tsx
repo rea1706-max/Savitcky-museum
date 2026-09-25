@@ -9,7 +9,8 @@ export default function VisitTickets() {
 
   return (
     <section
-      className="px-6 md:px-12 py-16 md:py-20 bg-muted border-b border-border"
+      id="tickets"
+      className="px-6 md:px-12 py-16 md:py-20 bg-muted border-b border-border scroll-mt-20"
       aria-labelledby="tickets-heading"
     >
       <div className="max-w-screen-xl mx-auto">
@@ -30,7 +31,7 @@ export default function VisitTickets() {
             <p className="text-sm text-muted-foreground font-light leading-relaxed mb-8">
               {t.visitPage.ticketsDesc}
             </p>
-            <Link href="#tours" className="btn-primary">
+            <Link href="#contacts" className="btn-primary">
               {t.visitPage.bookAdvance}
               <svg
                 width="12"
@@ -54,19 +55,15 @@ export default function VisitTickets() {
               {t.visitPage.tickets.map((ticket) => (
                 <div
                   key={ticket.type}
-                  className={`p-6 flex flex-col justify-between ${
-                    ticket.highlight ? 'bg-primary text-primary-foreground' : 'bg-background'
-                  }`}
+                  className="p-6 flex flex-col justify-between bg-background transition-colors duration-200 hover:bg-background/90"
                 >
                   <div>
-                    <div
-                      className={`text-label mb-3 ${ticket.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}
-                    >
+                    <div className="text-label mb-3 text-muted-foreground">
                       {ticket.type}
                     </div>
                     <div className="flex items-baseline gap-2">
                       <span
-                        className={`font-display font-light ${ticket.highlight ? 'text-primary-foreground' : 'text-foreground'}`}
+                        className="font-display font-light text-foreground"
                         style={{
                           fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
                           letterSpacing: '-0.02em',
@@ -75,17 +72,13 @@ export default function VisitTickets() {
                         {ticket.price}
                       </span>
                       {ticket.currency && (
-                        <span
-                          className={`text-label ${ticket.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}
-                        >
+                        <span className="text-label text-muted-foreground">
                           {ticket.currency}
                         </span>
                       )}
                     </div>
                   </div>
-                  <p
-                    className={`text-xs font-light mt-3 ${ticket.highlight ? 'text-primary-foreground/60' : 'text-muted-foreground'}`}
-                  >
+                  <p className="text-xs font-light mt-3 text-muted-foreground">
                     {ticket.note}
                   </p>
                 </div>

@@ -94,8 +94,8 @@
     "title3": "To",
     "title4": "Enduring",
     "title5": "Heritage",
-    "note1": "Ideas fade.",
-    "note2": "Objects remain."
+    "note1": "",
+    "note2": ""
   },
   "collection": {
     "label": "The Collection",
@@ -119,8 +119,8 @@
     "desc2": "From yurt bands to silver bridal crowns.",
     "link": "Explore Karakalpak Arts",
     "caption": "Karakalpak textile detail: warp-faced band with horn motifs.",
-    "aside1": "Many stories.",
-    "aside2": "Still to explore."
+    "aside1": "",
+    "aside2": ""
   },
   "desert": {
     "coordinates": "42°27′49″N 59°36′20″E",
@@ -148,8 +148,8 @@
     "bridgeMain": "A RICHER PAST. A MORE OPEN TOMORROW.",
     "bridgeSecondary": "SAVITSKY MUSEUM · NUKUS, KARAKALPAKSTAN",
     "conservationCaption": "Restoration Studio, Nukus",
-    "asideWords": "Care\nPreserve\nResearch\nShare",
-    "asideSub": "For future generations"
+    "asideWords": "",
+    "asideSub": ""
   },
   "finalHorizon": {
     "marker": "Horizon",
@@ -438,6 +438,7 @@
       "Saturday": "Saturday",
       "Sunday": "Sunday"
     },
+    "practicalInfo": "Practical Information",
     "ticketsEyebrow": "Admission",
     "ticketsTitle": "Tickets & Prices",
     "ticketsDesc": "Tickets can be purchased at the museum entrance. Group bookings and guided tours should be arranged in advance.",
@@ -477,7 +478,7 @@
         "price": "100,000",
         "currency": "UZS",
         "note": "Per person, includes admission",
-        "highlight": true
+        "highlight": false
       },
       {
         "type": "Group (10+)",

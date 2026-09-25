@@ -94,8 +94,8 @@
     "title3": "Miyras",
     "title4": "Sarı",
     "title5": "Baǵdar",
-    "note1": "Ideyalar ótip ketedi.",
-    "note2": "Buyımlar qaladı."
+    "note1": "",
+    "note2": ""
   },
   "collection": {
     "label": "Kollekciya",
@@ -119,8 +119,8 @@
     "desc2": "Qara úy bawlarınan baslap gúmis sáwkelelerge shekem.",
     "link": "Qaraqalpaq kórkem óneri",
     "caption": "Qaraqalpaq toqımashılıq detali: qoshqar múyiz naǵıslı aq basqur.",
-    "aside1": "Kóp tariyxlar.",
-    "aside2": "Ele izertlew kútpekte."
+    "aside1": "",
+    "aside2": ""
   },
   "desert": {
     "coordinates": "42°27′49″A 59°36′20″SH",
@@ -148,8 +148,8 @@
     "bridgeMain": "BAY ÓTMISH. ASHIQ KELESHEK.",
     "bridgeSecondary": "SAVICKIY MUZEYI · NÓKIS, QARAQALPAQSTAN",
     "conservationCaption": "Restavraciya studiyası, Nókis",
-    "asideWords": "Ayaw\nSaqlaw\nIzertlew\nJetkeriw",
-    "asideSub": "Keleshek áwladlar ushın"
+    "asideWords": "",
+    "asideSub": ""
   },
   "finalHorizon": {
     "marker": "Gorizont",
@@ -438,6 +438,7 @@
       "Saturday": "Shembi",
       "Sunday": "Yekshembi"
     },
+    "practicalInfo": "Ámeliy maǵlıwmat",
     "ticketsEyebrow": "Biletler",
     "ticketsTitle": "Biletler hám bahalar",
     "ticketsDesc": "Biletlerdi muzey kireberisindegi kassadan satıp alıwıńız múmkin. Toparlıq saparlar aldın-ala buyırtpa beriledi.",
@@ -477,7 +478,7 @@
         "price": "100 000",
         "currency": "UZS",
         "note": "Bir adamǵa, kiriw bileti menen birge",
-        "highlight": true
+        "highlight": false
       },
       {
         "type": "Toparlıq (10 adamnan)",

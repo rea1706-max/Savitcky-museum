@@ -315,6 +315,7 @@ export interface Translations {
     lastEntry: string;
     publicHolidaysNote: string;
     days: Record<string, string>;
+    practicalInfo?: string;
     ticketsEyebrow: string;
     ticketsTitle: string;
     ticketsDesc: string;

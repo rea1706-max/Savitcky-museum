@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/lib/i18n';
 
 const transitIcons = [
@@ -57,13 +58,14 @@ export default function VisitLocation() {
 
   return (
     <section
-      className="px-6 md:px-12 py-16 md:py-20 bg-background border-b border-border"
+      id="location"
+      className="px-6 md:px-12 py-16 md:py-20 bg-background border-b border-border scroll-mt-20"
       aria-labelledby="location-heading"
     >
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           {/* Heading */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4" id="contacts">
             <span className="text-label text-muted-foreground block mb-4">
               {t.visitPage.locationEyebrow}
             </span>
@@ -117,32 +119,88 @@ export default function VisitLocation() {
 
           {/* Map + transport info */}
           <div className="lg:col-span-8">
-            <div
-              className="bg-muted border border-border h-[280px] md:h-[360px] flex items-center justify-center mb-6 relative overflow-hidden"
-              aria-label={t.ui.museumMap}
-              role="img"
-            >
-              <div className="absolute inset-0 grid-lines-overlay opacity-30" aria-hidden="true" />
-              <div className="text-center relative z-10">
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-accent mx-auto mb-3"
-                  aria-hidden="true"
-                >
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                <p className="max-w-md text-label text-muted-foreground text-balance">
-                  {t.hero.museumName}
-                </p>
-                <p className="text-xs text-muted-foreground/60 mt-1">{t.info.locationValue}</p>
+            <div className="mb-6">
+              {/* Interactive Live Map */}
+              <div className="relative w-full h-[340px] md:h-[400px] border border-border bg-[#F5F1E9] overflow-hidden shadow-sm">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?ll=59.610582%2C42.464731&z=16&pt=59.610582%2C42.464731,pm2rdm"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  allowFullScreen={true}
+                  className="w-full h-full border-0"
+                  title="Интерактивная карта Государственного музея искусств им. И.В. Савицкого"
+                />
+
+                {/* Floating address badge in the corner */}
+                <div className="absolute top-3 left-3 z-10 hidden sm:flex items-center gap-2 bg-background/95 backdrop-blur-md border border-border px-3 py-1.5 shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                  <span className="text-xs font-medium text-foreground">
+                    Музей Савицкого · ул. Т. Кайыпбергенова, 52 / ул. Дослык, 2
+                  </span>
+                </div>
+              </div>
+
+              {/* Exact address & Route planning actions */}
+              <div className="mt-4 p-4 border border-border bg-muted/50 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <div className="text-xs font-semibold text-foreground tracking-wide uppercase">
+                    {t.hero.museumName}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-0.5">
+                    Нукус, ул. Т. Кайыпбергенова, 52 / ул. Дослык, 2 · Координаты: 42°27′49″ с.ш. 59°36′20″ в.д.
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2.5 flex-shrink-0">
+                  <a
+                    href="https://yandex.ru/maps/?rtext=~42.464731,59.610582&rtt=auto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary text-xs py-2 px-3.5 inline-flex items-center gap-1.5 shadow-sm"
+                    title="Построить маршрут к музею в Яндекс Картах"
+                  >
+                    <span>Проложить маршрут в Яндекс Картах</span>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </a>
+
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=42.464731,59.610582"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary text-xs py-2 px-3.5 inline-flex items-center gap-1.5 border border-border bg-background hover:bg-muted transition-colors shadow-sm"
+                    title="Построить маршрут к музею в Google Maps"
+                  >
+                    <span>Google Maps</span>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
 

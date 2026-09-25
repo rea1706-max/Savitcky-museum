@@ -124,17 +124,7 @@ export default function MuseumToday() {
             </Link>
           </div>
 
-          <aside data-museum-aside className={styles.rightAside}>
-            <p>
-              {t.museumToday.asideWords.split('\n').map((w, idx) => (
-                <span key={idx} style={{ display: 'block' }}>
-                  {w}
-                </span>
-              ))}
-            </p>
-            <span className={styles.asideRule} />
-            <small>{t.museumToday.asideSub}</small>
-          </aside>
+          <span data-museum-aside className="hidden" aria-hidden="true" />
 
           <p data-museum-note className={styles.leftNote}>
             {t.museumToday.noteLine1}

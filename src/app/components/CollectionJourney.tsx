@@ -73,11 +73,7 @@ export default function CollectionJourney({ children }: { children: ReactNode })
               <path data-static-path d="M750 100 410 390 730 730M410 390H800" />
               <path data-static-node d="m410 379 11 11-11 11-11-11 11-11" />
             </svg>
-            <p className={styles.bridgeNote} data-bridge-note>
-              {t.bridge.note1}
-              <br />
-              {t.bridge.note2}
-            </p>
+            <span data-bridge-note className="hidden" aria-hidden="true" />
           </section>
           <CollectionConstellation />
         </div>

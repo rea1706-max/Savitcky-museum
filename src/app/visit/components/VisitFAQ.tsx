@@ -12,7 +12,11 @@ export default function VisitFAQ() {
   };
 
   return (
-    <section className="px-6 md:px-12 py-16 md:py-20 bg-background" aria-labelledby="faq-heading">
+    <section
+      id="faq"
+      className="px-6 md:px-12 py-16 md:py-20 bg-background scroll-mt-20"
+      aria-labelledby="faq-heading"
+    >
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           {/* Heading */}

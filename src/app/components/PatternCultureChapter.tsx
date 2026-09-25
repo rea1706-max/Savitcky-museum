@@ -69,11 +69,6 @@ export default function PatternCultureChapter() {
             {t.culture.link} <CollectionArrow />
           </Link>
         </div>
-        <p data-culture-aside className={styles.cultureAside}>
-          {t.culture.aside1}
-          <br />
-          {t.culture.aside2}
-        </p>
       </div>
     </section>
   );

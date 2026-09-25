@@ -2,25 +2,22 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Icon from '@/components/ui/AppIcon';
 import { useLanguage } from '@/lib/i18n';
 import styles from '../Collection.module.css';
 
 interface CollectionSearchProps {
   initialCategory?: string;
-  onSearch: (query: string) => void;
+  onSearch?: (query: string) => void;
   onCategoryChange: (category: string) => void;
 }
 
 export default function CollectionSearch({
   initialCategory = 'all',
-  onSearch,
   onCategoryChange,
 }: CollectionSearchProps) {
   const router = useRouter();
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(initialCategory);
-  const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
     { id: 'all', label: t.collectionPage.categories.all },
@@ -40,33 +37,6 @@ export default function CollectionSearch({
 
   return (
     <section className={styles.searchPanel} aria-label={t.collectionPage.searchAria}>
-      <form
-        className={styles.searchForm}
-        role="search"
-        onSubmit={(event) => {
-          event.preventDefault();
-          onSearch(searchQuery);
-        }}
-      >
-        <label htmlFor="collection-search" className="sr-only">
-          {t.collectionPage.searchAria}
-        </label>
-        <Icon name="MagnifyingGlassIcon" size={20} />
-        <input
-          id="collection-search"
-          type="search"
-          value={searchQuery}
-          onChange={(event) => {
-            setSearchQuery(event.target.value);
-            onSearch(event.target.value);
-          }}
-          placeholder={t.collectionPage.searchPlaceholder}
-          aria-label={t.collectionPage.searchAria}
-        />
-        <button type="submit" aria-label={t.collectionPage.searchAria}>
-          <span aria-hidden="true">→</span>
-        </button>
-      </form>
 
       <nav className={styles.categoryTabs} aria-label={t.ui.collectionCategories}>
         {categories.map((entry) => (

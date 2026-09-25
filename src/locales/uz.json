@@ -94,8 +94,8 @@
     "title3": "Meros",
     "title4": "Sari",
     "title5": "Yoʻl",
-    "note1": "Gʻoyalar oʻtadi.",
-    "note2": "Asarlar qoladi."
+    "note1": "",
+    "note2": ""
   },
   "collection": {
     "label": "Toʻplam",
@@ -119,8 +119,8 @@
     "desc2": "Oʻtov jiyaklaridan tortib kumush tojgacha.",
     "link": "Qoraqalpogʻiston sanʼati",
     "caption": "Qoraqalpoq matosi detali: shoxsimon naqshli oʻtov jiyagi.",
-    "aside1": "Koʻplab hikoyalar.",
-    "aside2": "Kashf etish uchun."
+    "aside1": "",
+    "aside2": ""
   },
   "desert": {
     "coordinates": "42°27′49″SH 59°36′20″SH",
@@ -148,8 +148,8 @@
     "bridgeMain": "BOY OʻTMISH. OCHIQ KELAJAK.",
     "bridgeSecondary": "SAVITSKIY MUZEYI · NUKUS, QORAQALPOGʻISTON",
     "conservationCaption": "Restavratsiya studiyasi, Nukus",
-    "asideWords": "Asrash\nSaqlash\nTadqiq qilish\nUlashish",
-    "asideSub": "Kelgusi avlodlar uchun"
+    "asideWords": "",
+    "asideSub": ""
   },
   "finalHorizon": {
     "marker": "Ufq",
@@ -438,6 +438,7 @@
       "Saturday": "Shanba",
       "Sunday": "Yakshanba"
     },
+    "practicalInfo": "Amaliy ma'lumot",
     "ticketsEyebrow": "Kirish",
     "ticketsTitle": "Chiptalar va narxlar",
     "ticketsDesc": "Chiptalarni muzeyga kirish joyidagi kassadan xarid qilishingiz mumkin. Guruhli tashriflar oldindan buyurtma qilinadi.",
@@ -477,7 +478,7 @@
         "price": "100 000",
         "currency": "UZS",
         "note": "Bir kishi uchun, kirish chiptasi bilan",
-        "highlight": true
+        "highlight": false
       },
       {
         "type": "Guruhli (10 kishidan)",
