@@ -27,25 +27,24 @@ export function createWhatsOnAnimation(section: HTMLElement) {
         timeline.to(select('[data-feature-spine]'), { strokeDashoffset: 0, duration: 22 }, 0);
         timeline.to(select('[data-feature-diagonal]'), { strokeDashoffset: 0, duration: 24 }, 8);
         timeline.to(select('[data-feature-node]'), { strokeDashoffset: 0, duration: 16 }, 15);
+        // The frames keep their final shape from the start and simply surface:
+        // morphing clip-path polygons is what cut the image into shards mid-scroll.
         timeline.fromTo(
-          select('[data-feature-red-mask]'),
-          { clipPath: 'polygon(2% 0, 2% 0, 62% 100%, 62% 100%)' },
-          {
-            clipPath: () =>
-              matchMedia('(max-width: 767px)').matches
-                ? 'polygon(0% 0, 34% 0, 100% 100%, 75% 100%)'
-                : 'polygon(2% 0, 42% 0, 98% 100%, 62% 100%)',
-            duration: 24,
-          },
+          select('[data-feature-red]'),
+          { xPercent: -45, autoAlpha: 0 },
+          { xPercent: 0, autoAlpha: 1, duration: 24, ease: 'power2.out' },
           6
         );
         timeline.fromTo(
           select('[data-feature-mask]'),
-          { clipPath: 'polygon(48% 38%, 48% 38%, 53% 58%, 53% 58%, 50.5% 48%, 49.25% 43%)' },
-          {
-            clipPath: 'polygon(14% 0%, 100% 0%, 100% 85%, 86% 100%, 0% 100%, 0% 16%)',
-            duration: 28,
-          },
+          { autoAlpha: 0, scale: 0.94 },
+          { autoAlpha: 1, scale: 1, duration: 26, ease: 'power2.out' },
+          10
+        );
+        timeline.fromTo(
+          select('[data-feature-image]'),
+          { scale: 1.12 },
+          { scale: 1, duration: 34, ease: 'power2.out' },
           10
         );
         const reveal = (name: string, start: number, duration = 14) =>

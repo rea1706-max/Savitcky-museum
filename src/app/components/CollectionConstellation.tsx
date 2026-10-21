@@ -39,7 +39,7 @@ export default function CollectionConstellation() {
             </Link>
           </div>
         </div>
-        <div className={styles.objects}>
+        <div className={styles.objects} data-collection-objects>
           <figure className={styles.volkov}>
             <Link
               href="/collection?category=avant-garde"

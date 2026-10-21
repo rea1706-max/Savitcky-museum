@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { cookies } from 'next/headers';
 import { DM_Sans, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
 import { LanguageProvider, type Locale } from '@/lib/i18n';
+import SmoothScroll from '@/components/SmoothScroll';
 import '../styles/tailwind.css';
 
 const dmSans = DM_Sans({
@@ -81,6 +82,7 @@ export default async function RootLayout({
       className={`${dmSans.variable} ${cormorant.variable} ${playfair.variable}`}
     >
       <body className={dmSans.className}>
+        <SmoothScroll />
         <LanguageProvider initialLocale={initialLocale}>{children}</LanguageProvider>
       </body>
     </html>

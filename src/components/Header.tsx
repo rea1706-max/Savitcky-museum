@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLanguage, type Locale } from '@/lib/i18n';
+import { pauseSmoothScroll, scrollToPosition } from '@/lib/smoothScroll';
 
 type NavLink = {
   label: string;
@@ -17,7 +18,7 @@ let activeAnchorRequest = 0;
 function jumpToScrollPosition(top: number) {
   const previousScrollBehavior = document.documentElement.style.scrollBehavior;
   document.documentElement.style.scrollBehavior = 'auto';
-  window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+  scrollToPosition(top, true);
   document.documentElement.style.scrollBehavior = previousScrollBehavior;
 }
 
@@ -39,12 +40,15 @@ function scrollToAnchor(element: HTMLElement) {
         const navigationHeight =
           document.querySelector<HTMLElement>('[data-site-navigation]')?.offsetHeight ?? 72;
         const offset = liveCollection.getBoundingClientRect().top - navigationHeight;
-        if (Math.abs(offset) > 8) {
-          window.scrollTo({ top: Math.max(0, window.scrollY + offset), behavior: 'smooth' });
-        }
+        if (Math.abs(offset) > 8) scrollToPosition(window.scrollY + offset);
       };
 
       if (currentJourney.dataset.collectionNavigationReady === 'true') {
+        // Phones stack the collection vertically, so it is reached like any section.
+        if (currentJourney.dataset.collectionScrollTarget === undefined) {
+          alignResponsiveCollection();
+          return;
+        }
         const journeyTarget = Number(currentJourney.dataset.collectionScrollTarget);
         if (Number.isFinite(journeyTarget)) {
           const alignJourneyCollection = () => {
@@ -63,11 +67,7 @@ function scrollToAnchor(element: HTMLElement) {
 
       if (attempt === 0) {
         const stage = currentJourney.querySelector<HTMLElement>('[data-journey-stage]');
-        if (stage) {
-          const start = window.scrollY + stage.getBoundingClientRect().top;
-          const target = start + stage.clientHeight * 2.5 * 0.84;
-          window.scrollTo({ top: target, behavior: 'smooth' });
-        }
+        if (stage) scrollToPosition(window.scrollY + stage.getBoundingClientRect().top);
       }
 
       if (attempt < 80) {
@@ -75,13 +75,7 @@ function scrollToAnchor(element: HTMLElement) {
         return;
       }
 
-      const stage = currentJourney.querySelector<HTMLElement>('[data-journey-stage]');
-      if (stage) {
-        const start = window.scrollY + stage.getBoundingClientRect().top;
-        jumpToScrollPosition(start + stage.clientHeight * 2.5 * 0.84);
-      } else {
-        alignResponsiveCollection();
-      }
+      alignResponsiveCollection();
     };
 
     dispatchWhenReady();
@@ -91,10 +85,7 @@ function scrollToAnchor(element: HTMLElement) {
   // What's On lives inside a pinned track. Its own bounding box moves with
   // ScrollTrigger; the outer journey stays at a stable document position.
   const target = element.id === 'whats-on' ? (journey ?? element) : element;
-  window.scrollTo({
-    top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - 76),
-    behavior: 'smooth',
-  });
+  scrollToPosition(window.scrollY + target.getBoundingClientRect().top - 76);
 }
 
 export default function Header({ openingSequence = false }: { openingSequence?: boolean }) {
@@ -123,13 +114,11 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
   }, [openingSequence]);
 
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    pauseSmoothScroll(menuOpen);
     return () => {
       document.body.style.overflow = '';
+      pauseSmoothScroll(false);
     };
   }, [menuOpen]);
 
@@ -148,7 +137,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
     if (link.anchor === 'hero' || link.href === '/') {
       if (pathname === '/') {
         window.history.pushState(null, '', '/');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollToPosition(0);
       } else {
         router.push('/');
       }

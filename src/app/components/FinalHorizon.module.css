@@ -116,10 +116,10 @@
   max-width: 780px;
   margin: 0;
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(63px, 6.2vw, 112px);
+  font-size: clamp(44px, 4.4vw, 80px);
   font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.9;
+  letter-spacing: -0.04em;
+  line-height: 0.94;
   text-transform: uppercase;
 }
 
@@ -184,7 +184,7 @@
   }
 
   .title {
-    font-size: clamp(58px, 7.8vw, 80px);
+    font-size: clamp(42px, 6vw, 60px);
   }
 
   .location {
@@ -233,8 +233,8 @@
   }
 
   .title {
-    font-size: clamp(43px, 12vw, 64px);
-    line-height: 0.94;
+    font-size: clamp(32px, 8.6vw, 42px);
+    line-height: 0.98;
   }
 
   .statement {

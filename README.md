@@ -71,22 +71,35 @@ This project uses Tailwind CSS for styling with the following features:
 
 ## Homepage collection journey / Переход коллекции на главной
 
-The approved homepage sequence uses one pinned horizontal GSAP timeline for **What’s On →
-Collection**, then releases into a natural vertical **Collection → Karakalpak Arts** transition.
-The Collection frame contains only the Avant-Garde and Heritage & History gateways. The
-Karakalpak Arts CTA opens `/collection?category=karakalpak-arts` with the catalogue filter active.
-The middle state keeps a departing Popova fragment and an arriving Volkov fragment visible at the
-same time, with the red exhibition plane becoming the archive structure. The supplied Popova,
-Volkov, terracotta vessel, and textile files are used without warping or replacement imagery.
+The homepage uses one pinned horizontal GSAP timeline for **What’s On → Collection** on every
+screen size, phones included (each panel has its own narrow layout). Between the two panels a
+seam of diagonal charcoal, earth, clay and sand bands carries the eye out of the dark into the
+ivory Collection. One pixel of scroll equals one pixel of sideways travel, so speed carries over
+without a jolt. Page-wide smooth scrolling (Lenis, `src/components/SmoothScroll.tsx`) eases wheel
+and trackpad input; touch keeps native momentum. Animations move only opacity and transforms —
+no morphing `clip-path` polygons, which cut frames into shards mid-scroll.
 
-Утверждённая последовательность использует один закреплённый горизонтальный GSAP-переход
-**What’s On → Collection**, после чего освобождает прокрутку и продолжает естественным
-вертикальным переходом **Collection → Karakalpak Arts**. В кадре Collection остаются только
-входы Avant-Garde и Heritage & History. CTA Karakalpak Arts открывает каталог с активным
-фильтром `/collection?category=karakalpak-arts`.
-В среднем состоянии одновременно видны уходящий фрагмент Поповой и входящий фрагмент Волкова,
-а красная выставочная плоскость превращается в структуру архива. Предоставленные изображения
-Поповой, Волкова, терракотового сосуда и текстиля используются без деформации и подмены.
+**Karakalpak Arts** follows vertically: the ornament draws itself on the ivory as the section
+rises, the textile opens out of its red knot, then the copy arrives; once the frame is held only
+a slow settle of the cloth remains. Headings in this chapter, Collection and Museum Today are
+sized from their own column (container query units), so the longest word in any of the four
+languages stays on one line. The Karakalpak Arts CTA opens
+`/collection?category=karakalpak-arts` with the catalogue filter active.
+
+На главной один закреплённый горизонтальный GSAP-переход **What’s On → Collection** работает на
+всех экранах, включая телефоны (у каждой панели своя узкая раскладка). Между панелями — «шов»
+из диагональных полос угля, земли, глины и песка, который выводит взгляд из тёмного в светлую
+Collection. Пиксель прокрутки равен пикселю горизонтального движения, поэтому скорость
+переходит без рывка. Плавная прокрутка всей страницы (Lenis, `src/components/SmoothScroll.tsx`)
+сглаживает колесо и тачпад; на сенсорных экранах остаётся нативная инерция. Анимируются только
+прозрачность и трансформации — без морфинга `clip-path`-многоугольников, который резал кадры.
+
+**Karakalpak Arts** идёт вертикально: орнамент прорисовывается на светлом фоне, пока раздел
+поднимается, текстиль раскрывается из его красного узла, затем появляется текст; в удержанном
+кадре остаётся только медленное «оседание» ткани. Заголовки этой главы, Collection и Museum
+Today масштабируются от ширины своей колонки (container query units), поэтому самое длинное
+слово на любом из четырёх языков не разрывается. CTA Karakalpak Arts открывает каталог с
+активным фильтром `/collection?category=karakalpak-arts`.
 
 ## Language and identity / Язык и айдентика
 

@@ -80,7 +80,6 @@
 .image {
   object-fit: cover;
   object-position: 50% 50%;
-  transition: transform 350ms ease-out;
 }
 .credit {
   margin-top: 8px;
@@ -180,7 +179,6 @@
   position: absolute;
   inset: -5px;
   background: var(--museum-karakalpak-red);
-  transition: transform 350ms ease-out;
 }
 .geometry {
   position: absolute;
@@ -200,6 +198,11 @@
 }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  /* Transitions only once the scroll reveal is done, or they lag behind every scrubbed frame. */
+  .section[data-feature-ready='true'] .image,
+  .section[data-feature-ready='true'] .redField {
+    transition: transform 350ms ease-out;
+  }
   .section[data-feature-ready='true'] .artwork:hover .image {
     transform: scale(1.012);
   }

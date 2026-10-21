@@ -10,6 +10,8 @@ export default function PatternCultureChapter() {
   return (
     <section data-material-chapter className={styles.culture} aria-labelledby="pattern-heading">
       <div data-culture-frame className={styles.cultureFrame}>
+        {/* The textile, its red fibre and the reading shade open together from the
+            ornament's red knot, so the dark never shows before the weave. */}
         <figure data-textile-field className={styles.textileField}>
           <Image
             src="/images/collection/karakalpak-textile-macro.png"
@@ -19,15 +21,16 @@ export default function PatternCultureChapter() {
             quality={100}
             className={styles.textile}
           />
+          <div data-red-fiber className={styles.redFiber} aria-hidden="true" />
+          <div data-fiber-tone className={styles.fiberTone} aria-hidden="true" />
           <figcaption className={styles.textileCaption}>{t.culture.caption}</figcaption>
         </figure>
-        <div data-red-fiber className={styles.redFiber} aria-hidden="true" />
-        <div data-fiber-tone className={styles.fiberTone} aria-hidden="true" />
         <div data-culture-grain className={styles.cultureGrain} aria-hidden="true" />
         <svg
           data-woven-ornament
           className={styles.ornament}
-          viewBox="0 0 1200 800"
+          viewBox="120 0 1200 800"
+          preserveAspectRatio="xMidYMid slice"
           fill="none"
           aria-hidden="true"
         >
@@ -43,7 +46,7 @@ export default function PatternCultureChapter() {
           />
           <path
             data-weave-finish
-            d="M720 482v166m0-107-84 84 84 84 84-84-84-84M636 625h-118m286 0h118"
+            d="M720 482v166m0-107-84 84 84 84 84-84-84-84M636 625h-60m228 0h60"
           />
           <path data-weave-red d="m720 589 36 36-36 36-36-36 36-36" />
         </svg>

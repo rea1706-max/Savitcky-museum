@@ -40,6 +40,18 @@
     background-color: #191816;
   }
 
+  /* Lenis drives the easing itself; native smooth scrolling would fight it. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  html.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  html.lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);

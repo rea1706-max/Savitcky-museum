@@ -66,6 +66,14 @@
   text-transform: uppercase;
 }
 
+/* Five columns get narrow here; long headings (e.g. Uzbek) must still fit. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .group h3 {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+}
+
 .group ul {
   display: grid;
   gap: 12px;
