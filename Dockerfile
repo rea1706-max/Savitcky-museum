@@ -8,7 +8,8 @@ WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+# next/font downloads Google Fonts during the build; retry once on a network blip.
+RUN npm run build || (sleep 15 && npm run build)
 
 FROM node:20-alpine AS runner
 WORKDIR /app

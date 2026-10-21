@@ -48,7 +48,7 @@
     "about": "Muzey haqqında",
     "whatsOn": "Afisha",
     "collection": "Kollekciya",
-    "stories": "Tariyxlar",
+    "stories": "Muzey búgin",
     "planVisit": "Sapardı rejelestiriw"
   },
   "hero": {
@@ -131,14 +131,14 @@
   "museumToday": {
     "label": "Muzey búgin",
     "title": "MUZEY BÚGIN",
-    "note": "(bul jerde reels, pikirler, keliwshilerdiń videoları hám sociallıq tarmaqlardan sáwleler boladı)",
+    "note": "(bul jerde reels, video pikirler hám muzeydiń kúndelik turmısı boladı)",
     "subtitle": "Qayta tiklew · Tiri arxiv · Nókis",
     "kicker": "Tiri arxiv",
     "copyLine1": "Názik polotnolardı saqlaw.",
     "copyLine2": "Ilimiy kataloglar hám qorlar.",
     "copyLine3": "Nókistiń jáhán kórkem óneri",
     "copyLine4": "menen baylanısı.",
-    "cta": "Tariyxlardı kóriw",
+    "cta": "Videolar hám pikirler",
     "noteLine1": "Nókis qalası, Qaraqalpaqstan",
     "noteLine2": "Siyshembiden ekshembige shekem ashıq",
     "noteLine3": "09:00 — 18:00",
@@ -185,9 +185,9 @@
         "all": "Barlıq kórgezbeler"
       },
       "stories": {
-        "title": "Tarixlar",
-        "explore": "Tarixlardı oqıw",
-        "people": "İnsanlar · Oraylar · Pikirlar"
+        "title": "Media",
+        "explore": "Videolar hám pikirler",
+        "people": "Adamlar"
       },
       "visit": {
         "title": "Saprawat",
@@ -353,27 +353,33 @@
     }
   },
   "storiesPage": {
-    "badge": "TARIYX HÁM MAQALALAR",
-    "titleLine1": "Muzey",
-    "titleLine2": "Tariyxı hám Arxiv",
-    "introLine1": "Filmler. Izertlewler. Baspalar. Insanlar.",
-    "introLine2": "Muzey ómiri diywallardan sırtta da dawam etpekte.",
-    "browseJournal": "Jurnaldı kóriw",
-    "featuredReel": "ARNALLI VIDEOMATERIAL",
-    "featuredTitle": "Qorlar qoynında",
-    "featuredSubtitle": "Tiri qalǵan miyras hám turaqlı saqlaw",
-    "livingArchive": "Tiri arxiv",
-    "location": "Nókis · Qaraqalpaqstan",
-    "archiveIndex": "Muzey arxivi · 2026",
-    "journalTitle": "Muzey jurnalı",
-    "categories": {
-      "reels": "Videolar",
-      "research": "Izertlewler",
-      "publications": "Baspalar",
-      "history": "Tariyx"
+    "badge": "Tiri arxiv · Nókis",
+    "title": "Muzey búgin",
+    "intro": "Videolar, keliwshilerdiń pikirleri, adamlar hám muzey turmısınan sáwleler.",
+    "sections": {
+      "videos": {
+        "title": "Videolar",
+        "note": "(bul jerde reels, videosújetler hám social tarmaqlardan sáwleler boladı)"
+      },
+      "reviews": {
+        "title": "Pikirler",
+        "note": "(bul jerde keliwshilerdiń video hám tekst pikirleri boladı)"
+      },
+      "people": {
+        "title": "Adamlar",
+        "note": "(bul jerde xızmetkerler, sheberler hám miymanlar haqqında hikayalar boladı)"
+      },
+      "materials": {
+        "title": "Materiallar",
+        "note": "Restavraciya, izertlewler hám muzey basılımları."
+      }
     },
-    "closingStatement": "Hár bir eksponat bir neshe dáwirdiń tariyxın saqlaydı.",
-    "closingSub": "Nókisten jańa maqalalar hám izertlewler jıl dawamında járiyalanıp baradı.",
+    "slots": {
+      "video": "Video",
+      "review": "Pikir",
+      "person": "Muzey adamları",
+      "caption": "(material astındaǵı jazıw hám tekst)"
+    },
     "stories": [
       {
         "number": "02",

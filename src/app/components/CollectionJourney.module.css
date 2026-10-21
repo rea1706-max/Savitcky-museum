@@ -3,8 +3,9 @@
   overflow: clip;
   background: var(--museum-charcoal);
   color: var(--museum-charcoal);
-  /* The seam is this wide relative to one screen-wide panel. */
-  --seam-ratio: 0.45;
+  /* The seam is this wide relative to one screen-wide panel: wide enough that
+     the colour changes slowly. */
+  --seam-ratio: 0.7;
   --track-ratio: calc(2 + var(--seam-ratio));
 }
 
@@ -58,52 +59,48 @@
   justify-content: center;
 }
 
-/* ── Seam: charcoal → earth → clay → sand → ivory ────────────────────────── */
+/* ── Seam: one soft gradient from charcoal into the collection's ivory ───── */
 
 .seam {
+  --seam-end: color-mix(in srgb, var(--museum-earth) 23%, var(--museum-desert-ivory));
   position: relative;
   flex: 0 0 calc(var(--seam-ratio) * 100% / var(--track-ratio));
   width: calc(var(--seam-ratio) * 100% / var(--track-ratio));
   height: 100%;
   overflow: hidden;
   isolation: isolate;
-  background: var(--museum-charcoal);
+  /* Ends on exactly the tint at the collection panel's left edge, so there is no seam. */
+  background: linear-gradient(
+    90deg,
+    var(--museum-charcoal) 0%,
+    #241e1a 14%,
+    #3d3129 32%,
+    #6a5443 52%,
+    #9c8670 70%,
+    #c3b39d 86%,
+    var(--seam-end) 100%
+  );
 }
 
-.seam > span {
+/* Faint grain, the same texture the dark panels carry, keeps the gradient from banding. */
+.seam::after {
   position: absolute;
-  inset: 0 -40% 0 0;
-  will-change: transform;
-}
-
-.seamEarth {
-  background: #4a3a31;
-  clip-path: polygon(34% 0, 100% 0, 100% 100%, 14% 100%);
-}
-
-.seamClay {
-  background: #80664f;
-  clip-path: polygon(50% 0, 100% 0, 100% 100%, 32% 100%);
-}
-
-.seamSand {
-  background: color-mix(in srgb, var(--museum-earth) 23%, var(--museum-desert-ivory));
-  clip-path: polygon(66% 0, 100% 0, 100% 100%, 50% 100%);
-}
-
-.seamLine {
-  position: absolute;
-  z-index: 1;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  stroke: color-mix(in srgb, var(--museum-bone) 60%, transparent);
-  stroke-width: 1;
+  content: '';
+  opacity: 0.5;
+  background-image:
+    repeating-linear-gradient(17deg, transparent 0 3px, rgb(242 235 221 / 0.05) 3px 4px),
+    repeating-linear-gradient(94deg, rgb(25 24 22 / 0.06) 0 1px, transparent 1px 5px);
+  mix-blend-mode: soft-light;
   pointer-events: none;
 }
 
-.seamLine path {
-  vector-effect: non-scaling-stroke;
+/* A broad, soft light that drifts a little slower than the track, for depth. */
+.seamGlow {
+  position: absolute;
+  inset: -20% -30%;
+  background: radial-gradient(ellipse 45% 60% at 58% 46%, rgb(214 196 168 / 0.22), transparent 70%);
+  will-change: transform;
 }
 
 /* ── Collection overview ─────────────────────────────────────────────────── */
@@ -389,12 +386,23 @@
   pointer-events: none;
 }
 
+/* The textile opens from the ornament's red knot through a feathered radial edge;
+   the animation drives --opening-radius. Without it the cloth is simply visible. */
 .textileField {
+  --opening-radius: 300vmax;
+  --opening-feather: 0px;
+  --opening-mask: radial-gradient(
+    circle at var(--opening-x, 50%) var(--opening-y, 50%),
+    #000 var(--opening-radius),
+    transparent calc(var(--opening-radius) + var(--opening-feather))
+  );
   z-index: 0;
   margin: 0;
   overflow: hidden;
   background: #211a17;
-  will-change: transform, clip-path;
+  -webkit-mask-image: var(--opening-mask);
+  mask-image: var(--opening-mask);
+  will-change: transform;
 }
 
 .textile {
@@ -630,7 +638,7 @@
 
 @media (max-width: 767px) {
   .journey {
-    --seam-ratio: 0.6;
+    --seam-ratio: 0.8;
   }
   .overviewInner {
     width: 86%;

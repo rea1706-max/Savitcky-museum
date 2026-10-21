@@ -44,7 +44,6 @@ export function createCollectionJourney(root: HTMLElement) {
           return Math.min(1, (overview.offsetLeft - stage.clientWidth / 2) / travel);
         };
 
-        prepareStrokes(select('[data-seam-line]'));
         gsap.set(label, { autoAlpha: 0 });
         gsap.set(title, { yPercent: 108 });
         gsap.set(copy, { autoAlpha: 0, y: 14 });
@@ -65,41 +64,28 @@ export function createCollectionJourney(root: HTMLElement) {
         );
         timeline.to(select('[data-feature-red-mask]'), { xPercent: 14, duration: 70 }, 0);
 
-        // The seam's bands slide at different speeds, so the dark opens up in depth.
+        // The seam's soft light drifts a little slower than the track, for depth.
         timeline.fromTo(
-          select('[data-seam-layer="earth"]'),
-          { xPercent: 22 },
-          { xPercent: -6, duration: TRACK_UNITS },
+          select('[data-seam-glow]'),
+          { xPercent: -14 },
+          { xPercent: 14, duration: TRACK_UNITS },
           0
         );
-        timeline.fromTo(
-          select('[data-seam-layer="clay"]'),
-          { xPercent: 38 },
-          { xPercent: -10, duration: TRACK_UNITS },
-          0
-        );
-        timeline.fromTo(
-          select('[data-seam-layer="sand"]'),
-          { xPercent: 56 },
-          { xPercent: -14, duration: TRACK_UNITS },
-          0
-        );
-        timeline.to(select('[data-seam-line]'), { strokeDashoffset: 0, duration: 46 }, 18);
 
         // Collection: content lands while the panel is still gliding in.
-        timeline.to(label, { autoAlpha: 1, duration: 10, ease }, 52);
-        timeline.to(title, { yPercent: 0, duration: 20, ease: 'power3.out' }, 52);
+        timeline.to(label, { autoAlpha: 1, duration: 12, ease }, 58);
+        timeline.to(title, { yPercent: 0, duration: 22, ease: 'power3.out' }, 58);
         timeline.to(
           artworks,
           { autoAlpha: 1, y: 0, duration: 24, stagger: 8, ease: 'power2.out' },
-          58
+          64
         );
-        timeline.to(copy, { autoAlpha: 1, y: 0, duration: 16, stagger: 3, ease: 'power2.out' }, 66);
-        timeline.to(captions, { autoAlpha: 1, duration: 12, ease }, 80);
+        timeline.to(copy, { autoAlpha: 1, y: 0, duration: 16, stagger: 3, ease: 'power2.out' }, 72);
+        timeline.to(captions, { autoAlpha: 1, duration: 12, ease }, 84);
         timeline.to(
           select('[data-archive-rule] > span'),
-          { scaleX: 1, duration: 16, ease: 'power2.out' },
-          82
+          { scaleX: 1, duration: 14, ease: 'power2.out' },
+          84
         );
         timeline.to(select('[data-archive-rule] small'), { autoAlpha: 1, duration: 8, ease }, 94);
         timeline.to({}, { duration: TOTAL_UNITS - timeline.duration() });
@@ -107,6 +93,8 @@ export function createCollectionJourney(root: HTMLElement) {
         const readyAt = TRACK_UNITS / TOTAL_UNITS;
         let lightAt = (overviewHalfway() * TRACK_UNITS) / TOTAL_UNITS;
         const publishCollectionTarget = (trigger: ScrollTrigger) => {
+          // Navigation opens What's On at the pin start and Collection where it fills the screen.
+          root.dataset.journeyStart = String(trigger.start);
           root.dataset.collectionScrollTarget = String(
             trigger.start + (trigger.end - trigger.start) * readyAt
           );
@@ -141,15 +129,17 @@ export function createCollectionJourney(root: HTMLElement) {
 
         return () => {
           delete root.dataset.collectionScrollTarget;
+          delete root.dataset.journeyStart;
           root.removeAttribute('data-light-stage');
         };
       },
       root
     );
 
-    // Karakalpak arts. The ornament is the doorway: it weaves itself on the ivory
-    // while the section rises, the textile then opens out of its red knot, and only
-    // then does the copy arrive. Nothing new appears once the frame is held.
+    // Karakalpak arts. The ornament is the doorway, and everything moves at one
+    // steady pace with the scroll: while the ornament weaves itself, the textile
+    // seeps in around its red knot through a soft, feathered edge, and the copy
+    // surfaces as the cloth settles. Phases overlap, so there is never a jump.
     media.add(
       '(prefers-reduced-motion: no-preference)',
       () => {
@@ -157,73 +147,90 @@ export function createCollectionJourney(root: HTMLElement) {
         const ornament = culture.querySelector<SVGSVGElement>('[data-woven-ornament]')!;
         const knot = culture.querySelector<SVGPathElement>('[data-weave-red]')!;
         const point = culture.querySelector<SVGCircleElement>('[data-weave-point]')!;
+        const textileField = culture.querySelector<HTMLElement>('[data-textile-field]')!;
         const paths = Array.from(ornament.querySelectorAll('path'));
-        const textile = select('[data-textile-field]');
         const copyParts = select(
           '[data-culture-heading], [data-culture-statement], [data-culture-desc], [data-culture-link]'
         );
+        let fullRadius = 1;
 
-        // Where the textile opens from, and how far it must grow to fill the frame.
-        const knotCentre = () => {
+        // The opening is centred on the red knot and must reach the farthest corner.
+        const placeOpening = () => {
           const box = frame.getBoundingClientRect();
           const knotBox = knot.getBoundingClientRect();
-          return {
-            x: knotBox.left + knotBox.width / 2 - box.left,
-            y: knotBox.top + knotBox.height / 2 - box.top,
-            radius: Math.hypot(box.width, box.height),
-          };
+          const x = knotBox.left + knotBox.width / 2 - box.left;
+          const y = knotBox.top + knotBox.height / 2 - box.top;
+          fullRadius = Math.max(
+            Math.hypot(x, y),
+            Math.hypot(box.width - x, y),
+            Math.hypot(x, box.height - y),
+            Math.hypot(box.width - x, box.height - y)
+          );
+          textileField.style.setProperty('--opening-x', `${x.toFixed(1)}px`);
+          textileField.style.setProperty('--opening-y', `${y.toFixed(1)}px`);
+          textileField.style.setProperty(
+            '--opening-feather',
+            `${(fullRadius * 0.35).toFixed(1)}px`
+          );
         };
-        const circle = (scale: number) => () => {
-          const { x, y, radius } = knotCentre();
-          return `circle(${(radius * scale).toFixed(1)}px at ${x.toFixed(1)}px ${y.toFixed(1)}px)`;
-        };
+        placeOpening();
 
         prepareStrokes(paths);
         gsap.set(point, { scale: 0, transformOrigin: '50% 50%' });
-        gsap.set(textile, { clipPath: circle(0), scale: 1.12 });
-        gsap.set(copyParts, { autoAlpha: 0, y: 30 });
+        gsap.set(copyParts, { autoAlpha: 0, y: 24 });
 
         const weave = gsap.timeline({ defaults: { ease: 'none' } });
-        // 0 → 0.42: the ornament draws itself on the ivory as the section rises.
-        weave.to(select('[data-weave-rule]'), { strokeDashoffset: 0, duration: 0.14 }, 0);
-        weave.to(point, { scale: 1, duration: 0.05, ease: 'back.out(1.7)' }, 0.05);
-        weave.to(select('[data-weave-node]'), { strokeDashoffset: 0, duration: 0.07 }, 0.08);
-        weave.to(select('[data-weave-thread]'), { strokeDashoffset: 0, duration: 0.07 }, 0.13);
-        weave.to(select('[data-weave-connection]'), { strokeDashoffset: 0, duration: 0.08 }, 0.18);
-        weave.to(select('[data-weave-diagonal]'), { strokeDashoffset: 0, duration: 0.08 }, 0.23);
-        weave.to(select('[data-weave-second]'), { strokeDashoffset: 0, duration: 0.08 }, 0.28);
-        weave.to(select('[data-weave-finish]'), { strokeDashoffset: 0, duration: 0.09 }, 0.32);
-        weave.to(select('[data-weave-red]'), { strokeDashoffset: 0, duration: 0.06 }, 0.37);
-        weave.to(point, { scale: 0, duration: 0.04, ease: 'power2.in' }, 0.4);
-        // 0.4 → 0.6: the textile opens out of the red knot and the threads turn pale.
-        weave.fromTo(
-          textile,
-          { clipPath: circle(0), scale: 1.12 },
-          { clipPath: circle(1), scale: 1.04, duration: 0.2, ease: 'power2.inOut' },
-          0.4
+        // 0 → 0.56: the ornament weaves itself, thread after thread, at an even pace.
+        weave.to(point, { scale: 1, duration: 0.06, ease: 'sine.out' }, 0);
+        const threads = [
+          '[data-weave-rule]',
+          '[data-weave-node]',
+          '[data-weave-thread]',
+          '[data-weave-connection]',
+          '[data-weave-diagonal]',
+          '[data-weave-second]',
+          '[data-weave-finish]',
+          '[data-weave-red]',
+        ];
+        threads.forEach((thread, index) =>
+          weave.to(select(thread), { strokeDashoffset: 0, duration: 0.12 }, 0.02 + index * 0.055)
         );
+        weave.to(point, { scale: 0, duration: 0.08, ease: 'sine.in' }, 0.48);
+        // 0.16 → 0.76, in parallel: the textile seeps in from the knot through a feathered edge.
+        weave.fromTo(
+          textileField,
+          // Starts a full feather inside zero, so nothing shows before the weave reaches it.
+          { '--opening-radius': () => `${(-fullRadius * 0.35).toFixed(1)}px`, scale: 1.1 },
+          {
+            '--opening-radius': () => `${fullRadius.toFixed(1)}px`,
+            scale: 1.03,
+            duration: 0.6,
+          },
+          0.16
+        );
+        // The threads pale from earth to bone while the dark fills in behind them.
         weave.to(
           paths.filter((path) => !path.hasAttribute('data-weave-red')),
-          { stroke: '#e3d6c0', duration: 0.12 },
-          0.46
+          { stroke: '#e3d6c0', duration: 0.34 },
+          0.32
         );
-        weave.to(select('[data-red-fiber]'), { autoAlpha: 0.18, duration: 0.14 }, 0.5);
-        // 0.58 → 0.78: the copy lands on the dark once the opening has passed it.
+        weave.to(select('[data-red-fiber]'), { autoAlpha: 0.18, duration: 0.3 }, 0.4);
+        // 0.56 → 0.88: the copy surfaces line by line as the cloth settles.
         weave.to(
           copyParts,
-          { autoAlpha: 1, y: 0, duration: 0.11, stagger: 0.03, ease: 'power2.out' },
-          0.58
+          { autoAlpha: 1, y: 0, duration: 0.2, stagger: 0.04, ease: 'sine.out' },
+          0.56
         );
-        // Held frame: only a slow settle of the cloth, and the ornament quiets down.
+        // Held frame: a slow settle of the cloth; the ornament quiets down.
         weave.fromTo(
-          textile,
-          { scale: 1.04 },
-          { scale: 1, duration: 0.38, immediateRender: false },
-          0.62
+          textileField,
+          { scale: 1.03 },
+          { scale: 1, duration: 0.24, immediateRender: false },
+          0.76
         );
-        weave.to(ornament, { opacity: 0.55, duration: 0.2 }, 0.8);
+        weave.to(ornament, { opacity: 0.6, duration: 0.24 }, 0.76);
 
-        ScrollTrigger.create({
+        const weaveTrigger = ScrollTrigger.create({
           id: 'savitsky-material-culture',
           trigger: culture,
           animation: weave,
@@ -231,13 +238,14 @@ export function createCollectionJourney(root: HTMLElement) {
           end: 'bottom bottom',
           scrub: true,
           invalidateOnRefresh: true,
+          onRefreshInit: placeOpening,
         });
 
-        // The header turns dark only once the textile fills the screen beneath it.
+        // The header turns dark once the textile has filled the screen beneath it.
         ScrollTrigger.create({
           id: 'savitsky-material-culture-nav',
           trigger: culture,
-          start: 'top top',
+          start: () => weaveTrigger.start + (weaveTrigger.end - weaveTrigger.start) * 0.74,
           end: 'bottom 72px',
           onToggle: ({ isActive }) => {
             document.documentElement.toggleAttribute('data-museum-culture', isActive);
@@ -262,6 +270,7 @@ export function createCollectionJourney(root: HTMLElement) {
     disposed = true;
     delete root.dataset.collectionNavigationReady;
     delete root.dataset.collectionScrollTarget;
+    delete root.dataset.journeyStart;
     document.documentElement.removeAttribute('data-museum-culture');
     media.revert();
     context.revert();

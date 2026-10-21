@@ -48,7 +48,7 @@
     "about": "Muzey haqida",
     "whatsOn": "Afisha",
     "collection": "Kolleksiya",
-    "stories": "Hikoyalar",
+    "stories": "Muzey bugun",
     "planVisit": "Tashrifni rejalashtirish"
   },
   "hero": {
@@ -131,14 +131,14 @@
   "museumToday": {
     "label": "Muzey hayoti",
     "title": "MUZEY BUGUN",
-    "note": "(bu yerda reels, sharhlar, tashrif buyuruvchilar videolari va ijtimoiy tarmoqlardagi lahzalar bo‘ladi)",
+    "note": "(bu yerda reels, video sharhlar va muzey kundaligi bo‘ladi)",
     "subtitle": "Restavratsiya · Tirik arxiv · Nukus",
     "kicker": "Tirik arxiv",
     "copyLine1": "Nafis polotnolarni asrash.",
     "copyLine2": "Ilmiy kataloglar va fondlar.",
     "copyLine3": "Nukusning jahon sanʼati",
     "copyLine4": "bilan muloqoti.",
-    "cta": "Hikoyalarni koʻrish",
+    "cta": "Videolar va sharhlar",
     "noteLine1": "Nukus, Qoraqalpogʻiston",
     "noteLine2": "Seshanbadan yakshanbagacha ochiq",
     "noteLine3": "09:00 — 18:00",
@@ -185,9 +185,9 @@
         "all": "Koʻrgazmalar arxivi"
       },
       "stories": {
-        "title": "Hikoyalar",
-        "explore": "Hikoyalarni oʻqish",
-        "people": "Shaxslar · Makonlar · Fikrlar"
+        "title": "Media",
+        "explore": "Videolar va sharhlar",
+        "people": "Odamlar"
       },
       "visit": {
         "title": "Tashrif",
@@ -353,27 +353,33 @@
     }
   },
   "storiesPage": {
-    "badge": "HIKOYALAR VA ARXIV",
-    "titleLine1": "Muzey",
-    "titleLine2": "Hikoyalari va Arxivi",
-    "introLine1": "Filmlar. Tadqiqotlar. Nashrlar. Shaxslar.",
-    "introLine2": "Muzey hayoti koʻrgazma zallaridan tashqarida ham davom etmoqda.",
-    "browseJournal": "Jurnalni ochish",
-    "featuredReel": "MAXSUS VIDEO",
-    "featuredTitle": "Fondlar qaʼrida",
-    "featuredSubtitle": "Tirik meros va asrash sanʼati",
-    "livingArchive": "Tirik arxiv",
-    "location": "Nukus · Qoraqalpogʻiston",
-    "archiveIndex": "Muzey arxivi · 2026",
-    "journalTitle": "Muzey jurnali",
-    "categories": {
-      "reels": "Videolar",
-      "research": "Tadqiqotlar",
-      "publications": "Nashrlar",
-      "history": "Tarix"
+    "badge": "Tirik arxiv · Nukus",
+    "title": "Muzey bugun",
+    "intro": "Videolar, tashrif buyuruvchilar sharhlari, odamlar va muzey hayotidan lahzalar.",
+    "sections": {
+      "videos": {
+        "title": "Videolar",
+        "note": "(bu yerda reels, videosyujetlar va ijtimoiy tarmoqlardagi lahzalar bo‘ladi)"
+      },
+      "reviews": {
+        "title": "Sharhlar",
+        "note": "(bu yerda tashrif buyuruvchilarning video va matnli sharhlari bo‘ladi)"
+      },
+      "people": {
+        "title": "Odamlar",
+        "note": "(bu yerda xodimlar, ustalar va mehmonlar hikoyalari bo‘ladi)"
+      },
+      "materials": {
+        "title": "Materiallar",
+        "note": "Restavratsiya, tadqiqotlar va muzey nashrlari."
+      }
     },
-    "closingStatement": "Har bir asar oʻzida bir necha davr tarixini mujassam etgan.",
-    "closingSub": "Nukusdan yangi maqolalar va tadqiqotlar yil davomida eʼlon qilib boriladi.",
+    "slots": {
+      "video": "Video",
+      "review": "Sharh",
+      "person": "Muzey odamlari",
+      "caption": "(material ostidagi izoh va matn)"
+    },
     "stories": [
       {
         "number": "02",

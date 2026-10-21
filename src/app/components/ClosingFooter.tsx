@@ -1,20 +1,32 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import type { MouseEvent } from 'react';
 import { useLanguage, type Locale } from '@/lib/i18n';
+import { homeSectionFromHref, jumpToSection } from '@/lib/sectionNavigation';
 import styles from './ClosingFooter.module.css';
 
 const languages: Locale[] = ['EN', 'RU', 'UZ', 'KK'];
 
 export default function ClosingFooter() {
   const { locale: activeLanguage, setLocale, t } = useLanguage();
+  const pathname = usePathname();
+
+  // On the home page, section links open their section at once, like the header.
+  const openHomeSection = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    const section = homeSectionFromHref(href);
+    if (!section || pathname !== '/') return;
+    event.preventDefault();
+    window.history.pushState(null, '', href);
+    jumpToSection(section);
+  };
 
   const groups = [
     {
       title: t.footer.groups.museum.title,
       links: [
         { label: t.footer.groups.museum.about, href: '/#about' },
-        { label: t.footer.groups.museum.history, href: '/#about' },
         { label: t.footer.groups.museum.today, href: '/#stories' },
       ],
     },
@@ -22,8 +34,11 @@ export default function ClosingFooter() {
       title: t.footer.groups.collection.title,
       links: [
         { label: t.footer.groups.collection.explore, href: '/collection' },
-        { label: t.footer.groups.collection.karakalpak, href: '/#collection' },
-        { label: t.footer.groups.collection.avantGarde, href: '/collection' },
+        {
+          label: t.footer.groups.collection.karakalpak,
+          href: '/collection?category=karakalpak-arts',
+        },
+        { label: t.footer.groups.collection.avantGarde, href: '/collection?category=avant-garde' },
       ],
     },
     {
@@ -37,15 +52,15 @@ export default function ClosingFooter() {
       title: t.footer.groups.stories.title,
       links: [
         { label: t.footer.groups.stories.explore, href: '/stories' },
-        { label: t.footer.groups.stories.people, href: '/stories' },
+        { label: t.footer.groups.stories.people, href: '/stories#people' },
       ],
     },
     {
       title: t.footer.groups.visit.title,
       links: [
         { label: t.footer.groups.visit.plan, href: '/visit' },
-        { label: t.footer.groups.visit.hours, href: '/visit' },
-        { label: t.footer.groups.visit.gettingHere, href: '/visit' },
+        { label: t.footer.groups.visit.hours, href: '/visit#hours' },
+        { label: t.footer.groups.visit.gettingHere, href: '/visit#location' },
       ],
     },
   ];
@@ -70,7 +85,9 @@ export default function ClosingFooter() {
                 <ul>
                   {group.links.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href}>{link.label}</Link>
+                      <Link href={link.href} onClick={(event) => openHomeSection(event, link.href)}>
+                        {link.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>

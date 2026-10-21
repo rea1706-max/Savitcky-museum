@@ -89,9 +89,6 @@ export default function AboutMuseum() {
                   <Link href="/collection">
                     {t.collection.explore} <Arrow />
                   </Link>
-                  <Link href="/#stories">
-                    {t.nav.stories} <Arrow />
-                  </Link>
                 </div>
               </div>
             </div>

@@ -29,5 +29,6 @@ jobs:
       - name: Type-check
         run: npm run type-check
 
+      # next/font downloads Google Fonts during the build; retry once on a network blip.
       - name: Build production bundle
-        run: npm run build
+        run: npm run build || (sleep 15 && npm run build)

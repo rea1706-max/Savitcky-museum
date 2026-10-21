@@ -30,11 +30,11 @@ export default function PatternCultureChapter() {
           data-woven-ornament
           className={styles.ornament}
           viewBox="120 0 1200 800"
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio="xMidYMid meet"
           fill="none"
           aria-hidden="true"
         >
-          <path data-weave-rule d="M0 18H1200" />
+          <path data-weave-rule d="M600 18H840" />
           <circle data-weave-point cx="720" cy="18" r="5" />
           <path data-weave-node d="m720 2 16 16-16 16-16-16 16-16" />
           <path data-weave-thread d="M720 34v96" />

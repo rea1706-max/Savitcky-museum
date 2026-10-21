@@ -101,6 +101,20 @@ Today масштабируются от ширины своей колонки (
 слово на любом из четырёх языков не разрывается. CTA Karakalpak Arts открывает каталог с
 активным фильтром `/collection?category=karakalpak-arts`.
 
+## Navigation and Museum Today / Навигация и «Музей сегодня»
+
+Header and footer links to home sections (`/#about`, `/#whats-on`, `/#collection`, `/#stories`)
+open the section instantly through `src/lib/sectionNavigation.ts`, from any page: What’s On and
+Collection land on the exact frame of the pinned journey. `/stories` is the **Museum Today**
+media page — Videos, Reviews, People and Materials. Each slot in `StoriesClient.tsx` takes a
+photo now and plays a clip once its `video` field is set; captions sit under every slot.
+
+Ссылки шапки и подвала на разделы главной открывают раздел сразу, с любой страницы
+(`src/lib/sectionNavigation.ts`); Афиша и Коллекция попадают точно в свой кадр закреплённого
+перехода. `/stories` — медиастраница **«Музей сегодня»**: Видео, Отзывы, Люди и Материалы.
+Каждая ячейка в `StoriesClient.tsx` сейчас показывает фото и начнёт проигрывать ролик, как только
+заполнено поле `video`; под каждой ячейкой есть подпись.
+
 ## Language and identity / Язык и айдентика
 
 The EN, RU, UZ, and KK controls translate the current view immediately on every route. The choice

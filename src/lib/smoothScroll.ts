@@ -11,6 +11,8 @@ export function setSmoothScroller(lenis: Lenis | null) {
 export function scrollToPosition(top: number, immediate = false) {
   const target = Math.max(0, top);
   if (instance) {
+    // Pins and late images change the page height; re-measure so the target is not clamped.
+    instance.resize();
     instance.scrollTo(target, immediate ? { immediate: true, force: true } : { force: true });
     return;
   }

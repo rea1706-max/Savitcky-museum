@@ -4,89 +4,16 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLanguage, type Locale } from '@/lib/i18n';
-import { pauseSmoothScroll, scrollToPosition } from '@/lib/smoothScroll';
+import { pauseSmoothScroll } from '@/lib/smoothScroll';
+import { homeSectionFromHref, jumpToSection } from '@/lib/sectionNavigation';
 
 type NavLink = {
   label: string;
   href: string;
-  anchor?: string;
+  anchor: string;
 };
 
 const languages: Locale[] = ['KK', 'RU', 'UZ', 'EN'];
-let activeAnchorRequest = 0;
-
-function jumpToScrollPosition(top: number) {
-  const previousScrollBehavior = document.documentElement.style.scrollBehavior;
-  document.documentElement.style.scrollBehavior = 'auto';
-  scrollToPosition(top, true);
-  document.documentElement.style.scrollBehavior = previousScrollBehavior;
-}
-
-function scrollToAnchor(element: HTMLElement) {
-  const request = ++activeAnchorRequest;
-  const journey = document.querySelector<HTMLElement>('[data-collection-journey]');
-
-  if (element.id === 'collection' && journey) {
-    const dispatchWhenReady = (attempt = 0) => {
-      if (request !== activeAnchorRequest) return;
-
-      const currentJourney = document.querySelector<HTMLElement>('[data-collection-journey]');
-      const currentCollection = document.getElementById('collection') ?? element;
-      if (!currentJourney) return;
-
-      const alignResponsiveCollection = () => {
-        if (request !== activeAnchorRequest) return;
-        const liveCollection = document.getElementById('collection') ?? currentCollection;
-        const navigationHeight =
-          document.querySelector<HTMLElement>('[data-site-navigation]')?.offsetHeight ?? 72;
-        const offset = liveCollection.getBoundingClientRect().top - navigationHeight;
-        if (Math.abs(offset) > 8) scrollToPosition(window.scrollY + offset);
-      };
-
-      if (currentJourney.dataset.collectionNavigationReady === 'true') {
-        // Phones stack the collection vertically, so it is reached like any section.
-        if (currentJourney.dataset.collectionScrollTarget === undefined) {
-          alignResponsiveCollection();
-          return;
-        }
-        const journeyTarget = Number(currentJourney.dataset.collectionScrollTarget);
-        if (Number.isFinite(journeyTarget)) {
-          const alignJourneyCollection = () => {
-            if (request !== activeAnchorRequest) return;
-            const liveJourney = document.querySelector<HTMLElement>('[data-collection-journey]');
-            const liveTarget = Number(liveJourney?.dataset.collectionScrollTarget);
-            if (Number.isFinite(liveTarget)) jumpToScrollPosition(liveTarget);
-          };
-
-          alignJourneyCollection();
-          window.setTimeout(alignJourneyCollection, 120);
-          window.setTimeout(alignJourneyCollection, 500);
-          return;
-        }
-      }
-
-      if (attempt === 0) {
-        const stage = currentJourney.querySelector<HTMLElement>('[data-journey-stage]');
-        if (stage) scrollToPosition(window.scrollY + stage.getBoundingClientRect().top);
-      }
-
-      if (attempt < 80) {
-        window.setTimeout(() => dispatchWhenReady(attempt + 1), 100);
-        return;
-      }
-
-      alignResponsiveCollection();
-    };
-
-    dispatchWhenReady();
-    return;
-  }
-
-  // What's On lives inside a pinned track. Its own bounding box moves with
-  // ScrollTrigger; the outer journey stays at a stable document position.
-  const target = element.id === 'whats-on' ? (journey ?? element) : element;
-  scrollToPosition(window.scrollY + target.getBoundingClientRect().top - 76);
-}
 
 export default function Header({ openingSequence = false }: { openingSequence?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
@@ -100,7 +27,7 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
     { label: t.nav.about, href: '/#about', anchor: 'about' },
     { label: t.nav.whatsOn, href: '/#whats-on', anchor: 'whats-on' },
     { label: t.nav.collection, href: '/#collection', anchor: 'collection' },
-    { label: t.nav.stories, href: '/stories' },
+    { label: t.nav.stories, href: '/#stories', anchor: 'stories' },
   ];
 
   useEffect(() => {
@@ -122,50 +49,25 @@ export default function Header({ openingSequence = false }: { openingSequence?: 
     };
   }, [menuOpen]);
 
-  // Navigate to homepage anchor — works from any page
+  // Every item opens its home section directly, from any page, with no scroll-through.
   const handleNavClick = (e: React.MouseEvent, link: NavLink) => {
     e.preventDefault();
-    activeAnchorRequest += 1;
     setMenuOpen(false);
     document.body.style.overflow = '';
 
-    if (!link.anchor) {
-      router.push(link.href);
-      return;
-    }
-
-    if (link.anchor === 'hero' || link.href === '/') {
-      if (pathname === '/') {
-        window.history.pushState(null, '', '/');
-        scrollToPosition(0);
-      } else {
-        router.push('/');
-      }
-      return;
-    }
-
     if (pathname === '/') {
-      // Already on homepage — scroll to anchor
-      const el = document.getElementById(link.anchor);
-      if (el) {
-        window.history.pushState(null, '', link.href);
-        scrollToAnchor(el);
-      }
+      window.history.pushState(null, '', link.anchor === 'hero' ? '/' : link.href);
+      jumpToSection(link.anchor);
     } else {
-      // On a subpage — navigate to homepage with hash
       router.push(link.href);
     }
   };
 
-  // After navigating to homepage with hash, scroll to anchor
+  // Arriving on the home page with a section hash (from another page or a shared link).
   useEffect(() => {
-    if (pathname === '/' && window.location.hash) {
-      const anchor = window.location.hash.replace('#', '');
-      const el = document.getElementById(anchor);
-      if (el) {
-        setTimeout(() => scrollToAnchor(el), 300);
-      }
-    }
+    if (pathname !== '/') return;
+    const section = homeSectionFromHref(`/${window.location.hash}`);
+    if (section) jumpToSection(section);
   }, [pathname]);
 
   return (

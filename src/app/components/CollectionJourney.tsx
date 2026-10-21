@@ -31,15 +31,10 @@ export default function CollectionJourney({ children }: { children: ReactNode })
           <div className={styles.exitPanel} data-exit-panel>
             {children}
           </div>
-          {/* The seam carries the eye out of the dark: charcoal gives way to earth,
-              clay and sand in diagonal bands until the ivory collection takes over. */}
+          {/* The seam carries the eye out of the dark: one long, soft gradient from
+              charcoal through warm earth into the ivory of the collection. */}
           <div className={styles.seam} data-journey-seam aria-hidden="true">
-            <span className={styles.seamEarth} data-seam-layer="earth" />
-            <span className={styles.seamClay} data-seam-layer="clay" />
-            <span className={styles.seamSand} data-seam-layer="sand" />
-            <svg className={styles.seamLine} viewBox="0 0 400 800" preserveAspectRatio="none">
-              <path data-seam-line d="M0 120 400 560" />
-            </svg>
+            <span className={styles.seamGlow} data-seam-glow />
           </div>
           <CollectionConstellation />
         </div>

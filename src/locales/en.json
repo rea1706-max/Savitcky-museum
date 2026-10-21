@@ -48,7 +48,7 @@
     "about": "About",
     "whatsOn": "What's On",
     "collection": "Collection",
-    "stories": "Stories",
+    "stories": "Museum Today",
     "planVisit": "Plan Your Visit"
   },
   "hero": {
@@ -131,14 +131,14 @@
   "museumToday": {
     "label": "Current Life",
     "title": "MUSEUM TODAY",
-    "note": "(reels, reviews, visitor videos and moments from social media will appear here)",
+    "note": "(reels, video reviews and everyday museum life will appear here)",
     "subtitle": "Conservation · Living Archive · Nukus",
     "kicker": "Living Archive",
     "copyLine1": "Preserving fragile surfaces.",
     "copyLine2": "Cataloging rare acquisitions.",
     "copyLine3": "Connecting Nukus to",
     "copyLine4": "the global art dialogue.",
-    "cta": "Explore Stories",
+    "cta": "Videos and reviews",
     "noteLine1": "Nukus, Karakalpakstan",
     "noteLine2": "Open Tuesday–Sunday",
     "noteLine3": "09:00 — 18:00",
@@ -185,9 +185,9 @@
         "all": "Exhibition Archive"
       },
       "stories": {
-        "title": "Stories",
-        "explore": "Explore Stories",
-        "people": "People · Places · Ideas"
+        "title": "Media",
+        "explore": "Videos and reviews",
+        "people": "People"
       },
       "visit": {
         "title": "Visit",
@@ -353,27 +353,33 @@
     }
   },
   "storiesPage": {
-    "badge": "STORIES & ARCHIVE",
-    "titleLine1": "Stories",
-    "titleLine2": "From the archive",
-    "introLine1": "Films. Research. Publications. People.",
-    "introLine2": "The museum continues beyond the walls.",
-    "browseJournal": "Browse the journal",
-    "featuredReel": "FEATURED FILM",
-    "featuredTitle": "Inside the Vaults",
-    "featuredSubtitle": "A collection that lives on",
-    "livingArchive": "Living archive",
-    "location": "Nukus · Karakalpakstan",
-    "archiveIndex": "Museum archive · 2026",
-    "journalTitle": "The journal",
-    "categories": {
-      "reels": "Reels",
-      "research": "Research",
-      "publications": "Publications",
-      "history": "History"
+    "badge": "Living archive · Nukus",
+    "title": "Museum Today",
+    "intro": "Videos, visitor reviews, people and moments from museum life.",
+    "sections": {
+      "videos": {
+        "title": "Videos",
+        "note": "(reels, video stories and social media moments will appear here)"
+      },
+      "reviews": {
+        "title": "Reviews",
+        "note": "(visitor video and text reviews will appear here)"
+      },
+      "people": {
+        "title": "People",
+        "note": "(stories of staff, craftspeople and guests will appear here)"
+      },
+      "materials": {
+        "title": "Materials",
+        "note": "Restoration, research and museum publications."
+      }
     },
-    "closingStatement": "Every object carries more than one history.",
-    "closingSub": "New stories from Nukus, added throughout the year.",
+    "slots": {
+      "video": "Video",
+      "review": "Review",
+      "person": "Museum people",
+      "caption": "(caption and text below the material)"
+    },
     "stories": [
       {
         "number": "02",

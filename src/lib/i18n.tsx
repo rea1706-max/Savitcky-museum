@@ -276,26 +276,13 @@ export interface Translations {
   };
   storiesPage: {
     badge: string;
-    titleLine1: string;
-    titleLine2: string;
-    introLine1: string;
-    introLine2: string;
-    browseJournal: string;
-    featuredReel: string;
-    featuredTitle: string;
-    featuredSubtitle: string;
-    livingArchive: string;
-    location: string;
-    archiveIndex: string;
-    journalTitle: string;
-    categories: {
-      reels: string;
-      research: string;
-      publications: string;
-      history: string;
-    };
-    closingStatement: string;
-    closingSub: string;
+    title: string;
+    intro: string;
+    sections: Record<
+      'videos' | 'reviews' | 'people' | 'materials',
+      { title: string; note: string }
+    >;
+    slots: { video: string; review: string; person: string; caption: string };
     stories: Array<{
       number: string;
       type: string;
@@ -441,7 +428,7 @@ export function LanguageProvider({
       : pathname.startsWith('/exhibitions')
         ? copy.exhibitionsPage.title
         : pathname.startsWith('/stories')
-          ? `${copy.storiesPage.titleLine1} ${copy.storiesPage.titleLine2}`
+          ? copy.storiesPage.title
           : pathname.startsWith('/visit')
             ? `${copy.visitPage.titleLine1} ${copy.visitPage.titleLine2}`
             : copy.opening.city;
