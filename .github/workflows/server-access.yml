@@ -2,9 +2,9 @@ name: Server access
 
 # One-off maintenance: installs the maintainer's public deploy key on the site server
 # (87.192.248.137, SSH on port 2222) and reports the state of the auto-deploy, so the
-# server can then be managed by key. The login lives only in repository secrets:
-# SITE_SSH_PASSWORD, and SITE_SSH_USER when it is known. The result (never the
-# password) is written to the run summary, which is readable without signing in.
+# server can then be managed by key. The user is admin; the password lives only in
+# the SITE_SSH_PASSWORD secret. The result (never the password) is written to the
+# run summary, which is readable without signing in.
 on:
   workflow_dispatch:
   push:
@@ -24,15 +24,20 @@ jobs:
       SSHPASS: ${{ secrets.SITE_SSH_PASSWORD }}
       SITE_SSH_USER: ${{ secrets.SITE_SSH_USER }}
     steps:
-      - name: Install sshpass
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
-
       - name: Install deploy key and report deploy state
         run: |
           set -u
           summary() { echo "$1" | tee -a "$GITHUB_STEP_SUMMARY"; }
+          summary "## Server access to $HOST:$PORT"
           if [ -z "$SSHPASS" ]; then summary "SITE_SSH_PASSWORD secret is empty"; exit 1; fi
-          users="${SITE_SSH_USER:-sheri user root}"
+          if ! command -v sshpass >/dev/null; then
+            sudo apt-get install -y -qq sshpass >/dev/null 2>&1 \
+              || { sudo apt-get update -qq >/dev/null 2>&1 && sudo apt-get install -y -qq sshpass >/dev/null 2>&1; } \
+              || { summary "could not install sshpass on the runner"; exit 1; }
+          fi
+          # The site server's login is admin; a SITE_SSH_USER secret is tried after it.
+          users="admin"
+          [ -n "$SITE_SSH_USER" ] && [ "$SITE_SSH_USER" != admin ] && users="$users $SITE_SSH_USER"
           cat > remote.sh <<'EOF'
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
