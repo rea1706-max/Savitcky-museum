@@ -137,6 +137,7 @@ export interface Translations {
   museumToday: {
     label: string;
     title: string;
+    note: string;
     subtitle: string;
     kicker: string;
     copyLine1: string;

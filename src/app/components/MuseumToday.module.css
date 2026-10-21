@@ -307,6 +307,16 @@
   overflow-wrap: break-word;
 }
 
+.titleNote {
+  margin: 14px 0 0;
+  max-width: 52ch;
+  color: rgb(232 223 207 / 0.5);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+}
+
 .kicker {
   margin: clamp(32px, 4.5vh, 54px) 0 26px;
   font-size: 14px;

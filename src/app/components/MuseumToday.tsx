@@ -66,6 +66,9 @@ export default function MuseumToday() {
                 {t.museumToday.title}
               </h2>
             </div>
+            <p data-museum-title-note className={styles.titleNote}>
+              {t.museumToday.note}
+            </p>
             <p data-museum-copy className={styles.copy}>
               {t.museumToday.copyLine1}
               <br />

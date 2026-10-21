@@ -446,6 +446,7 @@ export default function OpeningSequence() {
           [data-hero-copy] { width: 84vw !important; max-width: 84vw !important; }
           [data-hero-title] h1 { font-size: 16.5vw !important; }
           [data-art-caption] { max-width: 105px !important; }
+          [data-scroll-cue] { display: none !important; }
         }
         @media (prefers-reduced-motion: reduce) {
           .scroll-dot-anim { animation: none; }

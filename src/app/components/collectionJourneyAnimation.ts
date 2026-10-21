@@ -35,7 +35,7 @@ export function createCollectionJourney(root: HTMLElement) {
         gsap.set(bridgeVolkov, {
           xPercent: 18,
           opacity: 0,
-          clipPath: 'polygon(100% 20%, 100% 20%, 100% 80%, 100% 80%)',
+          clipPath: 'polygon(18% 20%, 100% 20%, 100% 80%, 86% 80%, 0 80%, 0 22%)',
         });
         gsap.set(select('[data-static-hinge]'), {
           scaleX: 0.52,
@@ -45,10 +45,10 @@ export function createCollectionJourney(root: HTMLElement) {
         gsap.set(select('[data-collection-label]'), { autoAlpha: 0 });
         gsap.set(select('[data-collection-title]'), { yPercent: 112 });
         gsap.set(select('[data-volkov-mask]'), {
-          clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)',
+          clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%, 0 100%)',
         });
         gsap.set(select('[data-vessel-mask]'), {
-          clipPath: 'polygon(50% 48%, 50% 48%, 50% 52%, 50% 52%)',
+          clipPath: 'polygon(50% 48%, 50% 48%, 50% 52%, 50% 52%, 50% 52%)',
         });
         gsap.set(select('[data-volkov-caption], [data-vessel-caption]'), { autoAlpha: 0 });
         gsap.set(select('[data-collection-copy], [data-collection-cta]'), { autoAlpha: 0 });
@@ -126,8 +126,6 @@ export function createCollectionJourney(root: HTMLElement) {
           select('[data-static-hinge]'),
           {
             backgroundColor: '#8a7258',
-            clipPath:
-              'polygon(0% 48.5%, 45% 48.5%, 50% 38%, 55% 48.5%, 100% 48.5%, 100% 51.5%, 55% 51.5%, 50% 62%, 45% 51.5%, 0% 51.5%)',
             scaleX: 1.28,
             opacity: 0.72,
             duration: 20,
@@ -226,7 +224,7 @@ export function createCollectionJourney(root: HTMLElement) {
         gsap.set(select('[data-textile-field]'), {
           autoAlpha: 0.12,
           scale: 1.04,
-          clipPath: 'polygon(100% 16%, 100% 16%, 100% 86%, 100% 86%)',
+          clipPath: 'polygon(100% 16%, 100% 16%, 100% 86%, 100% 86%, 100% 86%, 100% 16%)',
           transformOrigin: '82% 50%',
         });
         gsap.set(select('[data-red-fiber]'), {
@@ -277,7 +275,7 @@ export function createCollectionJourney(root: HTMLElement) {
           select('[data-textile-field]'),
           {
             scale: 1,
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 0 0)',
             duration: 30,
             ease: 'power2.inOut',
           },
@@ -360,7 +358,7 @@ export function createCollectionJourney(root: HTMLElement) {
           {
             xPercent: 14,
             opacity: 0.08,
-            clipPath: 'polygon(90% 18%, 100% 18%, 100% 82%, 90% 82%)',
+            clipPath: 'polygon(18% 18%, 100% 18%, 100% 84%, 86% 84%, 0 84%, 0 22%)',
           },
           {
             xPercent: 0,
@@ -422,7 +420,7 @@ export function createCollectionJourney(root: HTMLElement) {
         );
         collectionReveal.fromTo(
           select('[data-volkov-mask]'),
-          { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' },
+          { clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%, 0 100%)' },
           {
             clipPath: 'polygon(0 0, 100% 0, 100% 88%, 93% 100%, 0 100%)',
             duration: 0.48,
@@ -432,7 +430,7 @@ export function createCollectionJourney(root: HTMLElement) {
         );
         collectionReveal.fromTo(
           select('[data-vessel-mask]'),
-          { clipPath: 'polygon(50% 48%, 50% 48%, 50% 52%, 50% 52%)' },
+          { clipPath: 'polygon(50% 48%, 50% 48%, 50% 52%, 50% 52%, 50% 52%)' },
           {
             clipPath: 'polygon(0 7%, 8% 0, 100% 0, 100% 100%, 0 100%)',
             duration: 0.46,
