@@ -31,6 +31,9 @@ const playfair = Playfair_Display({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  // The browser bar takes the opening scene's colour, so no light strip shows above it on phones.
+  viewportFit: 'cover',
+  themeColor: '#191816',
 };
 
 export const metadata: Metadata = {

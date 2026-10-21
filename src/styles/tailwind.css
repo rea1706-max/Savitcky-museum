@@ -36,6 +36,8 @@
 
   html {
     scroll-behavior: smooth;
+    /* Overscroll above the dark opening scene shows charcoal instead of the ivory page. */
+    background-color: #191816;
   }
 
   body {

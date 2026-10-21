@@ -68,6 +68,12 @@
   pointer-events: none;
 }
 
+/* Wider than the panel, so the parallax slide never uncovers the dark base at the edge. */
+.bridgeEarth,
+.bridgePaper {
+  inset: 0 -10% 0 0;
+}
+
 .bridgePrevious,
 .bridgeFuture {
   position: absolute;
@@ -242,7 +248,7 @@
 .collectionTitle {
   margin: 0;
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(52px, 4.8vw, 79px);
+  font-size: clamp(44px, min(4.8vw, 7.6vh), 79px);
   font-weight: 400;
   letter-spacing: -0.045em;
   line-height: 0.91;
@@ -305,7 +311,7 @@
 
 .objects {
   position: absolute;
-  inset: 43% 0 8vh;
+  inset: 45% 0 8vh;
 }
 
 .volkov,
@@ -385,6 +391,20 @@
   color: color-mix(in srgb, var(--museum-charcoal) 62%, var(--museum-earth));
   letter-spacing: 0.06em;
   text-align: right;
+}
+
+.vessel .objectLink figcaption {
+  display: block;
+}
+
+.vessel .gatewayTitle,
+.vessel .gatewayMeta {
+  display: block;
+  text-align: left;
+}
+
+.vessel .gatewayMeta {
+  margin-top: 4px;
 }
 
 .archiveRule {

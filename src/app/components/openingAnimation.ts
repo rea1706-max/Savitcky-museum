@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // This module is loaded by the opening's client effect, never during SSR.
 export function createOpeningAnimation(root: HTMLDivElement) {
   gsap.registerPlugin(ScrollTrigger);
+  // The phone address bar showing or hiding must not re-measure the pins mid-scroll.
+  ScrollTrigger.config({ ignoreMobileResize: true });
   const select = gsap.utils.selector(root);
   const hero = root.querySelector<HTMLElement>('#opening-hero')!;
   let disposed = false;

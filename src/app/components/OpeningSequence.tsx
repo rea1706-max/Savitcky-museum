@@ -366,6 +366,7 @@ export default function OpeningSequence() {
         {/* ── SCENE 03: METADATA ── */}
         <div
           data-art-caption
+          data-art-meta
           style={{
             position: 'absolute',
             bottom: '10vh',
@@ -447,6 +448,16 @@ export default function OpeningSequence() {
           [data-hero-title] h1 { font-size: 16.5vw !important; }
           [data-art-caption] { max-width: 105px !important; }
           [data-scroll-cue] { display: none !important; }
+        }
+        /* Phones: fill the screen even after the address bar hides, and lift the copy
+           by the bar's height so it is never tucked underneath it. */
+        @supports (height: 100lvh) {
+          @media (max-width: 1023px) {
+            #opening-hero { height: 100lvh !important; }
+            [data-hero-copy], [data-art-meta] {
+              bottom: calc(100lvh - 100svh + 9svh) !important;
+            }
+          }
         }
         @media (prefers-reduced-motion: reduce) {
           .scroll-dot-anim { animation: none; }

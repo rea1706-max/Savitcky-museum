@@ -27,3 +27,14 @@ html[data-museum-archive] nav[data-site-navigation] a.border {
 html[data-museum-archive] nav[data-site-navigation] :is(a, button):hover {
   color: var(--museum-ochre);
 }
+
+/* Header colour changes ease in over the scroll instead of switching at a threshold. */
+nav[data-site-navigation] {
+  transition:
+    background-color 0.7s ease,
+    border-color 0.7s ease;
+}
+
+nav[data-site-navigation] :is(a, button, span) {
+  transition: color 0.7s ease;
+}
