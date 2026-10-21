@@ -1,0 +1,40 @@
+name: Server access
+
+# One-off maintenance: installs the maintainer's public deploy key on the server and
+# reports the state of the auto-deploy, so the server can then be managed by key.
+# The password lives only in the SERVER_PASSWORD repository secret.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/server-access.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Install deploy key and report deploy state
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: 109.94.173.250
+          username: user
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            set -u
+            mkdir -p ~/.ssh && chmod 700 ~/.ssh
+            touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+            KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2DtZzqVPMTKnu9SEfs8RrRVffx/yV2zyKbYzrJTzn0 claude-savitsky-deploy'
+            grep -qF "$KEY" ~/.ssh/authorized_keys || echo "$KEY" >> ~/.ssh/authorized_keys
+            echo "deploy key: installed"
+            echo "--- deploy timer"
+            systemctl is-active savitsky-deploy.timer 2>&1 || true
+            echo "--- checkouts"
+            for d in ~/savitsky-museum /home/sheri/savitsky-museum; do
+              [ -d "$d/.git" ] && (cd "$d" && echo "$d: $(git log -1 --format=%h 2>&1) dirty=$(git status --porcelain 2>/dev/null | wc -l)")
+            done
+            echo "--- containers"
+            docker ps --format '{{.Names}} {{.Status}}' 2>&1 | head -n 10 || true
