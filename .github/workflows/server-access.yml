@@ -27,7 +27,11 @@ jobs:
       - name: Install deploy key and report deploy state
         run: |
           set -u
-          summary() { echo "$1" | tee -a "$GITHUB_STEP_SUMMARY"; }
+          # Annotations are readable without signing in, unlike the logs.
+          summary() {
+            echo "$1" >> "$GITHUB_STEP_SUMMARY"
+            [ "$1" = '```' ] || echo "::notice title=server-access::$(echo "$1" | tr '\n' '|')"
+          }
           summary "## Server access to $HOST:$PORT"
           if [ -z "$SSHPASS" ]; then summary "SITE_SSH_PASSWORD secret is empty"; exit 1; fi
           if ! command -v sshpass >/dev/null; then
