@@ -1,8 +1,9 @@
 name: Server access
 
-# One-off maintenance: installs the maintainer's public deploy key on the server and
-# reports the state of the auto-deploy, so the server can then be managed by key.
-# The password lives only in the SERVER_PASSWORD repository secret.
+# One-off maintenance: installs the maintainer's public deploy key on the site server
+# (87.192.248.137, SSH on port 2222) and reports the state of the auto-deploy, so the
+# server can then be managed by key. The login lives only in repository secrets:
+# SITE_SSH_PASSWORD, and SITE_SSH_USER when it is not "sheri".
 on:
   workflow_dispatch:
   push:
@@ -20,9 +21,10 @@ jobs:
       - name: Install deploy key and report deploy state
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: 109.94.173.250
-          username: user
-          password: ${{ secrets.SERVER_PASSWORD }}
+          host: 87.192.248.137
+          port: 2222
+          username: ${{ secrets.SITE_SSH_USER || 'sheri' }}
+          password: ${{ secrets.SITE_SSH_PASSWORD }}
           script: |
             set -u
             mkdir -p ~/.ssh && chmod 700 ~/.ssh
