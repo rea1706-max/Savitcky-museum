@@ -123,7 +123,7 @@
     "aside2": ""
   },
   "desert": {
-    "coordinates": "42°27′49″A 59°36′20″SH",
+    "coordinates": "42°27′56″A 59°36′47″SH",
     "region": "Qızılqum shóli · Nókis",
     "quoteLine1": "«Kórkem óner batırlıq hám sadıqlıq",
     "quoteLine2": "tutashqan jerde jasaydı»."
@@ -131,7 +131,7 @@
   "museumToday": {
     "label": "Muzey búgin",
     "title": "MUZEY BÚGIN",
-    "note": "(bul jerde reels, video pikirler hám muzeydiń kúndelik turmısı boladı)",
+    "note": "(bul jerde reels, pikirler, videolar hám muzeydiń kúndelik turmısı boladı)",
     "subtitle": "Qayta tiklew · Tiri arxiv · Nókis",
     "kicker": "Tiri arxiv",
     "copyLine1": "Názik polotnolardı saqlaw.",
@@ -601,6 +601,23 @@
         "question": "Ilimiy izertlewshiler arxivten qalay paydalansa boladı?",
         "answer": "Ilimiy xızmetkerler research@museum.kr.uz mámziline rásmiy xat jollap, qor materialları menen islesiwge ruqsat ala aladı."
       }
-    ]
+    ],
+    "quick": {
+      "addressTitle": "Mánzil hám jol",
+      "addressDetail": "Doslıq kóshesi, 2 · Qala orayı",
+      "hoursTitle": "Jumıs waqtı",
+      "hoursDetail": "09:00 – 18:00 (Si–Ek) · Dú: dem alıs",
+      "ticketsTitle": "Biletler hám bahalar",
+      "ticketsDetail": "25 000 UZS-tan · 1-ekshembi: biypul",
+      "accessTitle": "Qolaylı ortalıq",
+      "accessDetail": "Panduslar, liftler, kiyim ilgish"
+    },
+    "map": {
+      "title": "Interaktiv karta: I.V. Savickiy atındaǵı Mámleketlik kórkem óner muzeyi",
+      "badge": "Savickiy muzeyi · T. Qayıpbergenov kóshesi, 52 / Doslıq kóshesi, 2",
+      "address": "Nókis, T. Qayıpbergenov kóshesi, 52 / Doslıq kóshesi, 2",
+      "routeYandex": "Yandex Kartada baǵdar",
+      "routeHint": "Turǵan ornıńızdan muzeyge shekem baǵdar"
+    }
   }
 }

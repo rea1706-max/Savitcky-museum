@@ -288,6 +288,8 @@
   bottom: 0;
   left: 0;
   padding: 36px;
+  /* Titles are sized from this width so the longest word always fits. */
+  container-type: inline-size;
 }
 
 .cardLabel {
@@ -295,10 +297,11 @@
 }
 
 .cardCopy h2 {
-  max-width: 13ch;
+  max-width: 16ch;
   margin: 10px 0 13px;
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(34px, 3.5vw, 54px);
+  font-size: min(clamp(34px, 3.5vw, 54px), 11.5cqi);
+  overflow-wrap: normal;
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 0.98;
@@ -403,7 +406,7 @@
     padding: 27px 24px;
   }
   .cardCopy h2 {
-    font-size: clamp(35px, 11vw, 50px);
+    font-size: min(clamp(30px, 11vw, 50px), 11.5cqi);
   }
 }
 

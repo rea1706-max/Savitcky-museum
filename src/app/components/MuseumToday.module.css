@@ -299,7 +299,7 @@
   display: block;
   margin: 0;
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: min(clamp(40px, 4.8vw, 84px), 19cqi);
+  font-size: min(clamp(34px, 3.6vw, 62px), 19cqi);
   font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 0.95;
@@ -330,10 +330,10 @@
 .copy {
   margin: 0;
   color: color-mix(in srgb, var(--today-bone) 84%, var(--today-earth));
-  font-size: clamp(16px, 1.25vw, 20px);
+  font-size: clamp(14px, 1.05vw, 17px);
   font-weight: 400;
-  letter-spacing: 0.08em;
-  line-height: 1.45;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
 }
 
 .primaryCta {
@@ -573,7 +573,7 @@
 
   .intro h2,
   .titleClip > span {
-    font-size: min(clamp(58px, 7.6vw, 92px), 19cqi);
+    font-size: min(clamp(44px, 6vw, 68px), 19cqi);
   }
 
   .mainVisual {
@@ -696,7 +696,7 @@
 
   .intro h2,
   .titleClip > span {
-    font-size: min(clamp(32px, 10vw, 54px), 19cqi);
+    font-size: min(clamp(30px, 9vw, 44px), 19cqi);
     line-height: 1.05;
   }
 
@@ -707,7 +707,7 @@
   }
 
   .copy {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .primaryCta {

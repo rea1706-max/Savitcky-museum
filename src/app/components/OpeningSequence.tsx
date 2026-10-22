@@ -375,6 +375,9 @@ export default function OpeningSequence() {
             display: 'flex',
             flexDirection: 'column',
             gap: '5px',
+            // Its own width, not the narrow column it sits in: long names stay on one line.
+            width: 'max-content',
+            maxWidth: '84vw',
             opacity: 0,
           }}
         >
@@ -446,7 +449,7 @@ export default function OpeningSequence() {
         @media (max-width: 639px) {
           [data-hero-copy] { width: 84vw !important; max-width: 84vw !important; }
           [data-hero-title] h1 { font-size: 16.5vw !important; }
-          [data-art-caption] { max-width: 105px !important; }
+          [data-art-caption]:not([data-art-meta]) { max-width: 105px !important; }
           [data-scroll-cue] { display: none !important; }
         }
         /* Phones: fill the screen even after the address bar hides, and lift the copy

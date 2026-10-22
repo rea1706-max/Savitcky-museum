@@ -123,7 +123,7 @@
     "aside2": ""
   },
   "desert": {
-    "coordinates": "42°27′49″N 59°36′20″E",
+    "coordinates": "42°27′56″N 59°36′47″E",
     "region": "Kyzylkum Desert · Nukus",
     "quoteLine1": "“Art thrives where courage",
     "quoteLine2": "meets devotion.”"
@@ -131,7 +131,7 @@
   "museumToday": {
     "label": "Current Life",
     "title": "MUSEUM TODAY",
-    "note": "(reels, video reviews and everyday museum life will appear here)",
+    "note": "(reels, reviews, videos and everyday museum life will appear here)",
     "subtitle": "Conservation · Living Archive · Nukus",
     "kicker": "Living Archive",
     "copyLine1": "Preserving fragile surfaces.",
@@ -601,6 +601,23 @@
         "question": "Does the museum offer research or archive access?",
         "answer": "The museum archive and study room are accessible to accredited researchers by appointment. Contact research@museum.kr.uz with your research purpose."
       }
-    ]
+    ],
+    "quick": {
+      "addressTitle": "Address & directions",
+      "addressDetail": "2 Doslyk St · City centre",
+      "hoursTitle": "Opening hours",
+      "hoursDetail": "09:00 – 18:00 (Tue–Sun) · Mon: closed",
+      "ticketsTitle": "Tickets & prices",
+      "ticketsDetail": "From 25,000 UZS · 1st Sun: free",
+      "accessTitle": "Accessibility",
+      "accessDetail": "Ramps, lifts, cloakroom"
+    },
+    "map": {
+      "title": "Interactive map: I.V. Savitsky State Museum of Art",
+      "badge": "Savitsky Museum · 52 T. Kayipbergenov St / 2 Doslyk St",
+      "address": "Nukus, 52 T. Kayipbergenov St / 2 Doslyk St",
+      "routeYandex": "Route in Yandex Maps",
+      "routeHint": "Directions from your location to the museum"
+    }
   }
 }

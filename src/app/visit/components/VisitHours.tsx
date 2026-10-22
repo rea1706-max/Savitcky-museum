@@ -149,7 +149,7 @@ export default function VisitHours() {
           {/* Column 3: Useful Practical Information alongside Diamond Icons */}
           <div className="lg:col-span-3 flex flex-col">
             <span className="text-label text-muted-foreground block mb-5 text-[11px] tracking-widest uppercase font-medium">
-              {t.visitPage.practicalInfo || 'Практическая информация'}
+              {t.visitPage.practicalInfo}
             </span>
 
             <div className="space-y-4">
@@ -169,10 +169,10 @@ export default function VisitHours() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs font-semibold text-foreground tracking-wide group-hover:text-accent transition-colors">
-                    Адрес и проезд
+                    {t.visitPage.quick.addressTitle}
                   </div>
                   <div className="text-[11px] text-muted-foreground leading-snug mt-0.5">
-                    ул. Дослык, 2 · Центр города
+                    {t.visitPage.quick.addressDetail}
                   </div>
                 </div>
               </a>
@@ -198,10 +198,10 @@ export default function VisitHours() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs font-semibold text-foreground tracking-wide group-hover:text-accent transition-colors">
-                    Часы работы
+                    {t.visitPage.quick.hoursTitle}
                   </div>
                   <div className="text-[11px] text-muted-foreground leading-snug mt-0.5">
-                    09:00 – 18:00 (Вт–Вс) · Пн: вых.
+                    {t.visitPage.quick.hoursDetail}
                   </div>
                 </div>
               </a>
@@ -226,10 +226,10 @@ export default function VisitHours() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs font-semibold text-foreground tracking-wide group-hover:text-accent transition-colors">
-                    Билеты и цены
+                    {t.visitPage.quick.ticketsTitle}
                   </div>
                   <div className="text-[11px] text-muted-foreground leading-snug mt-0.5">
-                    От 25 000 UZS · 1-е вс: бесплатно
+                    {t.visitPage.quick.ticketsDetail}
                   </div>
                 </div>
               </a>
@@ -256,10 +256,10 @@ export default function VisitHours() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs font-semibold text-foreground tracking-wide group-hover:text-accent transition-colors">
-                    Доступная среда
+                    {t.visitPage.quick.accessTitle}
                   </div>
                   <div className="text-[11px] text-muted-foreground leading-snug mt-0.5">
-                    Пандусы, лифты, гардероб
+                    {t.visitPage.quick.accessDetail}
                   </div>
                 </div>
               </a>

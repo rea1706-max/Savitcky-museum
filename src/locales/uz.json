@@ -123,7 +123,7 @@
     "aside2": ""
   },
   "desert": {
-    "coordinates": "42°27′49″SH 59°36′20″SH",
+    "coordinates": "42°27′56″ sh.k. 59°36′47″ sh.u.",
     "region": "Qizilqum sahrosi · Nukus",
     "quoteLine1": "“Sanʼat jasorat va sadoqat",
     "quoteLine2": "birlashgan joyda gullab-yashnaydi”."
@@ -131,7 +131,7 @@
   "museumToday": {
     "label": "Muzey hayoti",
     "title": "MUZEY BUGUN",
-    "note": "(bu yerda reels, video sharhlar va muzey kundaligi bo‘ladi)",
+    "note": "(bu yerda reels, sharhlar, videolar va muzey kundaligi bo‘ladi)",
     "subtitle": "Restavratsiya · Tirik arxiv · Nukus",
     "kicker": "Tirik arxiv",
     "copyLine1": "Nafis polotnolarni asrash.",
@@ -601,6 +601,23 @@
         "question": "Tadqiqotchilar arxivdan qanday foydalanishi mumkin?",
         "answer": "Ilmiy xodimlar research@museum.kr.uz orqali rasmiy murojaat qilish orqali arxiv fondlari bilan ishlashlari mumkin."
       }
-    ]
+    ],
+    "quick": {
+      "addressTitle": "Manzil va yoʻl",
+      "addressDetail": "Doʻstlik koʻchasi, 2 · Shahar markazi",
+      "hoursTitle": "Ish vaqti",
+      "hoursDetail": "09:00 – 18:00 (Se–Ya) · Du: dam olish",
+      "ticketsTitle": "Chiptalar va narxlar",
+      "ticketsDetail": "25 000 UZS dan · 1-yakshanba: bepul",
+      "accessTitle": "Qulay muhit",
+      "accessDetail": "Panduslar, liftlar, kiyim ilgich"
+    },
+    "map": {
+      "title": "Interaktiv xarita: I.V. Savitskiy nomidagi Davlat sanʼat muzeyi",
+      "badge": "Savitskiy muzeyi · T. Qayipbergenov koʻchasi, 52 / Doʻstlik koʻchasi, 2",
+      "address": "Nukus, T. Qayipbergenov koʻchasi, 52 / Doʻstlik koʻchasi, 2",
+      "routeYandex": "Yandex Xaritada yoʻnalish",
+      "routeHint": "Joylashuvingizdan muzeygacha yoʻnalish"
+    }
   }
 }

@@ -5,7 +5,7 @@
   color: var(--museum-charcoal);
   /* The seam is this wide relative to one screen-wide panel: wide enough that
      the colour changes slowly. */
-  --seam-ratio: 0.7;
+  --seam-ratio: 0.38;
   --track-ratio: calc(2 + var(--seam-ratio));
 }
 
@@ -69,6 +69,10 @@
   height: 100%;
   overflow: hidden;
   isolation: isolate;
+  /* Bridges the sub-pixel gap at the joins, which otherwise shows as a hairline. */
+  box-shadow:
+    -2px 0 0 var(--museum-charcoal),
+    2px 0 0 var(--seam-end);
   /* Ends on exactly the tint at the collection panel's left edge, so there is no seam. */
   background: linear-gradient(
     90deg,
@@ -638,7 +642,7 @@
 
 @media (max-width: 767px) {
   .journey {
-    --seam-ratio: 0.8;
+    --seam-ratio: 0.45;
   }
   .overviewInner {
     width: 86%;

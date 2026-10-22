@@ -7,7 +7,9 @@ import ruLocale from '@/locales/ru.json';
 import uzLocale from '@/locales/uz.json';
 import kkLocale from '@/locales/kk.json';
 
-export type Locale = 'EN' | 'RU' | 'UZ' | 'KK';
+import { DEFAULT_LOCALE, type Locale } from './locale';
+
+export type { Locale };
 
 export interface Translations {
   ui: {
@@ -303,7 +305,19 @@ export interface Translations {
     lastEntry: string;
     publicHolidaysNote: string;
     days: Record<string, string>;
-    practicalInfo?: string;
+    practicalInfo: string;
+    quick: Record<
+      | 'addressTitle'
+      | 'addressDetail'
+      | 'hoursTitle'
+      | 'hoursDetail'
+      | 'ticketsTitle'
+      | 'ticketsDetail'
+      | 'accessTitle'
+      | 'accessDetail',
+      string
+    >;
+    map: Record<'title' | 'badge' | 'address' | 'routeYandex' | 'routeHint', string>;
     ticketsEyebrow: string;
     ticketsTitle: string;
     ticketsDesc: string;
@@ -369,9 +383,6 @@ interface LanguageContextType {
   setLocale: (locale: Locale) => void;
   t: Translations;
 }
-
-// Karakalpak is the site's first language; a visitor's own choice is remembered.
-export const DEFAULT_LOCALE: Locale = 'KK';
 
 const LanguageContext = createContext<LanguageContextType>({
   locale: DEFAULT_LOCALE,

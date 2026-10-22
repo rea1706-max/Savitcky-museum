@@ -53,8 +53,17 @@ const transitIcons = [
   </svg>,
 ];
 
+// The museum building itself (OpenStreetMap: I.V. Savitsky Museum, Nukus).
+const MUSEUM = { lat: 42.465453, lon: 59.61308 };
+const mapLanguages = { RU: 'ru_RU', EN: 'en_US', UZ: 'uz_UZ', KK: 'uz_UZ' } as const;
+
+// An empty start ("~" first) makes both services route from the visitor's current location.
+const yandexRoute = `https://yandex.ru/maps/?rtext=~${MUSEUM.lat},${MUSEUM.lon}&rtt=auto&mode=routes`;
+const googleRoute = `https://www.google.com/maps/dir/?api=1&destination=${MUSEUM.lat},${MUSEUM.lon}`;
+
 export default function VisitLocation() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
+  const mapSrc = `https://yandex.ru/map-widget/v1/?ll=${MUSEUM.lon}%2C${MUSEUM.lat}&z=17&pt=${MUSEUM.lon}%2C${MUSEUM.lat},pm2rdm&lang=${mapLanguages[locale]}`;
 
   return (
     <section
@@ -123,20 +132,22 @@ export default function VisitLocation() {
               {/* Interactive Live Map */}
               <div className="relative w-full h-[340px] md:h-[400px] border border-border bg-[#F5F1E9] overflow-hidden shadow-sm">
                 <iframe
-                  src="https://yandex.ru/map-widget/v1/?ll=59.610582%2C42.464731&z=16&pt=59.610582%2C42.464731,pm2rdm"
+                  key={mapSrc}
+                  src={mapSrc}
                   width="100%"
                   height="100%"
                   frameBorder="0"
                   allowFullScreen={true}
+                  loading="lazy"
                   className="w-full h-full border-0"
-                  title="Интерактивная карта Государственного музея искусств им. И.В. Савицкого"
+                  title={t.visitPage.map.title}
                 />
 
                 {/* Floating address badge in the corner */}
                 <div className="absolute top-3 left-3 z-10 hidden sm:flex items-center gap-2 bg-background/95 backdrop-blur-md border border-border px-3 py-1.5 shadow-md">
                   <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                   <span className="text-xs font-medium text-foreground">
-                    Музей Савицкого · ул. Т. Кайыпбергенова, 52 / ул. Дослык, 2
+                    {t.visitPage.map.badge}
                   </span>
                 </div>
               </div>
@@ -148,19 +159,20 @@ export default function VisitLocation() {
                     {t.hero.museumName}
                   </div>
                   <div className="text-xs text-muted-foreground mt-0.5">
-                    Нукус, ул. Т. Кайыпбергенова, 52 / ул. Дослык, 2 · Координаты: 42°27′49″ с.ш. 59°36′20″ в.д.
+                    {t.visitPage.map.address} · {t.visitPage.coordinatesLabel}:{' '}
+                    {t.desert.coordinates}
                   </div>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2.5 flex-shrink-0">
                   <a
-                    href="https://yandex.ru/maps/?rtext=~42.464731,59.610582&rtt=auto"
+                    href={yandexRoute}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary text-xs py-2 px-3.5 inline-flex items-center gap-1.5 shadow-sm"
-                    title="Построить маршрут к музею в Яндекс Картах"
+                    title={t.visitPage.map.routeHint}
                   >
-                    <span>Проложить маршрут в Яндекс Картах</span>
+                    <span>{t.visitPage.map.routeYandex}</span>
                     <svg
                       width="12"
                       height="12"
@@ -178,11 +190,11 @@ export default function VisitLocation() {
                   </a>
 
                   <a
-                    href="https://www.google.com/maps/dir/?api=1&destination=42.464731,59.610582"
+                    href={googleRoute}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-secondary text-xs py-2 px-3.5 inline-flex items-center gap-1.5 border border-border bg-background hover:bg-muted transition-colors shadow-sm"
-                    title="Построить маршрут к музею в Google Maps"
+                    title={t.visitPage.map.routeHint}
                   >
                     <span>Google Maps</span>
                     <svg

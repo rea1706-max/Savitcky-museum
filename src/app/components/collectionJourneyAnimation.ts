@@ -1,11 +1,16 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { scrollToPosition } from '@/lib/smoothScroll';
 
 // Timeline units for the horizontal track (What's On → seam → Collection).
 const TRACK_UNITS = 100;
 // A short tail lets the last reveal settle before vertical scrolling resumes.
-const TAIL_UNITS = 8;
+const TAIL_UNITS = 6;
 const TOTAL_UNITS = TRACK_UNITS + TAIL_UNITS;
+// Pixels of scroll per pixel of sideways travel: below 1 the crossing takes one gesture.
+const SCROLL_PER_TRAVEL = 0.55;
+// When scrolling stops mid-crossing, the track glides on to the next panel this long (s).
+const SETTLE_SECONDS = 1;
 
 export function createCollectionJourney(root: HTMLElement) {
   gsap.registerPlugin(ScrollTrigger);
@@ -100,14 +105,15 @@ export function createCollectionJourney(root: HTMLElement) {
           );
         };
 
+        let direction = 1;
         const journeyTrigger = ScrollTrigger.create({
           id: 'savitsky-collection-journey',
           trigger: stage,
           animation: timeline,
           start: 'top top',
-          // One pixel of scroll equals one pixel of sideways travel, so the speed
-          // carries straight over from vertical to horizontal with no jolt.
-          end: () => `+=${distance() * (TOTAL_UNITS / TRACK_UNITS)}`,
+          // A short, steady crossing: the track moves a little faster than the scroll,
+          // so a single gesture carries What's On over to the Collection.
+          end: () => `+=${distance() * SCROLL_PER_TRAVEL * (TOTAL_UNITS / TRACK_UNITS)}`,
           pin: true,
           pinSpacing: true,
           // Touch scrolling is native, so let the pin engage a frame early there.
@@ -117,6 +123,7 @@ export function createCollectionJourney(root: HTMLElement) {
           scrub: true,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
+            direction = self.direction;
             root.toggleAttribute('data-light-stage', self.progress > lightAt);
           },
           onRefresh: (self) => {
@@ -127,7 +134,22 @@ export function createCollectionJourney(root: HTMLElement) {
         });
         publishCollectionTarget(journeyTrigger);
 
+        // Never leave the eye on a half-crossed frame: when scrolling stops mid-way,
+        // glide on in the direction of travel to the whole panel.
+        const settle = () => {
+          const progress = journeyTrigger.progress;
+          if (progress <= 0.02 || progress >= readyAt - 0.01) return;
+          const span = journeyTrigger.end - journeyTrigger.start;
+          scrollToPosition(
+            journeyTrigger.start + (direction > 0 ? span * readyAt : 0),
+            false,
+            SETTLE_SECONDS
+          );
+        };
+        ScrollTrigger.addEventListener('scrollEnd', settle);
+
         return () => {
+          ScrollTrigger.removeEventListener('scrollEnd', settle);
           delete root.dataset.collectionScrollTarget;
           delete root.dataset.journeyStart;
           root.removeAttribute('data-light-stage');

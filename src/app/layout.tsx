@@ -2,7 +2,8 @@ import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import { cookies } from 'next/headers';
 import { DM_Sans, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
-import { DEFAULT_LOCALE, LanguageProvider, type Locale } from '@/lib/i18n';
+import { LanguageProvider } from '@/lib/i18n';
+import { DEFAULT_LOCALE, type Locale } from '@/lib/locale';
 import SmoothScroll from '@/components/SmoothScroll';
 import '../styles/tailwind.css';
 
