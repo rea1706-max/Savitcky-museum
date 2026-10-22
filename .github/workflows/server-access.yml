@@ -1,11 +1,11 @@
 name: Server access
 
-# One-off maintenance: installs the maintainer's public deploy key on the site server
-# (87.192.248.137, SSH on port 2222) and reports the state of the auto-deploy, so the
-# server can then be managed by key. The user is admin; the password lives only in
-# the SITE_SSH_PASSWORD secret. The result (never the password) is written to the
-# run summary, which is readable without signing in. Re-run it from the Actions tab
-# (Run workflow) whenever the key has to be installed again.
+# One-off maintenance: installs the maintainer's public deploy key on the museum's
+# server (82.115.51.36, user ubuntu) and reports what the server offers for hosting
+# the site, so it can then be set up and managed by key. The password lives only in
+# the SSH_PASSWORD secret. Results (never the password) go to annotations, which are
+# readable without signing in. Re-run it from the Actions tab (Run workflow) whenever
+# the key has to be installed again.
 on:
   workflow_dispatch:
   push:
@@ -20,70 +20,61 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      HOST: 87.192.248.137
-      PORT: '2222'
-      SSHPASS: ${{ secrets.SITE_SSH_PASSWORD }}
-      SITE_SSH_USER: ${{ secrets.SITE_SSH_USER }}
+      HOST: 82.115.51.36
+      PORT: '22'
+      LOGIN: ubuntu
+      SSHPASS: ${{ secrets.SSH_PASSWORD }}
     steps:
-      - name: Install deploy key and report deploy state
+      - name: Install deploy key and report server state
         run: |
           set -u
-          # Annotations are readable without signing in, unlike the logs.
           summary() {
             echo "$1" >> "$GITHUB_STEP_SUMMARY"
-            [ "$1" = '```' ] || echo "::notice title=server-access::$(echo "$1" | tr '\n' '|')"
+            echo "::notice title=server-access::$(echo "$1" | tr '\n' '|')"
           }
-          summary "## Server access to $HOST:$PORT"
-          if [ -z "$SSHPASS" ]; then summary "SITE_SSH_PASSWORD secret is empty"; exit 1; fi
+          summary "## Server access to $LOGIN@$HOST:$PORT"
+          if [ -z "$SSHPASS" ]; then summary "SSH_PASSWORD secret is empty or missing"; exit 1; fi
           if ! command -v sshpass >/dev/null; then
             sudo apt-get install -y -qq sshpass >/dev/null 2>&1 \
               || { sudo apt-get update -qq >/dev/null 2>&1 && sudo apt-get install -y -qq sshpass >/dev/null 2>&1; } \
               || { summary "could not install sshpass on the runner"; exit 1; }
           fi
-          # The site server's login is admin; a SITE_SSH_USER secret is tried after it.
-          users="admin"
-          [ -n "$SITE_SSH_USER" ] && [ "$SITE_SSH_USER" != admin ] && users="$users $SITE_SSH_USER"
           cat > remote.sh <<'EOF'
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
           KEY='ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2DtZzqVPMTKnu9SEfs8RrRVffx/yV2zyKbYzrJTzn0 claude-savitsky-deploy'
           grep -qF "$KEY" ~/.ssh/authorized_keys || echo "$KEY" >> ~/.ssh/authorized_keys
-          echo "deploy key: installed for $(whoami)"
-          echo "deploy timer: $(systemctl is-active savitsky-deploy.timer 2>&1)"
-          for d in ~/savitsky-museum /home/*/savitsky-museum; do
-            [ -d "$d/.git" ] && (cd "$d" && echo "checkout $d at $(git log -1 --format=%h 2>&1), uncommitted files: $(git status --porcelain 2>/dev/null | wc -l)")
-          done
+          echo "deploy key installed for $(whoami)"
+          echo "sudo without password: $(sudo -n true 2>/dev/null && echo yes || echo no)"
+          echo "docker: $(docker --version 2>/dev/null || echo missing); groups: $(id -nG)"
+          echo "nginx: $(nginx -v 2>&1 || echo missing)"
+          echo "memory: $(free -m | awk '/Mem:/ {print $2" MB total, "$7" MB available"}')"
+          echo "disk: $(df -h ~ | awk 'NR==2 {print $4" free"}')"
           EOF
-          # A secret pasted with a stray space or line break is the most common failure.
           trimmed="$(printf '%s' "$SSHPASS" | tr -d '\r\n' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')"
           passwords="raw"
           if [ "$trimmed" != "$SSHPASS" ]; then
             summary "note: the secret has spaces or line breaks at its edges; trying it trimmed too"
             passwords="raw trimmed"
           fi
-          for u in $users; do
-            for p in $passwords; do
-              summary "### Trying user \`$u\` ($p password)"
-              [ "$p" = trimmed ] && export SSHPASS="$trimmed"
-              set +e
-              out=$(sshpass -e ssh -p "$PORT" -o StrictHostKeyChecking=accept-new \
-                -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
-                -o NumberOfPasswordPrompts=1 -o ConnectTimeout=15 "$u@$HOST" 'bash -s' < remote.sh 2>&1)
-              rc=$?
-              set -e
-              if [ $rc -eq 0 ]; then
-                summary "$out"
-                summary "**Login OK as \`$u\`**"
-                exit 0
-              fi
-              case $rc in
-                5) reason="server rejected the password" ;;
-                6) reason="host key problem" ;;
-                255) reason="ssh connection error: $(echo "$out" | tail -n 1)" ;;
-                *) reason="sshpass exit code $rc: $(echo "$out" | tail -n 1)" ;;
-              esac
-              summary "failed: $reason"
-            done
+          for p in $passwords; do
+            [ "$p" = trimmed ] && export SSHPASS="$trimmed"
+            set +e
+            out=$(sshpass -e ssh -p "$PORT" -o StrictHostKeyChecking=accept-new \
+              -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
+              -o NumberOfPasswordPrompts=1 -o ConnectTimeout=15 "$LOGIN@$HOST" 'bash -s' < remote.sh 2>&1)
+            rc=$?
+            set -e
+            if [ $rc -eq 0 ]; then
+              summary "$(echo "$out" | grep -v 'Permanently added')"
+              summary "**Login OK** ($p password)"
+              exit 0
+            fi
+            case $rc in
+              5) reason="server rejected the password" ;;
+              255) reason="ssh error: $(echo "$out" | tail -n 1)" ;;
+              *) reason="sshpass exit code $rc: $(echo "$out" | tail -n 1)" ;;
+            esac
+            summary "failed ($p password): $reason"
           done
-          summary "**No login succeeded.** Check SITE_SSH_PASSWORD (and SITE_SSH_USER)."
           exit 1
