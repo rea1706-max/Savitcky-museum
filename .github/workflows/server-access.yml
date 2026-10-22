@@ -4,7 +4,8 @@ name: Server access
 # (87.192.248.137, SSH on port 2222) and reports the state of the auto-deploy, so the
 # server can then be managed by key. The user is admin; the password lives only in
 # the SITE_SSH_PASSWORD secret. The result (never the password) is written to the
-# run summary, which is readable without signing in.
+# run summary, which is readable without signing in. Re-run it from the Actions tab
+# (Run workflow) whenever the key has to be installed again.
 on:
   workflow_dispatch:
   push:
