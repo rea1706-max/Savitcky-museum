@@ -6,6 +6,19 @@
 #   scripts/deploy-native.sh --check  only when origin/main has new commits (timer)
 set -euo pipefail
 
+# Optimises the images of the main pages once, one at a time, so the first visitors
+# after a release do not wait for (or time out on) a cold image cache.
+warm_images() {
+  local page url
+  for page in / /stories /collection /exhibitions /visit; do
+    curl --silent "http://127.0.0.1:$PORT$page" \
+      | grep -oE '/_next/image\?url=[^" ,]+' | sed 's/&amp;/\&/g' | sort -u \
+      | while read -r url; do
+          curl --silent --output /dev/null --max-time 120 "http://127.0.0.1:$PORT$url" || true
+        done || true
+  done
+}
+
 # Everything runs inside main(): bash reads the whole function before starting, so the
 # git reset below may safely replace this very file mid-run.
 main() {
@@ -49,6 +62,12 @@ cp -a .next/standalone "$stage"
 cp -a .next/static "$stage/.next/static"
 cp -a public "$stage/public"
 
+# Keep already optimised images: re-encoding large PNGs on one CPU is slow.
+if [[ -d "$RUN_DIR/.next/cache/images" ]]; then
+  mkdir -p "$stage/.next/cache"
+  cp -a "$RUN_DIR/.next/cache/images" "$stage/.next/cache/"
+fi
+
 rm -rf "$RUN_DIR.prev"
 [[ -d "$RUN_DIR" ]] && mv "$RUN_DIR" "$RUN_DIR.prev"
 mv "$stage" "$RUN_DIR"
@@ -57,6 +76,8 @@ sudo systemctl restart "$SERVICE"
 for _ in $(seq 1 30); do
   if curl --fail --silent --output /dev/null "http://127.0.0.1:$PORT/"; then
     echo "released $(git log -1 --format=%h)"
+    # In the foreground: systemd ends a oneshot unit's leftover processes.
+    warm_images
     exit 0
   fi
   sleep 2

@@ -370,10 +370,13 @@ interface LanguageContextType {
   t: Translations;
 }
 
+// Karakalpak is the site's first language; a visitor's own choice is remembered.
+export const DEFAULT_LOCALE: Locale = 'KK';
+
 const LanguageContext = createContext<LanguageContextType>({
-  locale: 'EN',
+  locale: DEFAULT_LOCALE,
   setLocale: () => {},
-  t: translations.EN,
+  t: translations[DEFAULT_LOCALE],
 });
 
 const htmlLanguages: Record<Locale, string> = {
@@ -387,17 +390,6 @@ function isLocale(value: string | null | undefined): value is Locale {
   return value === 'EN' || value === 'RU' || value === 'UZ' || value === 'KK';
 }
 
-function browserLocale(): Locale {
-  const languages = typeof navigator === 'undefined' ? [] : navigator.languages;
-  for (const language of languages) {
-    const normalized = language.toLowerCase();
-    if (normalized.startsWith('ru')) return 'RU';
-    if (normalized.startsWith('uz')) return 'UZ';
-    if (normalized.startsWith('kaa') || normalized.startsWith('kk')) return 'KK';
-  }
-  return 'EN';
-}
-
 export function LanguageProvider({
   children,
   initialLocale,
@@ -405,19 +397,18 @@ export function LanguageProvider({
   children: ReactNode;
   initialLocale?: Locale;
 }) {
-  const [locale, setLocaleState] = useState<Locale>(initialLocale ?? 'EN');
+  const [locale, setLocaleState] = useState<Locale>(initialLocale ?? DEFAULT_LOCALE);
   const pathname = usePathname();
 
+  // Without a saved cookie the server renders the default; a choice kept only in
+  // local storage (older visits) still wins once the page is running.
   useEffect(() => {
-    if (initialLocale) return;
-    let detected = browserLocale();
     try {
       const saved = localStorage.getItem('savitsky_locale');
-      if (isLocale(saved)) detected = saved;
+      if (isLocale(saved) && saved !== initialLocale) setLocaleState(saved);
     } catch {
       // Storage can be unavailable in privacy-restricted contexts.
     }
-    setLocaleState(detected);
   }, [initialLocale]);
 
   useEffect(() => {

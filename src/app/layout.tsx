@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import { cookies } from 'next/headers';
 import { DM_Sans, Cormorant_Garamond, Playfair_Display } from 'next/font/google';
-import { LanguageProvider, type Locale } from '@/lib/i18n';
+import { DEFAULT_LOCALE, LanguageProvider, type Locale } from '@/lib/i18n';
 import SmoothScroll from '@/components/SmoothScroll';
 import '../styles/tailwind.css';
 
@@ -63,9 +63,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieLocale = (await cookies()).get('savitsky_locale')?.value;
-  const initialLocale = ['EN', 'RU', 'UZ', 'KK'].includes(cookieLocale ?? '')
+  // A visitor's saved choice, otherwise Karakalpak — the site's first language.
+  const initialLocale: Locale = ['EN', 'RU', 'UZ', 'KK'].includes(cookieLocale ?? '')
     ? (cookieLocale as Locale)
-    : undefined;
+    : DEFAULT_LOCALE;
   const initialLanguage =
     initialLocale === 'RU'
       ? 'ru'
