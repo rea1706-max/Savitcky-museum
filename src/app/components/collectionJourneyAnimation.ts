@@ -8,9 +8,9 @@ const TRACK_UNITS = 100;
 const TAIL_UNITS = 6;
 const TOTAL_UNITS = TRACK_UNITS + TAIL_UNITS;
 // Pixels of scroll per pixel of sideways travel: below 1 the crossing takes one gesture.
-const SCROLL_PER_TRAVEL = 0.55;
+const SCROLL_PER_TRAVEL = 0.32;
 // When scrolling stops mid-crossing, the track glides on to the next panel this long (s).
-const SETTLE_SECONDS = 1;
+const SETTLE_SECONDS = 0.9;
 
 export function createCollectionJourney(root: HTMLElement) {
   gsap.registerPlugin(ScrollTrigger);
@@ -138,7 +138,7 @@ export function createCollectionJourney(root: HTMLElement) {
         // glide on in the direction of travel to the whole panel.
         const settle = () => {
           const progress = journeyTrigger.progress;
-          if (progress <= 0.02 || progress >= readyAt - 0.01) return;
+          if (progress <= 0.005 || progress >= readyAt - 0.005) return;
           const span = journeyTrigger.end - journeyTrigger.start;
           scrollToPosition(
             journeyTrigger.start + (direction > 0 ? span * readyAt : 0),

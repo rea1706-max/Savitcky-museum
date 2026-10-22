@@ -5,8 +5,10 @@
   color: var(--museum-charcoal);
   /* The seam is this wide relative to one screen-wide panel: wide enough that
      the colour changes slowly. */
-  --seam-ratio: 0.38;
+  --seam-ratio: 0.28;
   --track-ratio: calc(2 + var(--seam-ratio));
+  /* The tint at the collection panel's left edge, where the seam ends. */
+  --seam-end: color-mix(in srgb, var(--museum-earth) 23%, var(--museum-desert-ivory));
 }
 
 .stage {
@@ -25,6 +27,14 @@
   height: 100%;
   will-change: transform;
   backface-visibility: hidden;
+  /* Panels sit on fractional pixels while the track moves, so their edges are
+     antialiased; underneath each join lies its own colour (charcoal up to the middle
+     of the seam, the collection's tint after it), so no hairline can show through. */
+  background: linear-gradient(
+    90deg,
+    var(--museum-charcoal) calc((1 + var(--seam-ratio) / 2) / var(--track-ratio) * 100%),
+    var(--seam-end) 0
+  );
 }
 
 .exitPanel,
@@ -62,7 +72,6 @@
 /* ── Seam: one soft gradient from charcoal into the collection's ivory ───── */
 
 .seam {
-  --seam-end: color-mix(in srgb, var(--museum-earth) 23%, var(--museum-desert-ivory));
   position: relative;
   flex: 0 0 calc(var(--seam-ratio) * 100% / var(--track-ratio));
   width: calc(var(--seam-ratio) * 100% / var(--track-ratio));
@@ -642,7 +651,7 @@
 
 @media (max-width: 767px) {
   .journey {
-    --seam-ratio: 0.45;
+    --seam-ratio: 0.36;
   }
   .overviewInner {
     width: 86%;
