@@ -5,7 +5,7 @@ name: Server access
 # the site, so it can then be set up and managed by key. The password lives only in
 # the SSH_PASSWORD secret. Results (never the password) go to annotations, which are
 # readable without signing in. Re-run it from the Actions tab (Run workflow) whenever
-# the key has to be installed again.
+# the key has to be installed again (for example after the server is rebuilt).
 on:
   workflow_dispatch:
   push:
