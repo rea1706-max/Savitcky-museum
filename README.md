@@ -155,19 +155,28 @@ Build the application for production:
 npm run build
 ```
 
-The production site runs as a standalone Next.js container behind Nginx at
-`https://savitsky.87-192-248-137.sslip.io`. The server checks the private GitHub repository
-with a read-only deploy key every 30 seconds and releases new commits from `main` automatically.
-Manual releases use:
+The production site runs on the owner's server (Ubuntu, 1 CPU / 1 GB) at
+`http://savitsky.82-115-51-36.sslip.io`, as a standalone Next.js process (systemd service
+`savitsky-museum`, port 3020) behind Nginx, without Docker. Other sites on that server keep their
+own Nginx hosts. A systemd timer (`savitsky-deploy.timer`) checks `main` every minute; a new commit
+is built beside the running site and swapped in, and if it does not answer the previous release is
+restored. A release takes a few minutes on this machine. Manual release on the server:
 
 ```bash
-./scripts/deploy-server.sh
+~/savitsky-museum/scripts/deploy-native.sh
 ```
 
-The script fast-forwards the server checkout, rebuilds the Docker image, restarts the service,
-and verifies the local health endpoint before completing. The Nginx virtual host and systemd
-unit templates live in `deploy/`. GitHub Actions also type-checks and production-builds every push
-and pull request.
+First-time setup of a fresh server (swap, Node.js 20, checkout, units, Nginx host, first release):
+`scripts/server-setup-native.sh`. Unit and Nginx templates live in `deploy/native/`. The Docker
+setup (`Dockerfile`, `compose.yaml`, `scripts/deploy-server.sh`, `deploy/*`) is kept for hosts
+with more memory. The server pulls over public HTTPS: if the repository becomes private, add a
+read-only deploy key on the server first. GitHub Actions type-checks and production-builds every
+push and pull request.
+
+Сайт работает на сервере владельца (`http://savitsky.82-115-51-36.sslip.io`) как отдельный
+процесс Next.js за Nginx, без Docker; другие сайты сервера не затрагиваются. Таймер раз в минуту
+проверяет `main`, собирает новую версию рядом с работающей и подменяет её; если новая версия не
+отвечает, возвращается предыдущая. Первичная настройка — `scripts/server-setup-native.sh`.
 
 ## 📚 Learn More
 

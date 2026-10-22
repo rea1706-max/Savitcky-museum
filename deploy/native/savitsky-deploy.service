@@ -1,0 +1,10 @@
+[Unit]
+Description=Release the latest Savitsky Museum main branch when it changes
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/savitsky-museum
+ExecStart=/home/ubuntu/savitsky-museum/scripts/deploy-native.sh --check
