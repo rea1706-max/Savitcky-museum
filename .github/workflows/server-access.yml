@@ -54,16 +54,36 @@ jobs:
             [ -d "$d/.git" ] && (cd "$d" && echo "checkout $d at $(git log -1 --format=%h 2>&1), uncommitted files: $(git status --porcelain 2>/dev/null | wc -l)")
           done
           EOF
+          # A secret pasted with a stray space or line break is the most common failure.
+          trimmed="$(printf '%s' "$SSHPASS" | tr -d '\r\n' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//')"
+          passwords="raw"
+          if [ "$trimmed" != "$SSHPASS" ]; then
+            summary "note: the secret has spaces or line breaks at its edges; trying it trimmed too"
+            passwords="raw trimmed"
+          fi
           for u in $users; do
-            summary "### Trying user \`$u\`"
-            if out=$(sshpass -e ssh -p "$PORT" -o StrictHostKeyChecking=accept-new \
+            for p in $passwords; do
+              summary "### Trying user \`$u\` ($p password)"
+              [ "$p" = trimmed ] && export SSHPASS="$trimmed"
+              set +e
+              out=$(sshpass -e ssh -p "$PORT" -o StrictHostKeyChecking=accept-new \
                 -o PreferredAuthentications=password,keyboard-interactive -o PubkeyAuthentication=no \
-                -o ConnectTimeout=15 "$u@$HOST" 'bash -s' < remote.sh 2>&1); then
-              summary '```'; summary "$out"; summary '```'
-              summary "**Login OK as \`$u\`**"
-              exit 0
-            fi
-            summary '```'; summary "$(echo "$out" | tail -n 3)"; summary '```'
+                -o NumberOfPasswordPrompts=1 -o ConnectTimeout=15 "$u@$HOST" 'bash -s' < remote.sh 2>&1)
+              rc=$?
+              set -e
+              if [ $rc -eq 0 ]; then
+                summary "$out"
+                summary "**Login OK as \`$u\`**"
+                exit 0
+              fi
+              case $rc in
+                5) reason="server rejected the password" ;;
+                6) reason="host key problem" ;;
+                255) reason="ssh connection error: $(echo "$out" | tail -n 1)" ;;
+                *) reason="sshpass exit code $rc: $(echo "$out" | tail -n 1)" ;;
+              esac
+              summary "failed: $reason"
+            done
           done
           summary "**No login succeeded.** Check SITE_SSH_PASSWORD (and SITE_SSH_USER)."
           exit 1
