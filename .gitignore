@@ -44,3 +44,7 @@ jest-test-results.json
 
 # Optional: if using TurboRepo or monorepo
 turbo/
+
+# Staging & backup
+museum-import/
+src/data/catalog.backup.json

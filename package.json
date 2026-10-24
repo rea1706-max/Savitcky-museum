@@ -47,8 +47,9 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\"",
     "serve": "next start",
     "type-check": "tsc --noEmit",
-    "test": "node --test scripts/catalog/catalog.test.mjs",
-    "catalog:import": "node scripts/catalog/import-catalog.mjs"
+    "test": "node --test scripts/catalog/catalog.test.mjs scripts/catalog/migrate.test.mjs",
+    "catalog:import": "node scripts/catalog/import-catalog.mjs",
+    "catalog:migrate": "node scripts/migrate-catalog.mjs"
   },
   "dependencies": {
     "@dhiwise/component-tagger": "^1.0.16",
