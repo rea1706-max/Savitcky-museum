@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "1.0",
+  "dataset": {
+    "title": "Pilot catalogue import: Nukus Open Museum",
+    "createdAt": "2026-10-24",
+    "purpose": "Schema and pilot records for testing a Next.js museum catalogue importer",
+    "importantNotice": "This is a small pilot dataset assembled from publicly indexed pages, not a complete export. Verify each record against its source page before production use. Image files are not included and must not be copied/re-hosted unless rights are cleared.",
+    "sourceIndex": "https://nukus.open-museum.net/author/",
+    "sourceCreditsPage": "https://nukus.open-museum.net/p/credits/",
+    "sourceReferencesPage": "https://nukus.open-museum.net/p/sources/"
+  },
+  "artists": [
+    {
+      "id": "artist-konstantin-istomin",
+      "name": "Константин Истомин",
+      "lifeDates": {
+        "birth": "1886-12-26",
+        "death": "1942-07-28",
+        "display": "26.12.1886 – 28.07.1942"
+      },
+      "groups": [
+        "Маковец",
+        "Четыре искусства"
+      ],
+      "education": [
+        "Вхутемас – Вхутеин"
+      ],
+      "biography": null,
+      "worksCountOnSourceProfile": null,
+      "source": {
+        "url": "https://nukus.open-museum.net/author/profile/29/",
+        "title": "Константин Истомин",
+        "accessedAt": "2026-10-24",
+        "notes": "Биографические сведения и источник биографии доступны на странице художника; полная биография намеренно не скопирована в пилот."
+      }
+    },
+    {
+      "id": "artist-alexander-volkov",
+      "name": "Александр Волков",
+      "lifeDates": {
+        "birth": "1886-08-19",
+        "death": "1957-12-17",
+        "display": "19.08.1886 – 17.12.1957"
+      },
+      "groups": [
+        "АРИЗО (Ассоциация работников изобразительного искусства)",
+        "Бригада Волкова",
+        "Мастера Нового Востока",
+        "Ассоциация художников революционной России",
+        "Союз художников"
+      ],
+      "education": [
+        "Туркестанская краевая художественная школа"
+      ],
+      "biography": null,
+      "worksCountOnSourceProfile": 68,
+      "source": {
+        "url": "https://nukus.open-museum.net/author/profile/97/",
+        "title": "Александр Волков",
+        "accessedAt": "2026-10-24",
+        "notes": "Количество произведений взято со страницы профиля и может отличаться от списка на алфавитной странице."
+      }
+    },
+    {
+      "id": "artist-alexander-nikolaev-usto-mumin",
+      "name": "Александр Николаев (Усто Мумин)",
+      "lifeDates": {
+        "birth": "1897-08-30",
+        "death": "1957-06-27",
+        "display": "30.08.1897 – 27.06.1957"
+      },
+      "groups": [
+        "Мастера Нового Востока",
+        "Ассоциация художников революционной России",
+        "Союз художников"
+      ],
+      "education": [
+        "Государственные свободные художественные мастерские"
+      ],
+      "biography": null,
+      "worksCountOnSourceProfile": 21,
+      "source": {
+        "url": "https://nukus.open-museum.net/author/profile/52/",
+        "title": "Александр Николаев (Усто Мумин)",
+        "accessedAt": "2026-10-24",
+        "notes": "Метаданные профиля; биографический текст не копировался."
+      }
+    }
+  ],
+  "artworks": [
+    {
+      "id": "artwork-istomin-pryahi",
+      "title": "Пряхи",
+      "titleOriginal": null,
+      "date": "1923–1924",
+      "artistId": "artist-konstantin-istomin",
+      "dimensions": {
+        "heightCm": 97,
+        "widthCm": 106,
+        "display": "97 × 106 см"
+      },
+      "medium": "холст, масло",
+      "keywords": [
+        "труд",
+        "женский труд",
+        "интерьер"
+      ],
+      "image": {
+        "sourcePage": "https://nukus.open-museum.net/exhibit/get/878/",
+        "sourceImageUrl": null,
+        "localPath": null,
+        "rightsStatus": "unverified",
+        "credit": "Вебсайт Нукусского музея",
+        "mayRehost": false,
+        "notes": "Не скачивать и не размещать изображение на своём сервере без отдельной проверки прав/разрешения."
+      },
+      "source": {
+        "url": "https://nukus.open-museum.net/exhibit/get/878/",
+        "accessedAt": "2026-10-24"
+      }
+    },
+    {
+      "id": "artwork-volkov-woman-blue-shawl",
+      "title": "Женщина в синей шали на фоне окна",
+      "titleOriginal": null,
+      "date": null,
+      "artistId": "artist-alexander-volkov",
+      "dimensions": {
+        "heightCm": 69.5,
+        "widthCm": 61.5,
+        "display": "69,5 × 61,5 см"
+      },
+      "medium": "холст, масло",
+      "keywords": [
+        "женщина",
+        "портрет",
+        "шаль",
+        "женский портрет",
+        "орнаментальный мотив"
+      ],
+      "image": {
+        "sourcePage": "https://nukus.open-museum.net/exhibit/get/790/",
+        "sourceImageUrl": null,
+        "localPath": null,
+        "rightsStatus": "unverified",
+        "credit": "Источник репродукции указан в печатном каталоге 2017 года (см. страницу источника)",
+        "mayRehost": false,
+        "notes": "Источник изображения и права на репродукцию необходимо проверить отдельно."
+      },
+      "source": {
+        "url": "https://nukus.open-museum.net/exhibit/get/790/",
+        "accessedAt": "2026-10-24"
+      }
+    },
+    {
+      "id": "artwork-tarasov-hudozhniki",
+      "title": "Художники",
+      "titleOriginal": null,
+      "date": null,
+      "artistId": null,
+      "artistNameAsDisplayed": "Николай Тарасов",
+      "dimensions": null,
+      "medium": "холст, масло",
+      "keywords": [
+        "ню",
+        "многофигурная композиция",
+        "пейзаж",
+        "шляпа",
+        "художник",
+        "жанровая сцена",
+        "картина"
+      ],
+      "image": {
+        "sourcePage": "https://nukus.open-museum.net/exhibit/get/818/",
+        "sourceImageUrl": null,
+        "localPath": null,
+        "rightsStatus": "unverified",
+        "credit": "Фотография А. Наурузбаевой, 04.09.2017, Нукусский музей",
+        "mayRehost": false,
+        "notes": "Не включать изображение в импорт, пока не подтверждены права фотографа/правообладателя."
+      },
+      "source": {
+        "url": "https://nukus.open-museum.net/exhibit/get/818/",
+        "accessedAt": "2026-10-24"
+      }
+    }
+  ],
+  "importNotes": {
+    "suggestedWorkflow": [
+      "Treat this JSON as a schema pilot, not a full scrape.",
+      "Validate all source records and normalize names/dates before importing.",
+      "Use artist IDs as stable foreign keys from artworks.artistId.",
+      "Keep source URLs and access dates on every imported record.",
+      "Do not download/re-host images until their rights are confirmed.",
+      "Use a separate imageRightsStatus field and show only images with cleared rights."
+    ],
+    "recommendedRightsStatusValues": [
+      "cleared_public_domain",
+      "cleared_cc0",
+      "licensed",
+      "permission_requested",
+      "unverified",
+      "restricted"
+    ]
+  }
+}

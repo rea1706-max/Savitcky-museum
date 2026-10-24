@@ -147,6 +147,18 @@ translate the full active page and preserve the selection between visits.
 нового закреплённого или горизонтального участка и учитывает настройку уменьшения движения.
 Переключатель языка переводит всю активную страницу и сохраняет выбор между визитами.
 
+## Catalogue import / Импорт каталога
+
+Artists and artworks are imported from JSON with `npm run catalog:import -- --input <file.json>`.
+It is a dry run by default, writes only with `--write --confirm`, never overwrites existing
+records, keeps source and rights information, and never downloads images. Details, field mapping
+and the expansion plan: [docs/catalog-import.md](docs/catalog-import.md). Tests: `npm test`.
+
+Художники и произведения импортируются из JSON командой
+`npm run catalog:import -- --input <file.json>`. По умолчанию это пробный запуск; запись — только
+с `--write --confirm`; существующие записи не перезаписываются; источник и права сохраняются;
+изображения не скачиваются. Подробности, сопоставление полей и план: [docs/catalog-import.md](docs/catalog-import.md).
+
 ## 📱 Deployment
 
 Build the application for production:
