@@ -1,5 +1,6 @@
 // Validation and normalisation of a source dataset. Pure functions: no file or network access.
 import {
+  CATEGORIES,
   CLEARED_RIGHTS,
   ID_PATTERN,
   KNOWN_ARTIST_FIELDS,
@@ -443,4 +444,50 @@ export function validateDataset(raw, { sourceLocale = 'ru', batchId }) {
   });
 
   return { issues, artists, artworks, batch };
+}
+
+/**
+ * Checks the site catalogue itself, including hand edits: what CI guards before a deploy.
+ * @param {{ artists: object[], artworks: object[] }} store
+ * @returns {string[]} Problems; empty when the catalogue is consistent.
+ */
+export function checkCatalogue(store) {
+  const problems = [];
+  const ids = new Set();
+  for (const record of [...store.artists, ...store.artworks]) {
+    if (!ID_PATTERN.test(record.id ?? '')) problems.push(`Bad id ${JSON.stringify(record.id)}.`);
+    if (ids.has(record.id)) problems.push(`Id "${record.id}" is used twice.`);
+    ids.add(record.id);
+    if (!isHttpsUrl(record.source?.url)) problems.push(`${record.id}: source.url is missing.`);
+  }
+  const artistIds = new Set(store.artists.map((artist) => artist.id));
+  for (const artwork of store.artworks) {
+    const where = artwork.id;
+    if (artwork.artistId && !artistIds.has(artwork.artistId)) {
+      problems.push(`${where}: artist "${artwork.artistId}" is not in the catalogue.`);
+    }
+    if (!artwork.artistId && !artwork.artistNameAsDisplayed) problems.push(`${where}: no author.`);
+    if (artwork.category !== null && !CATEGORIES.includes(artwork.category)) {
+      problems.push(`${where}: unknown category "${artwork.category}".`);
+    }
+    if (!['draft', 'published'].includes(artwork.publicationStatus)) {
+      problems.push(`${where}: publicationStatus must be draft or published.`);
+    }
+    if (
+      artwork.publicationStatus === 'published' &&
+      !Object.values(artwork.title ?? {}).some(Boolean)
+    ) {
+      problems.push(`${where}: a published work needs a title.`);
+    }
+    const image = artwork.image ?? {};
+    if (!RIGHTS_STATUSES.includes(image.rightsStatus)) problems.push(`${where}: bad rightsStatus.`);
+    const cleared = CLEARED_RIGHTS.includes(image.rightsStatus) && image.mayRehost === true;
+    if (image.localPath && !cleared) {
+      problems.push(`${where}: a local image is listed but rights are not cleared for re-hosting.`);
+    }
+    if (image.mayRehost === true && !CLEARED_RIGHTS.includes(image.rightsStatus)) {
+      problems.push(`${where}: mayRehost is true but rights are not cleared.`);
+    }
+  }
+  return problems;
 }

@@ -619,5 +619,35 @@
       "routeYandex": "Yandex Xaritada yoʻnalish",
       "routeHint": "Joylashuvingizdan muzeygacha yoʻnalish"
     }
+  },
+  "catalogue": {
+    "heading": "Asarlar",
+    "count": "asar",
+    "empty": "Bu boʻlimda hozircha eʼlon qilingan asarlar yoʻq.",
+    "noImage": "Huquqlar tasdiqlangach, reproduksiya paydo boʻladi",
+    "openSource": "Manbada ochish",
+    "back": "Butun kolleksiya",
+    "artist": "Rassom",
+    "lifeDates": "Hayot yillari",
+    "date": "Sana",
+    "undated": "Sana koʻrsatilmagan",
+    "medium": "Texnika",
+    "dimensions": "Oʻlcham",
+    "keywords": "Kalit soʻzlar",
+    "section": "Kolleksiya boʻlimi",
+    "noSection": "Boʻlim belgilanmagan",
+    "groups": "Birlashmalar",
+    "education": "Taʼlim",
+    "imageRights": "Tasvir huquqlari",
+    "rightsCleared": "tasdiqlangan",
+    "rightsPending": "soʻralgan",
+    "rightsUnverified": "tasdiqlanmagan",
+    "rightsRestricted": "cheklangan",
+    "imageCredit": "Reproduksiya",
+    "source": "Manba",
+    "accessed": "Murojaat sanasi",
+    "sourceNote": "Maʼlumotlar Nukus muzeyining ochiq katalogidan olingan. Tekshirilmoqda.",
+    "untranslated": "Matn hozircha faqat rus tilida.",
+    "notFound": "Asar topilmadi"
   }
 }

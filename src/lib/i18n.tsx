@@ -245,6 +245,37 @@ export interface Translations {
       }
     >;
   };
+  catalogue: Record<
+    | 'heading'
+    | 'count'
+    | 'empty'
+    | 'noImage'
+    | 'openSource'
+    | 'back'
+    | 'artist'
+    | 'lifeDates'
+    | 'date'
+    | 'undated'
+    | 'medium'
+    | 'dimensions'
+    | 'keywords'
+    | 'section'
+    | 'noSection'
+    | 'groups'
+    | 'education'
+    | 'imageRights'
+    | 'rightsCleared'
+    | 'rightsPending'
+    | 'rightsUnverified'
+    | 'rightsRestricted'
+    | 'imageCredit'
+    | 'source'
+    | 'accessed'
+    | 'sourceNote'
+    | 'untranslated'
+    | 'notFound',
+    string
+  >;
   exhibitionsPage: {
     back: string;
     eyebrow: string;

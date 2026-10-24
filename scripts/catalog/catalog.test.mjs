@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { isHttpsUrl, isIsoDate, validateDataset } from './validate.mjs';
+import { checkCatalogue, isHttpsUrl, isIsoDate, validateDataset } from './validate.mjs';
 import { diffRecords, isEditorialPath, normalizeText, planImport } from './plan.mjs';
 import { readStore } from './store.mjs';
 import { batchIdFor, parseArgs, runImport } from './import-catalog.mjs';
@@ -414,4 +414,42 @@ test('the command prints a dry-run report, saves a JSON report and exits non-zer
       execFileSync(process.execPath, [CLI, '--input', broken, '--store', store], { stdio: 'pipe' }),
     (error) => error.status === 1
   );
+});
+
+const SITE_CATALOGUE = fileURLToPath(new URL('../../src/data/catalog.json', import.meta.url));
+
+test('the site catalogue is consistent', () => {
+  assert.deepEqual(checkCatalogue(readStore(SITE_CATALOGUE)), []);
+});
+
+test('the catalogue check catches broken hand edits', () => {
+  const store = readStore(SITE_CATALOGUE);
+  const [first, second, third] = store.artworks;
+  first.artistId = 'artist-nobody';
+  first.category = 'paintings';
+  second.publicationStatus = 'live';
+  second.image = { ...second.image, localPath: '/images/x.jpg', mayRehost: true };
+  third.artistId = null;
+  third.artistNameAsDisplayed = null;
+  third.title = {};
+  third.image = { ...third.image, rightsStatus: 'maybe' };
+  store.artists.push({ ...store.artists[0] });
+  store.artists.push({ id: 'Bad Id', source: {} });
+  const problems = checkCatalogue(store).join('\n');
+  for (const expected of [
+    'is not in the catalogue',
+    'unknown category',
+    'publicationStatus must be',
+    'rights are not cleared for re-hosting',
+    'mayRehost is true',
+    'no author',
+    'bad rightsStatus',
+    'is used twice',
+    'Bad id',
+    'source.url is missing',
+  ]) {
+    assert.ok(problems.includes(expected), `expected a problem mentioning "${expected}"`);
+  }
+  third.publicationStatus = 'published';
+  assert.match(checkCatalogue(store).join('\n'), /needs a title/);
 });

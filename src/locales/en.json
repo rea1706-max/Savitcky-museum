@@ -619,5 +619,35 @@
       "routeYandex": "Route in Yandex Maps",
       "routeHint": "Directions from your location to the museum"
     }
+  },
+  "catalogue": {
+    "heading": "Works",
+    "count": "works",
+    "empty": "No published works in this section yet.",
+    "noImage": "The reproduction will appear once rights are confirmed",
+    "openSource": "Open at the source",
+    "back": "Whole collection",
+    "artist": "Artist",
+    "lifeDates": "Life dates",
+    "date": "Date",
+    "undated": "Date not given",
+    "medium": "Medium",
+    "dimensions": "Dimensions",
+    "keywords": "Keywords",
+    "section": "Collection section",
+    "noSection": "Section not assigned",
+    "groups": "Groups",
+    "education": "Education",
+    "imageRights": "Image rights",
+    "rightsCleared": "cleared",
+    "rightsPending": "requested",
+    "rightsUnverified": "not confirmed",
+    "rightsRestricted": "restricted",
+    "imageCredit": "Reproduction",
+    "source": "Source",
+    "accessed": "Accessed",
+    "sourceNote": "Data from the open catalogue of the Nukus Museum. Details are being verified.",
+    "untranslated": "This text is available in Russian only for now.",
+    "notFound": "Work not found"
   }
 }

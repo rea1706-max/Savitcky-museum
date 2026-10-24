@@ -5,6 +5,7 @@ import CollectionHero from '@/app/collection/components/CollectionHero';
 import CollectionExplorer from '@/app/collection/components/CollectionExplorer';
 import styles from './Collection.module.css';
 import '@/styles/museum-tokens.css';
+import { artworkSummaries } from '@/lib/catalog';
 
 type CollectionPageProps = {
   searchParams?: Promise<{ category?: string | string[] }>;
@@ -28,7 +29,7 @@ export default async function CollectionPage({ searchParams }: CollectionPagePro
     <main className={styles.page}>
       <Header />
       <CollectionHero />
-      <CollectionExplorer initialCategory={category} />
+      <CollectionExplorer initialCategory={category} works={artworkSummaries()} />
       <Footer />
     </main>
   );

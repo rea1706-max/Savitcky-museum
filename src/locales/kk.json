@@ -619,5 +619,35 @@
       "routeYandex": "Yandex Kartada baǵdar",
       "routeHint": "Turǵan ornıńızdan muzeyge shekem baǵdar"
     }
+  },
+  "catalogue": {
+    "heading": "Shıǵarmalar",
+    "count": "shıǵarma",
+    "empty": "Bul bólimde házirshe járiyalanǵan shıǵarmalar joq.",
+    "noImage": "Huqıqlar tastıyıqlanǵannan keyin reproduktsiya payda boladı",
+    "openSource": "Dereklerde ashıw",
+    "back": "Barlıq kollektsiya",
+    "artist": "Súwretshi",
+    "lifeDates": "Ómir jılları",
+    "date": "Sáne",
+    "undated": "Sáne kórsetilmegen",
+    "medium": "Texnika",
+    "dimensions": "Ólshem",
+    "keywords": "Gilt sózler",
+    "section": "Kollektsiya bólimi",
+    "noSection": "Bólim belgilenbegen",
+    "groups": "Birlespeler",
+    "education": "Bilim",
+    "imageRights": "Súwret huqıqları",
+    "rightsCleared": "tastıyıqlanǵan",
+    "rightsPending": "soralǵan",
+    "rightsUnverified": "tastıyıqlanbaǵan",
+    "rightsRestricted": "sheklengen",
+    "imageCredit": "Reproduktsiya",
+    "source": "Derek",
+    "accessed": "Múrájáat sánesi",
+    "sourceNote": "Maǵlıwmatlar Nókis muzeyiniń ashıq katalogınan alınǵan. Tekserilmekte.",
+    "untranslated": "Tekst házirshe tek rus tilinde.",
+    "notFound": "Shıǵarma tabılmadı"
   }
 }

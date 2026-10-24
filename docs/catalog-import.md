@@ -79,6 +79,20 @@ npm test
 («без изменений»), ручная правка раздела и перевода (сохранена, не конфликт) — всё прошло.
 Рабочий каталог `src/data/catalog.json` не создавался.
 
+### На сайте
+
+Каталог подключён к странице `/collection`: под четырьмя карточками — блок «Произведения»
+с тем же фильтром разделов; у каждой опубликованной работы есть страница
+`/collection/works/<id>`. Показываются только записи со статусом `published`. Изображение
+показывается только из нашей копии и только при подтверждённых правах, иначе — плашка
+«Репродукция появится после подтверждения прав» и ссылка на источник. Тексты, которых нет на
+языке посетителя, показываются на русском с пометкой. Работы без раздела видны только во
+вкладке «Все». CI проверяет файл каталога (`npm test`): связи с художниками, разделы, статусы
+и правила для изображений.
+
+Публикация — правка редакции: в `src/data/catalog.json` поставить `"publicationStatus":
+"published"` и при необходимости `"category"`. Повторный импорт эти правки не затирает.
+
 ### План расширения на весь каталог
 
 1. **Источник данных.** Лучше всего — выгрузка музея с инвентарными номерами. Добавить поле
@@ -149,6 +163,18 @@ locale files.
 Dry run, refused unconfirmed write, write to a scratch catalogue, repeat run (unchanged), and a
 hand edit of section and translation (kept, not a conflict) all behaved as intended. The real
 `src/data/catalog.json` was not created.
+
+### On the site
+
+The catalogue feeds `/collection`: a "Works" block under the four cards, with the same section
+filter, and a page per published work at `/collection/works/<id>`. Only `published` records are
+shown. An image appears only from our own copy with cleared rights; otherwise a plate says the
+reproduction will appear once rights are confirmed and links to the source. Text missing in the
+visitor's language falls back to Russian with a note. Works without a section appear under "All"
+only. CI checks the catalogue file (`npm test`): artist links, sections, statuses, image rules.
+
+Publishing is an editorial edit in `src/data/catalog.json` (`"publicationStatus": "published"`,
+and `"category"` if needed); re-imports keep it.
 
 ### Expansion plan
 
