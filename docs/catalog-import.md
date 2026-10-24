@@ -93,6 +93,18 @@ npm test
 Публикация — правка редакции: в `src/data/catalog.json` поставить `"publicationStatus":
 "published"` и при необходимости `"category"`. Повторный импорт эти правки не затирает.
 
+### Разделы и галерея
+
+`node scripts/catalog/sections.mjs` (по умолчанию пробный запуск, `--write` — запись) заполняет
+пустые разделы по правилам: работы Савицкого и работы с сюжетами Каракалпакстана и Хорезма —
+«Искусство Каракалпакстана»; художники туркестанского круга и сюжеты региона — «Искусство
+Центральной Азии»; остальное — «Авангард». Раздел, поставленный вручную, не меняется. Раздел без
+опубликованных работ не показывается во вкладках.
+
+`node scripts/catalog/image-sizes.mjs --write` записывает размеры изображений в пикселях, чтобы
+галерея показывала картины целиком, без обрезки. Техника, даты и размеры переводятся на язык
+посетителя (`src/lib/catalogText.mjs`); неизвестный термин оставляет строку на русском.
+
 ### План расширения на весь каталог
 
 1. **Источник данных.** Лучше всего — выгрузка музея с инвентарными номерами. Добавить поле
@@ -175,6 +187,16 @@ only. CI checks the catalogue file (`npm test`): artist links, sections, statuse
 
 Publishing is an editorial edit in `src/data/catalog.json` (`"publicationStatus": "published"`,
 and `"category"` if needed); re-imports keep it.
+
+### Sections and gallery
+
+`node scripts/catalog/sections.mjs` (dry run by default, `--write` to save) fills empty sections:
+Savitsky's works and works on Karakalpak and Khorezm subjects go to "Art of Karakalpakstan";
+the Turkestan circle and Central Asian subjects to "Art of Central Asia"; the rest to
+"Avant-garde". Hand-set sections are kept. Sections without published works are not offered.
+`node scripts/catalog/image-sizes.mjs --write` records pixel sizes so the gallery shows whole
+works. Technique, dates and sizes are translated (`src/lib/catalogText.mjs`); an unknown term
+keeps the line in Russian.
 
 ### Expansion plan
 

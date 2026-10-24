@@ -12,7 +12,7 @@
     "openingSequence": "Kirisiw saxnası — Shól",
     "scrollToExplore": "Dawam etiw ushın jıljıtıń",
     "ustyurtAlt": "Qaraqalpaqstandaǵı Ústirt platosı — kókshil-súr aspan astındaǵı aqshıl hák taslı shól.",
-    "portraitAlt": "Dástúriy kesteli qaraqalpaq kiyimi hám qızǵılt bas kiyimdegi hayal.",
+    "portraitAlt": "Dástúriy kesteli qaraqalpaq kiyimi hám qoyı qızıl bas kiyimdegi hayal.",
     "aboutPortraitAlt": "Igor Savickiy qaraqalpaq zergerlik buyımın kórip atır. Arxiv súwreti.",
     "collectionHeroAlt": "Muzey galereyasınıń ishki kórinisi.",
     "visitHeroAlt": "Jıllı túski jaqtılıqtaǵı muzey imaratı.",
@@ -23,7 +23,7 @@
     "museumMap": "Muzey jaylasqan jer kartası",
     "languageNames": {
       "EN": "inglis",
-      "RU": "orys",
+      "RU": "orıs",
       "UZ": "ózbek",
       "KK": "qaraqalpaq"
     }
@@ -55,24 +55,24 @@
     "museumName": "I.V. Savickiy atındaǵı Qaraqalpaqstan Respublikası Mámleketlik Kórkem Óner Muzeyi",
     "location": "Nókis, Qaraqalpaqstan",
     "subtitle": "Shóldegi avangard · Savickiy kollekciyası",
-    "badge": "Orys avangardı, qaraqalpaq xalıq ámeliy kórkem óneri hám Áyyemgi Xorezm boyınsha 82 000 eksponat.",
+    "badge": "Orıs avangardı, qaraqalpaq xalıq ámeliy kórkem óneri hám Áyyemgi Xorezmge tiyisli 82 000-nan aslam eksponat.",
     "years": "1966 — Házirgi waqıt"
   },
   "info": {
     "locationLabel": "Mánzil",
     "locationValue": "Nókis, Qaraqalpaqstan, Ózbekstan",
-    "hoursLabel": "Jumıs kestesı",
-    "hoursValue": "Siysh — Yek: 09:00 — 18:00 · Dúyshembi dem alıs",
+    "hoursLabel": "Jumıs kestesi",
+    "hoursValue": "Siyshembi — Ekshembi: 09:00 — 18:00 · Dúyshembi dem alıs kúni",
     "collectionLabel": "Muzey qorı",
     "collectionValue": "82 000+ saqlanıp atırǵan eksponat"
   },
   "about": {
     "label": "Tiykar salıwshı hám missiya",
     "title": "Igor Savickiy: Qumdaǵı Luvr",
-    "savitskyQuote": "«Men joq bolıp ketiwge máhbir bolǵan kórkem ónerdi qutqarıp qalıwdı qáledim».",
+    "savitskyQuote": "«Men joq etiliwge mahkúm etilgen kórkem ónerdi qutqarıp qalǵım keldi».",
     "savitskyQuoteAuthor": "Igor Savickiy, Tiykar salıwshı",
-    "paragraph1": "Alys Nókis qalasında súwretshi hám arxeolog Igor Savickiy dúnyadaǵı eń ǵáziyne kórkem óner oraylarınan birin payda etti. Ideologiyalıq qadaǵanlarǵa qaramay, ol 40 000-nan aslam qadaǵan etilgen orys hám túrkstan avangard durdanaların topladı.",
-    "paragraph2": "Sonıń menen birge, Savickiy qaraqalpaq xalqınıń joǵalıp baratırǵan kórkem miyrasın — unikal toqımashılıq buyımların, zergerlik kórkem ónerin hám áyyemgi salt buyımların saqlap qaldı.",
+    "paragraph1": "Alıs Nókiste súwretshi hám arxeolog Igor Savickiy dúnya mádeniyatınıń eń tańlanarlı ǵáziynelerinen birin dúzdi. Qadaǵanlarǵa qaramastan, ol orıs hám Túrkstan avangardınıń quwǵın kórgen sheberleriniń 40 000-nan aslam shıǵarmasın jıynadı.",
+    "paragraph2": "Sonıń menen birge, Savickiy qaraqalpaq xalqınıń joǵalıp baratırǵan materiallıq miyrasın — unikal toqıma buyımların, zergerlik buyımların hám salt-dástúr buyımların saqlap, tariyxqa qaytardı.",
     "learnMore": "Muzey tariyxı menen tanısıw",
     "archiveCredit": "IGOR SAVICKIY · MUZEY ARXIVI",
     "established": "1966-JILI TIYKAR SALINǴAN",
@@ -80,7 +80,7 @@
   },
   "whatsOn": {
     "label": "AFISHA",
-    "heading": "Kórgizbeler hám Joybarlar",
+    "heading": "Kórgizbeler hám Baǵdarlamalar",
     "nowOn": "Házir muzeyde",
     "upcoming": "Jaqında",
     "archive": "Kórgizbeler arxivinen",
@@ -100,7 +100,7 @@
   "collection": {
     "label": "Kollekciya",
     "title": "Shegarasız\nKollekciya",
-    "intro": "Dúnyadaǵı ekinshi orında turatuǵın orys avangardı qorı, Áyyemgi Xorezm arxeologiyası hám Qaraqalpaqstan xalıq ámeliy kórkem óneri.",
+    "intro": "Orıs avangardınıń dúnyadaǵı ekinshi iri kollekciyası — Áyyemgi Xorezm artefaktları hám Qaraqalpaqstan xalıq kórkem óneri menen qatar.",
     "explore": "Kollekciyanı kóriw",
     "volkovBadge": "A. Volkov · Anarlı shayxana (1924)",
     "vesselBadge": "Áyyemgi Xorezm · Terrakota ıdısı (b.e.sh. III ásir)",
@@ -115,7 +115,7 @@
     "titleLine1": "Dástúr",
     "titleLine2": "Hár bir",
     "titleLine3": "Naǵısta.",
-    "desc1": "Toqımashılıq esteligi, saqlawshı naǵıslar hám shól xalqınıń ruwxı.",
+    "desc1": "Toqımashılıq yadı, qorǵawshı naǵıslar hám Qaraqalpaqstannıń haqıyqıy ruwxı.",
     "desc2": "Qara úy bawlarınan baslap gúmis sáwkelelerge shekem.",
     "link": "Qaraqalpaq kórkem óneri",
     "caption": "Qaraqalpaq toqımashılıq detali: qoshqar múyiz naǵıslı aq basqur.",
@@ -123,13 +123,13 @@
     "aside2": ""
   },
   "desert": {
-    "coordinates": "42°27′56″A 59°36′47″SH",
+    "coordinates": "42°27′56″ a.k. 59°36′47″ sh.u.",
     "region": "Qızılqum shóli · Nókis",
     "quoteLine1": "«Kórkem óner batırlıq hám sadıqlıq",
     "quoteLine2": "tutashqan jerde jasaydı»."
   },
   "museumToday": {
-    "label": "Muzey búgin",
+    "label": "Muzey turmısı",
     "title": "MUZEY BÚGIN",
     "note": "(bul jerde reels, pikirler, videolar hám muzeydiń kúndelik turmısı boladı)",
     "subtitle": "Qayta tiklew · Tiri arxiv · Nókis",
@@ -170,19 +170,19 @@
       "museum": {
         "title": "Muzey",
         "about": "Muzey haqqında",
-        "history": "Tariyx",
+        "history": "Tariyx hám Savickiy",
         "today": "Muzey búgin"
       },
       "collection": {
         "title": "Kollekciya",
         "explore": "Barlıq eksponatlar",
         "karakalpak": "Qaraqalpaq óneri",
-        "avantGarde": "Avangard"
+        "avantGarde": "Orıs avangardı"
       },
       "exhibitions": {
-        "title": "Kórgezbeler",
-        "whatsOn": "Afisha",
-        "all": "Barlıq kórgezbeler"
+        "title": "Kórgizbeler",
+        "whatsOn": "Házirgi kórgizbeler",
+        "all": "Kórgizbeler arxivi"
       },
       "stories": {
         "title": "Media",
@@ -190,7 +190,7 @@
         "people": "Adamlar"
       },
       "visit": {
-        "title": "Saprawat",
+        "title": "Sapar",
         "plan": "Sapardı rejelestiriw",
         "hours": "Jumıs waqtı",
         "gettingHere": "Qalay jetip barıw"
@@ -199,8 +199,8 @@
   },
   "collectionPage": {
     "eyebrow": "I.V. Savickiy atındaǵı Qaraqalpaqstan Mámleketlik Kórkem Óner Muzeyi",
-    "titleLine1": "Kólemdi",
-    "titleLine2": "Kollekciya",
+    "titleLine1": "Kollekciyanı",
+    "titleLine2": "izertleń",
     "description": "Muzey orıs hám Túrkstan avangardın, Ózbekstan hám Qaraqalpaqstan kórkem ónerin, qaraqalpaq ónermentshiligin hám Áyyemgi Xorezm arxeologiyasın birlestiredi.",
     "searchPlaceholder": "Súwretshi, atama, dáwir, baǵdar boyınsha izlew…",
     "searchAria": "Kollekciyadan izlew",
@@ -215,7 +215,7 @@
     "categories": {
       "all": "Barlıq eksponatlar",
       "avantGarde": "Avangard",
-      "uzbekArt": "Ózbekstan hám Qaraqalpaqstan kórkem óneri",
+      "uzbekArt": "Oraylıq Aziya kórkem óneri",
       "karakalpakArts": "Qaraqalpaq kórkem óneri",
       "heritage": "Tariyx hám miyras"
     },
@@ -225,8 +225,8 @@
         "description": "XX ásir basında Oraylıq Aziya mádeniyatın ózgertken kórkem tájiriybelerdiń súwret hám grafika shıǵarmaları."
       },
       "uzbek-art": {
-        "title": "Ózbekstan hám Qaraqalpaqstan kórkem óneri",
-        "description": "Ózbekstan hám Qaraqalpaqstan tábiyatı, adamları hám kórkem mádeniyatına baylanıslı súwretshilik penen haykeltaraşlıq."
+        "title": "Oraylıq Aziya kórkem óneri",
+        "description": "Ózbekstan hám Qaraqalpaqstan tábiyatı, adamları hám kórkem mádeniyatına baylanıslı súwretshilik penen haykeltarashlıq."
       },
       "karakalpak-arts": {
         "title": "Qaraqalpaq ámeliy kórkem óneri",
@@ -243,14 +243,14 @@
         "artist": "Aleksandr Volkov",
         "year": "1924",
         "medium": "Kenepteshi maylı boyaw",
-        "collection": "Orys hám Túrkstan avangardı"
+        "collection": "Orıs hám Túrkstan avangardı"
       },
       "w2": {
         "title": "Kompoziciya № 7",
         "artist": "Nikolay Karaxan",
         "year": "1928",
         "medium": "Kenepteshi maylı boyaw",
-        "collection": "Orys hám Túrkstan avangardı"
+        "collection": "Orıs hám Túrkstan avangardı"
       },
       "w3": {
         "title": "Súzani keste óneri",
@@ -285,7 +285,7 @@
         "artist": "Viktor Ufimcev",
         "year": "1926",
         "medium": "Qagaz, guash",
-        "collection": "Orys hám Túrkstan avangardı"
+        "collection": "Orıs hám Túrkstan avangardı"
       },
       "w8": {
         "title": "Xorezm teńgesi",
@@ -393,7 +393,7 @@
         "type": "Miyras tariyxı",
         "length": "8 min oqıw",
         "title": "Nókistegi avangard",
-        "dek": "Qumlar qoynındaǵı muzey qalay etip dáwirdiń eń jasırın kórkem óner orayına aylandı."
+        "dek": "Qumlar qoynındaǵı alıs muzey qalay etip dáwir durdanaları ushın qutqarıw orayına aylandı."
       },
       {
         "number": "04",
@@ -421,7 +421,7 @@
         "type": "Tariyx",
         "length": "6 min oqıw",
         "title": "Qaraqalpaqstan naǵısları",
-        "dek": "Gúbelek, tuwrı hám túrli naǵıslardaǵı shańaraq, tabiyat hám saqlawshı belgiler."
+        "dek": "Dástúriy toqıma geometriyasındaǵı shańaraq yadı, dala keńlikleri hám qorǵawshı belgiler."
       }
     ]
   },
@@ -443,14 +443,14 @@
       "Thursday": "Piyshembi",
       "Friday": "Juma",
       "Saturday": "Shembi",
-      "Sunday": "Yekshembi"
+      "Sunday": "Ekshembi"
     },
     "practicalInfo": "Ámeliy maǵlıwmat",
     "ticketsEyebrow": "Biletler",
     "ticketsTitle": "Biletler hám bahalar",
     "ticketsDesc": "Biletlerdi muzey kireberisindegi kassadan satıp alıwıńız múmkin. Toparlıq saparlar aldın-ala buyırtpa beriledi.",
     "bookAdvance": "Aldın-ala buyırtpa beriw",
-    "freeAdmissionNote": "Biybiyparaq (Tekin) kiriw: hár aydıń birinshi yekshembisi. Jurnalistler hám ilimiy xızmetkerler gúwalıq tiykarında.",
+    "freeAdmissionNote": "Biypul kiriw: hár aydıń birinshi ekshembisi. Jurnalistler hám akkreditaciyalanǵan izertlewshiler gúwalıq tiykarında.",
     "tickets": [
       {
         "type": "Úlkenler ushın",
@@ -470,7 +470,7 @@
         "type": "Jeńillikli",
         "price": "25 000",
         "currency": "UZS",
-        "note": "Pensiyanerler hám mayıplıǵı bar shaxslar",
+        "note": "Pensionerler hám mayıplıǵı bar shaxslar",
         "highlight": false
       },
       {
@@ -503,7 +503,7 @@
     "transit": [
       {
         "mode": "Samolyotta",
-        "detail": "Nókis aeroportı (NCU) Tashkentten úzliksiz reyslerdi qabıllaydı. Terminal shıǵıwında taksi xızmeti bar."
+        "detail": "Nókis aeroportı (NCU) Tashkentten turaqlı reyslerdi qabıllaydı. Terminal shıǵıwında taksi xızmeti bar."
       },
       {
         "mode": "Poezdda",
@@ -522,19 +522,19 @@
         "name": "Ulıwma tanıstırıw ekskursiyası",
         "duration": "90 minut",
         "groupSize": "15 adamǵa shekem",
-        "languages": "Qaraqalpaq, orys, ózbek, inglis",
+        "languages": "Qaraqalpaq, orıs, ózbek, inglis",
         "price": "Adam basına 100 000 UZS",
         "description": "Avangard durdanaları hám Qaraqalpaqstan xalıq ámeliy kórkem óneriniń eń saylandı úlgileri menen tanıstırıw.",
         "available": "Hár kúni saat 10:00 hám 14:00 de (Siysh–Shem)"
       },
       {
         "id": "t2",
-        "name": "Orys hám Túrkstan avangardı",
+        "name": "Orıs hám Túrkstan avangardı",
         "duration": "2,5 saat",
         "groupSize": "10 adamǵa shekem",
-        "languages": "Orys, inglis",
+        "languages": "Orıs, inglis",
         "price": "Adam basına 150 000 UZS",
-        "description": "1920–1930-jıllardaǵı avangard kórkem óneri, kórkem súwretshiler táǵdiri hám qorlar haqqında arnawlı baǵdar.",
+        "description": "1920–1930-jıllardaǵı avangard qubılısı hám súwretshilerdiń táǵdiri haqqında tereńletilgen avtorlıq ekskursiya.",
         "available": "Shembi saat 11:00 de (aldın-ala jazılıw boyınsha)"
       },
       {
@@ -542,9 +542,9 @@
         "name": "Qaraqalpaq mádeniy miyrası",
         "duration": "2 saat",
         "groupSize": "12 adamǵa shekem",
-        "languages": "Qaraqalpaq, ózbek, orys",
+        "languages": "Qaraqalpaq, ózbek, orıs",
         "price": "Adam basına 120 000 UZS",
-        "description": "Milliy kiyimler, zergerlik buyımları, reńbá-reń toqımashılıq hám qara úy bezewleri kórgezbesi.",
+        "description": "Milliy kiyimler, zergerlik buyımları, keste hám qara úy bezewleriniń eń bay kollekciyası.",
         "available": "Siyshembi hám piyshembi saat 11:00 de"
       }
     ],
@@ -564,12 +564,12 @@
       {
         "id": "f1",
         "question": "Muzeyde súwretke túsiriw múmkin be?",
-        "answer": "Turaqlı ekspoziciya zallarında shıraq qollanbastan (vspyshkasız) jeke paydalanıw ushın súwretke túsiriwge ruqsat etiledi. Kásiplik úskeneler ushın aldın-ala ruqsatnama kerek."
+        "answer": "Turaqlı ekspoziciya zallarında jarqıldawıqsız jeke súwretke túsiriwge ruqsat etiledi. Shtativ hám kásiplik úskeneler ushın aldın-ala kelisip alıw kerek."
       },
       {
         "id": "f2",
         "question": "Imkaniyatı sheklengen keliwshiler ushın shárayatlar bar ma?",
-        "answer": "Muzeydiń bas imaratı panduslar, qabatlararası liftler hám arnawlı orınlar menen tolıq támiyinlengen. Orys hám inglis tillerinde audiogidler bar."
+        "answer": "Muzeydiń bas imaratı panduslar, liftler hám arnawlı jabdıqlanǵan sanitariya bólmeleri menen támiyinlengen. Audiogidler orıs hám inglis tillerinde bar."
       },
       {
         "id": "f3",
@@ -584,7 +584,7 @@
       {
         "id": "f5",
         "question": "Muzey dúkánı bar ma?",
-        "answer": "Kireberis zatta kórgezbe katalogları, kitaplar, ashıq xatlar hám qaraqalpaq qol óneri buyımları dúkánı bar."
+        "answer": "Kireberiste kórgizbe katalogları, kórkem óner haqqında kitaplar, ashıq xatlar hám qaraqalpaq sheberleriniń qol óneri buyımları satılatuǵın dúkán bar."
       },
       {
         "id": "f6",
@@ -599,7 +599,7 @@
       {
         "id": "f8",
         "question": "Ilimiy izertlewshiler arxivten qalay paydalansa boladı?",
-        "answer": "Ilimiy xızmetkerler research@museum.kr.uz mámziline rásmiy xat jollap, qor materialları menen islesiwge ruqsat ala aladı."
+        "answer": "Ilimiy xızmetkerler research@museum.kr.uz mánziline rásmiy xat jollap, qor materialları menen islesiwge ruqsat ala aladı."
       }
     ],
     "quick": {
@@ -610,7 +610,7 @@
       "ticketsTitle": "Biletler hám bahalar",
       "ticketsDetail": "25 000 UZS-tan · 1-ekshembi: biypul",
       "accessTitle": "Qolaylı ortalıq",
-      "accessDetail": "Panduslar, liftler, kiyim ilgish"
+      "accessDetail": "Panduslar, liftler, kiyim iletuǵın orın"
     },
     "map": {
       "title": "Interaktiv karta: I.V. Savickiy atındaǵı Mámleketlik kórkem óner muzeyi",
@@ -624,9 +624,9 @@
     "heading": "Shıǵarmalar",
     "count": "shıǵarma",
     "empty": "Bul bólimde házirshe járiyalanǵan shıǵarmalar joq.",
-    "noImage": "Huqıqlar tastıyıqlanǵannan keyin reproduktsiya payda boladı",
-    "openSource": "Dereklerde ashıw",
-    "back": "Barlıq kollektsiya",
+    "noImage": "Huqıqlar tastıyıqlanǵannan keyin reprodukciya payda boladı",
+    "openSource": "Derekte ashıw",
+    "back": "Barlıq kollekciya",
     "artist": "Súwretshi",
     "lifeDates": "Ómir jılları",
     "date": "Sáne",
@@ -634,7 +634,7 @@
     "medium": "Texnika",
     "dimensions": "Ólshem",
     "keywords": "Gilt sózler",
-    "section": "Kollektsiya bólimi",
+    "section": "Kollekciya bólimi",
     "noSection": "Bólim belgilenbegen",
     "groups": "Birlespeler",
     "education": "Bilim",
@@ -643,7 +643,7 @@
     "rightsPending": "soralǵan",
     "rightsUnverified": "tastıyıqlanbaǵan",
     "rightsRestricted": "sheklengen",
-    "imageCredit": "Reproduktsiya",
+    "imageCredit": "Reprodukciya",
     "source": "Derek",
     "accessed": "Múrájáat sánesi",
     "sourceNote": "Maǵlıwmatlar Nókis muzeyiniń ashıq katalogınan alınǵan. Tekserilmekte.",

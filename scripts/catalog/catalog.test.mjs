@@ -453,3 +453,147 @@ test('the catalogue check catches broken hand edits', () => {
   third.publicationStatus = 'published';
   assert.match(checkCatalogue(store).join('\n'), /needs a title/);
 });
+
+test('section rules: founder and region first, then the Central Asian circle, then avant-garde', async () => {
+  const { suggestSection, assignSections } = await import('./sections.mjs');
+  const work = (title, keywords = []) => ({ title: { ru: title }, keywords: { ru: keywords } });
+  const artist = (name, extra = {}) => ({
+    name: { ru: name },
+    groups: [],
+    education: [],
+    ...extra,
+  });
+
+  assert.equal(
+    suggestSection(work('Натюрморт'), artist('Игорь Савицкий')).section,
+    'karakalpak-arts'
+  );
+  assert.equal(
+    suggestSection(work('Улица', ['Нукус']), artist('Иван Петров')).section,
+    'karakalpak-arts'
+  );
+  assert.equal(suggestSection(work('Чайхана'), artist('Александр Волков')).section, 'uzbek-art');
+  assert.deepEqual(
+    suggestSection(work('Портрет'), artist('Иван Петров', { groups: ['Мастера Нового Востока'] })),
+    { section: 'uzbek-art', reason: 'artist' }
+  );
+  assert.equal(
+    suggestSection(
+      work('Портрет'),
+      artist('Иван Петров', { education: ['Туркестанская краевая художественная школа'] })
+    ).section,
+    'uzbek-art'
+  );
+  assert.deepEqual(suggestSection(work('Лавки в Самарканде'), artist('Иван Петров')), {
+    section: 'uzbek-art',
+    reason: 'subject',
+  });
+  assert.equal(suggestSection(work('Композиция'), artist('Любовь Попова')).section, 'avant-garde');
+  assert.equal(
+    suggestSection({ ...work('Без названия'), artistNameAsDisplayed: 'Неизвестный' }, undefined)
+      .section,
+    'avant-garde'
+  );
+
+  const store = {
+    artists: [{ id: 'a', ...artist('Любовь Попова') }],
+    artworks: [
+      { id: 'w1', artistId: 'a', category: null, ...work('Композиция') },
+      { id: 'w2', artistId: 'a', category: 'karakalpak-arts', ...work('Композиция') },
+    ],
+  };
+  const result = assignSections(store);
+  assert.deepEqual(result.changed, ['w1']);
+  assert.equal(store.artworks[0].category, 'avant-garde');
+  assert.equal(store.artworks[1].category, 'karakalpak-arts');
+});
+
+test('every published work in the site catalogue has a section', () => {
+  const store = readStore(SITE_CATALOGUE);
+  const missing = store.artworks.filter((a) => a.publicationStatus === 'published' && !a.category);
+  assert.deepEqual(
+    missing.map((a) => a.id),
+    []
+  );
+});
+
+test('technique, dates and sizes read in the visitor language; unknown terms stay in Russian', async () => {
+  const { translateMedium, translateDate, formatDimensions } =
+    await import('../../src/lib/catalogText.mjs');
+  assert.deepEqual(translateMedium('холст, масло', 'EN'), { text: 'canvas, oil', lang: 'en' });
+  assert.deepEqual(translateMedium('бумага, тушь, перо', 'KK'), {
+    text: 'qaǵaz, tush, pero',
+    lang: 'kk',
+  });
+  assert.deepEqual(translateMedium('холст, масло', 'RU'), { text: 'холст, масло', lang: 'ru' });
+  assert.deepEqual(translateMedium('бумага, присыпка', 'UZ'), {
+    text: 'бумага, присыпка',
+    lang: 'ru',
+  });
+  assert.equal(translateMedium(null, 'EN'), null);
+
+  assert.equal(translateDate('1920-е', 'EN'), '1920s');
+  assert.equal(translateDate('1920-е', 'UZ'), '1920-yillar');
+  assert.equal(translateDate('Начало 1930-х', 'EN'), 'early 1930s');
+  assert.equal(translateDate('Середина 1920-х', 'KK'), '1920-jıllardıń ortası');
+  assert.equal(translateDate('Конец 1930-х', 'UZ'), '1930-yillar oxiri');
+  assert.equal(translateDate('1919-1921', 'RU'), '1919–1921');
+  assert.equal(translateDate('1920-е', 'RU'), '1920-е');
+  assert.equal(translateDate('1930-', 'EN'), '1930-');
+  assert.equal(translateDate(null, 'EN'), null);
+
+  assert.equal(
+    formatDimensions({ heightCm: 106.2, widthCm: 126.7, display: '' }, 'EN'),
+    '106.2 × 126.7 cm'
+  );
+  assert.equal(
+    formatDimensions({ heightCm: 106.2, widthCm: 126.7, display: '' }, 'RU'),
+    '106,2 × 126,7 см'
+  );
+  assert.equal(formatDimensions({ heightCm: 29, widthCm: null, display: '29 см' }, 'KK'), '29 см');
+  assert.equal(formatDimensions(null, 'EN'), null);
+
+  const store = readStore(SITE_CATALOGUE);
+  const untranslated = store.artworks.filter(
+    (a) => a.medium && translateMedium(a.medium.ru, 'EN').lang === 'ru'
+  );
+  assert.ok(untranslated.length <= 2, `${untranslated.length} techniques have no translation`);
+});
+
+test('image sizes are read from JPEG headers', async () => {
+  const { jpegSize, addImageSizes } = await import('./image-sizes.mjs');
+  // A minimal JPEG header: SOI, an APP0 segment, then SOF0 with height 300 and width 200.
+  const header = Buffer.from([
+    0xff, 0xd8, 0xff, 0xe0, 0x00, 0x04, 0x00, 0x00, 0xff, 0xc0, 0x00, 0x0b, 0x08, 0x01, 0x2c, 0x00,
+    0xc8, 0x01, 0x01, 0x11, 0x00,
+  ]);
+  assert.deepEqual(jpegSize(header), { width: 200, height: 300 });
+  assert.equal(jpegSize(Buffer.from('not a jpeg')), null);
+  assert.equal(jpegSize(Buffer.from([0xff, 0xd8, 0x00, 0x00, 0, 0, 0, 0, 0, 0, 0, 0])), null);
+
+  const dir = tempDir();
+  writeFileSync(join(dir, 'a.jpg'), header);
+  writeFileSync(join(dir, 'b.jpg'), 'broken');
+  const store = {
+    artworks: [
+      { id: 'a', image: { localPath: '/a.jpg' } },
+      { id: 'b', image: { localPath: '/b.jpg' } },
+      { id: 'c', image: { localPath: '/missing.jpg' } },
+      { id: 'd', image: { localPath: null } },
+    ],
+  };
+  const result = addImageSizes(store, dir);
+  assert.equal(result.updated, 1);
+  assert.deepEqual(store.artworks[0].image, { localPath: '/a.jpg', width: 200, height: 300 });
+  assert.equal(result.problems.length, 2);
+  assert.equal(addImageSizes(store, dir).updated, 0);
+});
+
+test('every catalogue image is on disk with its recorded size', () => {
+  const store = readStore(SITE_CATALOGUE);
+  const publicDir = fileURLToPath(new URL('../../public', import.meta.url));
+  for (const artwork of store.artworks.filter((a) => a.image.localPath)) {
+    assert.ok(existsSync(join(publicDir, artwork.image.localPath)), artwork.image.localPath);
+    assert.ok(artwork.image.width > 0 && artwork.image.height > 0, `${artwork.id} has no size`);
+  }
+});

@@ -445,3 +445,10 @@
   :global(:is(a, button, span)) {
   color: var(--museum-bone);
 }
+
+.tabCount {
+  margin-left: 3px;
+  font-size: 0.8em;
+  font-weight: 500;
+  opacity: 0.6;
+}

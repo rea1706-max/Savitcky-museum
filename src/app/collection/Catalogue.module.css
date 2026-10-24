@@ -46,8 +46,8 @@
 
 .workList {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 44px 28px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 36px 22px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -80,11 +80,19 @@
 }
 
 .plate {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
 }
 
 .plateImage {
-  object-fit: cover;
+  padding: 10%;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* With a reproduction the plate is a calm ground, not the hatched placeholder. */
+.plate:has(img) {
+  background: color-mix(in srgb, var(--museum-earth) 9%, var(--museum-desert-ivory));
+  border-color: color-mix(in srgb, var(--museum-earth) 22%, transparent);
 }
 
 .plateNote {
@@ -108,22 +116,22 @@
 }
 
 .workMeta {
-  padding-top: 16px;
+  padding-top: 12px;
 }
 
 .workArtist {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   color: color-mix(in srgb, var(--museum-charcoal) 62%, var(--museum-earth));
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .workTitle {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(22px, 1.9vw, 30px);
+  font-size: clamp(17px, 1.25vw, 21px);
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -155,6 +163,51 @@
   }
   .workCard:hover .workTitle {
     color: var(--museum-karakalpak-red);
+  }
+  .workCard:hover .plateImage {
+    transform: scale(1.04);
+  }
+}
+
+.more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 56px;
+}
+
+.more button {
+  padding: 15px 34px;
+  border: 1px solid color-mix(in srgb, var(--museum-charcoal) 72%, var(--museum-earth));
+  background: transparent;
+  color: var(--museum-charcoal);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.more button:hover,
+.more button:focus-visible {
+  background: var(--museum-charcoal);
+  color: var(--museum-bone);
+}
+
+.more p {
+  margin: 0;
+  color: color-mix(in srgb, var(--museum-charcoal) 58%, var(--museum-earth));
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plateImage {
+    transition: none;
   }
 }
 
@@ -191,6 +244,22 @@
 
 .detailPlate {
   aspect-ratio: 4 / 5;
+}
+
+/* The work page shows the whole reproduction at its own proportions. */
+.detailPlate:has(img) {
+  aspect-ratio: auto;
+  padding: clamp(18px, 3vw, 44px);
+  background: color-mix(in srgb, var(--museum-earth) 9%, var(--museum-desert-ivory));
+  border-color: color-mix(in srgb, var(--museum-earth) 22%, transparent);
+}
+
+.detailImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 76svh;
+  object-fit: contain;
 }
 
 .detailTitle {
@@ -252,9 +321,15 @@
   color: var(--museum-charcoal);
 }
 
+@media (max-width: 1400px) {
+  .workList {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1100px) {
   .workList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -263,7 +338,7 @@
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  .detailPlate {
+  .detailPlate:not(:has(img)) {
     aspect-ratio: 4 / 3;
   }
 }
@@ -287,11 +362,14 @@
     flex-basis: 100%;
   }
   .workList {
-    grid-template-columns: 1fr;
-    gap: 36px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 14px;
   }
-  .plate {
+  .plate:not(:has(img)) {
     aspect-ratio: 16 / 10;
+  }
+  .workTitle {
+    font-size: 16px;
   }
   .facts > div {
     grid-template-columns: 1fr;

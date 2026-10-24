@@ -10,6 +10,7 @@ import {
   type CatalogArtist,
   type CatalogArtwork,
 } from '@/lib/catalog';
+import { formatDimensions, translateDate, translateMedium } from '@/lib/catalogText.mjs';
 import styles from '../../Catalogue.module.css';
 
 const rightsLabel = {
@@ -38,13 +39,19 @@ export default function ArtworkDetail({
     : artwork.artistNameAsDisplayed
       ? { text: artwork.artistNameAsDisplayed, lang: 'ru' as const }
       : null;
-  const medium = pickText(artwork.medium, locale);
+  const medium = translateMedium(pickText(artwork.medium, 'RU')?.text, locale);
+  const date = translateDate(artwork.date, locale);
+  const dimensions = formatDimensions(artwork.dimensions, locale);
   const keywords = pickKeywords(artwork, locale);
   const image = visibleImage(artwork);
   const untranslated = title && title.lang !== locale.toLowerCase();
-  const section = artwork.category
-    ? t.collectionPage.categoryCards[artwork.category].title
-    : t.catalogue.noSection;
+  const sectionLabels = {
+    'avant-garde': t.collectionPage.categories.avantGarde,
+    'uzbek-art': t.collectionPage.categories.uzbekArt,
+    'karakalpak-arts': t.collectionPage.categories.karakalpakArts,
+    heritage: t.collectionPage.categories.heritage,
+  };
+  const section = artwork.category ? sectionLabels[artwork.category] : t.catalogue.noSection;
 
   return (
     <article className={styles.detail}>
@@ -57,10 +64,12 @@ export default function ArtworkDetail({
           {image ? (
             <Image
               src={image}
-              alt={title?.text ?? ''}
-              fill
+              alt={[title?.text, artistName?.text].filter(Boolean).join(' — ')}
+              width={artwork.image.width ?? 1000}
+              height={artwork.image.height ?? 1250}
               sizes="(max-width: 900px) 90vw, 46vw"
-              className={styles.plateImage}
+              priority
+              className={styles.detailImage}
             />
           ) : (
             <div className={styles.plateNote}>
@@ -90,7 +99,7 @@ export default function ArtworkDetail({
           <dl className={styles.facts}>
             <div>
               <dt>{t.catalogue.date}</dt>
-              <dd>{artwork.date ?? t.catalogue.undated}</dd>
+              <dd>{date ?? t.catalogue.undated}</dd>
             </div>
             {medium && (
               <div>
@@ -98,10 +107,10 @@ export default function ArtworkDetail({
                 <dd lang={medium.lang}>{medium.text}</dd>
               </div>
             )}
-            {artwork.dimensions?.display && (
+            {dimensions && (
               <div>
                 <dt>{t.catalogue.dimensions}</dt>
-                <dd>{artwork.dimensions.display}</dd>
+                <dd>{dimensions}</dd>
               </div>
             )}
             <div>
@@ -121,7 +130,7 @@ export default function ArtworkDetail({
               {artist.lifeDates.display && (
                 <div>
                   <dt>{t.catalogue.lifeDates}</dt>
-                  <dd>{artist.lifeDates.display}</dd>
+                  <dd>{artist.lifeDates.display.replace(/\s+-\s+/g, ' – ')}</dd>
                 </div>
               )}
               {artist.groups.length > 0 && (

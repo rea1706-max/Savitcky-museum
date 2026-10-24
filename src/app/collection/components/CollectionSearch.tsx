@@ -7,12 +7,14 @@ import styles from '../Collection.module.css';
 
 interface CollectionSearchProps {
   initialCategory?: string;
-  onSearch?: (query: string) => void;
+  /** Published works per section; sections without works are not offered. */
+  counts: Record<string, number>;
   onCategoryChange: (category: string) => void;
 }
 
 export default function CollectionSearch({
   initialCategory = 'all',
+  counts,
   onCategoryChange,
 }: CollectionSearchProps) {
   const router = useRouter();
@@ -25,7 +27,7 @@ export default function CollectionSearch({
     { id: 'uzbek-art', label: t.collectionPage.categories.uzbekArt },
     { id: 'karakalpak-arts', label: t.collectionPage.categories.karakalpakArts },
     { id: 'heritage', label: t.collectionPage.categories.heritage },
-  ];
+  ].filter((entry) => entry.id === 'all' || (counts[entry.id] ?? 0) > 0);
 
   useEffect(() => setActiveCategory(initialCategory), [initialCategory]);
 
@@ -37,7 +39,6 @@ export default function CollectionSearch({
 
   return (
     <section className={styles.searchPanel} aria-label={t.collectionPage.searchAria}>
-
       <nav className={styles.categoryTabs} aria-label={t.ui.collectionCategories}>
         {categories.map((entry) => (
           <button
@@ -46,7 +47,7 @@ export default function CollectionSearch({
             onClick={() => handleCategoryChange(entry.id)}
             aria-pressed={activeCategory === entry.id}
           >
-            {entry.label}
+            {entry.label} <sup className={styles.tabCount}>{counts[entry.id] ?? 0}</sup>
           </button>
         ))}
       </nav>

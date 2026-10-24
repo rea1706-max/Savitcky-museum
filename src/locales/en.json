@@ -215,7 +215,7 @@
     "categories": {
       "all": "All Works",
       "avantGarde": "Avant-Garde",
-      "uzbekArt": "Uzbek & Karakalpak Art",
+      "uzbekArt": "Art of Central Asia",
       "karakalpakArts": "Karakalpak Arts",
       "heritage": "Heritage & History"
     },
@@ -225,7 +225,7 @@
         "description": "Painting and works on paper from the artistic experiments that transformed Central Asia in the early twentieth century."
       },
       "uzbek-art": {
-        "title": "Uzbek & Karakalpak Art",
+        "title": "Art of Central Asia",
         "description": "Modern painting and sculpture shaped by the landscapes, people and visual culture of Uzbekistan and Karakalpakstan."
       },
       "karakalpak-arts": {

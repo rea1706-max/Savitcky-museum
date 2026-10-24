@@ -52,6 +52,9 @@ export type CatalogArtwork = {
     credit: string | null;
     mayRehost: boolean;
     notes: string | null;
+    /** Pixel size of the local file, recorded by scripts/catalog/image-sizes.mjs. */
+    width?: number;
+    height?: number;
   };
   source: SourceRef;
   importBatch: string;
@@ -112,22 +115,57 @@ export type ArtworkSummary = {
   id: string;
   title: Localized;
   date: string | null;
-  medium: Localized | null;
   category: CategoryId | null;
   artistName: Localized;
   image: string | null;
 };
 
+export const SECTIONS: CategoryId[] = ['avant-garde', 'uzbek-art', 'karakalpak-arts', 'heritage'];
+
+/** Number of published works in each section; a section with none is not offered as a filter. */
+export function sectionCounts(): Record<CategoryId | 'all', number> {
+  const counts = { all: 0, 'avant-garde': 0, 'uzbek-art': 0, 'karakalpak-arts': 0, heritage: 0 };
+  for (const artwork of publishedArtworks()) {
+    counts.all += 1;
+    if (artwork.category) counts[artwork.category] += 1;
+  }
+  return counts;
+}
+
+/** Surname for ordering: "Александр Николаев (Усто Мумин)" → "Николаев". */
+export function surname(name: string): string {
+  const words = name
+    .replace(/\([^)]*\)/g, ' ')
+    .trim()
+    .split(/\s+/);
+  return words[words.length - 1] ?? '';
+}
+
+/** The gallery runs artist by artist (by surname), each artist's works by date and title. */
 export function artworkSummaries(): ArtworkSummary[] {
-  return publishedArtworks().map((artwork) => ({
-    id: artwork.id,
-    title: artwork.title,
-    date: artwork.date,
-    medium: artwork.medium,
-    category: artwork.category,
-    artistName:
+  const rows = publishedArtworks().map((artwork) => {
+    const artistName =
       getArtist(artwork.artistId)?.name ??
-      (artwork.artistNameAsDisplayed ? { ru: artwork.artistNameAsDisplayed } : {}),
-    image: visibleImage(artwork),
-  }));
+      (artwork.artistNameAsDisplayed ? { ru: artwork.artistNameAsDisplayed } : {});
+    return {
+      id: artwork.id,
+      title: artwork.title,
+      date: artwork.date,
+      category: artwork.category,
+      artistName,
+      image: visibleImage(artwork),
+    };
+  });
+  const key = (row: ArtworkSummary) => {
+    const name = Object.values(row.artistName)[0] ?? '';
+    return [surname(name), name, row.date ?? '9999', Object.values(row.title)[0] ?? ''];
+  };
+  return rows.sort((a, b) => {
+    const [ka, kb] = [key(a), key(b)];
+    for (let i = 0; i < ka.length; i += 1) {
+      const order = ka[i].localeCompare(kb[i], 'ru');
+      if (order) return order;
+    }
+    return 0;
+  });
 }

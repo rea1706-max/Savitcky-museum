@@ -54,7 +54,7 @@
   "hero": {
     "museumName": "I.V. Savitskiy nomidagi Qoraqalpogʻiston Respublikasi Davlat sanʼat muzeyi",
     "location": "Nukus, Qoraqalpogʻiston",
-    "subtitle": "Saxrodagi avangard · Savitskiy kolleksiyasi",
+    "subtitle": "Sahrodagi avangard · Savitskiy kolleksiyasi",
     "badge": "Rus avangardi, Qoraqalpogʻiston amaliy sanʼati va Qadimgi Xorazmga oid 82 000 dan ortiq durdona.",
     "years": "1966 — Hozirgacha"
   },
@@ -71,7 +71,7 @@
     "title": "Igor Savitskiy: Qumdagi Luvr",
     "savitskyQuote": "“Men yoʻqolib ketishga mahkum boʻlgan sanʼatni asrab qolmoqchi edim”.",
     "savitskyQuoteAuthor": "Igor Savitskiy, Asoschi",
-    "paragraph1": "Olis Nukus shahrida rassom va arxeolog Igor Savitskiy dunyodagi eng noyob madaniy maskanlardan birini yaratdi. Mafkuraviy taqiqlarga qaramay, u 40 000 dan ziyod taqiqlangan rus va turkiston avangardi durdonalarini toʻpladi.",
+    "paragraph1": "Olis Nukus shahrida rassom va arxeolog Igor Savitskiy dunyo madaniyatining eng hayratlanarli xazinalaridan birini yaratdi. Taqiqlarga qaramay, u rus va Turkiston avangardining quvgʻinga uchragan ustalari qalamiga mansub 40 000 dan ortiq asarni toʻpladi.",
     "paragraph2": "Shu bilan birga, Savitskiy qoraqalpoq xalqining yoʻqolib borayotgan boy merosini — nozik matolar, zargarlik buyumlari va qadimiy buyumlarni toʻplab, tarixga qaytardi.",
     "learnMore": "Muzey tarixi bilan tanishish",
     "archiveCredit": "IGOR SAVITSKIY · MUZEY ARXIVI",
@@ -100,7 +100,7 @@
   "collection": {
     "label": "Toʻplam",
     "title": "Chegaralardan\nOshgan\nToʻplam",
-    "intro": "Dunyoda rus avangardi boʻyicha ikkinchi oʻrinda turuvchi kolleksiya, Qadimgi Xorazm arxeologiyasi va Qoraqalpogʻiston amaliy sanʼati.",
+    "intro": "Rus avangardining dunyodagi ikkinchi yirik kolleksiyasi — Qadimgi Xorazm artefaktlari va Qoraqalpogʻiston xalq sanʼati bilan yonma-yon.",
     "explore": "Kolleksiyani koʻrish",
     "volkovBadge": "A. Volkov · Anorli choyxona (1924)",
     "vesselBadge": "Qadimgi Xorazm · Terrakota idishi (mil. avv. III asr)",
@@ -115,7 +115,7 @@
     "titleLine1": "Anʼanalar",
     "titleLine2": "Har bir",
     "titleLine3": "Chiziqda.",
-    "desc1": "Toʻqimachilik xotirasi, saqlovchi naqshlar va sahro ruhiyati.",
+    "desc1": "Toʻqimachilik xotirasi, himoya naqshlari va Qoraqalpogʻistonning asl ruhi.",
     "desc2": "Oʻtov jiyaklaridan tortib kumush tojgacha.",
     "link": "Qoraqalpogʻiston sanʼati",
     "caption": "Qoraqalpoq matosi detali: shoxsimon naqshli oʻtov jiyagi.",
@@ -131,7 +131,7 @@
   "museumToday": {
     "label": "Muzey hayoti",
     "title": "MUZEY BUGUN",
-    "note": "(bu yerda reels, sharhlar, videolar va muzey kundaligi bo‘ladi)",
+    "note": "(bu yerda reels, sharhlar, videolar va muzey kundaligi boʻladi)",
     "subtitle": "Restavratsiya · Tirik arxiv · Nukus",
     "kicker": "Tirik arxiv",
     "copyLine1": "Nafis polotnolarni asrash.",
@@ -199,8 +199,8 @@
   },
   "collectionPage": {
     "eyebrow": "I.V. Savitskiy nomidagi Qoraqalpogʻiston Davlat sanʼat muzeyi",
-    "titleLine1": "Keng qamrovli",
-    "titleLine2": "Kolleksiya",
+    "titleLine1": "Kolleksiyani",
+    "titleLine2": "kashf eting",
     "description": "Muzey rus va Turkiston avangardi, Oʻzbekiston va Qoraqalpogʻiston sanʼati, qoraqalpoq hunarmandchiligi hamda Qadimgi Xorazm arxeologiyasini birlashtiradi.",
     "searchPlaceholder": "Rassom, asar nomi, davr yoki yoʻnalish boʻyicha qidiruv…",
     "searchAria": "Kolleksiyadan qidirish",
@@ -215,7 +215,7 @@
     "categories": {
       "all": "Barcha asarlar",
       "avantGarde": "Avangard",
-      "uzbekArt": "Oʻzbekiston va Qoraqalpogʻiston sanʼati",
+      "uzbekArt": "Markaziy Osiyo sanʼati",
       "karakalpakArts": "Qoraqalpogʻiston sanʼati",
       "heritage": "Tarix va meros"
     },
@@ -225,7 +225,7 @@
         "description": "XX asr boshida Markaziy Osiyo madaniyatini yangilagan badiiy tajribalarning rangtasvir va grafika asarlari."
       },
       "uzbek-art": {
-        "title": "Oʻzbekiston va Qoraqalpogʻiston sanʼati",
+        "title": "Markaziy Osiyo sanʼati",
         "description": "Oʻzbekiston va Qoraqalpogʻiston manzaralari, odamlari va tasviriy madaniyatiga bogʻliq rangtasvir hamda haykaltaroshlik."
       },
       "karakalpak-arts": {
@@ -359,15 +359,15 @@
     "sections": {
       "videos": {
         "title": "Videolar",
-        "note": "(bu yerda reels, videosyujetlar va ijtimoiy tarmoqlardagi lahzalar bo‘ladi)"
+        "note": "(bu yerda reels, videosyujetlar va ijtimoiy tarmoqlardagi lahzalar boʻladi)"
       },
       "reviews": {
         "title": "Sharhlar",
-        "note": "(bu yerda tashrif buyuruvchilarning video va matnli sharhlari bo‘ladi)"
+        "note": "(bu yerda tashrif buyuruvchilarning video va matnli sharhlari boʻladi)"
       },
       "people": {
         "title": "Odamlar",
-        "note": "(bu yerda xodimlar, ustalar va mehmonlar hikoyalari bo‘ladi)"
+        "note": "(bu yerda xodimlar, ustalar va mehmonlar hikoyalari boʻladi)"
       },
       "materials": {
         "title": "Materiallar",
@@ -445,8 +445,8 @@
       "Saturday": "Shanba",
       "Sunday": "Yakshanba"
     },
-    "practicalInfo": "Amaliy ma'lumot",
-    "ticketsEyebrow": "Kirish",
+    "practicalInfo": "Amaliy maʼlumot",
+    "ticketsEyebrow": "Chiptalar",
     "ticketsTitle": "Chiptalar va narxlar",
     "ticketsDesc": "Chiptalarni muzeyga kirish joyidagi kassadan xarid qilishingiz mumkin. Guruhli tashriflar oldindan buyurtma qilinadi.",
     "bookAdvance": "Oldindan buyurtma berish",
@@ -507,7 +507,7 @@
       },
       {
         "mode": "Poyezdda",
-        "detail": "Nukus temir yoʻl vokzali Toshkent va boshqa shaharlar bilan toʻgʻridan-toʻgʻri bogʻlangan (safarlar 18–20 soat)."
+        "detail": "Nukus temir yoʻl vokzali Toshkent va boshqa shaharlar bilan toʻgʻridan-toʻgʻri qatnov orqali bogʻlangan (yoʻl 18–20 soat davom etadi)."
       },
       {
         "mode": "Shahar transporti",
@@ -564,7 +564,7 @@
       {
         "id": "f1",
         "question": "Muzeyda suratga olish mumkinmi?",
-        "answer": "Doimiy koʻrgazma zallarida chaqnnoqsiz (vspyshkasiz) shaxsiy suratga olishga ruxsat beriladi. Professional uskunalar uchun oldindan ruxsatnoma talab qilinadi."
+        "answer": "Doimiy ekspozitsiya zallarida chaqnoqsiz shaxsiy suratga olishga ruxsat beriladi. Shtativ va professional uskunalar uchun oldindan kelishib olish kerak."
       },
       {
         "id": "f2",
