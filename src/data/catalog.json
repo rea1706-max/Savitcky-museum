@@ -3293,7 +3293,7 @@
         ]
       },
       "category": "avant-garde",
-      "publicationStatus": "published",
+      "publicationStatus": "draft",
       "image": {
         "sourcePage": "https://nukus.open-museum.net/exhibit/get/878/",
         "sourceImageUrl": null,
@@ -3336,7 +3336,7 @@
         ]
       },
       "category": null,
-      "publicationStatus": "published",
+      "publicationStatus": "draft",
       "image": {
         "sourcePage": "https://nukus.open-museum.net/exhibit/get/818/",
         "sourceImageUrl": null,
@@ -3381,7 +3381,7 @@
         ]
       },
       "category": "avant-garde",
-      "publicationStatus": "published",
+      "publicationStatus": "draft",
       "image": {
         "sourcePage": "https://nukus.open-museum.net/exhibit/get/790/",
         "sourceImageUrl": null,
